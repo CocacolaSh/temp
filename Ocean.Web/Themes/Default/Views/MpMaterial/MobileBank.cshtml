@@ -1,0 +1,101 @@
+﻿@{
+    Layout = null;
+}
+@using Ocean.Framework.Configuration.global.config;
+<html>
+<head>
+    <title>石狮农商行手机银行</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scafle=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bank/css/common.css?v=1")" />
+
+</head>
+<body>
+<div id="mbSubTitle">
+        <section class="subTitleBox">
+        <span>福农宝</span>
+    </section>
+    </div>
+    <div id="mbMain">
+        <div class="frameChang">
+            <span class="stitle">公司简介</span>
+        </div>
+        <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+            <section class="modBaseBox">
+              <div class="jjtxt">
+                <span class="r1">石狮农商行手机银行（客户端）</span>
+                <span class="r2">请在浏览器中打开此链接，根据您的手机系统选择对应的版本下载。</span>
+                 <table align="center" width="320px;">
+                    <tbody>
+                        <tr>
+                            <td width="50%" style="margin: 0px; padding: 0px; text-align: center;">
+                                <a href="http://www.fjnx.com.cn/fjnxcms/fjnx/upload/Attachment/20140117103045481.apk">
+                                <img src="@Url.Content("~/content/bank/images/andriod.jpg")" style="width: 80%; margin: 0px; padding: 0px; border: 0px;"><br>
+                                    安卓版客户端手机银行二维码</a>
+                            </td>
+                            <td style="margin: 0px; padding: 0px; text-align: center;">
+                                <a href="http://itunes.apple.com/cn/app/fu-jian-nong-xin/id687269653?mt=8">
+                                <img src="@Url.Content("~/content/bank/images/iphone.jpg")" style="width: 80%; margin: 0px; padding: 0px; border: 0px;"><br>
+                                    苹果版客户端手机银行二维码</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="color: #666; line-height: 22px; font-size: 12px; font-family: 宋体; padding: 10px;">买手机，挑自己喜爱的品牌！用手机银行，选石狮农商银行手机银行！用过的客户都说——"好！"
+                  <br />
+                  石狮农商银行客户端手机银行，具备如下四大优势：<br />
+一、交易免费，使用实惠！
+<br />
+使用石狮农商银行手机银行，跨行转账免费，全国各地汇款免费，并且实时到账！<br />
+二、功能齐全，业务轻松办！
+<br />
+轻松办理账户查询、转账汇款、话费充值、电费缴纳及增值服务等业务，一切尽在掌握之中！
+    <br />
+    三、操作简单，真正好用！
+    <br />
+    客户端手机银行为手机版的网上银行，界面设计简洁大方，使用方便，网点导航更快捷，多种增值服务供您使用！
+    <br />
+    四、7×24小时服务，随时随地使用！
+    <br />
+    石狮农商银行客户端手机银行突破传统银行柜面在服务时间和空间的限制，让您无论何时、无论身在何处，都能轻轻松松实现转账汇款，实时满足您的金融需求！
+更快捷，多种增值服务供您使用！
+    <br />
+    签约方式
+    <br />
+    <strong>1、网点签约：</strong> 客户持本人有效身份证件及我行借记卡至石狮农商银行任意网点签约办理。
+    <br />
+    <strong>2、自助签约：</strong> 网上银行客户可通过个人网银专业版中"手机银行管理"功能，进行客户端手机银行自助签约、开通手机银行业务。
+    <br />
+    客户端软件下载
+    <br />
+    <strong>1、签约短信：</strong> 开户签约成功后，您的签约手机号码将收到签约成功短信，包含ios及Android客户端下载地址，您可直接点击下载；ios客户端通过苹果在线商店下载安装，Android客户端通过门户网站下载专区下载。<br />
+<strong>2、网上银行：</strong> 网银客户签约成功后，在签约成功界面会出现客户端下载地址链接和二维码地址（含ios及Android客户端），您可直接点击链接下载客户端软件至本地电脑后，使用第三方工具安装至手机中使用；或使用手机扫描二维码下载客户端。<br />
+<strong>3、二维码：</strong> 使用手机内置软件（如微信等）扫描二维码，获得客户端下载地址后直接进行下载安装。</p>
+                 
+            </div> 
+          </section>
+        </div>
+    </div>
+    </div>
+    <footer class="footer">
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Telephone"])) 
+   {
+       <p>石狮农商银行客服热线：@(GlobalConfig.GetConfig()["Telephone"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Copyright"])) 
+   {
+       <p>&copy;@(GlobalConfig.GetConfig()["Copyright"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["ICP"]))
+   {
+       <p>@(GlobalConfig.GetConfig()["ICP"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Security"]))
+   { 
+       <p>@(GlobalConfig.GetConfig()["Security"])</p>
+   }
+</footer>
+</body>
+</html>

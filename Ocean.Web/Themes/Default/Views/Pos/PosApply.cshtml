@@ -1,0 +1,255 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_PosLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["Domain"]+"/images";
+}
+@model PosApply
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/javascripts/ajaxfileupload.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#loanRegister').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            window.location.href = "/pos/posapply";
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+
+        function submitForm() {
+            if (!$.trim($("#VendorAddress").val())) {
+                $.messager.alert('提示', '经营地址不能为空');
+                return void (0);
+            }
+            if (!$.trim($("#VendorPic").val())) {
+                $.messager.alert('提示', '请上传门店照片');
+                return void (0);
+            }
+            $("#posRegister").submit();
+        }
+
+        var mobileCodeEnable = false;
+        var countdown;
+        var total = 120;
+        var count = total;
+        $.ajax({
+            type: 'post',
+            url: "GetMobileCodeSeconds",
+            async: true,
+            cache: false,
+            datatype: "json",
+            data: { operateType: 3 },
+            success: function (result) {
+                if (result.count > 0 && result.count < total) {
+                    mobileCodeEnable = false;
+                    count = result.count;
+                    countdown = setInterval(CountDown, 1000);
+                }
+                else {
+                    mobileCodeEnable = true;
+                }
+            }
+        });
+
+        function GetMobileCode() {
+            if (mobileCodeEnable) {
+                if (!$.trim($("#MobilePhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#MobilePhone").val())) {
+                    $.messager.alert('提示', '请正确的手机号码', "warning", function () { $("#MobilePhone").focus(); });
+                    return false;
+                }
+                mobileCodeEnable = false;
+                $.ajax({
+                    type: 'post',
+                    url: "GetMobileCode",
+                    async: true,
+                    cache: false,
+                    datatype: "json",
+                    data: { mobile: $('#MobilePhone').val(), OperateType: 3 },
+                    success: function (result) {
+                        if (result.success) {
+                            $("#MobileCodeBtn").html(count + "秒后重新发送");
+                            count = count - 1;
+                            countdown = setInterval(CountDown, 1000);
+                            if (result.message) {
+                                $("#Code").val(result.message);
+                            }
+                        } else {
+                            mobileCodeEnable = true;
+                            $.messager.alert('提示', result.message, "warning", function () { $("#MobilePhone").focus(); });
+                        }
+                    }
+                });
+            }
+            else {
+                $.messager.alert('提示', '请稍等，验证码已发送', "info");
+            }
+        }
+        function CountDown() {
+            $("#MobileCodeBtn").attr("disabled", true);
+            $("#MobileCodeBtn").html(count + "秒后重新发送");
+            if (count == 0) {
+                $("#MobileCodeBtn").html("发送验证码").removeAttr("disabled");
+                mobileCodeEnable = true;
+                clearInterval(countdown);
+                count = total;
+            }
+            count--;
+        }
+        function ImgUpload() {
+            $.messager.progress({title:"门店照片上传",msg:"照片上传中..."});
+            $.ajaxFileUpload
+		    ({
+		        url: "/Pos/UploadPhoto?t=" + Math.random(),
+		        secureuri: false,
+		        fileElementId: 'picUpload',
+		        dataType: 'json',
+		        success: function (data, status) {
+		            if (data.success) {
+		                $("#VendorPic").val(data.message);
+		                $("#showpic").attr("src", '@ImrUrl' + data.message);
+		            } else {
+		                $.messager.progress("close");
+		                $.messager.alert('错误提示', '上传不成功：' + data.message.replace('<li>', '').replace("</li>", ""));
+		                return false;
+		            }
+		            $.messager.progress("close");
+		        },
+		        error: function (data, status, e) {
+		            $.messager.progress("close");
+		            $.messager.alert('提示', '上传不成功');
+		            return false;
+		        }
+		    });
+       }
+    </script>
+    <script type="text/javascript" id="messager">
+        @if(!string.IsNullOrEmpty(ViewBag.CodeError))
+        {
+            @:$(function(){
+            @:$.messager.alert('提示', '@(ViewBag.CodeError)', "warning", function () { $("#MobileCodeBtn").focus();$("#messager").remove(); });
+            @:});
+        }
+    </script>
+    <style type="text/css">
+        .oh {
+	        overflow:hidden
+        }
+        .z {
+        *zoom:1
+        }
+        .icon28C {
+	        background:url('@Url.Content("~/content/images/icon28.png")') no-repeat scroll 0 0 transparent;
+	        padding-left:28px
+        }
+        .cover-hd {
+	        padding:2px 8px 3px;
+	        position:relative
+        }
+        .cover-hd .upload-btn {
+	        background-position:0 -251px;
+	        color:#666;
+	        display:inline-block;
+	        font-size:14;
+	        line-height:28px;
+	        margin-right:12px
+        }
+        .upload-tip {
+	        color:#666;
+	        font-size:12px;
+	        margin-top:2px
+        }
+        .upload-btn {
+	        display:inline-block;
+	        line-height:28px;
+	        font-size:14px;
+	        color:#666;
+	        background-position:0 -251px
+        }
+    </style>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">POS申请</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("_PosApply", "Pos")" id="posRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                    @if (WebHelper.GetString("isEdit") == "1")
+                    {
+                        <input type="hidden" name="isEdit" id="isEdit" value="1" /> 
+                        <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                    }
+                  <div class="modBd">
+                      <div class="bteBox" style="padding-top:10px;">
+                		 <span class="btebxo">
+                             @if (!ViewBag.IsAuth)
+                             {
+                                 <p>尊敬的客户，首次使用请如实填写个人信息。提交申请后，我行将于三个工作日内与您联系！管理人员受理完成后，您可再次使用该服务！</p>
+                             }
+                             else
+                             {
+                                 <p>尊敬的<span style="color:Red;float:none;">@(ViewBag.Name)</span>客户，欢迎您使用POS服务！提交申请后，我行将于三个工作日内与您联系！管理人员受理完成后，您可再次使用该服务！</p>
+                             }
+                            
+                         </span>
+                	  </div>     
+                      
+                      <ul class="fnb_list">
+                         @if (!ViewBag.IsAuth)
+                         {
+                             <li>
+                                <p><input class="txtinput" name="Name" type="text" placeholder="姓名" value="@WebHelper.GetString("Name")" autocomplete="on" /></p>
+                                <span class="user-icon"></span>
+                             </li>
+                            <li>
+                                <p><input class="txtinput" name="MobilePhone" id="MobilePhone" type="text" value="@WebHelper.GetString("MobilePhone")" placeholder="手机号" autocomplete="on" /></p>
+                                <em style="width:110px;"><a href="javascript:void(0);" id="MobileCodeBtn" onclick="GetMobileCode();">获取验证码</a></em>
+                                <span class="tel"></span>
+                             </li>
+                             <li>
+                                <p><input class="txtinput" name="Code" id="Code" type="text" value="@WebHelper.GetString("Code")" placeholder="验证码" autocomplete="on" /></p>
+                                <span class="yzm"></span>
+                             </li>
+                         }
+                         <li class="line">
+                            <b>经营地址：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="add" id="VendorAddress" name="VendorAddress" value="@Model.VendorAddress" type="text" placeholder="经营地址(必填)" autocomplete="on" /></p>
+                         </li> 
+                         
+                         <li class="line">
+                            <b style="width:120px;">上传门店照片：</b>
+                            <p style="margin:11px 0 0 100px; position:relative;" class="oh z cover-hd">
+                                    <a href="javascript:$('#picUpload').click();" class="icon28C upload-btn" style="width: 30px;height:24px;">
+                                        <input type="file" id="picUpload" name="picUpload" onchange="ImgUpload();" style="opacity: 0; width: 0px; cursor: pointer;" />
+                                    </a>
+                                <input type="hidden" value="@Model.VendorPic" id="VendorPic" name="VendorPic" />
+                            </p>
+                            <p style="margin: 6px 0 0 0;">
+                                <span style="color:Red;">请升级微信至5.0版本，照片大小不要超过2M</span>
+                                <img id="showpic" src="@(!string.IsNullOrEmpty(Model.VendorPic) ? (ImrUrl+Model.VendorPic) : Url.Content("~/content/images/vendorpic.jpg"))" style="max-width:100%;" />
+                            </p>
+                         </li> 
+                      </ul>
+                                                          
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="提交" onclick="submitForm();" id="posBtn" />
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />*@
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

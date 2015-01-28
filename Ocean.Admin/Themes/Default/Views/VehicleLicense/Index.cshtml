@@ -1,0 +1,355 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "行驶证列表";
+    IList<SelectListItem> ImportQuarterList=ViewBag.ImportQuarterList as IList<SelectListItem>;
+}
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid();
+            $('#w').window('close');
+            $('#dlg1').dialog('close');
+        });
+        
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/VehicleLicense/_VehicleLicenseList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'desc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                //                     { field: 'ck', checkbox: true }, 
+                     {title: '导入时间', field: 'CreateDate', width: 80,
+                     formatter: function (value) {
+                         value = value.replace("T", " ");
+                         return value.split(' ')[0].replace(/-/g, "");
+                     }
+                 },
+                    { title: '业务员', field: 'Name', width: 80 },
+                     { title: '车牌号码', field: 'PlateNo', width: 100 },
+                     { title: '车辆类型', field: 'VehicleType', width: 80,
+                         formatter: function (value, row, index) {
+                             if (value == 1) {
+                                 return "小型轿车";
+                             } else if (value == 2) {
+                                 return "中型";
+                             } else {
+                                 return value;
+                             }
+                         }
+                      },
+                     { title: '姓名', field: 'Owner', width: 80 },
+                     { title: '地址', field: 'Address', width: 180 },
+                     { title: '用途', field: 'UseCharacter', width: 80,
+                         formatter: function (value, row, index) {
+                             if (value == 1) {
+                                 return "营运";
+                             } else if (value == 2) {
+                                 return "非营运";
+                             } else {
+                                 return value;
+                             }
+                         } 
+                     },
+                     { title: '品牌型号', field: 'CarModel', width: 100 },
+                     { title: '车辆识别代号', field: 'VIN', width: 100 },
+                     { title: '发动机号码', field: 'EngineNo', width: 80},
+                     { title: '注册时间', field: 'RegisterDate', width: 80,
+                         formatter: function (value) {
+                             value = value.replace("T", " ");
+                             return value.split(' ')[0].replace(/-/g, "");
+                         }
+                     },
+                     { title: '发证时间', field: 'IssueDate', width: 80,
+                         formatter: function (value) {
+                             value = value.replace("T", " ");
+                             return value.split(' ')[0].replace(/-/g, "");
+                         }
+                     }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ViewApply() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                parent.addTab('ViewAplly', '查看调额申请', '/funongbao/apply?fnbno=' + selectedRows[0].FunongbaoNO, '');
+            }
+            else {
+                $.messager.alert('提示', '请选择要查看的数据');
+            }
+        }
+
+        function ViewClose() {
+            $('#View').window('close');
+        }
+
+        function Accept() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].ProcessStatus != 0) {
+                    $.messager.alert('提示', '当前数据已被受理');
+                    return void (0);
+                }
+                $('#dlg1').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要受理的数据');
+            }
+        }
+
+        function AcceptEdit() {
+            $.ajax({
+                type: "POST",
+                url: "/FunongBao/_AcceptEdit",
+                dataType: "json",
+                data: "Id=" + currentCheckedId + "&ProcessStatus=" + $("#ProcessStatus").val(),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+//        function ImportExcel() {
+//            $('#importExcel').attr("src", "/funongbao/_ImportFnbExcel?d=" + (new Date()).getTime());
+//            $("#w").window("open");
+//        }
+//        function closeImport(message) {
+//            $("#w").window("close");
+//            $.messager.alert("提示", message);
+//        }
+        function ImportExcel() {
+            $('#iframe').attr("src", "/VehicleLicense/_ImportExcel?d=" + (new Date()).getTime());
+            $("#w").window("open");
+        }
+        function closeImport(message) {
+            $("#w").window("close");
+            $.messager.alert("提示", message);
+        }
+
+        function Search() {
+            var searchObject = {};
+            if ($("#Owner").val()) {
+                searchObject["Owner"] = $("#Owner").val();
+            }
+            if ($("#PlateNo").val()) {
+                searchObject["PlateNo"] = $("#PlateNo").val();
+            }
+            if ($("#MpUser").val()) {
+                searchObject["MpUser"] = $("#MpUser").val();
+            }
+
+            if ($("#startDate").datebox("getValue")) {
+                searchObject["startDate"] = $("#startDate").datebox("getValue");
+            }
+
+            if ($("#endDate").datebox("getValue")) {
+                searchObject["endDate"] = $("#endDate").datebox("getValue");
+            }
+            $('#grid').datagrid("options").pageNumber = 1;
+            InitGrid(searchObject);
+        }
+        function AddLicense() {
+            $('#iframe').attr("src", "/VehicleLicense/VehicleLicenseEdit");
+            $('#w').window('open');
+        }
+
+        function EditLicense() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/VehicleLicense/VehicleLicenseEdit?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要修改的数据');
+            }
+        }
+        function DeleteLicense() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '确定要删除吗?', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].Id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/VehicleLicense/_VehicleLicenseDelete",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的数据');
+            }
+        }
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+        function AllotLicense() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+//                if (selectedRows[0].Name != "" && selectedRows[0].Name != null ) {
+//                    $.messager.alert('提示','当前数据已经有业务员,不能继续操作！');
+//                    return void (0);
+//                }
+                $.ajax({
+                    type: "POST",
+                    url: "/VehicleLicense/_GetBussManDetail",
+                    dataType: "json",
+                    data: "id=" + currentCheckedId,
+                    success: function (data) {
+                        $("#AssignBussinessMan").val(data.AssignBussinessMan);
+                        $("#BussinessManPhone").val(data.BussinessManPhone);
+                    }
+                });
+                $('#dlg1').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要分配的数据!');
+            }
+        }
+
+        function AllotEdit() {
+            if (!$("#AssignBussinessMan").val()) {
+                $.messager.alert('提示', '客户经理不能为空!');
+                return void (0);
+            }
+            if (!$("#BussinessManPhone").val()) {
+                $.messager.alert('提示', '手机不能为空!');
+                return void (0);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/VehicleLicense/_AllotEdit",
+                dataType: "json",
+                data: "id=" + currentCheckedId + "&AssignBussinessMan=" + $("#AssignBussinessMan").val() + "&BussinessManPhone=" + $("#BussinessManPhone").val(),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @if ((bool)ViewData["VehicleLicense_" + PermissionOperate.track])
+        { 
+            @Html.ActionLink("分配业务员", null, null, new { onclick = "AllotLicense();", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        
+        @if ((bool)ViewData["VehicleLicense_" + PermissionOperate.add])
+        { 
+            @Html.ActionLink("添加", null, null, new { onclick = "AddLicense();", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        
+        @if ((bool)ViewData["VehicleLicense_" + PermissionOperate.edit])
+        { 
+            @Html.ActionLink("修改", null, null, new { onclick = "EditLicense();", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        
+        @if ((bool)ViewData["VehicleLicense_" + PermissionOperate.delete])
+        { 
+            @Html.ActionLink("删除", null, null, new { onclick = "DeleteLicense();", data_options = "iconCls:'icon-delete', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @if ((bool)ViewData["VehicleLicense_" + PermissionOperate.import])
+        { 
+            @Html.ActionLink("导入行驶证方案", null, null, new { onclick = "ImportExcel()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').datagrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 10px;">
+        车主姓名:
+        <input class="easyui-validatebox" style="width: 80px" id="Owner" />
+        车牌号码：
+        <input class="easyui-validatebox" style="width: 140px" id="PlateNo" />
+        业务员：
+        <input class="easyui-validatebox" style="width: 140px" id="MpUser" />
+        发证日期:
+        <input class="easyui-datebox" style="width: 100px" id="startDate" />
+        ~
+        <input class="easyui-datebox" style="width: 100px" id="endDate" />
+        
+        @if ((bool)ViewData["VehicleLicense_" + PermissionOperate.search])
+        { 
+            <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()">搜 索 </a></span>
+        }
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="dlg1" class="easyui-dialog" title="分配业务员" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 200px; padding: 10px">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                业务员:
+            </td>
+            <td>
+                <input class="easyui-validatebox" data-options="validType:'length[2,50]'" name="AssignBussinessMan"
+                    id="AssignBussinessMan" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                手机号:
+            </td>
+            <td>
+                <input class="easyui-validatebox" data-options="validType:'length[7,20]'" name="BussinessManPhone"
+                    id="BussinessManPhone" />
+            </td>
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="AllotEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg1').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+</div>
+<div id="w" class="easyui-window" title="行驶证添加" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 500px; padding: 5px;" close="true" modal="true">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>

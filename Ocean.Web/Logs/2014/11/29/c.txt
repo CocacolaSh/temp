@@ -1,0 +1,229 @@
+2014-11-29 09:16:42,234 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-29 09:16:42,234 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-29 09:17:37,734 [8] ERROR OceanLog [(null)] - The controller for path '/images/huiyuanka.png' was not found or does not implement IController.
+2014-11-29 09:17:37,734 [8] ERROR OceanLog [(null)] - The controller for path '/images/huiyuanka.png' was not found or does not implement IController.
+2014-11-29 09:17:37,750 [5] ERROR OceanLog [(null)] - The controller for path '/images/zhuanpan.png' was not found or does not implement IController.
+2014-11-29 09:17:37,750 [5] ERROR OceanLog [(null)] - The controller for path '/images/zhuanpan.png' was not found or does not implement IController.
+2014-11-29 09:17:37,750 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:17:37,750 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:17:37,828 [8] ERROR OceanLog [(null)] - The controller for path '/images/guaguaka.png' was not found or does not implement IController.
+2014-11-29 09:17:37,828 [8] ERROR OceanLog [(null)] - The controller for path '/images/guaguaka.png' was not found or does not implement IController.
+2014-11-29 09:17:37,828 [4] ERROR OceanLog [(null)] - The controller for path '/images/youhuiquan.png' was not found or does not implement IController.
+2014-11-29 09:17:37,828 [4] ERROR OceanLog [(null)] - The controller for path '/images/youhuiquan.png' was not found or does not implement IController.
+2014-11-29 09:17:37,828 [5] ERROR OceanLog [(null)] - The controller for path '/images/zajindan.png' was not found or does not implement IController.
+2014-11-29 09:17:37,828 [5] ERROR OceanLog [(null)] - The controller for path '/images/zajindan.png' was not found or does not implement IController.
+2014-11-29 09:17:37,968 [4] ERROR OceanLog [(null)] - The controller for path '/images/dingdan.png' was not found or does not implement IController.
+2014-11-29 09:17:37,968 [4] ERROR OceanLog [(null)] - The controller for path '/images/dingdan.png' was not found or does not implement IController.
+2014-11-29 09:17:37,968 [5] ERROR OceanLog [(null)] - The controller for path '/images/houdong.png' was not found or does not implement IController.
+2014-11-29 09:17:37,968 [5] ERROR OceanLog [(null)] - The controller for path '/images/houdong.png' was not found or does not implement IController.
+2014-11-29 09:17:38,015 [8] ERROR OceanLog [(null)] - The controller for path '/images/jifen.png' was not found or does not implement IController.
+2014-11-29 09:17:38,015 [8] ERROR OceanLog [(null)] - The controller for path '/images/jifen.png' was not found or does not implement IController.
+2014-11-29 09:17:38,031 [4] ERROR OceanLog [(null)] - The controller for path '/images/huiyuanka.png' was not found or does not implement IController.
+2014-11-29 09:17:38,031 [4] ERROR OceanLog [(null)] - The controller for path '/images/huiyuanka.png' was not found or does not implement IController.
+2014-11-29 09:17:38,031 [5] ERROR OceanLog [(null)] - The controller for path '/images/zhuanpan.png' was not found or does not implement IController.
+2014-11-29 09:17:38,031 [5] ERROR OceanLog [(null)] - The controller for path '/images/zhuanpan.png' was not found or does not implement IController.
+2014-11-29 09:17:38,093 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-29 09:17:38,093 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-29 09:19:05,328 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:19:05,328 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:19:05,453 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-29 09:19:05,453 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-29 09:21:28,125 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:21:28,125 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:21:28,328 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-29 09:21:28,328 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-29 09:32:44,359 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:32:44,359 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:32:48,109 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:32:48,109 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:32:52,484 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:32:52,484 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:34:20,109 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:34:20,109 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:34:46,265 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:34:46,265 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:35:25,828 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:35:25,828 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:35:47,437 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:35:47,437 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:36:39,625 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:36:39,625 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:36:49,234 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:36:49,234 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:36:57,062 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:36:57,062 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:37:11,328 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:37:11,328 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:37:57,843 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:37:57,843 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:39:04,156 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:39:04,156 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:40:01,000 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:40:01,000 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:42:29,578 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:42:29,578 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:43:15,906 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:43:15,906 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:44:20,343 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:44:20,343 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:44:52,390 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:44:52,390 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:45:31,968 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:45:31,968 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:46:03,953 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:46:03,953 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:46:41,734 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:46:41,734 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:48:00,406 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:48:00,406 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:48:51,562 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:48:51,562 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:49:00,156 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:49:00,156 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:49:01,140 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:49:01,140 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:50:01,656 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:50:01,656 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:51:37,328 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:51:37,328 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:52:36,140 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-29 09:52:36,140 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-29 09:52:52,328 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:52:52,328 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:53:35,265 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:53:35,265 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:55:01,781 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:55:01,781 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:56:11,187 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:56:11,187 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:56:42,640 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:56:42,640 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:57:19,375 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:57:19,375 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:57:38,812 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:57:38,812 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:57:56,125 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:57:56,125 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:59:24,187 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 09:59:24,187 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:00:39,031 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:00:39,031 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:00:52,281 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:00:52,281 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:01:26,453 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:01:26,453 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:02:35,953 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:02:35,953 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:09:22,406 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:09:22,406 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:09:44,796 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:09:44,796 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:09:47,453 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:09:47,453 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:10:27,062 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:10:27,062 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:11:54,562 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:11:54,562 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:12:58,000 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-29 10:12:58,000 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-29 10:13:13,906 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:13:13,906 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:14:05,546 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:14:05,546 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:15:34,656 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:15:34,656 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:17:00,390 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:17:00,390 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:18:47,968 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:18:47,968 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:21:00,390 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:21:00,390 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:21:26,250 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:21:26,250 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:21:56,750 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:21:56,750 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:25:46,828 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:25:46,828 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:29:03,484 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:29:03,484 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:30:46,859 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:30:46,859 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:31:12,078 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:31:12,078 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:31:41,250 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:31:41,250 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:31:53,593 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:31:53,593 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:32:08,625 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:32:08,625 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:32:16,937 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:32:16,937 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:33:03,625 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-29 10:33:03,625 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-29 10:33:14,859 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:33:14,859 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:35:44,937 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:35:44,937 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:35:56,140 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:35:56,140 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:37:03,671 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:37:03,671 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:37:19,593 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:37:19,593 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:38:39,546 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:38:39,546 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:42:00,109 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:42:00,109 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:42:31,953 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:42:31,953 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:42:51,359 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:42:51,359 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:44:20,906 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:44:20,906 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:45:33,781 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:45:33,781 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:45:57,281 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:45:57,281 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:46:39,015 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:46:39,015 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:47:07,562 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:47:07,562 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:48:35,046 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:48:35,046 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 10:51:22,093 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-29 10:51:22,093 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-29 11:04:57,750 [5] ERROR OceanLog [(null)] - A public action method 'GetMobileCodeSeconds' was not found on controller 'Ocean.Web.Controllers.ScoreSysController'.
+2014-11-29 11:04:57,750 [5] ERROR OceanLog [(null)] - A public action method 'GetMobileCodeSeconds' was not found on controller 'Ocean.Web.Controllers.ScoreSysController'.
+2014-11-29 11:09:04,875 [13] ERROR OceanLog [(null)] - A public action method 'GetMobileCodeSeconds' was not found on controller 'Ocean.Web.Controllers.ScoreSysController'.
+2014-11-29 11:09:04,875 [13] ERROR OceanLog [(null)] - A public action method 'GetMobileCodeSeconds' was not found on controller 'Ocean.Web.Controllers.ScoreSysController'.
+2014-11-29 11:10:08,750 [13] ERROR OceanLog [(null)] - A public action method 'GetMobileCodeSeconds' was not found on controller 'Ocean.Web.Controllers.ScoreSysController'.
+2014-11-29 11:10:08,750 [13] ERROR OceanLog [(null)] - A public action method 'GetMobileCodeSeconds' was not found on controller 'Ocean.Web.Controllers.ScoreSysController'.
+2014-11-29 11:22:05,250 [5] ERROR OceanLog [(null)] - A public action method 'bind' was not found on controller 'Ocean.Web.Controllers.ScoreSysController'.
+2014-11-29 11:22:05,250 [5] ERROR OceanLog [(null)] - A public action method 'bind' was not found on controller 'Ocean.Web.Controllers.ScoreSysController'.
+2014-11-29 11:46:00,984 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-29 11:46:00,984 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-29 14:42:10,437 [15] ERROR OceanLog [(null)] - The path is not of a legal form.
+2014-11-29 14:42:10,437 [15] ERROR OceanLog [(null)] - The path is not of a legal form.
+by Ocean2014-11-29 14:54:05,859 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 14:54:05,859 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-29 14:56:58,203 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-29 14:56:58,203 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-29 15:15:00,531 [5] ERROR OceanLog [(null)] - The path is not of a legal form.
+2014-11-29 15:15:00,531 [5] ERROR OceanLog [(null)] - The path is not of a legal form.
+by Ocean2014-11-29 15:44:38,500 [11] ERROR OceanLog [(null)] - The path is not of a legal form.
+2014-11-29 15:44:38,500 [11] ERROR OceanLog [(null)] - The path is not of a legal form.
+by Ocean2014-11-29 16:05:21,562 [8] ERROR OceanLog [(null)] - The path is not of a legal form.
+2014-11-29 16:05:21,562 [8] ERROR OceanLog [(null)] - The path is not of a legal form.
+by Ocean2014-11-29 17:35:49,203 [5] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-29 17:35:49,203 [5] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-30 01:51:37,781 [8] DEBUG OceanLog [(null)] - 执行任务！2014-11-30 1:51:37
+2014-11-30 01:51:37,781 [8] DEBUG OceanLog [(null)] - 执行任务！2014-11-30 1:51:37
+2014-11-30 01:51:38,640 [8] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141130ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141130ocean.bak' with INIT
+2014-11-30 01:51:38,640 [8] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141130ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141130ocean.bak' with INIT
+2014-11-30 08:42:41,671 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-30 08:42:41,671 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

@@ -1,0 +1,172 @@
+2014-11-17 08:22:42,632 [20] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-17 08:22:42,632 [20] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-17 09:20:10,053 [8] DEBUG Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index===detail===> [(null)] - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Ocean.Web.Controllers.PluginsSceneController.LotteryUtils.Lottery(IList`1 orignalRates, IList`1 prizeGifts, Int32 ratesTotal, Guid userId, Guid pluginId) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 639
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 416
+2014-11-17 09:20:52,178 [20] DEBUG Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index===detail===> [(null)] - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Ocean.Web.Controllers.PluginsSceneController.LotteryUtils.Lottery(IList`1 orignalRates, IList`1 prizeGifts, Int32 ratesTotal, Guid userId, Guid pluginId) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 639
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 416
+2014-11-17 09:31:42,616 [12] DEBUG Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index===detail===> [(null)] - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Ocean.Web.Controllers.PluginsSceneController.LotteryUtils.Lottery(IList`1 orignalRates, IList`1 prizeGifts, Int32 ratesTotal, Guid userId, Guid pluginId) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 639
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 416
+2014-11-17 09:32:32,069 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 09:32:32,069 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-17 09:33:08,866 [19] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-17 09:33:08,866 [19] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-17 09:35:07,225 [20] DEBUG Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index===detail===> [(null)] - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Ocean.Web.Controllers.PluginsSceneController.LotteryUtils.Lottery(IList`1 orignalRates, IList`1 prizeGifts, Int32 ratesTotal, Guid userId, Guid pluginId) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 640
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 417
+2014-11-17 10:07:59,835 [8] DEBUG Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index===detail===> [(null)] - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Ocean.Web.Controllers.PluginsSceneController.LotteryUtils.Lottery(IList`1 orignalRates, IList`1 prizeGifts, Int32 ratesTotal, Guid userId, Guid pluginId) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 640
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 417
+2014-11-17 10:16:14,850 [20] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 10:16:14,850 [20] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-17 10:18:09,507 [19] DEBUG Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index===detail===> [(null)] - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 431
+2014-11-17 10:19:25,085 [8] DEBUG An error occurred while updating the entries. See the inner exception for details.===detail===> [(null)] - System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'Id'，表 'ocean.dbo.SceneResult'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction, Boolean throwOnClosedConnection)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update(Boolean throwOnClosedConnection)
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__b()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass9.<SaveChanges>b__6()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Ocean.Data.EfRepository`1.Insert(T entity) in E:\微信\ocean7.18\Ocean.Data\EfRepository.cs:line 50
+   at Ocean.Services.ServiceBase`1.Insert(T entity) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 55
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 483
+2014-11-17 10:19:52,850 [20] DEBUG Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index===detail===> [(null)] - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 431
+2014-11-17 10:20:33,491 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 10:20:33,491 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-17 10:23:39,569 [20] DEBUG An error occurred while updating the entries. See the inner exception for details.===detail===> [(null)] - System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'Id'，表 'ocean.dbo.SceneResult'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction, Boolean throwOnClosedConnection)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update(Boolean throwOnClosedConnection)
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__b()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass9.<SaveChanges>b__6()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Ocean.Data.EfRepository`1.Insert(T entity) in E:\微信\ocean7.18\Ocean.Data\EfRepository.cs:line 50
+   at Ocean.Services.ServiceBase`1.Insert(T entity) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 55
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 488
+2014-11-17 11:07:08,475 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 11:07:08,475 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-17 11:51:48,319 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 11:51:48,319 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Oceanby Ocean2014-11-17 13:42:33,687 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-17 13:42:33,687 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-17 13:42:36,390 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-17 13:42:36,390 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-17 13:42:50,796 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-17 13:42:50,796 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-17 14:16:08,484 [22] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 14:16:08,484 [22] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-17 14:19:34,187 [25] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 14:19:34,187 [25] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-17 14:52:44,703 [18] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-17 14:52:44,703 [18] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-17 16:25:33,796 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 16:25:33,796 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-17 16:28:55,656 [20] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-11-17 16:28:55,656 [4] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-11-17 16:28:55,656 [20] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-11-17 16:28:55,656 [4] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-11-17 17:08:19,171 [4] DEBUG OceanLog [(null)] - PluginScratch：MpUserID928caabb-a735-47f5-9177-006ae80e980c
+2014-11-17 17:08:19,171 [4] DEBUG OceanLog [(null)] - PluginScratch：MpUserID928caabb-a735-47f5-9177-006ae80e980c
+2014-11-17 17:08:19,187 [4] DEBUG OceanLog [(null)] - PluginScratch：plugins-
+2014-11-17 17:08:19,187 [4] DEBUG OceanLog [(null)] - PluginScratch：plugins-
+2014-11-17 17:19:14,921 [25] DEBUG OceanLog [(null)] - oAuth:oy4Pvjp9_Yb7dttwfx9G2BJuGwyw
+2014-11-17 17:19:14,921 [25] DEBUG OceanLog [(null)] - oAuth:oy4Pvjp9_Yb7dttwfx9G2BJuGwyw
+2014-11-17 20:08:46,437 [14] DEBUG OceanLog [(null)] - oAuth:oy4Pvjp9_Yb7dttwfx9G2BJuGwyw
+2014-11-17 20:08:46,437 [14] DEBUG OceanLog [(null)] - oAuth:oy4Pvjp9_Yb7dttwfx9G2BJuGwyw
+2014-11-17 21:05:40,468 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 21:05:40,468 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

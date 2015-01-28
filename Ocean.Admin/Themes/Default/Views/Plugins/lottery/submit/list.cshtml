@@ -1,0 +1,106 @@
+﻿@using Ocean.Framework.Mvc.Pagination;
+@{ 
+    Layout = null;
+    PagedList<PluginResult> pluginResultList = ViewBag.PluginResultList as PagedList<PluginResult>;
+    }
+<div id="submit_list" class="submit_list" style="position: relative;">
+    <div class="text_middle">
+             <div class="text_middle_l">
+            <table style="text-align: center; width: 100%;font-size:12px;">
+                <thead>
+                    <tr style="background-color: #ccc;">
+                        <td style="width:40%;">奖项</td>
+                        <td style="width: 20%;">
+                            名称
+                        </td>
+                        <td style="width: 30%;">
+                            联系方式
+                        </td>
+                        <td style="width: 10%;">
+                            奖品状态
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.PluginResultList != null)
+                    {
+                        foreach (PluginResult item in pluginResultList)
+                        {
+                        <tr>
+                            <td style="width: 40%; text-align: center; border-bottom: dashed 1px #bdbdbd;">
+                                <a>
+                                    @(string.IsNullOrEmpty(item.Summary) ? "" : item.Summary.Split('得')[1])
+                                </a>
+                            </td>
+                            <td style="width: 20%; text-align: center; border-bottom: dashed 1px #bdbdbd;">
+                                <a>
+                                    @(string.IsNullOrEmpty(item.Name)?item.UserName:item.Name)
+                                </a>
+                            </td>
+                            <td style="width: 30%; border-bottom: dashed 1px #bdbdbd;">
+                                <a class="in_edit" href="javascript:void(0);">
+                                @(string.IsNullOrEmpty(item.Phone) ? "暂未提交" : item.Phone)
+                                </a>
+                            </td>
+                            <td style="width: 10%; border-bottom: dashed 1px #bdbdbd;">
+                                @if(item.IsUse==0)
+                                {
+                                    <a class="in_edit" href="javascript:void(0);" style="color:Blue;" onclick="sendGift('@item.PluginId','@item.Id',@WebHelper.GetInt("page",1))">发放</a>
+                                }
+                                else
+                                {
+                                     <a class="in_edit">已发放</a>
+                                }
+                            </td>
+                        </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4">
+                                暂无中奖记录...
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div id="pageNumberContainer" style="width: 100%; height: 38px; float: left; padding-top: 5px;
+                margin-bottom: 2px; margin-top: 2px;">
+                <span style='float: left; margin-right: 2px;'>
+                    @{
+                        PagerOptions pageOpt = new PagerOptions()
+                        {
+                            AutoHide = true,
+                            PageIndexParameterName = "page",
+                            /*跳转区*/
+                            PageIndexBoxType = PageIndexBoxType.DropDownList,/*跳转输入方式*/
+                            ShowGoButton = false,
+                            ShowInfo = true,
+                            PageIndexBoxWrapperFormatString = "到第{0}页",
+                            CssClass = "pager",
+                            FirstPageText = "第一页",
+                            PrevPageText = "前一页",
+                            NextPageText = "下一页",
+                            LastPageText = "最后页",
+                            AlwaysShowFirstLastPageNumber = false,
+                            PrevItemWrapperCss = "page-pre",
+                            NextItemWrapperCss = "page-next",
+                            LastItemWrapperCss = "page-last",
+                            FirstItemWrapperCss = "page-fir",
+                            /*数字部分*/
+                            ShowNumericPagerItems = false,
+                            PageNumberCss = "page-num",
+                            SeparatorHtml = " ",
+                            CurrentPagerItemWrapperCss = "page-cur",
+                            DisabledCss = "page-disabled",
+                            MorePagerItemWrapperCss = "page-more",
+                            GoToPageSectionWrapperFormatString = ""
+                        };
+                    }
+                    @Html.AjaxPager(pluginResultList.TotalPageCount, WebHelper.GetInt("page", 1), "resultlist", "plugins", "", pageOpt, new { pluginId = WebHelper.GetInt("Id") }, new AjaxOptions() { UpdateTargetId = "resultList" }, null)
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

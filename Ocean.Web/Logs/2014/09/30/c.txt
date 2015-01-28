@@ -1,0 +1,3 @@
+2014-09-30 09:50:19,265 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-30 09:50:19,265 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

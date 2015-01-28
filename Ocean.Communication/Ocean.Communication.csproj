@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{35BC51D4-787A-4B8C-8863-87B29808C4E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ocean.Communication</RootNamespace>
+    <AssemblyName>Ocean.Communication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXssLibrary">
+      <HintPath>..\packages\AntiXSS.4.2.1\lib\net40\AntiXssLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary">
+      <HintPath>..\packages\AntiXSS.4.2.1\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Core\CallerContext.cs" />
+    <Compile Include="Commands\Core\CommandAttribute.cs" />
+    <Compile Include="Commands\Core\CommandManager.cs" />
+    <Compile Include="Commands\Core\CommandMetaData.cs" />
+    <Compile Include="Commands\Core\ICommand.cs" />
+    <Compile Include="Communication\CometThreadPool.cs" />
+    <Compile Include="Communication\CometWaitRequest.cs" />
+    <Compile Include="Communication\CometWaitThread.cs" />
+    <Compile Include="ContentProviders\Core\CollapsibleContentProvider.cs" />
+    <Compile Include="ContentProviders\Core\ContentProviderHttpRequest.cs" />
+    <Compile Include="ContentProviders\Core\ContentProviderResult.cs" />
+    <Compile Include="ContentProviders\Core\EmbedContentProvider.cs" />
+    <Compile Include="ContentProviders\Core\IContentProvider.cs" />
+    <Compile Include="ContentProviders\Core\IResourceProcessor.cs" />
+    <Compile Include="ContentProviders\Core\ResourceProcessor.cs" />
+    <Compile Include="ContentProviders\ImageContentProvider.cs" />
+    <Compile Include="ContentProviders\YoukuContentProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Ocean.Core\Ocean.Core.csproj">
+      <Project>{1059904B-5189-4313-BD88-9392CAEC3C90}</Project>
+      <Name>Ocean.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ocean.Entity\Ocean.Entity.csproj">
+      <Project>{47AC8705-1AE1-4817-8F0E-6884534DD1FC}</Project>
+      <Name>Ocean.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

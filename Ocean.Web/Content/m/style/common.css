@@ -1,0 +1,109 @@
+﻿body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+body {margin: 0 auto; background: #F4F5F7;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.car_bj{background: url(../images/activity-scratch-card-bg.jpg) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 25px; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.cover { margin:10px auto 0; max-width: 480px; position: relative; }
+.main img { border: 0 none; max-width: 100%;}
+.cover img {}
+#scratchpad, #prize { color: #333333; font-size: 20px; height: 40px; left: 50%; margin-left: -125px; line-height: 40px; position: absolute; text-align: center; bottom: 25px; width: 250px;}
+#scratchpad{ position:absolute; bottom:105px;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px;}
+.box .title_brown{background: url("../images/title-bg-brown.png") no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(../images/title-bg-orange.png) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .close {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+.boxcontent .txt {width: 100%; line-height: 25px; text-align: center; font-size: 16px;}
+.boxcontent .ts {width: 100%; color: #135cab; line-height: 25px; text-align: center; font-size: 16px;}
+.boxcontent .btn {width: 100%; margin-top: 10px; display: -webkit-box;}
+.boxcontent .btn a {width: 100%; display: block; line-height: 28px; border-radius: 3px; margin: 5px; text-align: center; color: #fff; font-size: 16px; background: -webkit-gradient(linear,left top,left bottom,from(#4fc1f5),to(#115aa9)); -webkit-box-flex: 1; border: 1px solid #1087db; box-shadow: 1px 1px 2px #999; text-decoration: none;}
+.boxcontent .btn a:hover,.boxcontent .btn a:active {background: -webkit-gradient(linear,left top,left bottom,from(#5dcaf3),to(#1d7bc4));}
+
+
+.page-bizinfo, #activity-detail .page-content {
+width: 700px;
+margin: 0 auto;
+padding: 20px 20px 0;
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+background: #fff;
+}
+.page-bizinfo {
+border-bottom: none;
+}
+#activity-name {
+padding-bottom: 10px;
+border-bottom: 1px dotted #ccc;
+font-size: 20px;
+}
+#activity-detail .page-bizinfo .header #activity-name {
+color: #000;
+font-size: 20px;
+font-weight: bold;
+word-break: normal;
+word-wrap: break-word;
+}
+.activity-info {
+margin-top: 6px;
+}
+.activity-meta.no-extra {
+margin-left: 0;
+}
+.activity-meta {
+display: inline-block;
+margin-left: 8px;
+padding-top: 2px;
+padding-bottom: 2px;
+color: #8c8c8c;
+font-size: 11px;
+}
+#post-user {
+text-decoration: none;
+outline: 0;
+color: #607FA6;
+}
+.page-bizinfo .header a.activity-meta {
+vertical-align: middle;
+}
+.activity-info .text-ellipsis {
+display: inline-block;
+max-width: 104px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+#activity-detail .page-content .text {
+color: #3e3e3e;
+line-height: 1.5;
+width: 100%;
+}
+.page-content {
+width: 700px;
+margin: 0 auto;
+padding: 20px 20px 0;
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+background: #fff;
+}
+.page-content img {width: 100%;}
+
+
+
+
+

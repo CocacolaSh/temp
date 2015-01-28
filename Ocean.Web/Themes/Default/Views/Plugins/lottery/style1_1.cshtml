@@ -1,0 +1,486 @@
+﻿@{
+    Layout = "../../Shared/_PluginLayout.cshtml";
+}
+@using Ocean.Entity.DTO.Plugins;
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/wScratchPad.js", false)"></script>
+
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jQueryRotate.2.2.js")"></script>
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jquery.easing.min.js")"></script>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+body {margin: 0 auto; background: #F4F5F7;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 25px; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.cover { margin:10px auto 0; max-width: 480px; position: relative; }
+.main img { border: 0 none; max-width: 100%;}
+.cover img {}
+#scratchpad, #prize { color: #333333; font-size: 20px; height: 40px; left: 50%; margin-left: -125px; line-height: 40px; position: absolute; text-align: center; bottom: 25px; width: 250px;}
+#scratchpad{ position:absolute; bottom:105px;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px;}
+.box .title_brown{background: url(@Url.PluginUrl("lottery/images/title-bg-brown.png")) no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+.boxcontent .txt {width: 100%; line-height: 25px; text-align: center; font-size: 16px;}
+.boxcontent .ts {width: 100%; color: #135cab; line-height: 25px; text-align: center; font-size: 16px;}
+.boxcontent .btn {width: 100%; margin-top: 10px; display: -webkit-box;}
+.boxcontent .btn a {width: 100%; display: block; line-height: 28px; border-radius: 3px; margin: 5px; text-align: center; color: #fff; font-size: 16px; background: -webkit-gradient(linear,left top,left bottom,from(#4fc1f5),to(#115aa9)); -webkit-box-flex: 1; border: 1px solid #1087db; box-shadow: 1px 1px 2px #999; text-decoration: none;}
+.boxcontent .btn a:hover,.boxcontent .btn a:active {background: -webkit-gradient(linear,left top,left bottom,from(#5dcaf3),to(#1d7bc4));}
+
+.zj_result {z-index: 99999; position: absolute; width: 80%; top: 45%; left: 5%; text-align: center; color: #fff; padding: 5%; border-radius: 10px; line-height: 30px; font-size: 16px; background: rgba(0,0,0,.5);}
+.zj_result .result{color:#fff;}
+.zj_result span {color: #ff0; font-size: 20px; font-weight: bold;}
+.zj_result em {position: absolute; right: 10px; top: 10px; width: 32px; height: 32px; text-indent: -99999px; background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 0; cursor: pointer; display: block;}
+.zj_result em:hover {background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 -32px;}
+.zj_result i {padding: 0 15px; height: 32px; line-height: 32px; font-style: normal; margin: 0 10%; text-shadow: 1px 1px #b3874d; color: #fff; font-size: 14px; margin-top: 20px; border-radius: 5px; box-shadow: 0 2px #f8df8a inset; font-weight: bold; background: -moz-linear-gradient(top,#f3cd4f,#e79217); background: -webkit-gradient(linear,left top,left bottom,from(#f3cd4f),to(#e79217)); display: block;}
+.zj_result i a:link {color: #fff; text-decoration: none;}
+.zj_result i a:visited {color: #fff; text-decoration: none;}
+.zj_result i a:hover {color: #fff; text-decoration: none;}
+.zj_result i a:active {color: #fff; text-decoration: none;}
+
+
+.page-bizinfo, #activity-detail .page-content {
+width: 700px;
+margin: 0 auto;
+padding: 20px 20px 0;
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+background: #fff;
+}
+.page-bizinfo {
+border-bottom: none;
+}
+#activity-name {
+padding-bottom: 10px;
+border-bottom: 1px dotted #ccc;
+font-size: 20px;
+}
+#activity-detail .page-bizinfo .header #activity-name {
+color: #000;
+font-size: 20px;
+font-weight: bold;
+word-break: normal;
+word-wrap: break-word;
+}
+.activity-info {
+margin-top: 6px;
+}
+.activity-meta.no-extra {
+margin-left: 0;
+}
+.activity-meta {
+display: inline-block;
+margin-left: 8px;
+padding-top: 2px;
+padding-bottom: 2px;
+color: #8c8c8c;
+font-size: 11px;
+}
+#post-user {
+text-decoration: none;
+outline: 0;
+color: #607FA6;
+}
+.page-bizinfo .header a.activity-meta {
+vertical-align: middle;
+}
+.activity-info .text-ellipsis {
+display: inline-block;
+max-width: 104px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+#activity-detail .page-content .text {
+color: #3e3e3e;
+line-height: 1.5;
+width: 100%;
+}
+.page-content {
+width: 700px;
+margin: 0 auto;
+padding: 20px 20px 0;
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+background: #fff;
+}
+.page-content img {width: 100%;}
+</style>
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">@ViewBag.Title</span>
+    </div>
+<div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+<section class="modBaseBox">
+<div class="car_bj">
+@*<div class="jjtxt">
+    	<ul style="margin-top: 0px;">
+        <p id = "tipsinfo" style="text-align:center;" class="scrollDiv">亲，加油哦！超高的中奖率！</p>
+        </ul>
+    </div>*@
+	<script type="text/javascript">
+	    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	        window.shareData = {
+	            "timeLineLink": "http://wx.ssrcb.com/plugin/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "sendFriendLink": "http://wx.ssrcb.com/plugin/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "weiboLink": "http://wx.ssrcb.com/plugin/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "tTitle": "超高中奖率哦！",
+	            "tContent": "小伙伴们，赶紧动起来啊！石狮农商行发福利了哦！",
+	            "fTitle": "超高中奖率哦！",
+	            "fContent": "小伙伴们，赶紧动起来啊！石狮农商行发福利了哦！",
+	            "wContent": "小伙伴们，赶紧动起来啊！石狮农商行发福利了哦！"
+	        };
+	        // 发送给好友
+	        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+	            WeixinJSBridge.invoke('sendAppMessage', {
+	                "img_url": "http://wximg.ssrcb.com/mpimages/2014/09/11/30f2ecf2252-128113_jpg!600x478.jpg",
+	                "img_width": "401",
+	                "img_height": "275",
+	                "link": window.shareData.sendFriendLink,
+	                "desc": window.shareData.fContent,
+	                "title": window.shareData.fTitle
+	            }, function (res) {
+	                _report('send_msg', res.err_msg);
+	            })
+	        });
+	        // 分享到朋友圈
+	        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+	            WeixinJSBridge.invoke('shareTimeline', {
+	                "img_url": "http://wximg.ssrcb.com/mpimages/2014/09/11/30f2ecf2252-128113_jpg!600x478.jpg",
+	                "img_width": "401",
+	                "img_height": "275",
+	                "link": window.shareData.timeLineLink,
+	                "desc": window.shareData.tContent,
+	                "title": window.shareData.tTitle
+	            }, function (res) {
+	                _report('timeline', res.err_msg);
+	            });
+	        });
+	        // 分享到微博
+
+	    }, false);
+	    AutoScroll = (function (obj) {
+	        $(obj).find("ul:first").animate({
+	            marginTop: "-25px"
+	        }, 500, function () {
+	            $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	        });
+	    });
+	    $(function () {
+	        if ($('.scrollbox li').length > 1) {
+	            setInterval('AutoScroll(".scrollbox")', 4000);
+	        }
+	    });
+
+        var lotterying=false;
+        var lotteryed=false;
+	    $(function () {
+            var prizeJson;
+            var scratchpad=$("#scratchpad").wScratchPad({
+                width: 250,
+                height: 50,
+                image:null,
+                color: "#a9a9a7",
+                scratchMove: function (e, percent) {
+                    if (prizeJson&&percent > 30 && !lotteryed) {
+                        lotteryed = true;
+                        if(prizeJson.Has_Gift)
+                        {
+                            if(prizeJson.Leavings_Quantity>0)
+                            {
+//                                $(".zj_result .result").html("恭喜您，中了“<span>"+prizeJson.Name+"</span>”,请填写在下面领奖信息！");
+//                                $(".zj_result").show();
+//                                $("#resultId").val(prizeJson.ResultID);
+                                //                                $("#boxcontent").show();
+                                $.messager.alert('提示', "恭喜您，中了" + prizeJson.Name + "！", "warning", function () { });
+                                $("#tipsinfo").html("请关注我行后续活动，以便及时兑奖");
+                                //$("#re_again").show();
+                            }
+                            else
+                            {
+//                                $(".zj_result .result").html("恭喜您，中了“<span>"+prizeJson.Name+"</span>”,但是您的运气来得太晚了些，奖品已被拿光！");
+                                //                                $(".zj_result").show();
+                                $.messager.alert('提示', "您的运气来的晚了那么些，请再接再厉哦！", "warning", function () { });
+                                $("#tipsinfo").html("您的运气来的晚了那么些，请再接再厉哦！");
+                            }
+                        }
+                        else{
+//                            $(".zj_result .result").html("很抱歉，您"+prizeJson.Name+",继续加油!");
+//                            $(".zj_result").show();
+                            $.messager.alert('提示', "您的运气来的晚了那么些，请再接再厉哦！", "warning", function () { });
+                            $("#tipsinfo").html("您的运气来的晚了那么些，请再接再厉哦！");
+                        }
+                        var useCount=parseInt($("#Has_Use_Count").html(),10)-1;
+                        if(useCount<=0)
+                        {
+                            $(".zj_result i").hide();
+                        }
+                        $("#Has_Use_Count").html(useCount);
+                    }
+
+                }, scratchDown: function () {
+                 if(!lotterying)
+                        {
+                        lotterying=true;
+                        $.ajax({
+	                        type: 'post',
+	                        url: '/plugins/lottery2?t=' + Math.random(),
+	                        data: { Id: '@(WebHelper.GetGuid("Id", Guid.Empty))' },
+                            dataType:"json",
+	                        cache: false,
+	                        success: function (json) {
+                                if(json.message)
+                                {
+                                    lotterying=false;
+                                    if (json.isLogin) {
+                                        window.location = json.message;
+                                    }
+                                    else {
+                                        if (json.isVertfy) {
+                                            $("#boxcontent2").show();
+                                        }
+                                        else {
+                                            $.messager.alert('提示', json.message, "warning", function () { });
+                                        }
+                                    }
+                                }
+                                else {
+                                    prizeJson=json;
+                                    document.getElementById('prize').innerHTML = json.Prize_Name;
+                                }
+	                        }
+	                    });
+                    }
+                }
+            });
+        });
+
+        function certfySubmit() {
+            $.ajax({
+                type: 'post',
+                url: '/plugins/CertSubmit2?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+                data: $("#CertSubmitForm2").serialize(),
+                cache: false,
+                async: false,
+                success: function (json) {
+                    $.messager.alert('提示', json.message, "warning", function () { });
+                    //$('#boxcontent').hide(); $('#re_again').hide();
+                    if (json.success) {
+                        location.reload();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    lotterying = false;
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                    alert(errorThrown);
+                }
+
+            });
+        }
+            function prizeSubmit()
+            {
+                $.ajax({
+                    type: 'post',
+                    url: '/plugins/lotteryresult?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+                    data: $("#PrizerSubmitForm").serialize(),
+                    cache: false,
+                    success: function (json) {
+                        alert(json.message);
+                        //$('#boxcontent').hide(); $('#re_again').hide();
+                        location.reload();
+                    }
+                });
+            }
+            function modifySubmit(id)
+            {
+                $('#resultId').val(id);
+                 $.ajax({
+	                    type: 'post',
+	                    url: '/plugins/getresult?pluginId=@(WebHelper.GetString("Id"))&resultId=' + id + '&t=' + Math.random(),
+	                    data: {},
+	                    cache: false,
+	                    success: function (json) {
+                           $('#Name').val(json.Name);
+                           $('#Phone').val(json.Phone);
+                           $('#Address').val(json.Address);
+	                    }
+	                });
+                $('#boxcontent').show();
+            }
+
+            var mobileCodeEnable = false;
+            var countdown;
+            var total = 120;
+            var count = total;
+            $.ajax({
+                type: 'post',
+                url: "GetMobileCodeSeconds",
+                async: true,
+                cache: false,
+                datatype: "json",
+                data: { operateType: 2 },
+                success: function (result) {
+                    if (result.count > 0 && result.count < total) {
+                        mobileCodeEnable = false;
+                        count = result.count;
+                        countdown = setInterval(CountDown, 1000);
+                    }
+                    else {
+                        mobileCodeEnable = true;
+                    }
+                }
+            });
+            function GetMobileCode() {
+                if (mobileCodeEnable) {
+                    if (!$.trim($("#MobilePhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#MobilePhone").val())) {
+                        $.messager.alert('提示', '请正确的手机号码', "warning", function () { $("#MobilePhone").focus(); });
+                        return false;
+                    }
+                    mobileCodeEnable = false;
+                    $.ajax({
+                        type: 'post',
+                        url: '/plugins/CertAndGetMobileCode?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+                        async: true,
+                        cache: false,
+                        datatype: "json",
+                        data: { mobile: $('#MobilePhone').val(), OperateType: 4 },
+                        success: function (result) {
+                            if (result.success) {
+                                $("#MobileCodeBtn").html(count + "秒后重新发送");
+                                count = count - 1;
+                                countdown = setInterval(CountDown, 1000);
+                                if (result.message) {
+                                    $("#Code").val(result.message);
+                                }
+                            } else {
+                                mobileCodeEnable = true;
+                                $.messager.alert('提示', result.message, "warning", function () { $("#MobilePhone").focus(); });
+                            }
+                        }
+                    });
+                }
+                else {
+                    $.messager.alert('提示', '请稍等，验证码已发送', "info");
+                }
+            }
+            function CountDown() {
+                $("#MobileCodeBtn").attr("disabled", true);
+                $("#MobileCodeBtn").html(count + "秒后重新发送");
+                if (count == 0) {
+                    $("#MobileCodeBtn").html("发送验证码").removeAttr("disabled");
+                    mobileCodeEnable = true;
+                    clearInterval(countdown);
+                    count = total;
+                }
+                count--;
+            }
+    </script>
+<div class="main">
+    	<div id="outercont" class="cover">
+        	<img src="@Url.PluginUrl("lottery/images/0.png")" style="width:100%;" />
+            <div id="prize" style="background:#fff;"></div>
+            <div id="scratchpad">
+            	<div style="position: relative; width: 250px; height: 40px; cursor: default;">
+                	<canvas width="250" height="40" style="cursor: default;"></canvas>
+                </div>
+                <div style="position: relative; width: 250px; height: 40px; cursor: default; ">
+                	<canvas width="250" height="40" style="cursor: default;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@*<div class="zj_result" style="display:none;">
+<em onclick="$('.zj_result').hide();">关闭</em>
+<div class="result">
+    中奖提示
+</div>
+<i onclick="window.location.reload();"><a href="javascript:void(0);">再来一次</a></i>
+</div>*@
+<div id="re_again" style="display:none;width:50%;height:36px;padding:15px 0;text-align:center;font-size:16px;background-color:#FEF8B2;margin:0 auto;border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);">
+</div>
+    <div class="content">
+        <div class="boxcontent" id="boxcontent2" style="display:none;">
+           <form id="CertSubmitForm2" action ="/plugin/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	<div class="box">
+            	<div class="title_orange">
+                	<span>输入验证码信息</span>
+                    <a href="#" onclick="$('#boxcontent2').hide();" class="inclose">
+                    	<img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                    </a>
+                </div>
+                <ul class="fnb_list">
+                    <li>
+                        <p><input class="txtinput" name="Phone" id="MobilePhone" type="text" placeholder="请输入签约手机号码" autocomplete="on" /></p>
+                        <em style="width:110px;"><a href="javascript:void(0);" id="MobileCodeBtn" onclick="GetMobileCode();">获取验证码</a></em>
+                        <span class="tel"></span>
+                    </li>
+                    <li>
+                        <p><input class="txtinput" name="Code" id="Code" type="text" placeholder="验证码" autocomplete="on" /></p>
+                        <span class="yzm"></span>
+                    </li>
+                    <li>
+                        <p class="cat_list"><input class="modBtnColor coloryellow" type="button" onclick="certfySubmit();" value="提交"></p>
+                    </li>
+                    </ul>
+            </div>
+            </form>
+        </div>
+        <div class="boxcontent">
+        	<div class="txt">您今天还有<span class="red" id="Has_Use_Count">@ViewBag.Has_Use_Count</span>次刮奖机会！</div>
+            <div class="ts" id="tipsinfo">中奖后,请实时关注我行相关信息！</div>
+            <span class="btn">
+               <a href="javascript:void(0);" onclick="location.reload();" title="手动刷新">再刮一次</a>
+               @*<a href="#myprizer">我的奖品</a>*@
+            </span>           
+            
+        </div>
+
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>奖项设置：</span>
+                </div>
+                <div class="Detail">
+                   @foreach (PrizeGift gift in ViewBag.PrizeGift)
+                   {
+                        <p>@gift.Prize_Name: @gift.Name。数量：@gift.Quantity.ToString() 。</p>
+                   }
+                </div>
+            </div>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>活动说明：</span>
+                </div>
+                <div class="Detail">
+                	<p> 
+                        @Html.Raw(ViewBag.Cst_Plugin_Info)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+              </section>
+      </div>
+</div>

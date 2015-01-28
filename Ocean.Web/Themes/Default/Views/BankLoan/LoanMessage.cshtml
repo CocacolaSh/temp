@@ -1,0 +1,104 @@
+﻿@using Ocean.Entity.Enums;
+@using Ocean.Entity;
+@{
+    Layout = "../Shared/_LoanLayout.cshtml";
+    Loan loan = ViewBag.Loan;
+}
+@model MpUser
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        function CancelApply() {
+            $.messager.confirm('提示', '确定要撤销吗?', function (r) {
+                if (r) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/BankLoan/_CancelApply",
+                        dataType: "json",
+                        data: "Id=@(loan.Id)",
+                        success: function (msg) {
+                            if (msg.success) {
+                                $.messager.alert('提示', msg.message, "", function () {
+                                    window.location.href = "/bankloan/loanapply";
+                                });
+                            } else {
+                                $.messager.alert('提示', msg.message);
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        function Edit(){
+            $.ajax({
+                type: "POST",
+                url: "/BankLoan/_CanEditLoan",
+                dataType: "json",
+                data: "Id=@(loan.Id)",
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = "/bankloan/loanedit?id=@(loan.Id)";
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+    </script>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">贷款申请</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox2">
+              <form action="" id="mobileRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      <ul class="btts2">
+                          <li style=" border-bottom:dashed 1px #e1e1e1;">
+                          @if(Model.Sex == 1)
+                            {
+@:尊敬的<span style="color:Red;float:none;">@(Model.Name)</span>先生，您好！
+                            }
+                            else if(Model.Sex == 2)
+                            {
+@:尊敬的<span style="color:Red;float:none;">@(Model.Name)</span>女士，您好！
+                            }
+                            else
+                            {
+@:尊敬的<span style="color:Red;float:none;">@(Model.Name)</span>，您好！
+                            }
+                          </li>
+                          <li>
+                          @if (loan.ProcessStatus == 0)
+                          { 
+@:您于@(loan.CreateDate.Year)年@(loan.CreateDate.Month)月@(loan.CreateDate.Day)日的一笔贷款正在受理中，我行将于五个工作日内与您联系，谢谢！
+                          }
+                          else if (loan.ProcessStatus == 1)
+                          {
+@:您于@(loan.CreateDate.Year)年@(loan.CreateDate.Month)月@(loan.CreateDate.Day)日的一笔贷款已被我行通过！
+                          }
+                          else if (loan.ProcessStatus == 2)
+                          {
+@:您于@(loan.CreateDate.Year)年@(loan.CreateDate.Month)月@(loan.CreateDate.Day)日的一笔贷款未审核通过！原因是：@(loan.ProcessResult)。详询4000896336。您可于一个月后再次使用该服务！谢谢！
+                          }
+                          else
+                          {
+                              
+                          }
+                          </li>
+                      </ul>                                         
+                      <div class="btnLoginBox">
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);">*@
+                          <input type="button" class="modBtnColor coloryellow" value="修改信息" onclick="Edit();">
+                          <input type="button" class="modBtnColor coloryellow" value="撤销申请" onclick="CancelApply();">
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

@@ -1,0 +1,276 @@
+﻿@{
+    ViewBag.Title = "会员列表";
+}
+@section Head{
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid();
+            $('#tt').tree({
+                onClick: function (node) {
+                    currentCheckedId = node.id;
+                    var searchObject = {};
+                    if ($("#NickName").val()) {
+                        searchObject["NickName"] = $("#NickName").val();
+                    }
+                    if ($('#FnbID').is(':checked')) {
+                        searchObject["FnbID"] = "2F269060-C058-4987-8187-D04288A89493";
+                    }
+                    searchObject["MpGroupID"] = currentCheckedId;
+                    InitGrid(searchObject);
+
+                }
+            });
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/MpUser/_MpUserList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                pageSize: 10,
+                pageList: [5, 10, 15, 20],
+                rownumbers: true,
+                sortName: 'CreateDate',    //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { field: 'ck', checkbox: true },   //选择
+                     {
+                         title: '头像', field: 'HeadImgUrl', width: 100, height: 100,
+                         formatter: function (value) {
+                             return '<img src="' + value + '" style="height:100px"/>';
+                         }
+                     },
+                     { title: '昵称', field: 'NickName', width: 100, sortable: true },
+                     { title: '所属分组', field: 'CateName', width: 150, sortable: true },
+                     {
+                         title: '是否关注', field: 'IsSubscribe', width: 60,
+                         formatter: function (value) {
+                             return value ? '是' : '否';
+                         }
+                     },
+                     { title: '地区', field: 'Area', width: 130, sortable: true },
+//                     { title: '二维码来源', field: 'SceneId', width: 130, sortable: true },
+                     { title: '二维码来源', field: 'Title', width: 130, sortable: true },
+
+                     { title: '登陆名', field: 'LoginName', width: 150, sortable: true },
+                     {
+                         title: '最后访问时间', field: 'LastVisitDate', width: 100,sortable: true,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     },
+                    {
+                        title: '关注时间', field: 'SubscribeDate', width: 100, sortable: true,
+                        formatter: function (value) {
+                            return formatDate(value);
+                        }
+                    }
+
+                ]],
+                toolbar: '#gridtoolbar'
+            }).datagrid("clearChecked");
+        }
+
+        $(document).ready(function () {
+            $('#w').window('close');
+            $('#dlg').window('close');
+        });
+
+        function UpdateGroup() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            var idList = "";
+            if (selectedRows.length > 0) {
+                for (i = 0; i < selectedRows.length; i++) {
+                    idList += selectedRows[i].Id + ",";
+                }
+                $("#iframe").attr("src", "/MpUser/UpdateUserGroup?ids=" + idList);
+
+                $('#w').window({ width: 300, height: 150, modal: true, title: '修改用户分组' }).window('open');
+            } else {
+                $.messager.alert('提示', '请先选择用户后，再执行修改分组操作。');
+            }
+
+        }
+
+        function Movetoback() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            var idList = "";
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '您确认要将该会员放入黑名单么?', function (r) {
+                    if (r) {
+                        for (i = 0; i < selectedRows.length; i++) {
+                            idList += selectedRows[i].Id + ",";
+                        }
+                        $.ajax({
+                            type: "POST",
+                            url: "/MpUser/_MoveToBack",
+                            dataType: "json",
+                            data: "ids=" + idList,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    ReloadGrid();
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请先选择用户后，再执行移至黑名单操作。');
+            }
+        }
+
+        function GetUserFromApi() {
+            $.ajax({
+                type: "POST",
+                url: "/MpUser/_GetUserFromApi",
+                dataType: "json",
+                data: "",
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+
+        function SendMsg() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            var idList = "";
+            if (selectedRows.length > 0) {
+                for (i = 0; i < selectedRows.length; i++) {
+                    idList += selectedRows[i].OpenID + ",";
+                }                
+                $.ajax({
+                    type: "POST",
+                    url: "/MpUser/_SendMsg",
+                    dataType: "json",
+                    data: { openId: idList, content: $("#MessageContent").val() },
+                    success: function (msg) {
+                        if (msg.success) {
+                            $.messager.alert('提示', msg.message, "", function () {
+                                $('#dlg').window('close');
+                            });
+                        } else {
+                            $.messager.alert('提示', "发送失败，可能原因用户48小时内未互动");
+                        }
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择一个用户');
+            }
+
+        }
+
+        function UpdateInfo() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            var idList = "";
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '您确定要更新用户资料吗?', function (r) {
+                    if (r) {
+                        for (i = 0; i < selectedRows.length; i++) {
+                            idList += selectedRows[i].Id + ",";
+                        }
+                        $.ajax({
+                            type: "POST",
+                            url: "/MpUser/_UpdateUserInfo",
+                            dataType: "json",
+                            data: "ids=" + idList,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    ReloadGrid();
+                                } else {
+                                    ReloadGrid();
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请先选择用户后，再执行更新用户资料操作。');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload').datagrid("clearChecked");
+        }
+
+        function Search() {
+            var searchObject = {};
+
+            if ($("#NickName").val()) {
+                searchObject["NickName"] = $("#NickName").val();
+            }
+            if ($('#LoginName').val()) {
+                searchObject["LoginName"] = $("#LoginName").val();
+            }
+            if ($("#Qrcode").val()) {
+                searchObject["Qrcode"] = $("#Qrcode").val();
+            }
+            InitGrid(searchObject);
+        }
+    </script>
+}
+<div class="easyui-layout" fit="true">
+    <div data-options="region:'west',split:true" title="用户分组" style="width: 170px;">
+        <ul id="tt" class="easyui-tree" data-options="url:'/MpUser/_MpUserGroupJson',method:'post',animate:true">
+        </ul>
+    </div>
+    <div data-options="region:'center',title:'用户'">
+        <div id="gridtoolbar" style="padding: 5px; height: auto">
+            <div style="margin-bottom: 5px">
+                @Html.ActionLink("变更分组", null, null, new { onclick = "UpdateGroup()", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+                @Html.ActionLink("移至黑名单", null, null, new { onclick = "Movetoback()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+                @Html.ActionLink("同步微信用户", null, null, new { onclick = "GetUserFromApi();", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+                @Html.ActionLink("同步用户资料", null, null, new { onclick = "UpdateInfo();", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+                @Html.ActionLink("给用户发消息", null, null, new { onclick = "$('#dlg').dialog('open')", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+                <br /><input class="easyui-validatebox" style="width: 150px" id="NickName" placeholder="昵称" />
+                <input class="easyui-validatebox" style="width: 150px" id="Qrcode" placeholder="关注来源" />
+                <input class="easyui-validatebox" style="width: 150px" id="LoginName" placeholder="登陆名称" />
+                <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()">搜 索 </a></span>
+            </div>
+        </div>
+
+        <table id="grid">
+        </table>
+    </div>
+    <div id="w" class="easyui-window" title="用户管理" data-options="iconCls:'icon-save'"
+        style="width: 500px; height: 300px; padding: 5px;" modal="true">
+        <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+    </div>
+    <div id="dlg" class="easyui-dialog" title="发送消息" data-options="iconCls:'icon-save'" modal="true" style="width: 400px; height: 250px; padding: 10px">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; vertical-align: top;">消息内容:
+                </td>
+                <td>
+                    <textarea class="easyui-validatebox" data-options="required:true,validType:'length[2,500]'"
+                        name="MessageContent" id="MessageContent" style="width: 200px; height: 100px;"></textarea>
+                </td>
+            </tr>
+        </table>
+        <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+            <a class="easyui-linkbutton" onclick="SendMsg()" icon="icon-ok" href="javascript:void(0)">发送</a> <a class="easyui-linkbutton" onclick="$('#dlg').dialog('close');" href="javascript:void(0)" icon="icon-cancel">关闭</a>
+        </div>
+    </div>
+</div>

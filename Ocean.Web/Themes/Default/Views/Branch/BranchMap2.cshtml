@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+@model Ocean.Entity.Branch
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <meta content="initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <script type="text/javascript">
+        var targetAddressLongitude = "@(Model.Longitude)";
+        var targetAddressLatitude = "@(Model.Latitude)";
+        var name = "@(Model.Name)";
+        window.location.href = "http://api.map.baidu.com/marker?location=" + targetAddressLatitude + "," + targetAddressLongitude + "&title=" + name + "&content=&output=html&src=地图导航|石狮农商行"
+    </script>
+</head>
+<body>
+</body>
+</html>

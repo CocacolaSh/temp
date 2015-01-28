@@ -1,0 +1,166 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_PosLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"];
+}
+@model Pos
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#posRegister').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        window.location.href = "/pos/myposbindlist";//?id=" + data.message;
+                    } else {
+                        if (data.message == "-1") {
+                            window.location.href = "/pos/myposno";
+                        }
+                        else {
+                            $.messager.alert('操作失败', data.message, 'error', function () {
+                            });
+                        }
+                    }
+                }
+            });
+        });
+
+        function submitForm() {
+            if (!$.trim($("#VendorNO").val())) {
+                $.messager.alert('提示', '商户号不能为空');
+                return void (0);
+            }
+//            if (!$.trim($("#TerminalNO").val())) {
+//                $.messager.alert('提示', '终端号不能为空');
+//                return void (0);
+//            }
+            if (!$.trim($("#BankNO").val())) {
+                $.messager.alert('提示', '银行卡号不能为空');
+                return void (0);
+            }
+            $("#posRegister").submit();
+        }
+
+        var mobileCodeEnable = false;
+        var countdown;
+        var total = 120;
+        var count = total;
+        $.ajax({
+            type: 'post',
+            url: "GetMobileCodeSeconds",
+            async: true,
+            cache: false,
+            datatype: "json",
+            data: { operateType: 4 },
+            success: function (result) {
+                if (result.count > 0 && result.count < total) {
+                    mobileCodeEnable = false;
+                    count = result.count;
+                    countdown = setInterval(CountDown, 1000);
+                }
+                else {
+                    mobileCodeEnable = true;
+                }
+            }
+        });
+
+        function GetMobileCode() {
+            if (mobileCodeEnable) {
+                if (!$.trim($("#MobilePhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#MobilePhone").val())) {
+                    $.messager.alert('提示', '请正确的手机号码', "warning", function () { $("#MobilePhone").focus(); });
+                    return false;
+                }
+                mobileCodeEnable = false;
+                $.ajax({
+                    type: 'post',
+                    url: "GetMobileCode",
+                    async: true,
+                    cache: false,
+                    datatype: "json",
+                    data: { mobile: $('#MobilePhone').val(), OperateType: 4 },
+                    success: function (result) {
+                        if (result.success) {
+                            $("#MobileCodeBtn").html(count + "秒后重新发送");
+                            count = count - 1;
+                            countdown = setInterval(CountDown, 1000);
+                            if (result.message) {
+                                $("#Code").val(result.message);
+                            }
+                        } else {
+                            mobileCodeEnable = true;
+                            $.messager.alert('提示', result.message, "warning", function () { $("#MobilePhone").focus(); });
+                        }
+                    }
+                });
+            }
+            else {
+                $.messager.alert('提示', '请稍等，验证码已发送', "info");
+            }
+        }
+        function CountDown() {
+            $("#MobileCodeBtn").attr("disabled", true);
+            $("#MobileCodeBtn").html(count + "秒后重新发送");
+            if (count == 0) {
+                $("#MobileCodeBtn").html("发送验证码").removeAttr("disabled");
+                mobileCodeEnable = true;
+                clearInterval(countdown);
+                count = total;
+            }
+            count--;
+        }
+    </script>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">POS查询</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("MyPos", "Pos")" id="posRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                       
+                      <div class="bteBox" style="padding-top:10px;">
+                		 <span class="btebxo">
+                                 <p style="text-indent:24px;">尊敬的<span style="color:Red;float:none;">@(ViewBag.Name)</span>@(ViewBag.Sex)，一次只能查询一台POS，请您正确填写POS相关信息，提交后，可以查看更多！</p>
+                         </span>
+                	  </div>  
+                      
+                      <ul class="fnb_list">
+                             <li>
+                                <b>商 户 号：</b>
+                                <p style="margin: 11px 0 0 80px;"><input class="add" id="VendorNO" name="VendorNO" type="text" placeholder="商户号(必填)" autocomplete="on" /></p>
+                             </li>
+                             <li>
+                                <b>终 端 号：</b>
+                                <p style="margin: 11px 0 0 80px;"><input class="add" id="TerminalNO" name="TerminalNO" type="text" placeholder="终端号(必填)" autocomplete="on" /></p>
+                             </li>
+                             <li>
+                                <b>绑定银行卡号：</b>
+                                <p style="margin: 11px 0 0 80px;"><input class="add" id="BankNO" name="BankNO" type="text" placeholder="绑定银行卡号后8位(必填)" autocomplete="on" />@*<span style="color:Red;">卡号后八位</span>*@</p>
+                             </li>
+                            <li>
+                                <p><input class="txtinput" name="MobilePhone" id="MobilePhone" type="text" value="@WebHelper.GetString("MobilePhone")" placeholder="手机号" autocomplete="on" /></p>
+                                <em style="width:110px;"><a href="javascript:void(0);" id="MobileCodeBtn" onclick="GetMobileCode();">获取验证码</a></em>
+                                <span class="tel"></span>
+                             </li>
+                             <li>
+                                <p><input class="txtinput" name="Code" id="Code" type="text" value="@WebHelper.GetString("Code")" placeholder="验证码" autocomplete="on" /></p>
+                                <span class="yzm"></span>
+                             </li>
+                      </ul>
+                                                          
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="提交" onclick="submitForm();" id="posBtn" />
+                          <input type="button" class="modBtnColor coloryellow" value="我的POS" onclick="location.href='myposbindlist';" id="posBtn" />
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />*@
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

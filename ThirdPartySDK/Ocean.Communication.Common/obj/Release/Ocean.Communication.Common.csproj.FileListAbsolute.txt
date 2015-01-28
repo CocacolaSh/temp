@@ -1,0 +1,10 @@
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\bin\Release\Ocean.Communication.Common.dll
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\bin\Release\Ocean.Communication.Common.pdb
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\obj\Release\ResolveAssemblyReference.cache
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\obj\Release\Ocean.Communication.Common.dll
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\obj\Release\Ocean.Communication.Common.pdb
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\bin\Release\Ocean.Communication.Common.dll
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\bin\Release\Ocean.Communication.Common.pdb
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\obj\Release\ResolveAssemblyReference.cache
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\obj\Release\Ocean.Communication.Common.dll
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Common\obj\Release\Ocean.Communication.Common.pdb

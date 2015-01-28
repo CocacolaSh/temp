@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "../Shared/_FunongbaoLayout.cshtml";
+}
+@model FunongbaoApply
+<div id="mbMain">
+      
+      <div class="frameChang">
+          <span class="stitle">申请额度调整</span>
+      </div>
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+                  <div class="modBd">
+                      @*申请成功*@
+                      @if (ViewBag.ApplyStatus == 1)
+                      {
+                      <ul class="btts">
+                            <span>
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                         </span>
+                            <li>您<em>@(ViewBag.ApplyType == 1 ? "提升额度" : "降低费率")</em>的申请已经提交成功，我行工作人员将在5个工作日内与您联系，感谢您的支持。</li>
+                            <li>欢迎您于下个季度首月5-31号再次使用本服务，谢谢！</li>
+                      </ul>               
+                      <div class="btnLoginBox">
+                          @*<a class="goback modBtnColor coloryellow">返回</a>*@
+                      </div>
+                      }
+                      @*申请失败，超出单卡的最大限*@
+                      else if (ViewBag.ApplyStatus == 2)
+                      {
+                      <ul class="btts">
+                            <span>
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                            </span>
+                            <li>感谢您对我行的支持！</li>
+                            <li>因您上个季度的日均存款情况尚未达到@(ViewBag.ApplyType == 1 ? "提升额度" : "降低费率")的条件，所以<em>本季度暂不能@(ViewBag.ApplyType == 1 ? "提升额度" : "降低费率")</em>。</li>
+                            <li>欢迎您提高本季度的日均存款情况后，于下个季度首月5-31号再次使用本服务，谢谢！</li>
+                      </ul>                    
+                      <div class="btnLoginBox">
+                          @*<a class="goback modBtnColor coloryellow">返回</a>*@
+                      </div>
+
+                      }
+                  </div>
+          </section>
+      </div>
+</div>

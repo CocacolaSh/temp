@@ -1,0 +1,52 @@
+﻿@using Ocean.Entity.Enums;
+@using Ocean.Entity;
+@{
+    Layout = "../Shared/_BranchLayout.cshtml";
+}
+@model IList<BranchDTO>
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+    </script>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">周边网点查询</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="" id="" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      <div class="bteBox" style="padding-top:10px;">
+                		 <span class="btebxo">
+                             周边网点查询
+                         </span>
+                	  </div>
+                      @if (ViewBag.longitude != "0.00" && ViewBag.latitude != "0.00")
+                      {
+                      <ul class="fnb_list">
+                         @foreach (BranchDTO dtoBranch in Model)
+                         { 
+                             <li class="line">
+                                <a href="/Branch/BranchInfo?id=@(dtoBranch.Id)&longitude=@(ViewBag.longitude)&latitude=@(ViewBag.latitude)">@(dtoBranch.Name)(@dtoBranch.Distance.ToString("0.00")千米)</a>
+                                <br/>@(dtoBranch.Address)
+                             </li>
+                         } 
+                      </ul>
+                      }
+                      else
+                      {
+                           <ul class="btts">
+                            <li>
+                                首先切换到对话模式，看到输入框旁边那个“+”了没，选择“位置”后点击“发送”，即可查询周边网点信息。
+                            </li>
+                      </ul>     
+                      }
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "角色列表";
+}
+@model IList<PermissionModule>
+@section Head{
+    <style type="text/css">
+        label
+        {
+            display: -moz-inline-box;
+            display: inline-block;
+            width: 110px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "@(ViewBag.CurrentCheckedId)";
+        $(document).ready(function () {
+            $('#tt').tree({
+                onClick: function (node) {
+                    if (node.id != "00000000-0000-0000-0000-000000000000") {
+                        window.location.href = "/Permission/PermissionRoleList?permissionRoleId=" + node.id;
+                    }
+                }
+            });
+        });
+
+        function AddRole() {
+            window.Permission = "";
+            $(":checkbox", $("#permission-module-code-area")).each(function () {
+                if (this.checked) {
+                    window.Permission += $(this).val() + ",";
+                }
+            });
+            if (!$("#role-name").val()) {
+                $.messager.alert('提示', '请输入角色名称');
+                return void (0);
+            }
+            if (!window.Permission) {
+                $.messager.alert('提示', '请至少勾选一个权限');
+                return void (0);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Permission/_PermissionRoleEdit",
+                dataType: "json",
+                data: "name=" + $("#role-name").val() + "&permissions=" + window.Permission + "&currentCheckedId=" + currentCheckedId,
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+
+        function Delete() {
+            if (currentCheckedId) {
+                $.messager.confirm('提示', '确定要删除吗?', function (r) {
+                    if (r) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/Permission/_PermissionRoleDelete",
+                            dataType: "json",
+                            data: "id=" + currentCheckedId,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = "/Permission/PermissionRoleList";
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的角色');
+            }
+        }
+    </script>
+}
+<div class="easyui-layout" fit="true">
+    <div data-options="region:'north'" style="padding: 5px; height: 40px;">
+        @if ((bool)ViewData["Role_" + PermissionOperate.add])
+        { 
+            @Html.ActionLink("新增角色", null, null, new { onclick = "window.location.href = '/Permission/PermissionRoleList'", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @if ((bool)ViewData["Role_" + PermissionOperate.delete])
+        { 
+            @Html.ActionLink("删除角色", null, null, new { onclick = "Delete()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+    </div>
+    <div data-options="region:'west',split:true" title="角色名称" style="width: 180px;">
+        <ul id="tt" class="easyui-tree" data-options="url:'/Permission/_PermissionRoleList',method:'post',animate:true"
+            style="padding: 3px;">
+        </ul>
+    </div>
+    <div data-options="region:'center',title:'角色信息'">
+        <table class="tb" cellspacing="1" style="width: 100%; background-color: #FFFFFF;">
+            <tr>
+                <td width="80px" class="data-label">
+                    角色名称：
+                </td>
+                <td class="data-field">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[3,10]'" id="role-name"
+                            name="Name" value="@ViewBag.Name" />
+                </td>
+            </tr>
+            <tr>
+                <td width="80px" class="data-label" valign="top" style="padding-top: 10px;">
+                    权限设置：
+                </td>
+                <td class="data-field" valign="top" style="padding: 5px;" id="permission-module-code-area">
+                    @foreach (PermissionModule permissionModule in Model)
+                    {
+                        int i = 0;
+                        string moduel = string.Empty;
+                        <div style="height: 27px; line-height: 27px;">@Html.Raw(permissionModule.Name)</div>
+                        <div style="width: 80%; padding-left: 50px; padding-top: 7px;">
+                            @foreach (PermissionModuleCode permissionModuleCode in ViewBag.ListPermission)
+                            {
+                                if (moduel != permissionModuleCode.PermissionModule.Name)
+                                {
+                                    moduel = permissionModuleCode.PermissionModule.Name;
+                                    i = 0;
+                                }
+                                
+                                i++;
+                                
+                                if (permissionModuleCode.PermissionModuleId == permissionModule.Id)
+                                {
+                                    if (ViewBag.Permissions.ToLower().Contains(permissionModuleCode.Id.ToString().ToLower()))
+                                    { 
+                                <input type="checkbox" value="@permissionModuleCode.Id" checked="checked" /> <label>@permissionModuleCode.Name</label>
+                                        if (i % 5 == 0)
+                                        {
+                                <br /><br />
+                                        }
+                                    }
+                                    else
+                                    { 
+                                <input type="checkbox" value="@permissionModuleCode.Id" /> <label>@permissionModuleCode.Name</label>
+                                        if (i % 5 == 0)
+                                        {
+                                <br /><br />
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td class="data-buttons" colspan="2">
+                    <input type="button" value=" 提 交 " class="btn" onclick="AddRole();" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

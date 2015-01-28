@@ -1,0 +1,15 @@
+2014-12-29 17:09:16,429 [43] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-29 17:09:16,429 [43] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-29 17:10:11,865 [22] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-29 17:10:11,865 [22] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-30 01:10:34,769 [79] DEBUG OceanLog [(null)] - 执行任务！2014/12/30 1:10:34
+2014-12-30 01:10:34,769 [79] DEBUG OceanLog [(null)] - 执行任务！2014/12/30 1:10:34
+2014-12-30 01:10:35,571 [79] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141230ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141230ocean.bak' with INIT
+2014-12-30 01:10:35,571 [79] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141230ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141230ocean.bak' with INIT
+2014-12-30 08:58:52,519 [79] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-30 08:58:52,519 [79] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

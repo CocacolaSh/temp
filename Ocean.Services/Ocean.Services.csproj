@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{52CA3481-4A64-4D45-BE80-D4DDD36BF062}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ocean.Services</RootNamespace>
+    <AssemblyName>Ocean.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="baoxian\BaoXianService.cs" />
+    <Compile Include="baoxian\ComplainService.cs" />
+    <Compile Include="baoxian\DrivingLicenseService.cs" />
+    <Compile Include="baoxian\IBaoXianService.cs" />
+    <Compile Include="baoxian\IComplainService.cs" />
+    <Compile Include="baoxian\IDrivingLicenseService.cs" />
+    <Compile Include="baoxian\IVehicleLicenseService.cs" />
+    <Compile Include="baoxian\VehicleLicenseService.cs" />
+    <Compile Include="Catalog\ICategoryService.cs" />
+    <Compile Include="Catalog\CategoryService.cs" />
+    <Compile Include="Cms\IWidgetPlugin.cs" />
+    <Compile Include="Cms\IWidgetService.cs" />
+    <Compile Include="Cms\WidgetExtentions.cs" />
+    <Compile Include="Cms\WidgetService.cs" />
+    <Compile Include="Common\GenericAttributeExtentions.cs" />
+    <Compile Include="Common\IMobileDeviceHelper.cs" />
+    <Compile Include="Common\MobileDeviceHelper.cs" />
+    <Compile Include="Configurations\ConfigurationProvider.cs" />
+    <Compile Include="Configurations\ISettingService.cs" />
+    <Compile Include="Configurations\SettingService.cs" />
+    <Compile Include="Enum\EnumDataService.cs" />
+    <Compile Include="Enum\EnumTypeService.cs" />
+    <Compile Include="Enum\IEnumDataService.cs" />
+    <Compile Include="Enum\IEnumTypeService.cs" />
+    <Compile Include="Funongbaos\FunongbaoTask.cs" />
+    <Compile Include="Global\AreaService.cs" />
+    <Compile Include="Global\IAreaService.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="Catalog\IProductService.cs" />
+    <Compile Include="Catalog\ProductService.cs" />
+    <Compile Include="Kf\IKfMeetingMessageService.cs" />
+    <Compile Include="Kf\IKfMeetingService.cs" />
+    <Compile Include="Kf\IKfNumberService.cs" />
+    <Compile Include="Kf\KfMeetingMessageService.cs" />
+    <Compile Include="Kf\KfMeetingService.cs" />
+    <Compile Include="Kf\KfNumberService.cs" />
+    <Compile Include="Loans\ILoanAssignLoggerService.cs" />
+    <Compile Include="Loans\LoanAssignLoggerService.cs" />
+    <Compile Include="Loans\LoanTask.cs" />
+    <Compile Include="Permission\AdminLoggerService.cs" />
+    <Compile Include="Permission\AdminService.cs" />
+    <Compile Include="Permission\IAdminLoggerService.cs" />
+    <Compile Include="Permission\IAdminService.cs" />
+    <Compile Include="Permission\IPermissionModuleCodeService.cs" />
+    <Compile Include="Permission\IPermissionModuleService.cs" />
+    <Compile Include="Permission\IPermissionOrganizationService.cs" />
+    <Compile Include="Permission\IPermissionRoleService.cs" />
+    <Compile Include="Permission\PermissionModuleCodeService.cs" />
+    <Compile Include="Permission\PermissionModuleService.cs" />
+    <Compile Include="Permission\PermissionOrganizationService.cs" />
+    <Compile Include="Permission\PermissionRoleService.cs" />
+    <Compile Include="Plugins\IPluginSceneApllyCodeAllowerService.cs" />
+    <Compile Include="Plugins\IPluginSceneResultService.cs" />
+    <Compile Include="Plugins\IPluginSceneVerifyCodeDetailService.cs" />
+    <Compile Include="Plugins\IPluginUserAllowService.cs" />
+    <Compile Include="Plugins\PluginSceneApllyCodeAllowerService.cs" />
+    <Compile Include="Plugins\PluginSceneResultService.cs" />
+    <Compile Include="Plugins\PluginSceneVerifyCodeDetailService.cs" />
+    <Compile Include="Plugins\PluginUserAllowService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreSys\IScoreConsumeInfoService.cs" />
+    <Compile Include="ScoreSys\IScorePluginResultService.cs" />
+    <Compile Include="ScoreSys\IScoreStoreItemService.cs" />
+    <Compile Include="ScoreSys\IScoreTradeInfoService.cs" />
+    <Compile Include="ScoreSys\IScoreUserService.cs" />
+    <Compile Include="ScoreSys\ScoreConsumeInfoService.cs" />
+    <Compile Include="ScoreSys\ScorePluginResultService.cs" />
+    <Compile Include="ScoreSys\ScoreStoreItemService.cs" />
+    <Compile Include="ScoreSys\ScoreTradeInfoService.cs" />
+    <Compile Include="ScoreSys\ScoreUserService.cs" />
+    <Compile Include="ServiceBase.cs" />
+    <Compile Include="T4\ServiceCodeScript.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceCodeScript.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Loans\ILoanService.cs" />
+    <Compile Include="Loans\LoanService.cs" />
+    <Compile Include="Mp\IMpCenterService.cs" />
+    <Compile Include="Mp\MpCenterService.cs" />
+    <Compile Include="Funongbaos\FunongbaoService.cs" />
+    <Compile Include="Funongbaos\IFunongbaoService.cs" />
+    <Compile Include="Common\IMobileCodeService.cs" />
+    <Compile Include="Common\MobileCodeService.cs" />
+    <Compile Include="Funongbaos\FunongbaoApplyService.cs" />
+    <Compile Include="Funongbaos\IFunongbaoApplyService.cs" />
+    <Compile Include="Mp\IMpMaterialItemService.cs" />
+    <Compile Include="Mp\IMpMaterialService.cs" />
+    <Compile Include="Mp\MpMaterialItemService.cs" />
+    <Compile Include="Mp\MpMaterialService.cs" />
+    <Compile Include="Mp\IMpUserGroupService.cs" />
+    <Compile Include="Mp\MpUserGroupService.cs" />
+    <Compile Include="Mp\IMpUserService.cs" />
+    <Compile Include="Mp\MpUserService.cs" />
+    <Compile Include="Branchs\BranchService.cs" />
+    <Compile Include="Branchs\IBranchService.cs" />
+    <Compile Include="Configurations\ConfigurationService.cs" />
+    <Compile Include="Configurations\IConfigurationService.cs" />
+    <Compile Include="Mp\IMpDiyMenuService.cs" />
+    <Compile Include="Mp\IMpRelpyCategoryService.cs" />
+    <Compile Include="Mp\IMpReplyService.cs" />
+    <Compile Include="Mp\MpDiyMenuService.cs" />
+    <Compile Include="Mp\MpRelpyCategoryService.cs" />
+    <Compile Include="Mp\MpReplyService.cs" />
+    <Compile Include="Plugins\IPluginBaseService.cs" />
+    <Compile Include="Plugins\IPluginBaseStyleService.cs" />
+    <Compile Include="Plugins\IPluginResultService.cs" />
+    <Compile Include="Plugins\IPluginService.cs" />
+    <Compile Include="Plugins\IPluginUsedService.cs" />
+    <Compile Include="Plugins\PluginBaseService.cs" />
+    <Compile Include="Plugins\PluginBaseStyleService.cs" />
+    <Compile Include="Plugins\PluginResultService.cs" />
+    <Compile Include="Plugins\PluginService.cs" />
+    <Compile Include="Plugins\PluginUsedService.cs" />
+    <Compile Include="Mp\IMpQrSceneService.cs" />
+    <Compile Include="Mp\MpQrSceneService.cs" />
+    <Compile Include="Pos\IPosApplyService.cs" />
+    <Compile Include="Pos\IPosAuthService.cs" />
+    <Compile Include="Pos\IPosService.cs" />
+    <Compile Include="Pos\PosApplyService.cs" />
+    <Compile Include="Pos\PosAuthService.cs" />
+    <Compile Include="Pos\PosService.cs" />
+    <Compile Include="Tasks\BackUpDbTask.cs" />
+    <Compile Include="Tasks\IScheduleTaskService.cs" />
+    <Compile Include="Tasks\ITask.cs" />
+    <Compile Include="Tasks\ScheduleTaskService.cs" />
+    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="Tasks\TaskManager.cs" />
+    <Compile Include="Tasks\TaskThread.cs" />
+    <Compile Include="Vote\IVoteBaseService.cs" />
+    <Compile Include="Vote\IVoteInfoService.cs" />
+    <Compile Include="Vote\IVoteItemService.cs" />
+    <Compile Include="Vote\VoteBaseService.cs" />
+    <Compile Include="Vote\VoteInfoService.cs" />
+    <Compile Include="Vote\VoteItemService.cs" />
+    <Compile Include="XYPlugin\IXYPluginUserService.cs" />
+    <Compile Include="XYPlugin\XYPluginUserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ocean.Core\Ocean.Core.csproj">
+      <Project>{1059904B-5189-4313-BD88-9392CAEC3C90}</Project>
+      <Name>Ocean.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ocean.Data\Ocean.Data.csproj">
+      <Project>{B21C8CD3-E038-4615-BC4F-864BF3EDEEDE}</Project>
+      <Name>Ocean.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ocean.Entity\Ocean.Entity.csproj">
+      <Project>{47AC8705-1AE1-4817-8F0E-6884534DD1FC}</Project>
+      <Name>Ocean.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThirdPartySDK\Senparc.Weixin.MP\Senparc.Weixin.MP.csproj">
+      <Project>{1d815fbf-451c-4e23-939c-cb80172f445c}</Project>
+      <Name>Senparc.Weixin.MP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="T4\include\EntityIServiceTemplate.ttinclude" />
+    <None Include="T4\include\EntityServiceTemplate.ttinclude" />
+    <None Include="T4\ServiceCodeScript.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceCodeScript.cs</LastGenOutput>
+      <LastOutputs>
+.\ServiceCodeScript.cs
+.\Temp\IMpQrSceneService.cs
+.\Temp\MpQrSceneService.cs
+</LastOutputs>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="T4\Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="T4\ServiceCodeScript.tt.log">
+      <DependentUpon>ServiceCodeScript.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

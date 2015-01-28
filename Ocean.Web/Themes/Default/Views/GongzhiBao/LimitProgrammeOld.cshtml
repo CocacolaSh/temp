@@ -1,0 +1,92 @@
+﻿@{
+    Layout = "../Shared/_FunongbaoLayout.cshtml";
+
+    int month = DateTime.Now.Month;
+    DateRule dateRule = DateRuleList.DateRules.Where(d => d.Months.Where(m => m == month).Count() > 0).First();
+}
+@using Ocean.Entity.Enums.Funongbao;
+@model FunongbaoApply
+@section head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        function ApplyForm() {
+            if (!$("input[name='ApplyLimitRates']:checked").val()) {
+                $.messager.alert('提示', '请选择额度方案!');
+                return false;
+            }
+            return true; 
+        }
+    </script>
+}
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">申请额度调整</span>
+      </div>
+
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+              @if (Model != null && month == dateRule.ApplyMonth && DateTime.Now.Day >= DateRule.ApplyStartDay && (Model.ApplyDate == new DateTime(1900, 1, 1) || (Model.ApplyDate > new DateTime(1900, 1, 1) && (FunongbaoProcessStatus)Model.ProcessStatus == FunongbaoProcessStatus.NoProcess)) && ViewBag.LimitProgrammeList != null && Model.GroupApplyStatus == 0)
+              { 
+              <form action="Apply?c=@(WebHelper.GetString("c"))" id="mobileRegister" onsubmit="return ApplyForm();" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      <ul class="btts">
+                          <span>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好!</span>
+                          <li style="text-indent:0px;">您当前可选择的<em style="font-weight:normal;">总授信额度，费率</em>调整方案有：</li>
+                          <li class="line" style="margin-top:6px;">
+                            <span id="radiolist" class="option">
+                               @foreach (LimitProgrammeDTO limit in ViewBag.LimitProgrammeList)
+                               {
+                                   string _checked = "";
+                                   if (Model.ApplyLimit > 0.00M && Model.ApplyRates > 0.000M && Model.ApplyLimit == limit.ApplyLimit && Model.ApplyRates == limit.ApplyRates)
+                                   {
+                                        _checked=" checked=\"checked\"";
+                                   }
+                               <input name='ApplyLimitRates' type="radio"@_checked value='@limit.ApplyLimit,@limit.ApplyRates' /><label>@(limit.ApplyLimit)万元，@(limit.ApplyRates.ToString().ToDecimalString())‰</label><br />
+                               }
+                            </span>
+                          </li>
+                      </ul>
+                      <div class="bteBox">
+                		 <span class="btebxo">
+                            <p>温馨提示：一个季度内只能进行一次</p>
+                         </span>
+                	  </div>                     
+                      <div class="btnLoginBox">
+                          <input type="submit" class="modBtnColor coloryellow" value="提交" />
+                          @*<a class="goback modBtnColor coloryellow">返回</a>*@
+                      </div>
+                  </div>
+              </form> 
+              }
+              else
+              {
+
+                 if ((month == dateRule.ApplyMonth && DateTime.Now.Day < DateRule.ApplyStartDay) || month != dateRule.ApplyMonth)
+                {
+                    <div class="modBd">
+                       <ul class="btts" style="padding-left:0;margin:0 4px;">
+                        <span class="btebxo" style="padding-left:0">
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                         </span>
+                         <li>额度调整申请时间为：每季度首月5-31号，其他时段暂不提供额度调整服务。</li>@*@(DateRule.ApplyStartDay)-@(DateTime.DaysInMonth(DateTime.Now.Year, dateRule.ApplyMonth).ToString())*@
+                       </ul>
+                   </div>
+                }
+                else
+                {
+                   <div class="modBd">
+                      <ul class="btts" style="padding-left:0;margin:0 4px;">
+                        <span class="btebxo" style="padding-left:0">
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                         </span>
+                            <li>您本季度无法进行调额申请，欢迎您下个季度首月5-31号再次使用该服务。</li>
+                      </ul>
+                   </div>
+                }
+              }
+          </section>
+      </div>
+</div>

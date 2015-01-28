@@ -1,0 +1,193 @@
+﻿@{
+    Layout = "../Shared/_IdenAuthLayout.cshtml";
+}
+@model Funongbao
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+//        $(function () {
+//            $('#IdenAuthForm').form({
+//                success: function (data) {
+//                    data = eval("(" + data + ")");
+//                    if (data.success) {
+//                        $.messager.alert('操作成功', data.message, 'info', function () {
+//                            window.location.href = window.location.href;
+//                        });
+//                    } else {
+//                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+//                        });
+//                    }
+//                }
+//            });
+//        });
+        function idenAuthForm() {
+            if (!$.trim($("#Name").val())) {
+                $.messager.alert('提示', '请输入您的真实姓名', "warning", function () { $("#Name").focus(); });
+                return false;
+            }
+            if (!$.trim($("#PassportNO").val())) {
+                $.messager.alert('提示', '请输入正确的身份证号码', "warning", function () { $("#PassportNO").focus(); });
+                return false;
+            }
+            if (!$.trim($("#FunongbaoNO").val())) {
+                $.messager.alert('提示', '福农宝卡号', "warning", function () { $("#FunongbaoNO").focus(); });
+                return false;
+            }
+            if (!$.trim($("#MobilePhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#MobilePhone").val())) {
+                $.messager.alert('提示', '请正确的手机号码', "warning", function () { $("#MobilePhone").focus(); });
+                return false;
+            }
+            if (!$.trim($("#Code").val())) {
+                $.messager.alert('提示', '请输入验证码', "warning", function () { $("#Code").focus(); });
+                return  false;
+            }
+            if (!$("#IsSignAgreement").prop("checked")) {
+                $.messager.alert('提示', '请勾选微信服务平台持卡验证协议', "warning", function () { $("#IsSignAgreement").focus(); });
+                return false;
+            }
+            return true;
+        }
+        var mobileCodeEnable = false;
+        var countdown;
+        var total = 120;
+        var count = total;
+        $.ajax({
+            type: 'post',
+            url: "GetMobileCodeSeconds",
+            async: true,
+            cache: false,
+            datatype: "json",
+            data: { operateType: 1 },
+            success: function (result) {
+                if (result.count > 0 && result.count < total)
+                {
+                    mobileCodeEnable=false;
+                    count=result.count;
+                    countdown = setInterval(CountDown, 1000); 
+                }
+                else
+                {
+                    mobileCodeEnable=true;
+                }
+            }
+        });
+        function GetMobileCode()
+        {
+            if(mobileCodeEnable)
+            {
+                if (!$.trim($("#MobilePhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#MobilePhone").val())) {
+                    $.messager.alert('提示', '请正确的手机号码', "warning", function () { $("#MobilePhone").focus(); });
+                    return false;
+                }
+                mobileCodeEnable=false;
+                $.ajax({
+                    type: 'post',
+                    url: "GetMobileCode",
+                    async: true,
+                    cache: false,
+                    datatype: "json",
+                    data: { mobile: $('#MobilePhone').val(), OperateType: 1 },
+                    success: function (result) {
+                        if (result.success) {
+                            $("#MobileCodeBtn").html(count + "秒后重新发送");
+                            count = count - 1;
+                            countdown = setInterval(CountDown, 1000);
+                            $("#Code").val(result.message);
+                        }
+                        else {
+                            mobileCodeEnable = true;
+                            $.messager.alert('提示', result.message, "warning");
+                        }
+                    }
+                });
+            }
+            else
+            {
+                $.messager.alert('提示', '请稍等，验证码已发送', "info");
+            }
+        }
+        function CountDown() { 
+            $("#MobileCodeBtn").attr("disabled", true); 
+            $("#MobileCodeBtn").html(count + "秒后重新发送"); 
+            if (count == 0) { 
+                $("#MobileCodeBtn").html("发送验证码").removeAttr("disabled");
+                mobileCodeEnable = true;
+                clearInterval(countdown);
+                count = total;
+            } 
+            count--; 
+        }
+    </script>
+    <script type="text/javascript" id="messager">
+        @if(!string.IsNullOrEmpty(ViewBag.CodeError))
+        {
+            @:$(function(){
+            @:$.messager.alert('提示', '@(ViewBag.CodeError)', "warning", function () { $("#MobileCodeBtn").focus();$("#messager").remove(); });
+            @:});
+        }
+    </script>
+}
+@if (ViewBag.AuthStatus>0)
+{
+@Html.Partial("AuthMessage");
+}
+<div id="mbMain" style="@(ViewBag.AuthStatus > 0?"display:none;":"")">
+      <div class="frameChang">
+          <span class="stitle">身份验证</span>
+      </div>
+
+      <div id="IdenAuthForm" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+              <form action="" onsubmit="return idenAuthForm();" id="mobileRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <input type="hidden" name="refUrl" id="refUrl" value="@WebHelper.GetString("refUrl")">
+                  <div class="modBd">
+                      <div class="bteBox" style="padding-top:10px;">
+                        @if (!string.IsNullOrEmpty(WebHelper.GetString("refUrl")) && WebHelper.GetString("refUrl").ToLower().IndexOf("apply") > 0)
+                        {
+                            <span class="btebxo">尊敬的客户，首次使用福农宝服务需要验证您的身份，请您根据提示如实填写。您可在每个自然季度首月5-31号申请额度、费率调整，其他时段，不能申请。</span>
+                        }
+                        else
+                        {
+                		    <span class="btebxo">尊敬的客户，首次使用福农宝服务需要验证您的身份，请您根据提示如实填写，即可查询当前福农宝的额度、费率。</span>
+                        }
+                	  </div>
+                      <ul class="fnb_list">
+                         <li>
+                            <p><input class="txtinput" name="Name" id="Name" type="text" value="@(Model.Name??"")" placeholder="真实姓名" /></p>
+                            <span class="user-icon"></span>
+                         </li>
+                         <li>
+                            <p><input class="txtinput" style="width:130px;" maxlength="8" name="PassportNO" id="PassportNO" type="text" value="@(Model.PassportNO??"")" placeholder="证件号码后八位" /><span style="color:Red;">证件号码后八位</span></p>
+                            <span class="sfz"></span>
+                         </li>
+                         <li>
+                            <p><input class="txtinput" name="FunongbaoNO" id="FunongbaoNO" style="width:130px;" maxlength="8" type="text" value="@(Model.FunongbaoNO??"")" placeholder="福农宝卡号后八位" /><span style="color:Red;">福农宝卡号后八位</span></p>
+                            <span class="ka"></span>
+                         </li>
+                         <li>
+                            <p><input class="txtinput" name="MobilePhone" id="MobilePhone" type="text" value="@(Model.MobilePhone??"")" placeholder="手机号" /></p>
+                            <em style="width:110px;"><a href="javascript:void(0);" id="MobileCodeBtn" onclick="GetMobileCode();">发送验证码</a></em>
+                            <span class="tel"></span>
+                         </li>
+                         <li>
+                            <p><input class="txtinput" name="Code" id="Code" type="text" placeholder="验证码" /></p>
+                            <span class="yzm"></span>
+                         </li>
+                      </ul>
+                      <div class="btnLoginBox">
+                          <input type="submit" class="modBtnColor coloryellow" value="提交"><br /><br />
+                            <span id="chklist" class="option">
+                                <input name='IsSignAgreement' id="IsSignAgreement" type="checkbox" value='1' /><label>我已阅读并同意 </label><a href="AgreementDoc" style="color:Blue;" onclick="">微信服务平台持卡验证协议</a>
+                            </span>
+                          @*<input type="reset" class="modBtnColor coloryellow" value="取消">*@
+                      </div>
+                  </div>
+              </form> 
+          </section>
+      </div>
+</div>
+

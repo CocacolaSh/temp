@@ -1,0 +1,168 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_GongzhibaoLayout.cshtml";
+}
+@model Ocean.Entity.Loan
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#loanRegister').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            window.location.href = "/bankloan/GongzhiBaoMessage";
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+
+        function submitForm() {
+            if (!$.trim($("#Company").val())) {
+                $.messager.alert('提示', '工作单位不能为空');
+                return void (0);
+            }
+            if (!$.trim($("#Position").val())) {
+                $.messager.alert('提示', '工作岗位不能为空');
+                return void (0);
+            }
+            if (!$("input[name='LoanCompanyId']:checked").val()) {
+                $.messager.alert('提示', '请选择企业类型');
+                return void (0);
+            }
+            if (!$("input[name='LoanFormalId']:checked").val()) {
+                $.messager.alert('提示', '请选择编制类型');
+                return void (0);
+            }
+            if ($("input[name='LoanFormalId']:checked").val() == '2') {
+                $.messager.alert('提示', '尊敬的' + $("#ClientName").html() + ' 您好，您暂不符合我行公职宝业务的申请条件，建议您关注我行其他类型的授信产品，感谢您的参与！');
+                return void (0);
+            }
+            if (!$("input[name='LoanAssetHourseId']:checked").val()) {
+                $.messager.alert('提示', '请选择房产类型');
+                return void (0);
+            }
+            if (!$.trim($("#Address").val())) {
+                $.messager.alert('提示', '联系方式不能为空');
+                return void (0);
+            }
+            $("#loanRegister").submit();
+        }
+    </script>
+    
+    <style type="text/css">
+        .hRadio {padding-left: 22px;}
+    </style>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">公职宝申请</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("_GongzhiBaoEdit", "BankLoan")" id="loanRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <input type="hidden" name="Id" value="@(Model.Id)" />
+                  <div class="modBd">
+                      <div class="bteBox" style="padding-top:10px;">
+                		 <span class="btebxo">
+                            <p>尊敬的<span style="color:Red;float:none;">@(ViewBag.Name)</span>客户，欢迎您使用公职宝申请服务，提交申请后，我行将于五个工作日内与您联系！首次申请后，您可于一个月后再次使用该服务。</p>
+                         </span>
+                	  </div>     
+                      <ul class="fnb_list">
+                         <span id="chklist" class="option" style = "display:none;">
+                            <input name='LoanCategoryId' type="radio" value='4' checked='checked' /><label>公职宝</label><br />
+                         </span>
+
+                         <li class="line">
+                            <b>工作单位：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="add" id ="Company" name="Company" type="text" placeholder="必填" autocomplete="on" value="@(Model.Company)"/></p>
+                         </li>
+                         <li class="line">
+                            <b>您的职务：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="add" id = "Position" name="Position" type="text" placeholder="必填" autocomplete="on" value="@(Model.Position)"/></p>
+                         </li>
+                         <li class="line">
+                            <b>单位类型：</b>
+                            <span id="radiolist1" class="option">
+                               @foreach (EnumData item in ViewBag.ListCompanyType)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListCompanyType.Count)
+                                   { 
+                                        <input name='LoanCompanyId' type="radio" value='@(item.Value)' value='@(item.Value)' @Html.Raw(item.Value == Model.LoanCategoryId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.LoanCompanyId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label>
+                                        index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='LoanCompanyId' type="radio" value='@(item.Value)' value='@(item.Value)' @Html.Raw(item.Value == Model.LoanCategoryId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.LoanCompanyId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>是否编制：</b>
+                            <span id="radiolist2" class="option">
+                               @foreach (EnumData item in ViewBag.ListFormalType)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListFormalType.Count)
+                                   { 
+                                        <input name='LoanFormalId' type="radio" value='@(item.Value)' value='@(item.Value)' @Html.Raw(item.Value == Model.LoanFormalId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.LoanFormalId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label>
+                                                                                                                                                         index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='LoanFormalId' type="radio" value='@(item.Value)' value='@(item.Value)' @Html.Raw(item.Value == Model.LoanFormalId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.LoanFormalId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>房产产权：</b>
+                            <span id="radiolist3" class="option">
+                               @foreach (EnumData item in ViewBag.ListAssetHourse)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListAssetHourse.Count)
+                                   { 
+                                        <input name='LoanAssetHourseId' type="radio" value='@(item.Value)' value='@(item.Value)' @Html.Raw(item.Value == Model.LoanAssetHourseId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.LoanAssetHourseId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label>
+                                                                                                                                                              index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='LoanAssetHourseId' type="radio" value='@(item.Value)' value='@(item.Value)' @Html.Raw(item.Value == Model.LoanAssetHourseId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.LoanAssetHourseId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>联系地址：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="add" id = "Address" name="Address" type="text" placeholder="必填" autocomplete="on" value="@(Model.Address)" /></p>
+                         </li> 
+                      </ul>
+                                                          
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="提交" onclick="submitForm();" />
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />*@
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

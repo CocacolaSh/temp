@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "管理员编辑";
+}
+@model Ocean.Entity.MpUserGroup
+@section Head{
+    <style type="text/css">
+        td {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="MpUserGroup-add" action="/MpUser/_MpUserGroupEdit" method="post">
+            <input type="hidden" name="Id" value="@(Model == null ? "" : Model.Id.ToString())" />
+            <table style="width: 100%;">
+                <tr>
+                    <td style="text-align: right;">分组名称：
+                    </td>
+                    <td style="width: 80%;">
+                        @if (Model == null)
+                        {
+                            <input class="easyui-validatebox" data-options="required:true,validType:'length[1,30]'"
+                                name="Name" />
+                        }
+                        else
+                        {
+                            <input class="easyui-validatebox" data-options="required:true,validType:'length[1,30]'" name="Name" value="@(Model.Name)"/>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">排序：
+                    </td>
+                    <td style="width: 80%;">
+                        @if (Model == null)
+                        {
+                            <input class="easyui-validatebox" data-options="required:true,validType:'length[1,30]'"
+                                name="OrderIndex" />
+                        }
+                        else
+                        {
+                            <input class="easyui-validatebox" data-options="required:true,validType:'length[1,30]'" name="OrderIndex" value="@(Model.OrderIndex)"  />
+                        }
+                    </td>
+                </tr>
+                
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" class="btn" value=" 提 交 " />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#MpUserGroup-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#MpUserGroup-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

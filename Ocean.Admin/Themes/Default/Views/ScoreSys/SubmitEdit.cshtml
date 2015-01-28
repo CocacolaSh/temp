@@ -1,0 +1,122 @@
+﻿@{
+    Layout = "../plugins/shared/_SubmitLayout.cshtml";
+}
+
+@using Ocean.Entity
+@{
+    //Guid pluginId = string.IsNullOrWhiteSpace(ViewBag.pluginId) ? Guid.Empty : (ViewBag.pluginId);
+    Guid pluginId = Guid.Empty;
+    ViewBag.Title = "奖品发放记录列表";
+}
+
+
+@section head
+ {
+<style type="text/css">
+ .contenSet table tr td{padding:5px;}
+ .js_list tr td{padding:5px;}
+ .prizechecked{background:#ccc;}
+ .tc_box {float: left;width:550px;background: rgba(0,0,0,.8);position: absolute;z-index: 99999;border: 1px solid #000;border-radius: 5px;color: #fff;padding: 10px;}
+ .tc_box dl {padding: 0px; padding-top: 16px; margin:0px;}
+ .tc_box dd {padding: 0px; margin:0px;float:left; width:100%; line-height: 30px; border-bottom: 1px dashed #666;}
+ .tc_box em {position: absolute; right: 10px; top: 10px; width: 16px; height: 16px; text-indent: -99999px; background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 0; background-size: 16px auto; cursor: pointer; display: block;}
+ .tc_box em:hover {background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 -32px; background-size: 16px auto;}
+ .tc_box dd span {float: left; width: 45%; overflow:hidden;}
+ .tc_box dd .qd_btn, .tc_box dd .pd_btn {width: 80px; color: #fff; padding: 0 15px; text-align: center; font-size: 14px; margin: auto; margin-top: 10px; border-radius: 5px; font-weight: bold;background: -moz-linear-gradient(top,#f3cd4f,#e79217); background: -webkit-gradient(linear,left top,left bottom,from(#f3cd4f),to(#e79217)); display:block;}
+ .page-num,.pageNavigator a{color:#fff;}
+ .submit_list table tr td{padding:6px 0px;}
+</style>
+
+<script type="text/javascript" src="@Url.Content("~/Content/xheditor/xheditor-1.2.1.min.js")"></script>
+<script type="text/javascript">
+    var pluginId = "@(pluginId)";
+    $(document).ready(function () {
+        resultGrid({ "pluginId": pluginId, "skey": Math.random() });
+    });
+
+    function sendGift(pluginId, id, page) {
+        alert(pluginId + ":"+id+":"+page);
+        $.ajax({
+            type: 'post',
+            url: "/ScoreSys/ResultEdit",
+            cache: false,
+            //datatype: "json",
+            data: { IsUse: 1, pluginid: pluginId, Id: id, page: page },
+            success: function (result) {
+                if (result.message) {
+                    alert(已发放);
+                    $("#resultList").html(result.message);
+                }
+                else {
+                    $("#resultList").html(result);
+                    $("#resultList").attr("isLoad", "1");
+                }
+            }
+        });
+    }
+    function resultGrid(queryData) {
+        $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/ScoreSys/ResultList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: false,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                pageSize: '20',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { title: '奖项', field: 'Summary', width: 100, hidden: false ,formatter:function(value){
+                        return value.split('得')[1];
+                     }},
+                     { title: '名称', field: 'Name', width: 100, hidden: false },
+                     { title: '联系方式', field: 'MobilePhone', width: 100, hidden: false ,formatter:function(value){
+                        if(value)
+                        {
+                            return value;
+                        }
+                        else{
+                            return "暂未提交";
+                        }
+                     }},
+                     { title: '奖品状态', field: 'IsUse', width: 100, hidden: false, formatter: function (value, row) {
+                        if(value==0)
+                        {
+                            return '<a class="in_edit" href="javascript:void(0);" style="color:Blue;" onclick="sendGift(\''+row.PluginId+'\',\''+row.Id+'\',\''+'@WebHelper.GetInt("page",1)\')">发放</a>';
+//                            return '<a class="in_edit" href="javascript:void(0);" style="color:Blue;" onclick="alert(\'asdfsadf\')">发放</a>';
+                        }
+                        else{
+                            return '<a class="in_edit">已发放</a>'
+                        }
+                     }}
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+    }
+</script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+   
+    <div style="margin-bottom: 5px">
+        @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').datagrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 5px;">
+        时间段:
+        <input class="easyui-datebox" style="width: 100px" id="startDate" />
+        ~
+        <input class="easyui-datebox" style="width: 100px" id="endDate" />
+        聊天内容：
+        <input class="easyui-validatebox" style="width: 250px" id="messageContent" />
+        <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()"> 搜 索 </a></span>
+    </div>
+</div>
+<div id="grid">
+</div>

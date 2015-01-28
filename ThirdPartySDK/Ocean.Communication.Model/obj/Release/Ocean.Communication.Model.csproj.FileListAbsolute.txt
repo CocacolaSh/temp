@@ -1,0 +1,14 @@
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\bin\Release\Ocean.Communication.Model.dll
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\bin\Release\Ocean.Communication.Model.pdb
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\bin\Release\Ocean.Communication.Common.dll
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\bin\Release\Ocean.Communication.Common.pdb
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\obj\Release\ResolveAssemblyReference.cache
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\obj\Release\Ocean.Communication.Model.dll
+E:\微信\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\obj\Release\Ocean.Communication.Model.pdb
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\bin\Release\Ocean.Communication.Model.dll
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\bin\Release\Ocean.Communication.Model.pdb
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\bin\Release\Ocean.Communication.Common.dll
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\bin\Release\Ocean.Communication.Common.pdb
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\obj\Release\ResolveAssemblyReference.cache
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\obj\Release\Ocean.Communication.Model.dll
+G:\Dev\weixin\ocean7.18\ThirdPartySDK\Ocean.Communication.Model\obj\Release\Ocean.Communication.Model.pdb

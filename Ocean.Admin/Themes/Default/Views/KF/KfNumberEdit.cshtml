@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "客服工号编辑";
+}
+@model Ocean.Entity.KfNumber
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="kfNumber-add" action="/KF/_KfNumberEdit" method="post">
+        <input type="hidden" name="KfNumberId" value="@(Model == null ? "" : Model.Id.ToString())" />
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    工号：
+                </td>
+                <td style="width: 80%;">
+                    @if (Model == null)
+                    {
+                        <input class="easyui-validatebox" data-options="required:true,validType:'length[4,10]'"
+                            name="Number" />
+                    }
+                    else
+                    {
+                        <input class="easyui-validatebox" data-options="required:true,validType:'length[4,10]'" name="Number" value="@(Model.Number)" />
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    客服昵称：
+                </td>
+                <td style="width: 80%;">
+                    @if (Model == null)
+                    {
+                        <input class="easyui-validatebox" data-options="required:true,validType:'length[2,10]'"
+                            name="NickName" />
+                    }
+                    else
+                    {
+                        <input class="easyui-validatebox" data-options="required:true,validType:'length[2,10]'" name="NickName" value="@(Model.NickName)" />
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    分配管理员：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-combotree" data-options="
+                            url: '/Permission/_AdminListJson',
+                            method: 'post',
+                            equired:true
+                        " name="AdminId" value="@(Model == null ? Guid.Empty.ToString() : Model.AdminId.ToString())" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" class="btn" value=" 提 交 " />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#kfNumber-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#kfNumber-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

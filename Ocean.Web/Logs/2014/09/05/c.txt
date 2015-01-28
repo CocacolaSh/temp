@@ -1,0 +1,9 @@
+2014-09-05 17:15:24,109 [4] ERROR OceanLog [(null)] - The provider did not return a ProviderManifestToken string.
+2014-09-05 17:15:24,109 [4] ERROR OceanLog [(null)] - The provider did not return a ProviderManifestToken string.
+2014-09-05 17:17:42,703 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-05 17:17:42,703 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-05 17:18:30,218 [4] ERROR OceanLog [(null)] - The provider did not return a ProviderManifestToken string.
+2014-09-05 17:18:30,218 [4] ERROR OceanLog [(null)] - The provider did not return a ProviderManifestToken string.
+2014-09-05 17:53:27,437 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-05 17:53:27,437 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Oceanby Ocean

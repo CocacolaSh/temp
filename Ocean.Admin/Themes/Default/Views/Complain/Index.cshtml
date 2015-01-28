@@ -1,0 +1,272 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "投诉列表";
+}
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid();
+            $('#w').window('close');
+            $('#dlg1').dialog('close');
+            $('#dlg2').dialog('close');
+            $('#dlg3').dialog('close');
+            $('#dlg4').dialog('close');
+
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/Complain/_ComplainList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { title: '投诉日期', field: 'CreateDate', width: 100,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     },
+                     { title: '被投诉人', field: 'Name', width: 120 },
+                     { title: '被投诉手机', field: 'Phone', width: 120 },
+                     { title: '投诉人', field: 'ContactName', width: 100 },
+                     { title: '投诉人手机', field: 'ContactPhone', width: 80 },
+                     { title: '投诉内容', field: 'ComplainContent', width: 180 },
+                     { title: '处理状态', field: 'ProcessStatus', width: 60,
+                         formatter: function (value, row, index) {
+                             if (value == 0) {
+                                 return "未处理";
+                             } else if (value == 1) {
+                                 return "满意";
+                             } else if (value == 2) {
+                                 return "一般";
+                             } else if (value == 3) {
+                                 return "不满意";
+                             }
+                             else {
+                                 return value;
+                             }
+                         }
+                     },
+                     { title: '处理日期', field: 'ProcessDate', width: 120,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     },
+                     { title: '处理结果', field: 'ProcessResult', width: 180}
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/Complain/ComplainView?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要查看的数据');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+
+
+        function Accept() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].Status == 1) {
+                    $.messager.alert('提示', '当前数据已被撤销,不能继续操作！');
+                    return void (0);
+                }
+                if (selectedRows[0].ProcessStatus != 0 && selectedRows[0].ProcessStatus != 3) {
+                    $.messager.alert('提示', '当前数据已被受理,不能继续操作！');
+                    return void (0);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/Complain/_GetComplainDetail",
+                    dataType: "json",
+                    data: "id=" + currentCheckedId,
+                    success: function (data) {
+                        $("#ProcessDate").datebox("setValue", formatDate2(data.ProcessDate));  
+                        $('#ProcessStatus').combobox('setValue',data.ProcessStatus);
+                        $("#ProcessResult").val(data.ProcessResult)
+                    }
+                });
+                $('#dlg2').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要受理的数据');
+            }
+        }
+
+        function formatDate2(date){
+            if(date.indexOf("T")){
+               return date.substring(0,date.indexOf("T"));
+            }else{
+               return date;
+            }
+        }
+
+        function AcceptEdit() {
+            if (!$("input[name = 'ProcessDate']").val()) {
+                $.messager.alert('提示', '受理日期不能为空!');
+                return void (0);
+            }
+            if (!$("#ProcessResult").val()) {
+                $.messager.alert('提示', '受理结果不能为空');
+                return void (0);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Complain/_AcceptEdit",
+                dataType: "json",
+                data: "id=" + currentCheckedId + "&ProcessDate=" + $("input[name = 'ProcessDate']").val() + "&ProcessStatus=" + $("#ProcessStatus").combobox("getValue") + "&ProcessResult=" + $("#ProcessResult").val(),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+
+  
+
+        function Search() {
+            var searchObject = {};
+                
+            if ($("#ContactName").val()) {
+                searchObject["ContactName"] = $("#ContactName").val();
+            }
+            if ($("#ContactPhone").val()) {
+                searchObject["ContactPhone"] = $("#ContactPhone").val();
+            }
+            if ($("#startDate").datebox("getValue")) {
+                searchObject["StartDate"] = $("#startDate").datebox("getValue");
+            }
+            if ($("#endDate").datebox("getValue")) {
+                searchObject["EndDate"] = $("#endDate").datebox("getValue");
+            }
+            if ($("#Name").val()) {
+                searchObject["Name"] = $("#Name").val();
+            }
+            if ($("#Phone").val()) {
+                searchObject["Phone"] = $("#Phone").val();
+            }
+            $('#grid').datagrid("options").pageNumber = 1;
+            InitGrid(searchObject);
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @if ((bool)ViewData["Complain_" + PermissionOperate.view])
+        {
+            @Html.ActionLink("查看", null, null, new { onclick = "ShowEditOrViewDialog('view')", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        
+        @if ((bool)ViewData["Complain_" + PermissionOperate.visit])
+        { 
+        @Html.ActionLink("处理结果登记", null, null, new { onclick = "ReturnVisit()", data_options = "iconCls:'icon-pencil_go', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 10px;">
+        投诉人：
+        <input class="easyui-validatebox" style="width: 100px" id="ContactName" />
+        投诉人电话：
+        <input class="easyui-validatebox" style="width: 100px" id="ContactPhone" />
+        投诉时间:
+        <input class="easyui-datebox" style="width: 100px" id="startDate" />
+        ~
+        <input class="easyui-datebox" style="width: 100px" id="endDate" />
+        被投诉人：
+        <input class="easyui-validatebox" style="width: 100px" id="Name" />
+        被投诉人电话：
+        <input class="easyui-validatebox" style="width: 100px" id="Phone" />
+        @if ((bool)ViewData["Complain_" + PermissionOperate.search])
+        { 
+            <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search"
+                onclick="Search()">搜 索 </a></span>
+        }
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="投诉详情" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 400px; padding: 5px;" modal="true">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>
+<div id="dlg2" class="easyui-dialog" title="处理情况登记" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 250px; padding: 10px">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                处理日期:
+            </td>
+            <td style="width: 70%;">
+                <input class="easyui-datebox" name="ProcessDate" id="ProcessDate" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                处理状态:
+            </td>
+            <td style="width: 70%;">
+                <select class="easyui-combobox" style="width: 70px;" name="ProcessStatus"
+                    id="ProcessStatus">
+                    <option value="0">未处理</option>
+                    <option value="1">满意</option>
+                    <option value="2">一般</option>
+                    <option value="3">不满意</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right; vertical-align: top;">
+                处理结果:
+            </td>
+            <td>
+                <textarea class="easyui-validatebox" data-options="required:true,validType:'length[2,500]'"
+                    name="ProcessResult" id="ProcessResult" style="width: 200px; height: 100px;"></textarea>
+            </td>
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="AcceptEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg2').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+</div>

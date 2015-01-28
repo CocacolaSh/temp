@@ -1,0 +1,124 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "客服会话聊天记录列表";
+    Guid kfMeetingId = string.IsNullOrWhiteSpace(ViewBag.KfMeetingId) ? Guid.Empty : new Guid(ViewBag.KfMeetingId);
+    Guid mpUserId = string.IsNullOrWhiteSpace(ViewBag.MpUserId) ? Guid.Empty : new Guid(ViewBag.MpUserId);
+}
+@section Head{
+    <script type="text/javascript">
+        var kfMeetingId = "@(kfMeetingId)";
+        var mpUserId = "@(mpUserId)";
+        $(document).ready(function () {
+            InitGrid({ "KfMeetingId": kfMeetingId, "MpUserId": mpUserId });
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/KF/_KfMeetingMessageList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: false,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                pageSize: '20',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { field: 'ck', checkbox: true }, //选择
+//                     { title: '会话Id', field: 'KfMeetingId', width: 100 },
+                     { title: '发送方', field: 'SendNickName', width: 80 },
+                     { title: '接收方', field: 'ReceiveNickName', width: 80 },
+                     { title: '聊天内容', field: 'MessageContent', width: 450 },
+                     { title: '聊天时间', field: 'CreateDate', width: 150,
+                         formatter: function (value) {
+                             return formatDateTime(value);
+                         }
+                     }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function Delete() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var idList = "";
+                $.messager.confirm('提示', '确定要删除吗?', function (r) {
+                    if (r) {
+                        for (i = 0; i < selectedRows.length; i++) {
+                            idList += selectedRows[i].Id + ",";
+                        }
+                        $.ajax({
+                            type: "POST",
+                            url: "/KF/_KfMeetingMessageDelete",
+                            dataType: "json",
+                            data: "idList=" + idList,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的数据');
+            }
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+        function Search() {
+            var searchObject = {};
+            if ($("#startDate").datebox("getValue")) {
+                searchObject["StartDate"] = $("#startDate").datebox("getValue");
+            }
+            if ($("#endDate").datebox("getValue")) {
+                searchObject["EndDate"] = $("#endDate").datebox("getValue");
+            }
+            if ($("#messageContent").val()) {
+                searchObject["MessageContent"] = $("#messageContent").val();
+            }
+            searchObject["KfMeetingId"] = kfMeetingId;
+            searchObject["MpUserId"] = mpUserId;
+            InitGrid(searchObject);
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+   @if (kfMeetingId == Guid.Empty && mpUserId == Guid.Empty)
+   {
+        <div style="margin-bottom: 5px">
+            @if ((bool)ViewData["KfMeetingMessage_" + PermissionOperate.delete])
+            { 
+                @Html.ActionLink("删除", null, null, new { onclick = "Delete()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+            }
+            @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').datagrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        </div>
+   }
+    <div style="margin-bottom: 5px; padding-left: 5px;">
+        时间段:
+        <input class="easyui-datebox" style="width: 100px" id="startDate" />
+        ~
+        <input class="easyui-datebox" style="width: 100px" id="endDate" />
+        聊天内容：
+        <input class="easyui-validatebox" style="width: 250px" id="messageContent" />
+        <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()"> 搜 索 </a></span>
+    </div>
+</div>
+<div id="grid">
+</div>

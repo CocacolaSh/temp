@@ -1,0 +1,41 @@
+2014-12-24 09:40:51,820 [11] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-24 09:40:51,820 [11] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-24 09:40:52,043 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-24 09:40:52,043 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-24 09:41:20,430 [5] DEBUG OceanLog [(null)] - PluginsLotteryResult:Object reference not set to an instance of an object.
+2014-12-24 09:41:20,430 [5] DEBUG OceanLog [(null)] - PluginsLotteryResult:Object reference not set to an instance of an object.
+2014-12-24 09:41:20,444 [5] DEBUG Object reference not set to an instance of an object.===detail===> [(null)] - System.NullReferenceException: Object reference not set to an instance of an object.
+   at Ocean.Web.Controllers.XYPluginsController.PluginsLotteryResult(Guid Id) in G:\Dev\weixin\ocean7.18\Ocean.Web\Controllers\XYPluginsController.cs:line 699
+2014-12-24 09:41:59,040 [9] DEBUG OceanLog [(null)] - PluginsLotteryResult:Object reference not set to an instance of an object.
+2014-12-24 09:41:59,040 [9] DEBUG OceanLog [(null)] - PluginsLotteryResult:Object reference not set to an instance of an object.
+2014-12-24 09:41:59,040 [9] DEBUG Object reference not set to an instance of an object.===detail===> [(null)] - System.NullReferenceException: Object reference not set to an instance of an object.
+   at Ocean.Web.Controllers.XYPluginsController.PluginsLotteryResult(Guid Id) in G:\Dev\weixin\ocean7.18\Ocean.Web\Controllers\XYPluginsController.cs:line 699
+2014-12-24 09:42:04,754 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-24 09:42:04,754 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-24 09:43:51,802 [5] DEBUG OceanLog [(null)] - PluginsLotteryResult:无法绑定由多个部分组成的标识符 "fa.CreateDate"。
+2014-12-24 09:43:51,802 [5] DEBUG OceanLog [(null)] - PluginsLotteryResult:无法绑定由多个部分组成的标识符 "fa.CreateDate"。
+2014-12-24 09:43:51,831 [5] DEBUG 无法绑定由多个部分组成的标识符 "fa.CreateDate"。===detail===> [(null)] - System.Data.SqlClient.SqlException (0x80131904): 无法绑定由多个部分组成的标识符 "fa.CreateDate"。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Ocean.Data.OceanObjectContext.SqlQuery(String sql, Object[] parameters) in G:\Dev\weixin\ocean7.18\Ocean.Data\OceanObjectContext.cs:line 343
+   at Ocean.Services.ServiceBase`1.GetDynamicList(String sql, Dictionary`2 parms) in G:\Dev\weixin\ocean7.18\Ocean.Services\ServiceBase.cs:line 538
+   at Ocean.Services.ServiceBase`1.GetDynamicList(String sql) in G:\Dev\weixin\ocean7.18\Ocean.Services\ServiceBase.cs:line 532
+   at Ocean.Services.PluginSceneResultService.GetPageDynamicList(Guid pluginId) in G:\Dev\weixin\ocean7.18\Ocean.Services\Plugins\PluginSceneResultService.cs:line 33
+   at Ocean.Web.Controllers.XYPluginsController.PluginsLotteryResult(Guid Id) in G:\Dev\weixin\ocean7.18\Ocean.Web\Controllers\XYPluginsController.cs:line 705
+ClientConnectionId:e4681d2f-7682-44dd-ae15-b2f40a1cacc0
+2014-12-24 09:44:13,569 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-24 09:44:13,569 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-24 10:11:01,931 [24] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-24 10:11:01,931 [24] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

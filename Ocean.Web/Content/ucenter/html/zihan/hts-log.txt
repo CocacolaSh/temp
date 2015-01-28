@@ -1,0 +1,26 @@
+HTTrack3.47-27+htsswf+htsjava launched on Thu, 19 Dec 2013 15:31:02 at http://www.zi-han.net/theme/se7en/ +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2013], %s -->" -%l "zh, en, *" http://www.zi-han.net/theme/se7en/ -O1 "G:\网站整站下载器 v1.0\ui\bootstrap\zihan" +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:32:19	Warning: 	Retry after error -4 (No data (connection closed)) at link www.zi-han.net/theme/se7en/glyphicons.html (from www.zi-han.net/theme/se7en/)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/stylesheets/fancybox_sprite.png (from www.zi-han.net/theme/se7en/stylesheets/jquery.fancybox.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/stylesheets/fancybox_loading.gif (from www.zi-han.net/theme/se7en/stylesheets/jquery.fancybox.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/stylesheets/blank.gif (from www.zi-han.net/theme/se7en/stylesheets/jquery.fancybox.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/stylesheets/fancybox_sprite@2x.png (from www.zi-han.net/theme/se7en/stylesheets/jquery.fancybox.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/stylesheets/fancybox_loading@2x.gif (from www.zi-han.net/theme/se7en/stylesheets/jquery.fancybox.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/images/tables/back_disabled.png (from www.zi-han.net/theme/se7en/stylesheets/datatables.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/images/tables/back_enabled.png (from www.zi-han.net/theme/se7en/stylesheets/datatables.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/images/tables/back_enabled_hover.png (from www.zi-han.net/theme/se7en/stylesheets/datatables.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/images/tables/forward_disabled.png (from www.zi-han.net/theme/se7en/stylesheets/datatables.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/images/tables/forward_enabled.png (from www.zi-han.net/theme/se7en/stylesheets/datatables.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/images/tables/forward_enabled_hover.png (from www.zi-han.net/theme/se7en/stylesheets/datatables.css)
+15:35:06	Error: 	"Not Found" (404) at link www.zi-han.net/theme/se7en/javascripts/masonry.min.js (from www.zi-han.net/theme/se7en/login1.html)
+15:35:33	Warning: 	Retry after error -2 (Receive Time Out) at link dribbble.s3.amazonaws.com/users/13774/screenshots/217337/manofscience.jpg (from www.zi-han.net/theme/se7en/social.html)
+15:35:33	Warning: 	Retry after error -4 (No data (connection closed)) at link www.zi-han.net/theme/se7en/glyphicons.html (from www.zi-han.net/theme/se7en/)
+
+HTTrack Website Copier/3.47-27 mirror complete in 4 minutes 45 seconds : 174 links scanned, 158 files written (8015376 bytes overall) [5701317 bytes received at 20004 bytes/sec], 3507254 bytes transferred using HTTP compression in 117 files, ratio 26%, 1.0 requests per connection
+(12 errors, 3 warnings, 0 messages)

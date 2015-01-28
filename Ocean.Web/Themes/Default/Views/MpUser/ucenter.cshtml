@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null;
+}
+@using Ocean.Framework.Configuration.global.config;
+<html>
+<head>
+    <title>石狮农商银行</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scafle=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bank/css/common.css?v=1")" />
+    <style type="text/css">
+        .fnb_list li b{width:140px;margin-left:32px;}
+        .fnb_list li{padding:0px;line-height:20px;}
+        /*--------------------表格样式------------------------*/
+        .mappContainer1{padding:6px 8px 6px 8px;}
+        .mappContainer1 dl{overflow:hidden;background: #fff;-webkit-border-radius: 3px;}
+        .mappContainer1 dl dt{width:80%; text-align:left; line-height:30px;}
+        .mappContainer1 dl dd{width: 20%;line-height:30px;}
+        .mappContainer1 dl dt {float:left; line-height:40px;text-indent:24px; border-bottom:solid 1px #ccc; -webkit-box-sizing: border-box;}
+        .mappContainer1 dl dd {float:left; line-height:40px; text-align: left; padding-right: 10px; color: #666; border-bottom:solid 1px #ccc; -webkit-box-sizing: border-box;}
+        .posdetail{height: auto;
+            padding-right: 60px;
+            padding-left: 0;
+            font-size: 16px;
+            background: url(@Url.Content("~/content/images/next.png")) no-repeat right 50%;
+            background-size: 25px 25px;
+            display: block;
+        }
+        .posdetail span{
+            position: relative;
+            font-size: 16px;
+            color: #101010;
+            line-height: 23px;
+         }
+    </style>
+</head>
+<body>
+<div id="mbSubTitle">
+        <section class="subTitleBox">
+        <span>客户中心</span>
+    </section>
+    </div>
+    <div id="mbMain">
+        <div class="frameChang">
+            <span class="stitle">客户中心服务</span>
+        </div>
+        <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+            <section class="modBaseBox">
+            <div class="mappContainer1" style="padding-top: 6px;">
+                        <div class="bg_con">
+                          <dl>
+                            <dt>
+                               <a style="display:inline-block;" href="/mpuser/mybusiness"> 我的业务 </a>
+                            </dt>
+                            <dd>
+                                <a style="float:right; display:inline-block;" class="posdetail" href="/mpuser/mybusiness">&nbsp;</a>
+                            </dd>
+                            <dt>
+                               <a style="display:inline-block;" href="/FunongBao/myfnb"> 我的福农宝 </a>
+                            </dt>
+                            <dd>
+                                <a style="float:right; display:inline-block;" class="posdetail" href="/FunongBao/myfnb">&nbsp;</a>
+                            </dd>
+                            <dt>
+                                <a style="display:inline-block;" href="/life/search"> 便民服务 </a>
+                            </dt>
+                            <dd>
+                                <a style="float:right; display:inline-block;" class="posdetail" href="/life/search">&nbsp;</a>
+                            </dd>
+                            <dt>
+                                <a style="display:inline-block;" href="/branch/branchlist?point="> 周边网点 </a>
+                            </dt>
+                            <dd>
+                                <a style="float:right; display:inline-block;" class="posdetail" href="/branch/branchlist?point=">&nbsp;</a>
+                            </dd>
+                            <dt>
+                                <a style="display:inline-block;" href="/MpMaterial/MobileBank"> 手机银行 </a>
+                            </dt>
+                            <dd>
+                                <a style="float:right; display:inline-block;" class="posdetail" href="/MpMaterial/MobileBank">&nbsp;</a>
+                            </dd>
+
+                            </dl>
+                            </div>
+              </div>
+          </section>
+        </div>
+    </div>
+    </div>
+    <footer class="footer">
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Telephone"])) 
+   {
+       <p>石狮农商银行客服热线：@(GlobalConfig.GetConfig()["Telephone"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Copyright"])) 
+   {
+       <p>&copy;@(GlobalConfig.GetConfig()["Copyright"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["ICP"]))
+   {
+       <p>@(GlobalConfig.GetConfig()["ICP"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Security"]))
+   { 
+       <p>@(GlobalConfig.GetConfig()["Security"])</p>
+   }
+</footer>
+</body>
+</html>

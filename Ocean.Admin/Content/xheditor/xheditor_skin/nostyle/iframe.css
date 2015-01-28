@@ -1,0 +1,51 @@
+html{height:100%;background-color:#FFFFFF;}
+body,td,th{font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+body{height:100%;*height:90%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+
+.xhe-border{border:1px dotted #d3d3d3;}
+.xhe-border th,.xhe-border td{border:1px dotted #d3d3d3;}
+
+.editMode{margin:0px;padding:5px;overflow-y:auto;word-break:break-word;word-wrap:break-word;}
+.editMode img:-moz-broken {-moz-force-broken-image-icon:1;height:24px;width:24px;}
+.editMode embed{display:inline-block;border:1px dashed #FF4E4E;}
+.editMode embed[type="application/x-shockwave-flash"]{background:url(img/flash.gif) center center no-repeat;}
+.editMode embed[type="application/x-mplayer2"]{background:url(img/wmp.gif) center center no-repeat;}
+.editMode .xhe-paste{position:absolute;left:-1000px;overflow:hidden;width:1px;height:1px;}
+.editMode .xhe-anchor{display:inline-block;background: url(img/anchor.gif) no-repeat;border: 1px dotted #0000FF;width:16px;height:15px;overflow:hidden;}
+
+.sourceMode{margin:0px;padding:0px;overflow:hidden;height:100%;}
+.sourceMode textarea{*position:absolute;border:0px;margin:0px;padding:0px;width:100%;height:100%;overflow-y:auto;font-family:'Courier New',Courier,monospace !important;font-size:10pt;outline:0;}
+
+.previewMode{margin:5px;padding:0px;}
+
+.showBlocktag p,.showBlocktag h1,.showBlocktag h2,.showBlocktag h3,.showBlocktag h4,.showBlocktag h5,.showBlocktag h6,.showBlocktag pre,.showBlocktag address,.showBlocktag div{background:none no-repeat scroll right top;border:1px dotted gray;}
+.showBlocktag p{background-image:url(img/tag-p.gif);}
+.showBlocktag h1{background-image:url(img/tag-h1.gif);}
+.showBlocktag h2{background-image:url(img/tag-h2.gif);}
+.showBlocktag h3{background-image:url(img/tag-h3.gif);}
+.showBlocktag h4{background-image:url(img/tag-h4.gif);}
+.showBlocktag h5{background-image:url(img/tag-h5.gif);}
+.showBlocktag h6{background-image:url(img/tag-h6.gif);}
+.showBlocktag pre{background-image:url(img/tag-pre.gif);}
+.showBlocktag address{background-image:url(img/tag-address.gif);}
+.showBlocktag div{background-image:url(img/tag-div.gif);}
+
+.xh_right_content{margin:6px;}
+.xh_left_container {z-index: 99999; position: fixed; max-width: 160px; min-height: 96px; height: 100%; top: 0; background: #f2f2f2; box-shadow: 2px 0 2px #ccc; overflow: hidden; display: block}
+.xh_left_container .home_btn {position: absolute; top: 0; left: 50%; margin-left: -40px; width: 80px; height: 80px; display: block;}
+.xh_left_container p{padding:0px;margin:0px;width:100%;}
+.xh_left_container .home_btn img {max-width: 80px; max-height: 80px;}
+.xh_left_container .return_btn {position: absolute; bottom: 10px; left: 50%; margin-left: -40px; width: 80px; height: 80px; display: block;}
+.xh_left_container .return_btn img {max-width: 80px; max-height: 80px;}
+
+.xh_right_container {z-index: 99999; position: fixed; max-width: 180px; min-height: 96px; height: 100%; right:0 ; top: 0; background: #f2f2f2; box-shadow: 2px 0 2px #ccc; overflow: hidden; display: block}
+.xh_right_container .home_btn {position: absolute; top: 0; left: 50%; margin-left: -40px; width: 80px; height: 80px; display: block;}
+.xh_right_container .home_btn img {max-width: 80px; max-height: 80px;}
+.xh_right_container .return_btn {position: absolute; bottom: 10px; left: 50%; margin-left: -40px; width: 80px; height: 80px; display: block;}
+.xh_right_container .return_btn img {max-width: 80px; max-height: 80px;}
+.xh_top_container {z-index: 99999; position: fixed; width: 100%; left: 0; top: 0; box-shadow: 0 2px 2px #ccc; overflow: hidden; display: block}
+.xh_foot_container {z-index: 99999; position: fixed; width: 100%; left: 0; bottom: 0;  box-shadow: 2px 0px 2px #ccc; overflow: hidden; display: block}
+
+.xh_left_bottom_container {z-index: 99999; position: fixed; bottom: 10px;   overflow: hidden; display: block}
+.xh_right_bottom_container {z-index: 99999; position: fixed;right: 10px; bottom: 10px;  overflow: hidden; display: block}
+.xhAudiobox{display:block;position:fixed;bottom:10px;right:10px;overflow:hidden;background:url(img/audio1.png) no-repeat;}

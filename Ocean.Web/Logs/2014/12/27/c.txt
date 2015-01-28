@@ -1,0 +1,11 @@
+2014-12-27 16:40:38,875 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-27 16:40:38,875 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-27 16:40:38,915 [9] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-27 16:40:38,915 [9] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-27 16:51:37,480 [20] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-27 16:51:37,480 [20] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-27 17:13:48,049 [35] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-27 17:13:48,049 [35] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-27 17:18:09,612 [11] ERROR OceanLog [(null)] - Request is not available in this context
+2014-12-27 17:18:09,612 [11] ERROR OceanLog [(null)] - Request is not available in this context
+by Ocean

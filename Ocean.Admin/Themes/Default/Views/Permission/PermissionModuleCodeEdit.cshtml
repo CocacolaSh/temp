@@ -1,0 +1,101 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "权限编辑";
+    PermissionModule permissionModule = ViewBag.PermissionModule;
+}
+@model PermissionModuleCode
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $('#pp1').tooltip({
+                position: 'right',
+                content: '<span style="color:#fff">管理:manager,查看:view,添加:add,编辑:edit,删除:delete,搜索:search,审核:audit,冻结:freeze,解冻:unfreeze,打印:print,导入:import,导出:export,跟进:track,授权:auth,受理:process,回访:visit,初始化:init,设计:design,配置:configuration,缓存操作:cache</span>',
+                onShow: function () {
+                    $(this).tooltip('tip').css({
+                        backgroundColor: '#666',
+                        borderColor: '#666'
+                    });
+                }
+            });
+        });
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="module-code-add" action="/Permission/_PermissionModuleCodeEdit" method="post">
+        <input type="hidden" name="PermissionModuleId" value="@permissionModule.Id"/>
+        <input type="hidden" name="PermissionModuleCodeId" value="@(Model == null ? "" : Model.Id.ToString())" />
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    所属模块：
+                </td>
+                <td style="width: 80%;">
+                    @permissionModule.Name
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    权限名称：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,20]'"
+                            name="Name" value="@(Model == null ? string.Empty : Model.Name)">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    权限编码：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,30]'"
+                            name="Code" value="@(Model == null ? permissionModule.Identifying + "_" : Model.Code)">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    建议枚举：
+                </td>
+                <td style="width: 80%;">
+                    <a href="javascript:void(0);" id="pp1" style="width:100px;padding:5px;">鼠标移到此处查看</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value=" 提 交 " class="btn" />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#module-code-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#module-code-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+                            $('#module-code-add').form('clear');
+                            parent.CloseAddDialog();
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

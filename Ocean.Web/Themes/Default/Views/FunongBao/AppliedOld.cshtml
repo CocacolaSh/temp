@@ -1,0 +1,105 @@
+﻿@model FunongbaoApply
+@{
+    Layout = "../Shared/_FunongbaoLayout.cshtml";
+}
+@using Ocean.Entity.Enums.Funongbao;
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">申请额度调整</span>
+      </div>
+
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+                <div class="modBd">
+                @if (ViewBag.ApplyStatus == -1)
+                {
+                      <ul class="btts">
+                          <span>尊敬的<em>@(ViewBag.UserName)</em>@(ViewBag.Sex)，您好！</span>
+                          <li>您于@(Model.ApplyDate.Month)月@(Model.ApplyDate.Day)日，申请将本人的福农宝调整为<em>@((Model.ApplyLimit / 10000).ToString("#"))</em>万元，月费率为<em>@(Model.ApplyRates.ToString().ToDecimalString())‰。</em><br />
+                          　　如果审批通过，将于@(ViewBag.ApplyMonth)月@(ViewBag.ChangeDay)日，调整您的福农宝额度及费率。</li>
+                      </ul>  
+                      <div class="bteBox">
+                		 <span class="btebxo">
+                            <p>注：实际调整额度以审批结果为准</p>
+                         </span>
+                	  </div>
+                }
+                else
+                {
+                    if (((Model.ApplyDate <= new DateTime(Model.ApplyDate.Year, Model.ApplyDate.Month, DateRule.ApplyMiddleDay) && DateTime.Now.Day >= DateRule.ChangeDay) || (DateTime.Now >= new DateTime(Model.ApplyDate.Year, Model.ApplyDate.Month + 1, DateRule.ChangeDay))) && ((FunongbaoProcessStatus)Model.ProcessStatus == FunongbaoProcessStatus.Pass || (FunongbaoProcessStatus)Model.ProcessStatus == FunongbaoProcessStatus.Suggestion))
+                    {
+                      <ul class="btts">
+                          <span>尊敬的<em>@(ViewBag.UserName)</em>@(ViewBag.Sex)，您好！</span>
+                          <li>
+                            您的福农宝已调整为：@((Model.ApplyLimit / 10000).ToString("#"))万元，月费率：@(Model.ApplyRates.ToString().ToDecimalString())‰。感谢您的使用，您可于下个季度首月5-31号再次使用该服务。@*@(DateRule.ApplyStartDay)-@(DateTime.DaysInMonth(Model.ApplyDate.Year, Model.ApplyDate.Month).ToString())*@
+                          </li>
+                      </ul>
+                    }
+                    else if ((FunongbaoProcessStatus)Model.ProcessStatus == FunongbaoProcessStatus.NoPass)
+                    {
+                      <ul class="btts">
+                          <span>尊敬的<em>@(ViewBag.UserName)@(ViewBag.Sex)</em>，您好！</span>
+                          <li>
+                            您于@(Model.ApplyDate.Month)月@(Model.ApplyDate.Day)日，申请将本人的福农宝调整为@((Model.ApplyLimit / 10000).ToString("#"))万元，月费率为@(Model.ApplyRates.ToString().ToDecimalString())‰。审批未通过，请您谅解，未通过的原因是：<em style="color:Red;font-weight:normal;">@Model.ProcessResult</em>
+                          </li>
+                          <li>
+                            欢迎您下个季度首月5-31号再次使用该服务。@*@(DateRule.ApplyStartDay)-@(DateTime.DaysInMonth(Model.ApplyDate.Year, Model.ApplyDate.Month).ToString())*@
+                          </li>
+                      </ul> 
+                    }
+                    else if (Model.ApplyStatus <= 0)
+                    {
+                        if (Model.ApplyStatus == 0)
+                        {
+                        <ul class="btts">
+                          <span>尊敬的<em>@(ViewBag.UserName)</em>@(ViewBag.Sex)，您好！</span>
+                           <li>单张福农宝卡的额度最高为<em>30</em>万元，如果您想申请30万元以上的额度，请及时提醒您的关联人<em>@(ViewBag.RelationNames)</em>也提交相同的调额申请。</li>
+                            <li>给您造成的不便，敬请谅解！</li>
+                        </ul> 
+                        }
+                        else
+                        {
+                        <ul class="btts">
+                            <span>尊敬的<em>@(ViewBag.UserName)</em>@(ViewBag.Sex)，您好！</span>
+                            <li>如果您想申请选择<em>@((Model.ApplyLimit / 10000).ToString("#"))</em>万元，月费率为<em>@(Model.ApplyRates.ToString().ToDecimalString())‰</em>的额度类型，请及时提醒您的关联人<em>@(ViewBag.RelationNames)</em>也提交相同的调额申请！</li>
+                            <li>给您造成的不便，敬请谅解！</li>
+                        </ul> 
+                        }
+                    }
+                    else
+                    {
+                        //|| Model.ProcessStatus>0
+                        if (Model.GroupApplyStatus == 0)
+                        {
+                      <ul class="btts">
+                          <span>尊敬的<em>@(ViewBag.UserName)</em>@(ViewBag.Sex)，您好！</span>
+                          <li>您于@(Model.ApplyDate.Month)月@(Model.ApplyDate.Day)日，申请将本人的福农宝调整为<em>@((Model.ApplyLimit / 10000).ToString("#"))</em>万元，月费率为<em>@(Model.ApplyRates.ToString().ToDecimalString())‰。</em><br />
+                          　　如果审批通过，将于@(ViewBag.ApplyMonth)月@(ViewBag.ChangeDay)日，调整您的福农宝额度及费率。</li>
+                      </ul>  
+                      <div class="bteBox">
+                		 <span class="btebxo">
+                            <p>注：实际调整额度以审批结果为准</p>
+                         </span>
+                	  </div>
+                        }
+                        else
+                        {
+                         <div class="modBd">
+                            <ul class="btts">
+                                <span class="btebxo">
+                                <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                                </span>
+                                <li>您本季度无法进行调额申请，欢迎您下个季度首月5-31号再次使用该服务。</li>
+                            </ul>
+                        </div>
+                        }
+                    }
+                }        
+                <div class="btnLoginBox">
+                    @*<a class="goback modBtnColor coloryellow">返回</a>*@
+                </div>
+            </div>
+          </section>
+      </div>
+</div>
+

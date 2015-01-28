@@ -1,0 +1,425 @@
+﻿@{
+    Layout = null;
+    int typeid = WebHelper.GetInt("");
+    string path = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"];
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>微信公众平台</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/MpMaterial/css/common.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/MpMaterial/css/index.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/MpMaterial/javascript/jquery-1.7.2.min.js")"></script> 
+    <script type="text/javascript" src="@Url.Content("~/Content/MpMaterial/javascript/jquery.tmpl.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MpMaterial/javascript/knockout.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MpMaterial/javascript/ajaxfileupload.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MpMaterial/javascript/knockout.mapping.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/xheditor/xheditor-1.2.1.min.js")"></script>
+</head>
+<body class="zh_CN appMsgEdit">
+    <div class="container" id="main">
+        <div class="containerBox">
+            <div class="boxHeader">
+                <h2>图文消息</h2>
+            </div>
+            <div class="content">
+                <div class="z oh msg-edit">
+                    <div class="left msg-preview">
+                        <div class="msg-item-wrapper" id="appmsg" data-appid="" data-create-time="2013-05-16">
+                            <div class="msg-item multi-msg">
+                                <div id="msg-items" data-bind="foreach:mpitems.MpMaterialItems">
+                                    <!-- ko if: $index()==0 -->
+                                    <div id="appmsgItem" class="appmsgItem">
+                                        <p class="msg-meta"><span class="msg-date">2013-05-16</span></p>
+                                        <div class="cover">
+                                            <p class="default-tip" data-bind="style: { display: PicUrl().length ? 'none' : 'block' }">封面图片</p>
+                                            <h4 class="msg-t"><span class="i-title" data-bind="text: Title"></span></h4>
+                                            <ul class="abs tc sub-msg-opr">
+                                                <li class="b-dib sub-msg-opr-item" data-bind="click:$root.editItem"><a href="#" class="th icon18 iconEdit" data-rid="1">编辑</a></li>
+                                            </ul>
+                                            <img data-bind="style: { display: PicUrl().length ? 'block' : 'none' },attr: { src: '@(path)'+PicUrl()}" class="i-img">
+                                        </div>
+                                        <p class="msg-text" data-bind="text:$root.Summary,style: { display: $root.IsMul()==0 ? 'block' : 'none' }"></p>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: $index()>0 -->
+                                    <div class="rel sub-msg-item appmsgItem" id="appmsgItem$index">
+                                        <span class="thumb">
+                                            <span class="default-tip" data-bind="style: { display: PicUrl().length ? 'none' : 'block' }">缩略图</span>
+                                            <img data-bind="style: { display: PicUrl().length ? 'block' : 'none' },attr: { src: '@(path)'+PicUrl()}" class="i-img">
+                                        </span>
+                                        <h4 class="msg-t"><span class="i-title" data-bind="text:Title"></span></h4>
+                                        <ul class="abs tc sub-msg-opr">
+                                            <li class="b-dib sub-msg-opr-item" data-bind="click:$root.editItem"><a href="javascript:;" class="th icon18 iconEdit" data-rid="2">编辑</a></li>
+                                            <li class="b-dib sub-msg-opr-item" data-bind="click: $root.removeItem"><a href="javascript:;" class="th icon18 iconDel">删除</a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- /ko -->
+                                </div>
+                                <div class="sub-add" data-bind="click:addItem,style: { display: IsMul()==1 ? 'block' : 'none' }"><a href="#" class="block tc sub-add-btn"><span class="vm dib sub-add-icon"></span>增加一条</a></div>
+                            </div>
+
+                            <div class="msg-opr">
+                                <ul class="f0 msg-opr-list">
+                                    <li class="b-dib opr-item"><a class="block tc opr-btn edit-btn" href="#"><span class="th vm dib opr-icon edit-icon">编辑</span></a></li>
+                                    <li class="b-dib opr-item" data-bind="click: $root.removeItem"><a class="block tc opr-btn del-btn" href="#" data-mid=""><span class="th vm dib opr-icon del-icon">删除</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="msg-hover-mask"></div>
+                            <div class="msg-mask"><span class="dib msg-selected-tip"></span></div>
+                        </div>
+                    </div>
+                    <div data-bind="style:{marginTop:mt}" class="msg-edit-area" id="msgEditArea">
+                        <div class="rel msg-editer-wrapper">
+                            <div class="msg-editer">
+                                <label for="" class="block"></label>
+                                <input class="msg-input" id="title" data-bind="value:Title,event: { change: refreshItem }" type="text">
+                                <label for="" class="block"><span id="upload-tip" class="upload-tip r">大图片建议尺寸：720像素 * 400像素</span>封面</label>
+                                <div class="cover-area">
+                                    <div class="oh z cover-hd">
+                                        <input type="file" id="picUpload" name="picUpload" />
+                                        <a href="javascript:;" class="icon28C upload-btn" data-bind="event: {click:ImgUpload }" style="width: 30px;">&nbsp
+                                        </a>
+
+@*<input type="file" data-bind="event:{ change: onFilesSelected }" multiple />
+<button type="button" data-bind="event: {click:start }">Start Upload</button>*@
+@*<div>
+<table>
+<tbody data-bind="foreach: selectedFiles">
+<tr>
+<td><p data-bind="text: file.name"></p></td>
+<td><strong data-bind="fileSize: file.size"></strong></td>
+<td><progress data-bind="value: uploadPersentage" max="100" style="width: 100px"></progress></td>
+<td><img data-bind="visible: uploadResultIcon(), attr: { src: uploadResultIcon, alt: uploadStatus, title: uploadStatus }" /></td>
+<td><button data-bind="click: startUpload, enable: !isBusy()">Start</button></td>
+</tr>
+</tbody>
+</table>
+</div>*@
+@*<h3 id="status"></h3>*@
+                                    </div>
+                                    <p data-bind="style: { display: PicUrl().length ? 'block' : 'none' }" id="imgArea" class="cover-bd">
+                                        <img data-bind="attr: { src:'@(path)'+ PicUrl()}" id="img"><a data-bind="    click:delImg" class="vb cover-del" id="delImg">删除</a>
+                                    </p>
+                                </div>
+                                <div data-bind="style: { display: IsMul()==0 ? 'block' : 'none' }">
+                                    <label class="block">
+                                        摘要</label>
+                                    <textarea name="" data-bind="value: Summary, event: { change: refreshItem }" id="desc" class="msg-txta"></textarea>
+                                </div>
+                                <label for="" class="block">
+                                    正文&nbsp;<span style="color: #999;">(注:长度不超过2048字节[一个汉字=2个字节]，已使用<span id="descriptionlen" style="color: Red;">0</span>字节)</span></label>
+                                <div type="text/plain" class="editor edui-default" id="editor">
+
+                                    <textarea id="Textarea1" data-bind="value: Description, event: { change: refreshItem }" rows="20" cols="68" style="display: none; width: 100%; height: 300px;"></textarea>
+
+
+                                </div>
+                                <a id="url-block-link" style="padding-top: 10px; display: none;" href="#" class="url-link block">添加原文链接</a>
+                                <div style="display: block;" id="url-block" class="none">
+                                    <label for="" class="block">原文链接</label>
+                                    <input class="msg-input" data-bind="value: Url, event: { change: refreshItem }" id="url" type="text">
+                                </div>
+                            </div>
+                            <div class="oh z shadow">
+                                <span class="left ls"></span>
+                                <span class="right rs"></span>
+                            </div>
+                            <span style="margin-top: 0px;" class="abs msg-arrow a-out"></span>
+                            <span style="margin-top: 0px;" class="abs msg-arrow a-in"></span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tc msg-btn"><a href="#" id="save" data-bind="click:save" class="btnGreen">完成</a><a href="/MpMaterial/Index" id="previewAppMsg" class="btnGreen">返回</a></p>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <div class="mask" id="loading" style="display: none;"></div>
+    <div class="JS_TIPS page_tips success" id="lbzLoding" style="display: none;">
+        <div class="inner">保存成功</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">   
+    var mpitems = @Html.Raw(ViewBag.strLbz);
+    
+//ko.bindingHandlers.fileSize = {
+//    update: function (element, valueAccessor) {
+//        var size = valueAccessor();
+//        var textSizes = [" B", " KB", " MB", " GB"];
+//        var index = 0;
+//        while (size > 1024) {
+//            size = size / 1024;
+//            index += 1;
+//        }
+//        var formattedFileSize = size.toFixed(2) + textSizes[index];
+//        $(element).text(formattedFileSize);
+//    }
+//};
+//var FileViewModel = function (file) {
+//    this.file = file;
+//    this.uploadStatus = ko.observable();
+//    this.uploadPersentage = ko.observable();
+//    this.uploadResultIcon = ko.observable();
+//    this.isBusy = ko.observable(false);
+//    this.ajax = new XMLHttpRequest();
+//    this.ajax.upload.addEventListener("progress", $.proxy(this.onProgressChanged, this), false);
+//    this.ajax.addEventListener("load", $.proxy(this.onFileUploadSuccess,this), false);
+//    this.ajax.addEventListener("error", $.proxy(this.onFileUploadFailed,this), false);
+//    this.ajax.addEventListener("abort", $.proxy(this.onFileUploadAbort,this), false);
+//};
+//FileViewModel.prototype.startUpload = function () {
+//    this.isBusy(true);
+//    var formData = new window.FormData();
+//    formData.append(this.file.name, this.file);
+//    this.ajax.open("POST", "/MpMaterial/UploadPhoto?t=" + Math.random(),);
+//    this.ajax.send(formData);
+//};
+//FileViewModel.prototype.onProgressChanged = function (e) {
+//    var persentage = (e.loaded / e.total) * 100;
+//    this.uploadPersentage(Math.round(persentage));
+//};
+//FileViewModel.prototype.onFileUploadSuccess = function (e) {
+//    this.isBusy(false);
+//    this.uploadStatus("File successfully uploaded!");
+//    this.uploadPersentage(Math.round(0));
+//    this.uploadResultIcon("https://cdn1.iconfinder.com/data/icons/icojoy/noshadow/standart/gif/24x24/001_06.gif");
+//};
+//FileViewModel.prototype.onFileUploadFailed = function (e) {
+//    this.isBusy(false);
+//    this.uploadStatus("File upload failed!");
+//    this.uploadResultIcon("https://cdn1.iconfinder.com/data/icons/icojoy/shadow/standart/png/24x24/001_05.png");
+//    console.error(e);
+//};
+//FileViewModel.prototype.onFileUploadAbort = function (e) {
+//    this.isBusy(false);
+//    this.uploadStatus("File upload aborted!");
+//    this.uploadResultIcon("https://cdn1.iconfinder.com/data/icons/icojoy/shadow/standart/png/24x24/001_05.png");
+//    console.error(e);
+//};
+
+    function viewModel() {
+        var self = this;
+        var mapping = {
+            'Title': {
+                update: function(options) {
+                    return Komapping.hmDe(options.data);
+                }
+            },
+            'Summary': {
+                update: function(options) {
+                    return Komapping.hmDe(options.data);
+                }
+            },
+            'Description': {
+                update: function (options) {
+                    return Komapping.hmDe(options.data);
+                }
+            }
+        }
+        
+        self.mpitems = ko.mapping.fromJS(mpitems, mapping);
+        self.Title = ko.observable(self.mpitems.MpMaterialItems()[0].Title());
+        self.PicUrl = ko.observable(self.mpitems.MpMaterialItems()[0].PicUrl());
+        self.IsMul=ko.observable(self.mpitems.IsMul());        
+        self.Summary = ko.observable(self.mpitems.MpMaterialItems()[0].Summary());
+        self.Description = ko.observable(self.mpitems.MpMaterialItems()[0].Description());
+        self.Url = ko.observable(self.mpitems.MpMaterialItems()[0].Url());
+        self.Id = mpitems.Id;
+        self.mt = ko.observable("33px");
+        self.currentItem = self.mpitems.MpMaterialItems()[0];
+        self.removeItem = function (item) {
+            var i=self.IsMul==0?2:3;
+            if (confirm("确定删除该条信息吗？")) {
+                if (self.mpitems.MpMaterialItems().length < i) {
+                    alert('无法删除，多条图文至少需要2条消息。');
+                    return;
+                }
+                self.mpitems.MpMaterialItems.remove(item);
+                self.editItem(self.mpitems.MpMaterialItems()[0]);
+            }
+        };
+        self.editItem = function (item) {
+            var i = self.mpitems.MpMaterialItems().indexOf(item);
+            if (i == 0) {
+                self.mt((33).toString() + "px");
+            } else {
+                self.mt((33 + 80 + 110 * i).toString() + "px");
+            }
+            self.Title(item.Title()); self.PicUrl(item.PicUrl()); 
+            self.Description(item.Description()); 
+            self.Url(item.Url());
+            $("#Textarea1").val(item.Description());
+            self.currentItem = item;
+            
+        };
+        self.refreshItem = function () {
+            self.currentItem.Title(self.Title());
+            self.currentItem.PicUrl(self.PicUrl());
+            self.currentItem.Description(self.Description());
+            self.currentItem.Summary(self.Summary());
+            self.currentItem.Url(self.Url());
+        };
+        self.addItem = function () {
+            if (self.mpitems.MpMaterialItems().length > 9) {
+                alert('无法新建，多条图文最多只能10条消息。');
+                return;
+            }
+            self.mpitems.MpMaterialItems.push(ko.mapping.fromJS({ "DbFieldItems": { "Id": "00000000-0000-0000-0000-000000000000" }, "MaterialID": self.Id, "ReplyContent": "", "Title": "标题", "Description": "", "Summary": "", "MusicUrl": "", "HQMusicUrl": "", "PicUrl": "", "Url": "", "Id": "00000000-0000-0000-0000-000000000000", "CreateDate": "2010-04-06T00:00:00" }));
+        };
+        self.delImg = function () {
+            self.PicUrl("");
+            self.currentItem.PicUrl(self.PicUrl());
+        };
+        self.ImgUpload = function () {
+            
+            $.ajaxFileUpload
+		    ({
+		        url: "/MpMaterial/UploadPhoto?t=" + Math.random(),
+		        secureuri: false,
+		        fileElementId: 'picUpload',
+		        dataType: 'json',
+		        success: function (data, status) {
+		            if (data.success) {
+		                self.PicUrl(data.message);
+		                self.refreshItem();
+		            } else {
+		                alert("上传不成功...");
+		                return false;
+		            }
+		        },
+		        error: function (data, status, e) {
+		            alert("上传不成功...");
+		            return false;
+		        }
+		    });
+        };
+        self.save = function () {
+            mpitems = ko.mapping.toJS(self.mpitems);
+            
+            for (var i = 0; i < mpitems.MpMaterialItems.length; i++) {
+                var vItem = mpitems.MpMaterialItems[i];
+                if (vItem.Title.trim().length == 0 || vItem.Title.trim().length > 50) {
+                    self.editItem(self.mpitems.MpMaterialItems()[i])
+                    alert("标题不能为空且长度不能大于50个字");
+                    return;
+                }
+                if (vItem.Description.trim().length == 0 || vItem.Description.trim().length > 10000) {
+                    self.editItem(self.mpitems.MpMaterialItems()[i])
+                    alert("正文不能为空且长度不能大于10000个字");
+                    return;
+                }
+                if (vItem.PicUrl.trim().length == 0) {
+                    self.editItem(self.mpitems.MpMaterialItems()[i])
+                    alert("必须插入一张图片");
+                    return;
+                }
+            }
+            $.ajax({
+                url: "/MpMaterial/SaveMaterial",
+                type: "post",
+                data: { data: ko.mapping.toJSON(self.mpitems) },
+                dataType: "json",
+                success: function (json) {
+                    if (json.success) {
+                        window.location.href = "/MpMaterial/Index";
+                    } else {
+                        alert('提交数据失败');
+                    }
+                }
+            })
+        };
+
+
+        self.selectedFiles = ko.observableArray();
+        self.onFilesSelected = function (viewModel, evt) {
+            this.selectedFiles([]);
+            ko.utils.arrayForEach(evt.target.files, function (file) {
+                this.selectedFiles.push(new FileViewModel(file));
+                }.bind(this));
+        };
+
+        self.start = function () {
+            alert('asdfsad');
+            ko.utils.arrayForEach(this.selectedFiles(), function (fileViewModel) {
+            fileViewModel.startUpload();
+            }.bind(this));
+        };
+
+    }
+
+
+    ko.applyBindings(new viewModel());
+    String.prototype.getBytesLength = function () {
+        var totalLength = 0;
+        var charCode;
+        for (var i = 0; i < this.length; i++) {
+            charCode = this.charCodeAt(i);
+            if (charCode < 0x007f) {
+                totalLength++;
+            } else if ((0x0080 <= charCode) && (charCode <= 0x07ff)) {
+                totalLength += 2;
+            } else if ((0x0800 <= charCode) && (charCode <= 0xffff)) {
+                totalLength += 2;
+            } else {
+                totalLength += 2;
+            }
+        }
+        return totalLength;
+    }
+    function isObj(obj) {
+        if (typeof obj == "object") {
+            return obj;
+        };
+        return document.getElementById(obj);
+    };
+    function addEvent(obj, type, fun) {
+        obj = isObj(obj);
+        if (obj.addEventListener) {
+            obj.addEventListener(type, fun);
+            return true;
+        } else if (obj.attachEvent) {
+            return obj.attachEvent("on" + type, fun);
+        } else {
+            return false;
+        };
+    };
+    $(function () {
+        $("#picUpload").live("change", function () {
+            $(".upload-btn").click();
+        });
+        $(document).ajaxStart(function(){
+            $("#lbzLoding>.inner").html("数据处理中");
+            $("#loading").show();
+            $("#lbzLoding").show();
+        }).ajaxSuccess(function(){
+            $("#lbzLoding>.inner").html("操作成功");
+            $("#loading").hide();
+            $("#lbzLoding").hide();
+        }).ajaxError(function(){
+            $("#loading").hide();
+            $("#lbzLoding").hide();
+            alert("数据执行不成功");
+        });
+        Editor('Textarea1');
+        addEvent($("#xhe0_iframe")[0].contentWindow.document.body, "focusout", function () {
+            if($(this).find("#sourceCode").length>0)
+            {
+                var len=$(this).find('#sourceCode').val().getBytesLength();                 
+                $("#Textarea1").val();
+                $("#Textarea1").change();
+            }
+            else
+            {
+                var len=this.innerHTML.getBytesLength();
+                $("#Textarea1").val();
+                $("#Textarea1").change();
+            }             
+        });
+    });
+
+</script>
+

@@ -1,0 +1,256 @@
+2015-01-13 09:06:02,350 [25] ERROR OceanLog [(null)] - 未找到视图“VehicleLicense”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Themes/Default/Views/VehicleLicense/VehicleLicense.cshtml
+~/Themes/Default/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Themes/Default/Views/Shared/VehicleLicense.cshtml
+~/Themes/Default/Views/Shared/VehicleLicense.vbhtml
+~/Views/VehicleLicense/VehicleLicense.cshtml
+~/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Views/Shared/VehicleLicense.cshtml
+~/Views/Shared/VehicleLicense.vbhtml
+~/Administration/Views/VehicleLicense/VehicleLicense.cshtml
+~/Administration/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Administration/Views/Shared/VehicleLicense.cshtml
+~/Administration/Views/Shared/VehicleLicense.vbhtml
+2015-01-13 09:06:02,350 [25] ERROR OceanLog [(null)] - 未找到视图“VehicleLicense”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Themes/Default/Views/VehicleLicense/VehicleLicense.cshtml
+~/Themes/Default/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Themes/Default/Views/Shared/VehicleLicense.cshtml
+~/Themes/Default/Views/Shared/VehicleLicense.vbhtml
+~/Views/VehicleLicense/VehicleLicense.cshtml
+~/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Views/Shared/VehicleLicense.cshtml
+~/Views/Shared/VehicleLicense.vbhtml
+~/Administration/Views/VehicleLicense/VehicleLicense.cshtml
+~/Administration/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Administration/Views/Shared/VehicleLicense.cshtml
+~/Administration/Views/Shared/VehicleLicense.vbhtml
+2015-01-13 09:08:04,403 [121] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(32): error CS0173: 无法确定条件表达式的类型，因为“string”和“int”之间没有隐式转换
+2015-01-13 09:08:04,403 [121] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(32): error CS0173: 无法确定条件表达式的类型，因为“string”和“int”之间没有隐式转换
+2015-01-13 09:09:18,377 [102] ERROR OceanLog [(null)] - 未找到视图“VehicleLicense”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Themes/Default/Views/VehicleLicense/VehicleLicense.cshtml
+~/Themes/Default/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Themes/Default/Views/Shared/VehicleLicense.cshtml
+~/Themes/Default/Views/Shared/VehicleLicense.vbhtml
+~/Views/VehicleLicense/VehicleLicense.cshtml
+~/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Views/Shared/VehicleLicense.cshtml
+~/Views/Shared/VehicleLicense.vbhtml
+~/Administration/Views/VehicleLicense/VehicleLicense.cshtml
+~/Administration/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Administration/Views/Shared/VehicleLicense.cshtml
+~/Administration/Views/Shared/VehicleLicense.vbhtml
+2015-01-13 09:09:18,377 [102] ERROR OceanLog [(null)] - 未找到视图“VehicleLicense”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Themes/Default/Views/VehicleLicense/VehicleLicense.cshtml
+~/Themes/Default/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Themes/Default/Views/Shared/VehicleLicense.cshtml
+~/Themes/Default/Views/Shared/VehicleLicense.vbhtml
+~/Views/VehicleLicense/VehicleLicense.cshtml
+~/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Views/Shared/VehicleLicense.cshtml
+~/Views/Shared/VehicleLicense.vbhtml
+~/Administration/Views/VehicleLicense/VehicleLicense.cshtml
+~/Administration/Views/VehicleLicense/VehicleLicense.vbhtml
+~/Administration/Views/Shared/VehicleLicense.cshtml
+~/Administration/Views/Shared/VehicleLicense.vbhtml
+2015-01-13 09:12:46,645 [44] ERROR OceanLog [(null)] - The 'VehicleType' property on 'VehicleLicense' could not be set to a 'null' value. You must set this property to a non-null value of type 'System.Int32'. 
+2015-01-13 09:12:46,645 [44] ERROR OceanLog [(null)] - The 'VehicleType' property on 'VehicleLicense' could not be set to a 'null' value. You must set this property to a non-null value of type 'System.Int32'. 
+2015-01-13 09:24:46,299 [127] ERROR OceanLog [(null)] - 列名 'CreateDate' 不明确。
+列名 'CreateDate' 不明确。
+2015-01-13 09:24:46,299 [127] ERROR OceanLog [(null)] - 列名 'CreateDate' 不明确。
+列名 'CreateDate' 不明确。
+by Ocean2015-01-13 09:35:03,542 [33] ERROR OceanLog [(null)] - 列名 'MpUser' 无效。
+2015-01-13 09:35:03,542 [33] ERROR OceanLog [(null)] - 列名 'MpUser' 无效。
+by Ocean2015-01-13 09:42:56,630 [127] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(117): error CS0103: 当前上下文中不存在名称“ImrUrl”
+2015-01-13 09:42:56,630 [127] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(117): error CS0103: 当前上下文中不存在名称“ImrUrl”
+2015-01-13 09:43:32,811 [127] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 09:43:32,811 [127] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 09:45:55,115 [21] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 09:45:55,115 [21] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 09:47:03,966 [36] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 09:47:03,966 [36] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 09:47:04,316 [127] ERROR OceanLog [(null)] - 已添加了具有相同键的项。
+2015-01-13 09:47:04,316 [127] ERROR OceanLog [(null)] - 已添加了具有相同键的项。
+2015-01-13 10:00:15,142 [21] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 10:00:15,142 [21] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 10:01:57,089 [21] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 10:01:57,089 [21] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 10:01:57,427 [21] ERROR OceanLog [(null)] - 未找到路径“/content/images/icon28.png”的控制器或该控制器未实现 IController。
+2015-01-13 10:01:57,427 [21] ERROR OceanLog [(null)] - 未找到路径“/content/images/icon28.png”的控制器或该控制器未实现 IController。
+2015-01-13 10:02:10,758 [36] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 10:02:10,758 [36] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 10:02:10,767 [127] ERROR OceanLog [(null)] - 未找到路径“/content/images/icon28.png”的控制器或该控制器未实现 IController。
+2015-01-13 10:02:10,767 [127] ERROR OceanLog [(null)] - 未找到路径“/content/images/icon28.png”的控制器或该控制器未实现 IController。
+2015-01-13 10:03:13,088 [127] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+2015-01-13 10:03:13,088 [127] ERROR OceanLog [(null)] - 未找到路径“/content/images/vendorpic.jpg”的控制器或该控制器未实现 IController。
+by Ocean2015-01-13 10:30:14,118 [68] ERROR OceanLog [(null)] - 已添加了具有相同键的项。
+2015-01-13 10:30:14,118 [68] ERROR OceanLog [(null)] - 已添加了具有相同键的项。
+2015-01-13 10:36:20,133 [112] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 10:36:20,133 [112] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 10:37:24,191 [53] ERROR OceanLog [(null)] - GDI+ 中发生一般性错误。
+2015-01-13 10:37:24,191 [53] ERROR OceanLog [(null)] - GDI+ 中发生一般性错误。
+2015-01-13 10:38:12,141 [48] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 10:38:12,141 [48] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 10:39:23,825 [39] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 10:39:23,825 [39] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 10:39:53,249 [58] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:39:53,249 [58] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:39:58,584 [58] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:39:58,584 [58] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:40:16,526 [142] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:40:16,526 [142] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:40:19,882 [142] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:40:19,882 [142] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:40:21,464 [112] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:40:21,464 [112] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:40:54,508 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpUserController”上未找到公共操作方法“null”。
+2015-01-13 10:40:54,508 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpUserController”上未找到公共操作方法“null”。
+2015-01-13 10:42:18,757 [142] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:18,757 [142] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:35,935 [112] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:35,935 [112] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:37,613 [142] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:37,613 [142] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:39,556 [112] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:39,556 [112] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:46,731 [39] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:46,731 [39] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:50,640 [142] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:42:50,640 [142] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:50:20,680 [112] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_ImportExcel”。
+2015-01-13 10:50:20,680 [112] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_ImportExcel”。
+2015-01-13 10:52:03,836 [112] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 10:52:03,836 [112] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-13 11:02:14,410 [112] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 11:02:14,410 [112] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+by Oceanby Ocean2015-01-13 14:28:21,647 [47] ERROR OceanLog [(null)] - 未找到路径“/images阿斯蒂芬”的控制器或该控制器未实现 IController。
+2015-01-13 14:28:21,647 [47] ERROR OceanLog [(null)] - 未找到路径“/images阿斯蒂芬”的控制器或该控制器未实现 IController。
+2015-01-13 14:28:30,811 [47] ERROR OceanLog [(null)] - 未找到路径“/images阿斯蒂芬”的控制器或该控制器未实现 IController。
+2015-01-13 14:28:30,811 [47] ERROR OceanLog [(null)] - 未找到路径“/images阿斯蒂芬”的控制器或该控制器未实现 IController。
+2015-01-13 14:29:07,224 [29] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 14:29:07,224 [29] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 14:30:42,168 [39] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 14:30:42,168 [39] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 14:30:56,183 [17] ERROR OceanLog [(null)] - 未找到路径“/images阿斯蒂芬”的控制器或该控制器未实现 IController。
+2015-01-13 14:30:56,183 [17] ERROR OceanLog [(null)] - 未找到路径“/images阿斯蒂芬”的控制器或该控制器未实现 IController。
+2015-01-13 14:31:15,585 [29] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:31:15,585 [29] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:31:19,171 [17] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 14:31:19,171 [17] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 14:31:21,928 [47] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:31:21,928 [47] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:34:32,345 [142] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:34:32,345 [142] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:34:35,213 [17] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:34:35,213 [17] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:34:37,914 [17] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:34:37,914 [17] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:41:07,731 [39] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:41:07,731 [39] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:26,043 [17] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_ImportExcel”。
+2015-01-13 14:50:26,043 [17] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_ImportExcel”。
+2015-01-13 14:50:34,451 [29] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:34,451 [29] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:38,038 [17] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:38,038 [17] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:39,266 [17] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:39,266 [17] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:40,764 [39] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:40,764 [39] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:42,427 [39] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:42,427 [39] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:45,658 [17] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:50:45,658 [17] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:51:01,534 [29] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:51:01,534 [29] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 14:51:19,024 [17] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:19,024 [17] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:21,459 [29] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:21,459 [29] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:24,712 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:24,712 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:27,793 [29] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:27,793 [29] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:28,746 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:28,746 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:34,861 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:34,861 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:45,394 [17] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 14:51:45,394 [17] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.MpReplyController”上未找到公共操作方法“images”。
+2015-01-13 15:11:19,509 [17] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\DrivingLicense\DrivingLicenseEdit.cshtml(89): error CS1061: “Ocean.Entity.DrivingLicense”不包含“PlateNo”的定义，并且找不到可接受类型为“Ocean.Entity.DrivingLicense”的第一个参数的扩展方法“PlateNo”(是否缺少 using 指令或程序集引用?)
+2015-01-13 15:11:19,509 [17] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\DrivingLicense\DrivingLicenseEdit.cshtml(89): error CS1061: “Ocean.Entity.DrivingLicense”不包含“PlateNo”的定义，并且找不到可接受类型为“Ocean.Entity.DrivingLicense”的第一个参数的扩展方法“PlateNo”(是否缺少 using 指令或程序集引用?)
+2015-01-13 15:18:27,692 [39] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\DrivingLicense\DrivingLicenseEdit.cshtml(106): error CS0173: 无法确定条件表达式的类型，因为“string”和“int”之间没有隐式转换
+2015-01-13 15:18:27,692 [39] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\DrivingLicense\DrivingLicenseEdit.cshtml(106): error CS0173: 无法确定条件表达式的类型，因为“string”和“int”之间没有隐式转换
+2015-01-13 15:18:32,198 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.DrivingLicenseController”上未找到公共操作方法“_ClassType”。
+2015-01-13 15:18:32,198 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.DrivingLicenseController”上未找到公共操作方法“_ClassType”。
+2015-01-13 15:21:02,923 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.DrivingLicenseController”上未找到公共操作方法“_SexType”。
+2015-01-13 15:21:02,923 [39] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.DrivingLicenseController”上未找到公共操作方法“_SexType”。
+2015-01-13 15:21:03,316 [29] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.DrivingLicenseController”上未找到公共操作方法“_ClassType”。
+2015-01-13 15:21:03,316 [29] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.DrivingLicenseController”上未找到公共操作方法“_ClassType”。
+2015-01-13 15:21:36,903 [17] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 15:21:36,903 [17] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+by Ocean2015-01-13 15:32:00,997 [17] ERROR OceanLog [(null)] - 已添加了具有相同键的项。
+2015-01-13 15:32:00,997 [17] ERROR OceanLog [(null)] - 已添加了具有相同键的项。
+2015-01-13 15:33:53,819 [17] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-13 15:33:53,819 [17] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+by Ocean2015-01-13 15:34:57,342 [17] ERROR OceanLog [(null)] - An exception was thrown while executing a resolve operation. See the InnerException for details.
+2015-01-13 15:34:57,342 [17] ERROR OceanLog [(null)] - An exception was thrown while executing a resolve operation. See the InnerException for details.
+by Ocean2015-01-13 15:41:47,213 [17] ERROR OceanLog [(null)] - An exception was thrown while executing a resolve operation. See the InnerException for details.
+2015-01-13 15:41:47,213 [17] ERROR OceanLog [(null)] - An exception was thrown while executing a resolve operation. See the InnerException for details.
+2015-01-13 15:50:30,660 [41] ERROR OceanLog [(null)] - An exception was thrown while executing a resolve operation. See the InnerException for details.
+2015-01-13 15:50:30,660 [41] ERROR OceanLog [(null)] - An exception was thrown while executing a resolve operation. See the InnerException for details.
+2015-01-13 15:52:30,738 [17] ERROR OceanLog [(null)] - An exception was thrown while executing a resolve operation. See the InnerException for details.
+2015-01-13 15:52:30,738 [17] ERROR OceanLog [(null)] - An exception was thrown while executing a resolve operation. See the InnerException for details.
+by Ocean2015-01-13 16:02:54,836 [17] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 16:02:54,836 [17] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 16:04:07,173 [131] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 16:04:07,173 [131] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 16:10:05,585 [107] ERROR OceanLog [(null)] - 未能更新类型“Ocean.Entity.DrivingLicense”的模型。
+2015-01-13 16:10:05,585 [107] ERROR OceanLog [(null)] - 未能更新类型“Ocean.Entity.DrivingLicense”的模型。
+by Ocean2015-01-13 16:14:33,676 [131] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-13 16:14:33,676 [131] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+by Ocean2015-01-13 16:26:01,918 [17] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:26:01,918 [17] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:06,466 [19] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:06,466 [19] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:07,558 [5] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:07,558 [5] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:07,841 [19] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:07,841 [19] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:08,449 [5] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:08,449 [5] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:10,651 [19] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+2015-01-13 16:27:10,651 [19] ERROR OceanLog [(null)] - 列名 'Name' 不明确。
+by Ocean2015-01-13 16:45:37,653 [85] ERROR OceanLog [(null)] - 列名 'BussinesName' 无效。
+2015-01-13 16:45:37,653 [85] ERROR OceanLog [(null)] - 列名 'BussinesName' 无效。
+2015-01-13 16:46:11,218 [113] ERROR OceanLog [(null)] - 列名 'BussinesName' 无效。
+2015-01-13 16:46:11,218 [113] ERROR OceanLog [(null)] - 列名 'BussinesName' 无效。
+2015-01-13 16:46:27,822 [28] ERROR OceanLog [(null)] - 列名 'BussinesName' 无效。
+2015-01-13 16:46:27,822 [28] ERROR OceanLog [(null)] - 列名 'BussinesName' 无效。
+2015-01-13 16:50:28,593 [113] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.DrivingLicenseController”上未找到公共操作方法“_ImportExcel”。
+2015-01-13 16:50:28,593 [113] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.DrivingLicenseController”上未找到公共操作方法“_ImportExcel”。
+by Ocean2015-01-13 16:51:51,356 [113] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:51:51,356 [113] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:51:53,245 [84] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:51:53,245 [84] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:52:04,426 [84] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:52:04,426 [84] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:55:42,877 [5] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:55:42,877 [5] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:56:23,904 [5] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:56:23,904 [5] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:56:25,683 [113] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:56:25,683 [113] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:56:26,365 [84] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:56:26,365 [84] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:57:23,706 [118] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:57:23,706 [118] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:57:24,460 [5] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:57:24,460 [5] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 16:57:30,737 [5] ERROR OceanLog [(null)] - 未找到路径“/images阿斯蒂芬”的控制器或该控制器未实现 IController。
+2015-01-13 16:57:30,737 [5] ERROR OceanLog [(null)] - 未找到路径“/images阿斯蒂芬”的控制器或该控制器未实现 IController。
+2015-01-13 17:10:34,140 [118] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 17:10:34,140 [118] ERROR OceanLog [(null)] - 未找到路径“/Baoxian/index”的控制器或该控制器未实现 IController。
+2015-01-13 17:10:35,297 [84] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 17:10:35,297 [84] ERROR OceanLog [(null)] - 未找到路径“/MyUnder/index”的控制器或该控制器未实现 IController。
+2015-01-13 17:10:36,253 [84] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。
+2015-01-13 17:10:36,253 [84] ERROR OceanLog [(null)] - 未找到路径“/Complain/index”的控制器或该控制器未实现 IController。

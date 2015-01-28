@@ -1,0 +1,442 @@
+2014-10-10 15:50:06,609 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
+2014-10-10 15:50:06,609 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
+2014-10-10 15:50:14,984 [9] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-10-10 15:50:14,984 [9] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-10-10 15:50:21,609 [8] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:50:21,609 [8] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:50:21,671 [8] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-10-10 15:50:21,671 [8] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-10-10 15:50:24,796 [9] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:50:24,796 [9] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:50:24,796 [9] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-10-10 15:50:24,796 [9] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-10-10 15:51:11,718 [8] DEBUG OceanLog [(null)] - OPenid:
+2014-10-10 15:51:11,718 [8] DEBUG OceanLog [(null)] - OPenid:
+2014-10-10 15:51:12,109 [9] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-10-10 15:51:12,109 [9] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-10-10 15:51:19,734 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:51:19,734 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:51:19,734 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:51:19,734 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:51:35,218 [10] DEBUG OceanLog [(null)] - 验证码获取失败[Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)]
+2014-10-10 15:51:35,218 [10] DEBUG OceanLog [(null)] - 验证码获取失败[Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)]
+2014-10-10 15:51:35,281 [10] DEBUG Ocean.Framework.Sms.SmsClient [(null)] - 释放短信连接！
+2014-10-10 15:53:19,375 [15] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:53:19,375 [15] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:53:19,375 [15] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:53:19,375 [15] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:53:24,562 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:53:24,562 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:53:24,562 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:53:24,562 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:53:28,875 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:53:28,875 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:53:28,875 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:53:28,875 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:53:36,781 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:53:36,781 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:53:36,781 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:53:36,781 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:54:03,218 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-10-10 15:54:03,218 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-10-10 15:54:47,343 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-10-10 15:54:47,343 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-10-10 15:54:48,890 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:54:48,890 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:54:48,921 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:54:48,921 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:55:11,687 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:55:11,687 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:55:11,687 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:55:11,687 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:55:11,906 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:55:11,906 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:55:19,078 [16] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:55:19,078 [16] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:55:19,078 [16] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:55:19,078 [16] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:55:19,156 [16] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:55:19,156 [16] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:55:25,703 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:55:25,703 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:55:25,703 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:55:25,703 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:55:25,781 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:55:25,781 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:55:33,921 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:55:33,921 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:55:33,921 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:55:33,921 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:04,593 [8] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:04,593 [8] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:04,593 [8] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:04,593 [8] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:04,671 [8] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:04,671 [8] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:15,562 [8] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:15,562 [8] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:15,562 [8] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:15,562 [8] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:15,640 [8] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:15,640 [8] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:22,109 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:22,109 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:22,109 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:22,109 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:22,187 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:22,187 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:28,765 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:28,765 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:28,765 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:28,765 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:28,828 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:28,828 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:35,046 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:35,046 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:35,046 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:35,046 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:35,109 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:35,109 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:41,406 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:41,406 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:41,406 [13] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:41,406 [13] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:41,468 [13] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:41,468 [13] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:48,125 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:48,125 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:56:48,125 [13] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:48,125 [13] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:56:48,203 [13] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:56:48,203 [13] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:57:58,593 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:57:58,593 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:57:58,593 [13] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:57:58,593 [13] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:57:58,671 [13] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:57:58,671 [13] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:58:07,562 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:58:07,562 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:58:07,562 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:58:07,562 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:58:07,640 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:58:07,640 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:58:14,921 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:58:14,921 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:58:14,921 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:58:14,921 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:58:15,000 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:58:15,000 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:58:22,718 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:58:22,718 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:58:22,718 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:58:22,718 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:58:22,796 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:58:22,796 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:58:29,796 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:58:29,796 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:58:29,796 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:58:29,796 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:58:29,859 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:58:29,859 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:25,671 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:25,671 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:25,671 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:25,671 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:25,734 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:25,734 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:33,078 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:33,078 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:33,078 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:33,078 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:33,140 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:33,140 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:40,250 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:40,250 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:40,250 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:40,250 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:40,312 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:40,312 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:47,453 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:47,453 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:47,453 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:47,453 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:47,531 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:47,531 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:54,609 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:54,609 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 15:59:54,609 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:54,609 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 15:59:54,687 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 15:59:54,687 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 16:00:02,062 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 16:00:02,062 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 16:00:02,062 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 16:00:02,062 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 16:00:02,156 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 16:00:02,156 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 16:00:09,250 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 16:00:09,250 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 16:00:09,250 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 16:00:09,250 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 16:00:09,312 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 16:00:09,312 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 16:48:14,437 [13] DEBUG OceanLog [(null)] - OPenid:
+2014-10-10 16:48:14,437 [13] DEBUG OceanLog [(null)] - OPenid:
+2014-10-10 16:48:14,671 [4] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-10-10 16:48:14,671 [4] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-10-10 16:48:14,890 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-10-10 16:48:14,890 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-10-10 19:11:01,609 [17] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:11:01,609 [17] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:11:01,609 [17] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:11:01,609 [17] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:11:01,687 [17] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:11:01,687 [17] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:11:09,890 [18] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:11:09,890 [18] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:11:09,890 [18] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:11:09,890 [18] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:11:09,984 [18] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:11:09,984 [18] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:12:18,500 [15] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:12:18,500 [15] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:12:18,500 [15] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:12:18,500 [15] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:12:18,562 [15] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:12:18,562 [15] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:14:12,359 [16] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:14:12,359 [16] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:14:12,359 [16] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:14:12,359 [16] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:14:12,437 [16] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:14:12,437 [16] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:14:42,718 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:14:42,718 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:14:42,718 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:14:42,718 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:14:42,781 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:14:42,781 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:18:21,640 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:18:21,640 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:18:21,640 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:18:21,640 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:18:21,718 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:18:21,718 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:26:06,156 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:26:06,156 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:26:06,156 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:26:06,156 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:26:06,234 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:26:06,234 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:27:47,484 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:27:47,484 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:27:47,484 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:27:47,484 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:27:47,562 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:27:47,562 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:53:38,312 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:53:38,312 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:53:38,312 [13] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:53:38,312 [13] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:53:38,390 [13] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:53:38,390 [13] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:55:32,312 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:55:32,312 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 19:55:32,312 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:55:32,312 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 19:55:32,390 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 19:55:32,390 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:05:07,296 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:05:07,296 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:05:07,296 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:05:07,296 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:05:07,375 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:05:07,375 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:08:32,578 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:08:32,578 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:08:32,578 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:08:32,578 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:08:32,671 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:08:32,671 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:10:03,468 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:10:03,468 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:10:03,468 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:10:03,468 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:10:03,546 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:10:03,546 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:38:49,140 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:38:49,140 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:38:49,140 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:38:49,140 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:38:49,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:38:49,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:39:05,140 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:39:05,140 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:39:05,140 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:39:05,140 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:39:05,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:39:05,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:39:19,609 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:39:19,609 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:39:19,609 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:39:19,609 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:39:19,687 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:39:19,687 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:39:32,781 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:39:32,781 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:39:32,781 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:39:32,781 [10] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:39:32,859 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:39:32,859 [10] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:39:52,953 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:39:52,953 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:39:52,953 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:39:52,953 [11] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:39:53,031 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:39:53,031 [11] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:41:02,109 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:41:02,109 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 20:41:02,109 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:41:02,109 [4] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 20:41:02,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 20:41:02,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 21:00:29,968 [13] DEBUG OceanLog [(null)] - 插件加载出错:c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\097df6b0\3ba0defc\App_Web__pluginlayout.cshtml.55e69580.wlvrdrpc.0.cs(48): error CS1009: Unrecognized escape sequence=======:   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at Ocean.Framework.Themes.ThemeableBuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableBuildManagerViewEngine .cs:line 10
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String theme, String cacheKey, String[]& searchedLocations) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 114
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String theme, String cacheKeyPrefix, Boolean useCache, Boolean mobile, String[]& searchedLocations) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 80
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.FindThemeableView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache, Boolean mobile) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 206
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 258
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__a(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at Ocean.Framework.ViewEngines.Razor.WebViewPage`1.get_Layout() in E:\微信\ocean7.18\Ocean.Framework\ViewEngines\Razor\WebViewPage.cs:line 20
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass7.<RenderPageCore>b__6(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at CallSite.Target(Closure , CallSite , _Page_Themes_Default_Views_plugins_lottery_plugin_cshtml , Object )
+   at ASP._Page_Themes_Default_Views_plugins_lottery_plugin_cshtml.Execute() in e:\微信\ocean7.18\Ocean.Web\Themes\Default\Views\Plugins\lottery\plugin.cshtml:line 1
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP.PluginTemplate.<Plugins>b__f(TextWriter __razor_helper_writer) in e:\微信\ocean7.18\Ocean.Web\App_Code\PluginTemplate.cshtml:line 149
+2014-10-10 21:00:29,968 [13] DEBUG OceanLog [(null)] - 插件加载出错:c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\097df6b0\3ba0defc\App_Web__pluginlayout.cshtml.55e69580.wlvrdrpc.0.cs(48): error CS1009: Unrecognized escape sequence=======:   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at Ocean.Framework.Themes.ThemeableBuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableBuildManagerViewEngine .cs:line 10
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String theme, String cacheKey, String[]& searchedLocations) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 114
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String theme, String cacheKeyPrefix, Boolean useCache, Boolean mobile, String[]& searchedLocations) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 80
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.FindThemeableView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache, Boolean mobile) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 206
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 258
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__a(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at Ocean.Framework.ViewEngines.Razor.WebViewPage`1.get_Layout() in E:\微信\ocean7.18\Ocean.Framework\ViewEngines\Razor\WebViewPage.cs:line 20
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass7.<RenderPageCore>b__6(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at CallSite.Target(Closure , CallSite , _Page_Themes_Default_Views_plugins_lottery_plugin_cshtml , Object )
+   at ASP._Page_Themes_Default_Views_plugins_lottery_plugin_cshtml.Execute() in e:\微信\ocean7.18\Ocean.Web\Themes\Default\Views\Plugins\lottery\plugin.cshtml:line 1
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP.PluginTemplate.<Plugins>b__f(TextWriter __razor_helper_writer) in e:\微信\ocean7.18\Ocean.Web\App_Code\PluginTemplate.cshtml:line 149
+2014-10-10 21:00:31,687 [16] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 21:00:31,687 [16] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 21:00:31,687 [16] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 21:00:31,687 [16] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 21:00:31,859 [16] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 21:00:31,859 [16] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 21:00:37,890 [16] DEBUG OceanLog [(null)] - 插件加载出错:c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\097df6b0\3ba0defc\App_Web__pluginlayout.cshtml.55e69580.wlvrdrpc.0.cs(48): error CS1009: Unrecognized escape sequence=======:   at System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at Ocean.Framework.Themes.ThemeableBuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableBuildManagerViewEngine .cs:line 10
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String theme, String cacheKey, String[]& searchedLocations) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 114
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String theme, String cacheKeyPrefix, Boolean useCache, Boolean mobile, String[]& searchedLocations) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 80
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.FindThemeableView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache, Boolean mobile) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 206
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 258
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__a(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at Ocean.Framework.ViewEngines.Razor.WebViewPage`1.get_Layout() in E:\微信\ocean7.18\Ocean.Framework\ViewEngines\Razor\WebViewPage.cs:line 20
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass7.<RenderPageCore>b__6(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at CallSite.Target(Closure , CallSite , _Page_Themes_Default_Views_plugins_lottery_plugin_cshtml , Object )
+   at ASP._Page_Themes_Default_Views_plugins_lottery_plugin_cshtml.Execute() in e:\微信\ocean7.18\Ocean.Web\Themes\Default\Views\Plugins\lottery\plugin.cshtml:line 1
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP.PluginTemplate.<Plugins>b__f(TextWriter __razor_helper_writer) in e:\微信\ocean7.18\Ocean.Web\App_Code\PluginTemplate.cshtml:line 149
+2014-10-10 21:00:37,890 [16] DEBUG OceanLog [(null)] - 插件加载出错:c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\097df6b0\3ba0defc\App_Web__pluginlayout.cshtml.55e69580.wlvrdrpc.0.cs(48): error CS1009: Unrecognized escape sequence=======:   at System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at Ocean.Framework.Themes.ThemeableBuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableBuildManagerViewEngine .cs:line 10
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String theme, String cacheKey, String[]& searchedLocations) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 114
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String theme, String cacheKeyPrefix, Boolean useCache, Boolean mobile, String[]& searchedLocations) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 80
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.FindThemeableView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache, Boolean mobile) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 206
+   at Ocean.Framework.Themes.ThemeableVirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache) in E:\微信\ocean7.18\Ocean.Framework\Themes\ThemeableVirtualPathProviderViewEngine.cs:line 258
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__a(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at Ocean.Framework.ViewEngines.Razor.WebViewPage`1.get_Layout() in E:\微信\ocean7.18\Ocean.Framework\ViewEngines\Razor\WebViewPage.cs:line 20
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass7.<RenderPageCore>b__6(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at CallSite.Target(Closure , CallSite , _Page_Themes_Default_Views_plugins_lottery_plugin_cshtml , Object )
+   at ASP._Page_Themes_Default_Views_plugins_lottery_plugin_cshtml.Execute() in e:\微信\ocean7.18\Ocean.Web\Themes\Default\Views\Plugins\lottery\plugin.cshtml:line 1
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP.PluginTemplate.<Plugins>b__f(TextWriter __razor_helper_writer) in e:\微信\ocean7.18\Ocean.Web\App_Code\PluginTemplate.cshtml:line 149
+2014-10-10 21:00:56,906 [9] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 21:00:56,906 [9] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-10-10 21:00:56,906 [9] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 21:00:56,906 [9] DEBUG OceanLog [(null)] - SequenceLock
+2014-10-10 21:00:56,984 [9] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 21:00:56,984 [9] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-10-10 21:05:13,468 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-10-10 21:05:13,468 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

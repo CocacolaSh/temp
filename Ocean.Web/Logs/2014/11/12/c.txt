@@ -1,0 +1,184 @@
+2014-11-12 10:02:32,500 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 10:02:32,500 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 10:02:33,234 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 10:02:33,234 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 10:02:44,984 [9] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:02:44,984 [9] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:03:04,250 [4] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:03:04,250 [4] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:03:04,406 [4] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:03:04,406 [4] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:03:04,562 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 10:03:04,562 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 10:03:51,593 [4] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:03:51,593 [4] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:04:45,578 [4] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:04:45,578 [4] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:13:05,140 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 10:13:05,140 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 10:13:05,171 [8] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 10:13:05,171 [8] ERROR OceanLog [(null)] - A public action method 'img12.jpg' was not found on controller 'Ocean.Web.Controllers.VoteController'.
+2014-11-12 11:06:50,546 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:06:50,546 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:07:19,468 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:07:19,468 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:09:56,125 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:09:56,125 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:11:37,375 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:11:37,375 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:14:10,468 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:14:10,468 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:19:10,890 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:19:10,890 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:19:11,015 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:19:11,015 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:24:53,468 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:24:53,468 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:28:12,328 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:28:12,328 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:30:04,187 [4] ERROR OceanLog [(null)] - The controller for path '/images/zh_CN/default/' was not found or does not implement IController.
+2014-11-12 11:30:04,187 [4] ERROR OceanLog [(null)] - The controller for path '/images/zh_CN/default/' was not found or does not implement IController.
+2014-11-12 11:35:48,609 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:35:48,609 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 11:47:22,671 [21] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 11:47:22,671 [21] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 14:55:10,296 [9] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 14:55:10,296 [9] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 14:55:15,687 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 14:55:15,687 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 14:55:16,312 [9] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 14:55:16,312 [9] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 15:06:28,468 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 15:06:28,468 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 15:14:09,468 [12] ERROR OceanLog [(null)] - The controller for path '/Content/images/prev.png' was not found or does not implement IController.
+2014-11-12 15:14:09,468 [12] ERROR OceanLog [(null)] - The controller for path '/Content/images/prev.png' was not found or does not implement IController.
+2014-11-12 15:14:26,031 [12] ERROR OceanLog [(null)] - The controller for path '/Content/images/prev.png' was not found or does not implement IController.
+2014-11-12 15:14:26,031 [12] ERROR OceanLog [(null)] - The controller for path '/Content/images/prev.png' was not found or does not implement IController.
+2014-11-12 15:14:58,906 [15] ERROR OceanLog [(null)] - The controller for path '/Content/images/prev.jpg' was not found or does not implement IController.
+2014-11-12 15:14:58,906 [15] ERROR OceanLog [(null)] - The controller for path '/Content/images/prev.jpg' was not found or does not implement IController.
+2014-11-12 15:15:28,062 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 15:15:28,062 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 15:15:32,281 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 15:15:32,281 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 15:21:45,218 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 15:21:45,218 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 15:26:06,671 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 15:26:06,671 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 15:41:42,796 [10] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 15:41:42,796 [10] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 15:46:11,546 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 15:46:11,546 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 15:47:03,671 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 15:47:03,671 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 16:12:49,375 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 16:12:49,375 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 16:13:59,000 [4] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-12 16:13:59,000 [4] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-12 16:14:36,359 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 16:14:36,359 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 16:32:31,562 [21] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 16:32:31,562 [21] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 16:32:47,515 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 16:32:47,515 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 16:32:55,140 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 16:32:55,140 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote.cshtml' was not found.
+2014-11-12 16:39:02,078 [12] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 16:39:02,078 [12] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-12 16:47:29,531 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 16:47:29,531 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 16:47:45,562 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 16:47:45,562 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 16:50:11,421 [12] DEBUG '=' 附近有语法错误。===detail===> [(null)] - System.Data.SqlClient.SqlException (0x80131904): '=' 附近有语法错误。
+
+Server stack trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetList(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 523
+   at Ocean.Services.ServiceBase`1.GetList(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 516
+   at Ocean.Web.Controllers.VoteController.VoteSummary(Guid Id) in E:\微信\ocean7.18\Ocean.Web\Controllers\VoteController.cs:line 73
+2014-11-12 16:50:19,140 [20] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 16:50:19,140 [20] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 17:23:11,218 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 17:23:11,218 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 17:23:21,546 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 17:23:21,546 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 17:23:25,453 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 17:23:25,453 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-12 19:44:31,562 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 19:44:31,562 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 20:27:51,031 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 20:27:51,031 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 20:46:50,968 [17] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 20:46:50,968 [17] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 21:03:59,093 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 21:03:59,093 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-12 21:13:47,468 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-12 21:13:47,468 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-13 01:13:56,140 [19] DEBUG OceanLog [(null)] - 执行任务！2014-11-13 1:13:56
+2014-11-13 01:13:56,140 [19] DEBUG OceanLog [(null)] - 执行任务！2014-11-13 1:13:56
+2014-11-13 01:13:56,843 [19] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141113ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141113ocean.bak' with INIT
+2014-11-13 01:13:56,843 [19] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141113ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141113ocean.bak' with INIT
+by Ocean

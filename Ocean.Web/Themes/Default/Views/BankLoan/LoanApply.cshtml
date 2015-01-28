@@ -1,0 +1,289 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_LoanLayout.cshtml";
+}
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#loanRegister').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            window.location.href = "/bankloan/loanapply";
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+
+        function submitForm() {
+            window.AssetSituation = "";
+            if (!$("input[name='LoanCategoryId']:checked").val()) {
+                $.messager.alert('提示', '请选择贷款种类');
+                return void (0);
+            }
+            if (!$("input[name='DeadlineId']:checked").val()) {
+                $.messager.alert('提示', '请选择贷款期限');
+                return void (0);
+            }
+            if (!$("input[name='RepaymentModeId']:checked").val()) {
+                $.messager.alert('提示', '请选择还款方式');
+                return void (0);
+            }
+            if (!$("input[name='GuaranteeWayId']:checked").val()) {
+                $.messager.alert('提示', '请选择担保方式');
+                return void (0);
+            }
+            if (!$.trim($("#ApplyMoney").val())) {
+                $.messager.alert('提示', '申请金额不能为空');
+                return void (0);
+            }
+            $(":checkbox", $("#chklist")).each(function () {
+                if (this.checked) {
+                    window.AssetSituation += $(this).val() + ",";
+                }
+            });
+            if (!window.AssetSituation) {
+                $.messager.alert('提示', '请至少勾选一个资产情况');
+                return void (0);
+            }
+            else {
+                $("#AssetSituation").val(window.AssetSituation);
+            }
+            $("#loanRegister").submit();
+//          $("#subLoan").attr("disabled","disabled");
+        }
+
+        var mobileCodeEnable = false;
+        var countdown;
+        var total = 120;
+        var count = total;
+        $.ajax({
+            type: 'post',
+            url: "GetMobileCodeSeconds",
+            async: true,
+            cache: false,
+            datatype: "json",
+            data: { operateType: 2 },
+            success: function (result) {
+                if (result.count > 0 && result.count < total) {
+                    mobileCodeEnable = false;
+                    count = result.count;
+                    countdown = setInterval(CountDown, 1000);
+                }
+                else {
+                    mobileCodeEnable = true;
+                }
+            }
+        });
+
+        function GetMobileCode() {
+            if (mobileCodeEnable) {
+                if (!$.trim($("#MobilePhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#MobilePhone").val())) {
+                    $.messager.alert('提示', '请正确的手机号码', "warning", function () { $("#MobilePhone").focus(); });
+                    return false;
+                }
+                mobileCodeEnable = false;
+                $.ajax({
+                    type: 'post',
+                    url: "GetMobileCode",
+                    async: true,
+                    cache: false,
+                    datatype: "json",
+                    data: { mobile: $('#MobilePhone').val(), OperateType: 2 },
+                    success: function (result) {
+                        if (result.success) {
+                            $("#MobileCodeBtn").html(count + "秒后重新发送");
+                            count = count - 1;
+                            countdown = setInterval(CountDown, 1000);
+                            if (result.message) {
+                                $("#Code").val(result.message);
+                            }
+                        } else {
+                            mobileCodeEnable = true;
+                            $.messager.alert('提示', result.message, "warning", function () { $("#MobilePhone").focus(); });
+                        }
+                    }
+                });
+            }
+            else {
+                $.messager.alert('提示', '请稍等，验证码已发送', "info");
+            }
+        }
+        function CountDown() {
+            $("#MobileCodeBtn").attr("disabled", true);
+            $("#MobileCodeBtn").html(count + "秒后重新发送");
+            if (count == 0) {
+                $("#MobileCodeBtn").html("发送验证码").removeAttr("disabled");
+                mobileCodeEnable = true;
+                clearInterval(countdown);
+                count = total;
+            }
+            count--;
+        }
+    </script>
+    <style type="text/css">
+        .hRadio {padding-left: 22px;}
+    </style>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">贷款申请</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("_LoanApply", "BankLoan")" id="loanRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      <div class="bteBox" style="padding-top:10px;">
+                		 <span class="btebxo">
+                             @if (!ViewBag.IsAuth)
+                             {
+                                 <p>尊敬的客户，为了更好使用贷款服务，请您根据提示如实填写。我行将于五个工作日内与您联系！首次申请后，您可于一个月后再次使用该服务。</p>
+                             }
+                             else
+                             {
+                                 <p>尊敬的<span style="color:Red;float:none;">@(ViewBag.Name)</span>客户，欢迎您使用贷款服务，提交申请后，我行将于五个工作日内与您联系！首次申请后，您可于一个月后再次使用该服务。</p>
+                             }
+                            
+                         </span>
+                	  </div>     
+                      
+                      <ul class="fnb_list">
+                         @if (!ViewBag.IsAuth)
+                         {
+                             <li>
+                                <p><input class="txtinput" name="LoanName" type="text" placeholder="姓名" autocomplete="on" /></p>
+                                <span class="user-icon"></span>
+                             </li>
+                            <li>
+                                <p><input class="txtinput" name="Phone" id="MobilePhone" type="text" placeholder="手机号" autocomplete="on" /></p>
+                                <em style="width:110px;"><a href="javascript:void(0);" id="MobileCodeBtn" onclick="GetMobileCode();">获取验证码</a></em>
+                                <span class="tel"></span>
+                             </li>
+                             <li>
+                                <p><input class="txtinput" name="Code" id="Code" type="text" placeholder="验证码" autocomplete="on" /></p>
+                                <span class="yzm"></span>
+                             </li>
+                         }
+
+                         <li class="line">
+                            <b>申请金额：</b>
+                            <p class="je"><input class="txtinput" id="ApplyMoney" name="ApplyMoney" type="text" placeholder="请输入金额" autocomplete="on" style="width:80px;" /></p>
+                            <span class="dw2" style="color:Red;">万元</span>
+                         </li>
+                         <li class="line">
+                            <b>贷款种类：</b>
+                            <span id="radiolist" class="option">
+                                @foreach (EnumData item in ViewBag.ListLoanCategory)
+                                {
+                                    index++;
+                                    if (index == ViewBag.ListLoanCategory.Count)
+                                    { 
+                                        <input name='LoanCategoryId' type="radio" value='@(item.Value)' /><label>@(index). @(item.Name)</label>
+                                                                                                                       index = 0;
+                                    }
+                                    else
+                                    {
+                                        <input name='LoanCategoryId' type="radio" value='@(item.Value)' /><label>@(index). @(item.Name)</label><br />
+                                    }
+                                }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>贷款期限：</b>
+                            <span id="radiolist1" class="option">
+                               @foreach (EnumData item in ViewBag.ListLoanDeadline)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListLoanDeadline.Count)
+                                   { 
+                                        <input name='DeadlineId' type="radio" value='@(item.Value)' /><label>@(index). @(item.Name)</label>
+                                                                                                                   index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='DeadlineId' type="radio" value='@(item.Value)' /><label>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>还款方式：</b>
+                            <span id="radiolist2" class="option">
+                               @foreach (EnumData item in ViewBag.ListRepaymentMode)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListRepaymentMode.Count)
+                                   { 
+                                        <input name='RepaymentModeId' type="radio" value='@(item.Value)' /><label>@(index). @(item.Name)</label>
+                                                                                                                        index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='RepaymentModeId' type="radio" value='@(item.Value)' /><label>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>担保方式：</b>
+                            <span id="radiolist3" class="option">
+                               @foreach (EnumData item in ViewBag.ListGuaranteeWay)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListGuaranteeWay.Count)
+                                   { 
+                                        <input name='GuaranteeWayId' type="radio" value='@(item.Value)' /><label>@(index). @(item.Name)</label>
+                                                                                                                       index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='GuaranteeWayId' type="radio" value='@(item.Value)' /><label>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>资产情况：</b>
+                            <span id="chklist" class="option">
+                               @foreach (EnumData item in ViewBag.ListAssetSituation)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListAssetSituation.Count)
+                                   { 
+                                        <input name='' type="checkbox" value='@(item.Value)' /><label>@(index). @(item.Name)</label>
+                                                                                                            index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='' type="checkbox" value='@(item.Value)' /><label>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                            <input name="AssetSituation" type="hidden" id="AssetSituation" value="" />
+                         </li>
+                         <li class="line">
+                            <b>联系地址：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="add" name="Address" type="text" placeholder="可选" autocomplete="on" /></p>
+                         </li> 
+                      </ul>
+                                                          
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="提交" onclick="submitForm();" id="subLoan" />
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />*@
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

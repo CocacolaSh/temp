@@ -1,0 +1,39 @@
+2014-12-02 16:18:39,156 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-02 16:18:39,156 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-02 16:18:39,265 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-02 16:18:39,265 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-02 16:21:12,546 [8] DEBUG OceanLog [(null)] - 参数有误，请检查！=========end
+2014-12-02 16:21:12,546 [8] DEBUG OceanLog [(null)] - 参数有误，请检查！=========end
+2014-12-02 16:21:23,718 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:参数有误，请检查！
+2014-12-02 16:21:23,718 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:参数有误，请检查！
+2014-12-02 16:21:24,359 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-02 16:21:24,359 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-02 16:22:06,000 [4] DEBUG OceanLog [(null)] - 参数有误，请检查！=========end
+2014-12-02 16:22:06,000 [4] DEBUG OceanLog [(null)] - 参数有误，请检查！=========end
+2014-12-02 16:22:07,359 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:参数有误，请检查！
+2014-12-02 16:22:07,359 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:参数有误，请检查！
+2014-12-02 16:22:07,578 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-12-02 16:22:07,578 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-12-02 16:22:58,062 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-02 16:22:58,062 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-02 16:23:15,796 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-02 16:23:15,796 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-03 01:23:12,171 [9] DEBUG OceanLog [(null)] - 执行任务！2014-12-3 1:23:12
+2014-12-03 01:23:12,171 [9] DEBUG OceanLog [(null)] - 执行任务！2014-12-3 1:23:12
+2014-12-03 01:23:12,437 [9] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141203ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141203ocean.bak' with INIT
+2014-12-03 01:23:12,437 [9] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141203ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141203ocean.bak' with INIT
+2014-12-04 01:23:12,718 [10] DEBUG OceanLog [(null)] - 执行任务！2014-12-4 1:23:12
+2014-12-04 01:23:12,718 [10] DEBUG OceanLog [(null)] - 执行任务！2014-12-4 1:23:12
+2014-12-04 01:23:12,796 [10] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141204ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141204ocean.bak' with INIT
+2014-12-04 01:23:12,796 [10] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141204ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141204ocean.bak' with INIT
+2014-12-04 17:19:31,953 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-04 17:19:31,953 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

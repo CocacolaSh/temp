@@ -1,0 +1,258 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    Layout = "../Shared/_MyBusinessLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"];
+}
+@model dynamic
+@section Head{
+    <style type="text/css">
+        .fnb_list li b{width:140px;margin-left:32px;}
+        .fnb_list li{padding:0px;line-height:20px;}
+        /*--------------------表格样式------------------------*/
+        .mappContainer1 dl{border:solid 1px #ccc;  overflow:hidden; margin: 0 10px; background: #fff;}
+        .mappContainer1 dl dt{width:30%; text-align:center; line-height:30px;}
+        .mappContainer1 dl dd{width: 70%; line-height:30px;}
+        .mappContainer1 dl dt {float:left; line-height:40px; border-bottom:solid 1px #ccc; -webkit-box-sizing: border-box;}
+        .mappContainer1 dl dt:last-child {border: none;}
+        .mappContainer1 dl dd {float:left; line-height:40px; text-align: left; padding-right: 10px; color: #666; border-bottom:solid 1px #ccc; -webkit-box-sizing: border-box;}
+        .mappContainer1 .bz {line-height:60px;}
+        .mappContainer1 .btn_box{ width: 100%; display: block;height:auto;border-bottom:solid 1px #999; }
+        .mappContainer1 .btn_box .btn{line-height: 40px; color:#FFF; margin: 10px; display: block; -webkit-box-shadow: 0px 1px 3px #BABABA; box-shadow: 0px 1px 3px #BABABA; background:-moz-linear-gradient(#00c3cf,#00b1bb); background: -webkit-gradient(linear,0 0,0 100%,from(#00c3cf),to(#00b1bb));}
+        .mappContainer1 .btn_box .btn:hover{background:-moz-linear-gradient(#00b1bb,#00c3cf); background: -webkit-gradient(linear,0 0,0 100%,from(#00b1bb),to(#00c3cf));}
+        .mappContainer1 input{ width:100%; font-size:14px;height:30px; margin: 4px 0; vertical-align:middle; border: 1px solid #999;}
+        .mappContainer1 select{width:100%; height:32px; margin: 4px 0; border: 1px solid #999;}
+        .mappContainer1 textarea{width:100%;height:50px; margin: 4px 0; border: 1px solid #999; resize: none; vertical-align:middle;}
+        .mappContainer1 p{ font-size:16px; color:#666; padding:10px; text-indent: 10px; text-align:left;}
+        .mappContainer1 .table-c {margin: 0 10px;}
+        .mappContainer1 .table-c table{border-right:1px solid #ccc;border-bottom:1px solid #ccc; background:#FFF;}
+        .mappContainer1 .table-c table td{border-left:1px solid #ccc;border-top:1px solid #ccc; height:30px;}
+        .mappContainer1 .table-c table a{ color:#000;}
+        .mappContainer1 .btn_box{ width: 100%; display: block;height:auto;border-bottom:solid 1px #999; }
+        .mappContainer1 .btn_box .btn{line-height: 40px; color:#FFF; margin: 10px; display: block; -webkit-box-shadow: 0px 1px 3px #BABABA; box-shadow: 0px 1px 3px #BABABA; background:-moz-linear-gradient(#00c3cf,#00b1bb); background: -webkit-gradient(linear,0 0,0 100%,from(#00c3cf),to(#00b1bb));}
+        .mappContainer1 .btn_box .btn:hover{background:-moz-linear-gradient(#00b1bb,#00c3cf); background: -webkit-gradient(linear,0 0,0 100%,from(#00b1bb),to(#00c3cf));}
+    </style>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">业务详细</span>
+    </div>
+    @if (Model != null)
+    {
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+                  <div class="modBd"> 
+                      <div class="mappContainer1" style="padding: 6px 0;">
+                        <div class="bg_con">
+                          @if (Model.ApplyType == 1)
+                          {
+                          <p>
+                            福农宝明细
+                          </p>
+                          <dl>
+                            <dt>
+                              申请日期：
+                            </dt>
+                            <dd>
+                              @Model.ApplyDate.ToString("yyyy-MM-dd")
+                            </dd>
+                            <dt>
+                              当前额度：<br />
+                              当前费率：
+                            </dt>
+                            <dd>
+                              @Model.PreLimit<br />
+                              @Model.PreRates
+                            </dd>
+                            <dt>
+                              申请额度：<br />
+                              申请费率：
+                            </dt>
+                            <dd>
+                              @Model.ApplyLimit<br />
+                              @Model.ApplyRates
+                            </dd>
+                            <dt>
+                              调整后额度：<br />
+                              调整后费率：
+                            </dt>
+                            <dd>
+                              @Model.ChangedLimit<br />
+                              @Model.ChangedRates
+                            </dd>
+                            <dt>
+                              完成日期：
+                            </dt>
+                            <dd>
+                              @Model.FinishDate.ToString("yyyy-MM-dd").Replace("1900-01-01", "　")
+                            </dd>
+                            <dt class="btn_box">
+                                @if (Model.ProcessStatus == 0)
+                                {
+                                        @:未审核
+                                    }
+                                else if (Model.ProcessStatus == 1)
+                                {
+                                      @:通过
+                                  }
+                                else if (Model.ProcessStatus == 2)
+                                {
+                                      @:未通过<span>（原因：@Model.ProcessResult）</span>
+                                  }
+                                else
+                                {
+                                      @:建议额度
+                                  }
+                              </dt>
+                          </dl>
+                          }
+                          else if (Model.ApplyType == 2)
+                          {
+                          <p>
+                            贷款明细
+                          </p>
+                          <dl>
+                            <dt>
+                              申请日期：
+                            </dt>
+                            <dd>
+                              @Model.CreateDate.ToString("yyyy-MM-dd")
+                            </dd>
+                            <dt>
+                              申请金额：
+                            </dt>
+                            <dd>
+                              @Model.ApplyMoney.ToString("0.00")<span>(万)
+                            </dd>
+                            <dt>
+                              贷款种类：
+                            </dt>
+                            <dd>
+                              @Ocean.Framework.Caching.Cache.EnumDataCache.Instance.GetEnumDataName(Ocean.Entity.Enums.TypeIdentifying.TypeIdentifyingEnum.LoanCategory, Model.LoanCategoryId.ToString())　
+                            </dd>
+                            <dt>
+                              贷款期限：
+                            </dt>
+                            <dd>
+                             @Ocean.Framework.Caching.Cache.EnumDataCache.Instance.GetEnumDataName(Ocean.Entity.Enums.TypeIdentifying.TypeIdentifyingEnum.LoanDeadline, Model.DeadlineId.ToString())　
+                            </dd>
+                            <dt>
+                              还款方式：
+                            </dt>
+                            <dd>
+                    @Ocean.Framework.Caching.Cache.EnumDataCache.Instance.GetEnumDataName(Ocean.Entity.Enums.TypeIdentifying.TypeIdentifyingEnum.RepaymentMode, Model.RepaymentModeId.ToString())　
+                            </dd>
+                            <dt>
+                              担保方式：
+                            </dt>
+                            <dd>
+                             @Ocean.Framework.Caching.Cache.EnumDataCache.Instance.GetEnumDataName(Ocean.Entity.Enums.TypeIdentifying.TypeIdentifyingEnum.GuaranteeWay, Model.GuaranteeWayId.ToString())　
+                            </dd>
+                            <dt>
+                              资产情况：
+                            </dt>
+                            <dd>
+                            @{string assetSituation = "";}
+                            @if (!string.IsNullOrWhiteSpace(Model.AssetSituation))
+                            {
+                                foreach (string value in Model.AssetSituation.Split(','))
+                                {
+                                    if (!string.IsNullOrWhiteSpace(value) && Ocean.Core.Utility.Validator.IsNumber(value))
+                                    {
+                                        assetSituation += Ocean.Framework.Caching.Cache.EnumDataCache.Instance.GetEnumDataName(Ocean.Entity.Enums.TypeIdentifying.TypeIdentifyingEnum.AssetSituation, value) + ",";
+                                    }
+                                }
+                            }
+                             @assetSituation　
+                            </dd>
+                            <dt>
+                              完成日期：
+                            </dt>
+                            <dd>
+                              @(!Convert.IsDBNull(Model.ProcessDate)?Ocean.Core.Utility.TypeConverter.ObjectToDateTime(Model.ProcessDate).ToString("yyyy-MM-dd"):"　")
+                            </dd>
+                            <dt class="btn_box">
+                                @if (Model.ProcessStatus == 0)
+                                {
+                                        @:未审核
+                                    }
+                                else if (Model.ProcessStatus == 1)
+                                {
+                                      @:通过
+                                  }
+                                else if (Model.ProcessStatus == 2)
+                                {
+                                      @:未通过<span>（原因：@Model.ProcessResult）</span>
+                                  }
+                                else
+                                {
+                                      @:受理中
+                                  }
+                              </dt>
+                          </dl>
+                          }
+                          else
+                          {  
+                          <p>
+                            POS明细
+                          </p>
+                          <dl>
+                            <dt>
+                              申请日期：
+                            </dt>
+                            <dd>
+                              @Model.CreateDate.ToString("yyyy-MM-dd")
+                            </dd>
+                            @if (Model.ProcessStatus == 1)
+                            {
+                            <dt>
+                              商户名称：
+                            </dt>
+                            <dd>
+                              @Model.VendorName　
+                            </dd>
+                            <dt>
+                              装机地址：
+                            </dt>
+                            <dd>
+                              @Model.VendorAddress　
+                            </dd>
+                            <dt>
+                              扣率：
+                            </dt>
+                            <dd>
+                              @Model.DeductRate　
+                            </dd>
+                            }
+                            <dt>
+                              完成日期：
+                            </dt>
+                            <dd>
+                              @Model.ProcessDate.ToString("yyyy-MM-dd").Replace("1900-01-01", "　")
+                            </dd>
+                            <dt class="btn_box">
+                                @if (Model.ProcessStatus == 0)
+                                {
+                                        @:未审核
+                                    }
+                                else if (Model.ProcessStatus == 1)
+                                {
+                                      @:已装机
+                                  }
+                                else if (Model.ProcessStatus == 2)
+                                {
+                                      @:未通过<span>（原因：@Model.ProcessResult）</span>
+                                  }
+                                else
+                                {
+                                      @:审核中
+                                  }
+                              </dt>
+                          </dl>
+                          }
+                        </div>
+
+                  </div>
+          </section>
+    </div>
+    }
+</div>

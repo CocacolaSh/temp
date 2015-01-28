@@ -1,0 +1,141 @@
+﻿@using Ocean.Entity.Enums;
+@using Ocean.Entity;
+@{
+    Layout = "../Shared/_BranchLayout.cshtml";
+}
+@model IList<BranchDTO>
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>在线地图</title>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery/jquery-1.10.2.min.js")"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=0Ba2e01185bb96cce86a29b31d79db5c"></script>
+    
+    <style type="text/css">
+.active{
+background-color:#f90; 
+}
+@*        .fixed_div {
+			position: fixed;
+			z-index: 2010;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			text-align: center;
+			height: 260px;
+		}*@
+		.html, .body
+        {
+            overflow: hidden;
+            margin: 0px;
+            color: #222;font-family: Microsoft YaHei,Helvitica,Verdana,Tohoma,Arial,san-serif;margin: 0;padding: 0;text-decoration: none;
+        }
+
+         .virtual
+        {
+            position: auto;
+            margin-top:0px;
+            width: 100%;
+            height: 300px;
+            overflow: scroll;
+        }
+        
+        .fixed_div
+        {
+            position: fixed;
+            z-index: 2008;
+            top: 0px;
+            width: 100%;
+            height: 240px;
+            border: 1px solid red;
+            background: #e5e5e5;
+        }
+    </style>
+</head>
+
+<div id="mbMain">
+@*    <div class="frameChang">
+        <span class="stitle">石狮农商银行</span>
+    </div>*@
+     
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+                <form action="" id="" method="post" style="margin: 0px; padding: 0px; display: block;">
+                    <div class="modBd">
+@*                        <div class="bteBox" style="padding-top:10px;">
+                		    <span class="btebxo">
+                                周边网点查询
+                            </span>
+                	    </div>  *@
+@*                        <div id="container" style="padding: 0 5px; padding-top:5px; text-align: center; height: 320px; position:absolute;overflow:hidden; ">
+                        </div>*@
+                        <div id="container" class="fixed_div">
+                        </div>
+                        <div id = "wangdianDiv" class = "virtual">
+                            <ul  id="wangdianList" class="fnb_list">
+                                @foreach (BranchDTO dtoBranch in Model)
+                                { 
+                                    <li class="line"  id="@(dtoBranch.Id)" longitude="@(dtoBranch.Longitude)" latitude="@(dtoBranch.Latitude)" name="@(dtoBranch.Name)" address="@(dtoBranch.Address)" telphone="@(dtoBranch.Phone)">
+                                    @(dtoBranch.Name)(@dtoBranch.Distance.ToString("0.00")千米)
+                                    </li>
+                                } 
+                            </ul>
+                        </div>
+                    </div>
+                </form> 
+            </section>
+    </div>
+</div> 
+<script type="text/javascript">
+    var lng = "@(ViewBag.longitude)";
+    var lat = "@(ViewBag.latitude)";
+    //设置地图层级
+    var zoom = 15;
+    var map = new BMap.Map("container");
+    //    map.centerAndZoom(new BMap.Point(116.404, 39.915), zoom); //初始化地图
+//    var point = new BMap.Point(lng, lat);
+//    var marker = new BMap.Marker(point);
+
+//    map.addOverlay(marker);
+//    var infoWindow = new BMap.InfoWindow("这就是您公司的位置。<br/>如果不正确，请拖动红色图标");
+//    //显示窗口  
+//    marker.openInfoWindow(infoWindow);
+
+
+//    map.centerAndZoom(point, zoom);
+//    map.addControl(new BMap.NavigationControl());
+//    map.enableScrollWheelZoom();
+
+
+    $(document).ready(function () {
+        $("ul[id*=wangdianList] li").click(function () {
+            //alert($(this).html()); // gets innerHTML of clicked li
+            //alert($(this).text()); // gets text contents of clicked li
+            $(this).addClass('active').siblings().removeClass('active');
+            lat = $(this).attr('latitude');
+            lng = $(this).attr('longitude');
+            //alert("lat:" + lat + ",lng:" + lng);
+            point = new BMap.Point(lng, lat);
+            map.centerAndZoom(point, zoom);
+            map.addControl(new BMap.ZoomControl());
+            //map.enableScrollWheelZoom();
+
+
+            marker = new BMap.Marker(point);
+            map.clearOverlays();  
+            map.addOverlay(marker);
+
+            var name = $(this).attr('name');
+            var address = $(this).attr('address');
+            var telphone = $(this).attr('telphone');
+            infoWindow = new BMap.InfoWindow("<p style=\"text-align: center; font-weight:bold; font-size: 18px;\">" + name + "</p>" + address + "<br/>" + telphone);
+            //显示窗口  
+            marker.openInfoWindow(infoWindow);
+        });
+
+        $("ul[id*=wangdianList] li:first").click();
+
+    });
+</script>

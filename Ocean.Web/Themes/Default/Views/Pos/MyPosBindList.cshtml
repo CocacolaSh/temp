@@ -1,0 +1,135 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_PosLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"];
+    string vendors = "";
+    foreach (Pos pos in Model){
+        if (string.IsNullOrEmpty(vendors))
+        {
+            vendors=pos.VendorName;
+        }
+        else
+        {
+            if (vendors.IndexOf(pos.VendorName) < 0)
+            { 
+            vendors += "," + pos.VendorName;
+            }
+        }
+    }
+}
+@model IList<Pos>
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        function MyPosUnbind() {
+            $.messager.confirm('Confirm', '确定要解除所有已绑定POS？', function (r) {
+                if (r)
+                {
+                    $.ajax({
+                        type: 'post',
+                        url: "MyPosUnbind",
+                        async: true,
+                        cache: false,
+                        datatype: "json",
+                        data: { id: '@Guid.Empty.ToString()' },
+                        success: function (result) {
+                            if (result.success) {
+                                $.messager.alert('提示', '解绑成功',"info", function () {
+                                    location.href = 'mypos';
+                                })
+                            } else {
+                                mobileCodeEnable = true;
+                                $.messager.alert('提示', result.message, "warning", function () { $("#MobilePhone").focus(); });
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+    <style type="text/css">
+        .fnb_list li b{width:140px;margin-left:32px;}
+        .fnb_list li{padding:0px;line-height:20px;}
+        /*--------------------表格样式------------------------*/
+        .mappContainer1{padding:6px 8px 6px 8px;}
+        .mappContainer1 dl{overflow:hidden;background: #fff;-webkit-border-radius: 3px;}
+        .mappContainer1 dl dt{width:80%; text-align:left; line-height:30px;}
+        .mappContainer1 dl dd{width: 20%;line-height:30px;}
+        .mappContainer1 dl dt {float:left; line-height:40px;text-indent:24px; border-bottom:solid 1px #ccc; -webkit-box-sizing: border-box;}
+        .mappContainer1 dl dd {float:left; line-height:40px; text-align: left; padding-right: 10px; color: #666; border-bottom:solid 1px #ccc; -webkit-box-sizing: border-box;}
+        .posdetail{height: auto;
+            padding-right: 60px;
+            padding-left: 0;
+            font-size: 16px;
+            background: url(@Url.Content("~/content/images/next.png")) no-repeat right 50%;
+            background-size: 25px 25px;
+            display: block;
+        }
+        .posdetail span{
+            position: relative;
+            font-size: 16px;
+            color: #101010;
+            line-height: 23px;
+         }
+    </style>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">我的POS</span>
+    </div>
+    @if (Model != null && Model.Count > 0)
+    {
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("PosBind", "Pos")" id="posRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      <ul class="btts" style="padding-bottom:0px;">
+                          <span>您在我行办理的POS业务情况如下,点击“<img src="/content/images/next.png" style="width:20px; vertical-align:bottom;" />”查看明细：@*尊敬的<em>@(ViewBag.Name)</em>@(ViewBag.Sex)，您好！*@</span>
+                          <li>
+                            
+                          </li>
+                       </ul>       
+                      <div class="mappContainer1" style="padding-top: 6px;">
+                        <div class="bg_con">
+                          @foreach (string vendor in vendors.Split(','))
+                          {
+                              if (!string.IsNullOrEmpty(vendor))
+                              {
+                          <div style="text-indent:24px; color:Blue;font-weight:bold;">商户名：@vendor</div>
+                          <dl>
+                            @foreach (Pos pos in Model.Where(p=>p.VendorName==vendor))
+                            {
+                            <dt>
+                              @(string.IsNullOrEmpty(pos.TerminalNO) ? pos.VendorName : ("终端号：" + pos.TerminalNO))
+                            </dt>
+                            <dd>
+                             @* @pos.TerminalNO*@
+                              <a style="float:right; display:inline-block;" class="posdetail" href="myposbind?id=@pos.Id.ToString()">&nbsp;</a>
+                            </dd>
+                            }
+                          </dl>
+                              }
+                          }
+                        </div>                        <div style="text-indent:24px;margin-top:6px;font-size:14px;">                            数据更新日期：@Model[0].CreateDate.ToShortDateString()                        </div>                        </div>
+                                                     
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="解除绑定POS" onclick="MyPosUnbind();" id="posBtn" />
+                          <input type="button" class="modBtnColor coloryellow" value="查看更多POS" onclick="location.href='mypos';" />
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />*@
+                      </div>
+                      <div class="bteBox">
+                		 <span class="btebxo">
+                            <p>温馨提示：如果您发现以上信息与实际情况不符，请您及时联系我行客服40008-96336进行修改。</p>
+                         </span>
+                	  </div>
+                      <br />
+                  </div>
+              </form> 
+          </section>
+    </div>
+    }
+</div>

@@ -1,0 +1,385 @@
+﻿@{
+    Layout = "../Shared/_SceneLotteryLayout.cshtml";
+}
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jQueryRotate.2.2.js", false)"></script>
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jquery.easing.min.js", false)"></script>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.wap {background: url(@Url.PluginUrl("lottery/images/bj.jpg"));}
+
+.bg {position: absolute; left: 34px; top: 32px; width: 234px; height: 234px;}
+
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 25px; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;position:relative;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px; overflow: hidden;}
+.cat_list {float: left; width: 100%; overflow: hidden; clear: both;}
+.ctit {float: left; height: 50px; font-size: 16px; line-height: 50px;}
+.cinput {float: left; width: 85%; height: 50px;overflow: hidden;}
+.box .title_brown{background: url("@Url.PluginUrl("lottery/images/title-bg-green.png")") no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+.zj_result {z-index: 99999; position: absolute; width: 80%; top: 45%; left: 5%; text-align: center; color: #fff; padding: 5%; border-radius: 10px; line-height: 30px; font-size: 16px; background: rgba(0,0,0,.5);}
+.zj_result .result{color:#fff;}
+.zj_result span {color: #ff0; font-size: 20px; font-weight: bold;}
+.zj_result em {position: absolute; right: 10px; top: 10px; width: 32px; height: 32px; text-indent: -99999px; background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 0; cursor: pointer; display: block;}
+.zj_result em:hover {background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 -32px;}
+.zj_result i {padding: 0 15px; height: 32px; line-height: 32px; font-style: normal; margin: 0 10%; text-shadow: 1px 1px #b3874d; color: #fff; font-size: 14px; margin-top: 20px; border-radius: 5px; box-shadow: 0 2px #f8df8a inset; font-weight: bold; background: -moz-linear-gradient(top,#f3cd4f,#e79217); background: -webkit-gradient(linear,left top,left bottom,from(#f3cd4f),to(#e79217)); display: block;}
+.zj_result i a:link {color: #fff; text-decoration: none;}
+.zj_result i a:visited {color: #fff; text-decoration: none;}
+.zj_result i a:hover {color: #fff; text-decoration: none;}
+.zj_result i a:active {color: #fff; text-decoration: none;}
+/*---- new ----------*/
+.out {
+	position: relative;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.in {
+	position: absolute;
+	width: 100%;
+	top: 40%;
+}
+.out1 {
+	height: 100%;
+    margin: 0 auto;
+    max-width: 300px;
+	max-height: 300px;
+    width: 100%;
+}
+.in1 {
+	cursor: pointer;
+    height: 110px;
+    margin: -55px auto 0;
+    max-width: 90px;
+    width: 90px;
+}
+.out1 img, .in1 img {
+	display: block;
+	margin: 0 auto;
+	max-width:100%;
+}
+</style>
+
+
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">积分系统大抽奖_石狮农商银行</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+            <div class="jjtxt">
+                <div class="scrollDiv scrollbox">
+    	            <ul style="margin-top: 0px;">
+			<li>恭喜用户[111]获得三等奖[精美水杯]</li>
+			<li>恭喜用户[222]获得二等奖[高档保温瓶]</li>
+                        @if (ViewBag.PluginResultList != null)
+                        {
+                            foreach (PluginSceneResult submit in ViewBag.PluginResultList)
+                            {
+                                 <li>@submit.Summary</li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+	        <script type="text/javascript">
+
+	            AutoScroll = (function (obj) {
+	                $(obj).find("ul:first").animate({
+	                    marginTop: "-25px"
+	                }, 500, function () {
+	                    $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	                });
+	            });
+	            $(function () {
+	                if ($('.scrollbox li').length > 1) {
+	                    setInterval('AutoScroll(".scrollbox")', 4000);
+	                }
+	            });
+	            var LotteryErrorInfo = [];
+	            LotteryErrorInfo['ERR_NotLogin'] = '未登录';
+	            LotteryErrorInfo['ERR_ArgNotExist'] = '参数有问题';
+	            LotteryErrorInfo['ERR_PluginNotExits'] = '对不起，不存在该插件或未开通，请检查！';
+	            LotteryErrorInfo['ERR_PluginNotStart'] = '对不起，抽奖还未开始！';
+	            LotteryErrorInfo['ERR_PluginIsEnd'] = '对不起，抽奖已经结束！';
+	            LotteryErrorInfo['ERR_UserNotVerify'] = '您还未绑定，请先绑定！';
+	            LotteryErrorInfo['ERR_UserUseOutChance'] = '您已经用完抽奖机会，请继续交易，以便参与下次抽奖';
+	            LotteryErrorInfo['ERR_RunOutOfGift'] = '未中奖!';
+	            LotteryErrorInfo['ERR_OK'] = '恭喜您，摇奖了!';
+
+	            var unusedAngle = [30, 90, 150, 210, 270, 330];
+	            var unusedName = ['运气先攒着', '永不言败',  '要加油哦', '继续要加油', '下月再来', '再接再厉'];
+	            var lotterying = false;
+	            $(function () {
+	                var rotateFunc = function (json) {
+	                    $('#btnstart').stopRotate();
+	                    $("#btnstart").rotate({
+	                        angle: 0,
+	                        duration: 5000,
+	                        animateTo: json.Angle + 1440,
+	                        callback: function () {
+	                            lotterying = false;
+
+	                            if (json.ID >= 0) {
+	                                if (json.Has_Gift) {
+	                                    if (json.Leavings_Quantity > 0) {
+	                                        $.messager.alert('提示', "恭喜您，中了" + json.Name + "！", "warning", function () { });
+	                                        $("#tipsinfo").html("请关注本微信16号后的公告，以便及时兑奖");
+	                                    }
+	                                    else {
+	                                        $("#tipsinfo").html("您的运气来的晚了那么些，请再接再厉哦！");
+	                                    }
+	                                }
+	                                else {
+	                                    var oppTimes = parseInt($("#Has_Use_Count").html(), 10);
+	                                    if (oppTimes > 1) {
+	                                        //	                                        alert(json.Name + "，不要灰心，再接再厉!");
+	                                        $.messager.alert('提示', json.Name + "，不要灰心，再接再厉!", "warning", function () { });
+	                                    }
+	                                    else {
+	                                        //	                                        alert(json.Name + "，感谢您的参与，请下个月继续努力!");
+	                                        $.messager.alert('提示', json.Name + "，感谢您的参与，请下个月继续努力!", "warning", function () { });
+	                                    }
+	                                    //	                                    $("#tipsinfo").html("亲！您还有" + (parseInt($("#Has_Use_Count").html(), 10) - 1) + "次机会！");
+	                                }
+	                                $("#Has_Use_Count").html(parseInt($("#Has_Use_Count").html(), 10) - 1);
+	                            }
+	                            else {
+	                                var oppTimes = parseInt($("#Has_Use_Count").html(), 10);
+	                                if (oppTimes > 1) {
+	                                    $.messager.alert('提示', json.Name + "，不要灰心，再接再厉!", "warning", function () { });
+	                                    //	                                    alert(json.Name + "，不要灰心，再接再厉!");
+	                                }
+	                                else {
+	                                    //	                                    alert(json.Name + "，感谢您的参与，请下个月继续努力!");
+	                                    $.messager.alert('提示', json.Name + "，感谢您的参与，请下个月继续努力!", "warning", function () { });
+	                                }
+	                                //	                                $("#tipsinfo").html("亲！您还有" + (parseInt($("#Has_Use_Count").html(), 10) - 1) + "次机会！");
+	                                $("#Has_Use_Count").html(parseInt($("#Has_Use_Count").html(), 10) - 1);
+	                            }
+	                        }
+	                    });
+	                };
+	                $("#btnstart").rotate({
+	                    bind: {
+	                        click: function () {
+	                            var url = location.href;
+	                            if (!lotterying) {
+	                                lotterying = true;
+	                                $.ajax({
+	                                    type: 'post',
+	                                    url: '/ScoreSys/PluginsLottery?t=' + Math.random(),
+	                                    data: { Id: '@(WebHelper.GetGuid("Id", Guid.Empty))', Score_Plugin_Title: $("#Score_Plugin_Title").val(),
+                                        Score_Plugin_StartDate:$("#Score_Plugin_StartDate").val(), Score_Plugin_EndDate:$("#Score_Plugin_EndDate").val(),
+                                        Score_Plugin_UsePoint: $("#Score_Plugin_UsePoint").val(), Score_Plugin_ZeroPrize: $("#Score_Plugin_ZeroPrize").val(),
+                                        Score_Plugin_FailsTimes: $("#Score_Plugin_FailsTimes").val(), Score_Plugin_FailsAddOdds: $("#Score_Plugin_FailsAddOdds").val()},
+	                                    cache: false,
+	                                    dataType: "json",
+	                                    success: function (json) {
+	                                        if (json.isOK == false) {
+	                                            lotterying = false;
+	                                            if (json.isLogin) {
+	                                                window.location = json.message;
+	                                            }
+	                                            else {
+	                                                if (json.isVertfy) {
+
+	                                                    alert('请先绑定');
+	                                                    //$("#boxcontent").show();
+	                                                }
+	                                                alert(LotteryErrorInfo[json.error_code]);
+	                                            }
+	                                        }
+	                                        else {
+	                                            //	                                            alert(json.error_code + 'Angle:' + json.Angle);
+	                                            if (typeof (json.error_code) == "undefined") {
+
+	                                            }
+	                                            else {
+	                                                if (json.error_code == 'ERR_RunOutOfGift') {
+	                                                    var index = Math.floor(Math.random() * unusedAngle.length);
+	                                                    json.ID = -1;
+	                                                    json.Angle = unusedAngle[index];
+	                                                    json.Name = unusedName[index];
+	                                                }
+	                                            }
+	                                            rotateFunc(json);
+	                                        }
+	                                    },
+	                                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+	                                        lotterying = false;
+	                                        alert(XMLHttpRequest.status);
+	                                        alert(XMLHttpRequest.readyState);
+	                                        alert(textStatus);
+	                                        alert(errorThrown);
+	                                    }
+
+	                                });
+	                            }
+	                            else {
+	                                $.messager.alert('提示', "你的网速有点忙，正在摇奖中...", "warning", function () { });
+	                                //	                                alert('你的网速有点忙，正在摇奖中...');
+	                            }
+	                        }
+	                    }
+	                });
+	            });
+
+	            
+
+	            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	                window.shareData = {
+	                    "timeLineLink": "http://wx.ssrcb.com/ScoreSys/index",
+	                    "sendFriendLink": "http://wx.ssrcb.com/ScoreSys/index",
+	                    "weiboLink": "http://wx.ssrcb.com/ScoreSys/index",
+	                    "ImgPath": "http://wximg.ssrcb.com/mpimages/2014/09/11/5fcc7619602-128113_jpg!431x462.jpg",
+	                    "tTitle": "有钱就是任性！石狮农商行积分大派送啦！",
+	                    "tContent": "没钱也不要认命！小伙伴们，到石狮农商行来抢积分啦！",
+	                    "fTitle": "有钱就是任性！石狮农商行积分大派送啦！",
+	                    "fContent": "没钱也不要认命！手快有手慢无，小伙伴们，到石狮农商行抢积分啦！",
+	                    "wContent": "没钱也不要认命！手快有手慢无，小伙伴们，到石狮农商行抢积分啦！"
+	                };
+
+	                // 发送给好友
+	                WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+	                    WeixinJSBridge.invoke('sendAppMessage', {
+	                        "img_url": window.shareData.ImgPath,
+	                        "img_width": "431",
+	                        "img_height": "462",
+	                        "link": window.shareData.sendFriendLink,
+	                        "desc": window.shareData.fContent,
+	                        "title": window.shareData.fTitle
+	                    }, function (res) {
+	                        _report('send_msg', res.err_msg);
+	                    })
+	                });
+	                // 分享到朋友圈
+	                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+	                    WeixinJSBridge.invoke('shareTimeline', {
+	                        "img_url": window.shareData.ImgPath,
+	                        "img_width": "431",
+	                        "img_height": "462",
+	                        "link": window.shareData.timeLineLink,
+	                        "desc": window.shareData.tContent,
+	                        "title": window.shareData.tTitle
+	                    }, function (res) {
+	                        _report('timeline', res.err_msg);
+	                    });
+	                });
+	                // 分享到微博
+
+	            }, false);
+            </script>
+
+            <div style="width: 300px; height: 300px; margin: auto; margin-top: 10px; position: relative;">
+                <div class="out">
+                    <div class="out1">
+                        <img id="lotteryBtn" src="@Url.PluginUrl("lottery/images/scoresys_disk.png", false)" style="width:100%;" />
+                    </div>
+                </div>
+                <div class="in">
+                    <div class="in1"><img id="btnstart" src="@Url.PluginUrl("lottery/images/start.png")" /></div>
+                </div>
+            </div>
+
+            <div class="boxcontent">
+                <div class="box">
+                    <div class="title_brown">
+                        <span>抽奖提示：</span>
+                    </div>
+        	        <div class="txt" style="text-align:center;">每次抽奖消耗10点积分，祝您好运</div>
+                </div>  
+            </div>
+
+            <div class="content">
+                
+                <div class="boxcontent">
+        	        <div class="box">
+            	        <div class="title_brown">
+                	        <span>我的中奖记录：</span>
+                        </div>
+                        <div class="Detail">
+                            @{
+                                IEnumerable<ScorePluginResult> mysubmits = ViewBag.MyPlugin_SubmitList as IEnumerable<ScorePluginResult>;
+                                
+                                if (mysubmits != null)
+                                {
+                                    int i = 1;
+                                    foreach (ScorePluginResult mysubmit in mysubmits)
+                                    {
+                                        if (@mysubmit.Summary.ToString().Contains("兑奖"))
+                                        {
+                                        }
+                                        else
+                                        {
+                                            @:<p>@(i.ToString()).@mysubmit.CreateDate.ToString("yyyy-MM-dd"):@mysubmit.Value.Substring(@mysubmit.Value.IndexOf("++") + 2)  @mysubmit.Value.Substring(0, @mysubmit.Value.IndexOf("++"))  </p>
+                                        }
+                                        i++;
+                                    }
+                                }
+                             }
+                        </div>
+                    </div>
+                </div>
+    	        <div class="boxcontent">
+        	        <div class="box">
+            	        <div class="title_brown">
+                	        <span>奖项设置：</span>
+                        </div>
+                        <div class="Detail">
+                           <p>一等奖：积分系统1000元【虚拟】</p>
+                           <p>二等奖：积分系统300元【虚拟】</p>
+                           <p>三等奖：积分系统100元【虚拟】</p>
+                           <p>四等奖：积分系统20元【虚拟】</p>
+                           <p>五等奖：积分系统5元【虚拟】</p>
+                           <p>六等奖：积分系统5元【虚拟】</p>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="Score_Plugin_Title" name="Score_Plugin_Title" value = "@(ViewBag.Score_Plugin_Title)"/>
+                <input type="hidden" id="Score_Plugin_StartDate" name="Score_Plugin_StartDate" value = "@(ViewBag.Score_Plugin_StartDate)"/>
+                <input type="hidden" id="Score_Plugin_EndDate" name="Score_Plugin_EndDate" value = "@(ViewBag.Score_Plugin_EndDate)"/>
+                <input type="hidden" id="Score_Plugin_UsePoint" name="Score_Plugin_UsePoint" value = "@(ViewBag.Score_Plugin_UsePoint)"/>
+                <input type="hidden" id="Score_Plugin_ZeroPrize" name="Score_Plugin_ZeroPrize" value = "@(ViewBag.Score_Plugin_ZeroPrize)"/>
+                <input type="hidden" id="Score_Plugin_FailsTimes" name="Score_Plugin_FailsTimes" value = "@(ViewBag.Score_Plugin_FailsTimes)"/>
+                <input type="hidden" id="Score_Plugin_FailsAddOdds" name="Score_Plugin_FailsAddOdds" value = "@(ViewBag.Score_Plugin_FailsAddOdds)"/>
+
+@*    	        <div class="boxcontent">
+        	        <div class="box">
+            	        <div class="title_brown">
+                	        <span>活动说明：</span>
+                        </div>
+                        <div class="Detail">
+                	    <p>
+	<span style="color: rgb(255, 0, 0);"><span style="font-size:18px;"><span style="color: rgb(255, 0, 0); font-size: 18px;">★</span></span></span>本福利仅适用<span style="color:#ff0000;">我行手机银行签约用户</span>，且当月手机银行完成交易<span style="color:#ff0000;">3笔以上</span>，否则中奖无效哦！
+</p>
+<p>
+	<span style="color: rgb(255, 0, 0);"><span style="font-size:18px;"><span style="color: rgb(255, 0, 0); font-size: 18px;">★</span></span></span>每月仅有一轮(3次)现场抽奖机会，好好把握~<br />
+	
+</p>
+<p>
+	<span style="color: rgb(255, 0, 0); font-size: 18px;">★</span>活动最终解释权归属石狮农商银行。
+</p>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,310 @@
+2014-09-10 09:22:30,875 [11] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
+2014-09-10 09:22:30,875 [11] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
+2014-09-10 09:22:53,390 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 09:22:53,390 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 09:22:57,421 [4] DEBUG OceanLog [(null)] - 抽奖开始：加载次数限制
+2014-09-10 09:22:57,421 [4] DEBUG OceanLog [(null)] - 抽奖开始：加载次数限制
+2014-09-10 09:22:59,359 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-09-10 09:22:59,359 [4] DEBUG OceanLog [(null)] - 抽奖开始：概率与礼物设置
+2014-09-10 09:22:59,515 [4] DEBUG OceanLog [(null)] - 抽奖开始：设置未中奖项
+2014-09-10 09:22:59,515 [4] DEBUG OceanLog [(null)] - 抽奖开始：设置未中奖项
+2014-09-10 09:23:00,875 [4] DEBUG OceanLog [(null)] - 抽奖进行循环模式：0
+2014-09-10 09:23:00,875 [4] DEBUG OceanLog [(null)] - 抽奖进行循环模式：0
+2014-09-10 09:23:02,609 [4] DEBUG OceanLog [(null)] - 抽奖开始：抽奖
+2014-09-10 09:23:02,609 [4] DEBUG OceanLog [(null)] - 抽奖开始：抽奖
+2014-09-10 09:23:03,000 [4] DEBUG OceanLog [(null)] - 抽奖开始：中奖
+2014-09-10 09:23:03,000 [4] DEBUG OceanLog [(null)] - 抽奖开始：中奖
+2014-09-10 09:53:03,000 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 09:53:03,000 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 09:54:59,609 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 09:54:59,609 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 09:54:59,984 [19] DEBUG The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'Id', does not have a corresponding column in the data reader with the same name.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'Id', does not have a corresponding column in the data reader with the same name.
+
+Server stack trace: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 599
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 592
+   at Ocean.Web.Controllers.PluginsController.Lottery2(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsController.cs:line 820
+2014-09-10 09:56:05,812 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 09:56:05,812 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 09:56:06,078 [4] DEBUG The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'Id', does not have a corresponding column in the data reader with the same name.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'Id', does not have a corresponding column in the data reader with the same name.
+
+Server stack trace: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 599
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 592
+   at Ocean.Web.Controllers.PluginsController.Lottery2(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsController.cs:line 820
+2014-09-10 09:58:03,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 09:58:03,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:02:37,468 [4] DEBUG The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'Id', does not have a corresponding column in the data reader with the same name.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'Id', does not have a corresponding column in the data reader with the same name.
+
+Server stack trace: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 599
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 592
+   at Ocean.Web.Controllers.PluginsController.Lottery2(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsController.cs:line 820
+2014-09-10 10:02:50,265 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 10:02:50,265 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 10:03:25,578 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:03:25,578 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:03:55,828 [4] DEBUG The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'Id', does not have a corresponding column in the data reader with the same name.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'Id', does not have a corresponding column in the data reader with the same name.
+
+Server stack trace: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql)
+   at Ocean.Web.Controllers.PluginsController.Lottery2(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsController.cs:line 820
+2014-09-10 10:08:22,234 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:08:22,234 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:09:30,250 [4] DEBUG The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'CreateDate', does not have a corresponding column in the data reader with the same name.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: The data reader is incompatible with the specified 'Ocean.Data.PluginAllowUser'. A member of the type, 'CreateDate', does not have a corresponding column in the data reader with the same name.
+
+Server stack trace: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Entity.Core.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean streaming, EntitySet& entitySet, TypeUsage& edmType)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql)
+   at Ocean.Web.Controllers.PluginsController.Lottery2(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsController.cs:line 820
+2014-09-10 10:09:53,484 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:09:53,484 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:11:34,687 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 10:11:34,687 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 10:12:24,406 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:12:24,406 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:12:37,875 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:12:37,875 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:15:47,281 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:15:47,281 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:17:47,890 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:17:47,890 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:18:46,890 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:18:46,890 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:21:42,328 [5] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 10:21:42,328 [5] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 10:22:11,250 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:22:11,250 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:24:02,750 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:24:02,750 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:32:18,203 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 10:32:18,203 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 10:32:40,671 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:32:40,671 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:33:28,578 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 10:33:28,578 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 10:33:52,718 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 10:33:52,718 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 15:50:33,406 [19] DEBUG OceanLog [(null)] - OPenid:BFD28ABA-7318-48FC-8DF6-000798CBAC98
+2014-09-10 15:50:33,406 [19] DEBUG OceanLog [(null)] - OPenid:BFD28ABA-7318-48FC-8DF6-000798CBAC98
+2014-09-10 15:50:33,562 [19] DEBUG OceanLog [(null)] - CurrentFunongbao:
+2014-09-10 15:50:33,562 [19] DEBUG OceanLog [(null)] - CurrentFunongbao:
+2014-09-10 17:11:50,156 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 17:11:50,156 [19] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 17:12:37,265 [19] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
+2014-09-10 17:12:37,265 [19] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
+2014-09-10 17:12:50,984 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:12:50,984 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:13:09,359 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:13:09,359 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:13:11,781 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:13:11,781 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:13:20,234 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:13:20,234 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:15:56,140 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:15:56,140 [19] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:18:50,375 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:18:50,375 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:21:10,078 [5] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:21:10,078 [5] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:21:13,796 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:21:13,796 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:21:22,625 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:21:22,625 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:21:42,031 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:21:42,031 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:25:24,234 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:25:24,234 [11] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:58:26,156 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 17:58:26,156 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 17:59:12,093 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 17:59:12,093 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:00:14,703 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 18:00:14,703 [4] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 18:00:42,875 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:00:42,875 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:01:22,843 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-10 18:01:22,843 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-10 18:01:48,906 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:01:48,906 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:02:18,953 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:02:18,953 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:03:13,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:03:13,218 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:05:40,140 [5] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:05:40,140 [5] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:07:24,703 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:07:24,703 [10] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:08:04,921 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:08:04,921 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:08:14,546 [5] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-10 18:08:14,546 [5] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-11 01:01:37,906 [4] DEBUG OceanLog [(null)] - 执行任务！2014-9-11 1:01:37
+2014-09-11 01:01:37,906 [4] DEBUG OceanLog [(null)] - 执行任务！2014-9-11 1:01:37
+2014-09-11 01:01:38,031 [4] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20140911ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20140911ocean.bak' with INIT
+2014-09-11 01:01:38,031 [4] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20140911ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20140911ocean.bak' with INIT

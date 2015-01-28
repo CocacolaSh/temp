@@ -1,0 +1,538 @@
+﻿<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jQueryRotate.2.2.js")?v=3"></script>
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jquery.easing.min.js")?v=3"></script>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.wap {background: url(@Url.PluginUrl("lottery/images/bj.jpg"));}
+
+.pie {float: left; width: 234px; height: 234px; border-radius: 117px; position: absolute; clip: rect(0px,117px,234px,0px); -moz-transform: rotate(60deg); -webkit-transform: rotate(60deg);} /*---   90-(360/12)   ---*/
+.pie img {border-radius:117px;}
+.pie span {z-index: 999; position: absolute; left: 35%; bottom: 8%; color: #fff; font-size: 14px; transform: rotate(195deg); font-weight: bold;} /*--12个--*/
+/*.pie span {z-index: 999; position: absolute; left: 90px; bottom: 10%; color: #fff; transform: rotate(208deg); font-weight: bold;} 6个*/
+.pie1 {background: #f03442;}
+.pie2 {background: #fe620d;}
+.pie3 {background: #fda537;}
+.pie4 {background: #7eba0d;}
+.pie5 {background: #3aced8;}
+.pie6 {background: #0e6ac1;}
+.pie7 {background: #aa56c5;}
+.pie8 {background: #1da9e7;}
+.pie9 {background: #aae501;}
+.pie10 {background: #fff218;}
+.pie11 {background: #ff9f2c;}
+.pie12 {background: #59ae6b;}
+
+.hold {width:234px; height: 234px; position: absolute; clip:rect(117px,234px,234px,0px); }
+.hold1 {-moz-transform:rotate(105deg); -webkit-transform:rotate(105deg);}  /*---   90+(360/12/2)   --*/
+.hold2 {-moz-transform:rotate(135deg); -webkit-transform:rotate(135deg);}  /*---   90+(360/12/2)+(360/12)   --*/
+.hold3 {-moz-transform:rotate(165deg); -webkit-transform:rotate(165deg);}
+.hold4 {-moz-transform:rotate(195deg); -webkit-transform:rotate(195deg);}
+.hold5 {-moz-transform:rotate(225deg); -webkit-transform:rotate(225deg);}
+.hold6 {-moz-transform:rotate(255deg); -webkit-transform:rotate(255deg);}
+.hold7 {-moz-transform:rotate(285deg); -webkit-transform:rotate(285deg);}
+.hold8 {-moz-transform:rotate(315deg); -webkit-transform:rotate(315deg);}
+.hold9 {-moz-transform:rotate(345deg); -webkit-transform:rotate(345deg);}
+.hold10 {-moz-transform:rotate(15deg); -webkit-transform:rotate(15deg);}
+.hold11 {-moz-transform:rotate(45deg); -webkit-transform:rotate(45deg);}
+.hold12 {-moz-transform:rotate(75deg); -webkit-transform:rotate(75deg);}
+.bg {position: absolute; left: 34px; top: 32px; width: 234px; height: 234px;}
+
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 100%; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 2px; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;position:relative;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px; overflow: hidden;}
+.cat_list {float: left; width: 100%; overflow: hidden; clear: both;}
+.ctit {float: left; height: 50px; font-size: 16px; line-height: 50px;}
+.cinput {float: left; width: 85%; height: 50px;overflow: hidden;}
+.box .title_brown{background: url("@Url.PluginUrl("lottery/images/title-bg-green.png")") no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+/*---- new ----------*/
+.out {
+	position: relative;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.in {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+}
+.out1 {
+	height: 100%;
+    margin: 0 auto;
+    max-width: 300px;
+	max-height: 300px;
+    width: 100%;
+}
+.in1 {
+	cursor: pointer;
+    height: 110px;
+    margin: -55px auto 0;
+    max-width: 90px;
+    width: 90px;
+}
+.out1 img, .in1 img {
+	display: block;
+	margin: 0 auto;
+	max-width:100%;
+}
+</style>
+
+
+<div id="mbMain">
+@*    <div class="frameChang">
+        <span class="stitle">@ViewBag.Title</span>
+    </div>*@
+<div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+<section class="modBaseBox">
+<div class="jjtxt">
+    	<ul style="margin-top: 0px;">
+        <p id = "tipsinfo" style="text-align:center;" class="scrollDiv">
+@*            @if (ViewBag.PluginResultList != null)
+            {
+                foreach (PluginResult submit in ViewBag.PluginResultList)
+                {
+                     <li>@submit.Summary</li>
+                }
+            }*@
+            @if (ViewBag.MpUserID == Guid.Empty)
+            {
+                <span>亲，请先点击抽奖进行身份验证！</span>
+            }
+            else
+            {
+                IEnumerable<PluginResult> mysubmits = ViewBag.MyPlugin_SubmitList as IEnumerable<PluginResult>;
+
+                if (mysubmits != null && mysubmits.Count() != 0)
+                {
+                    foreach (PluginResult submit in ViewBag.MyPlugin_SubmitList)
+                    {
+                         <span>@(submit.Summary)</span>
+			 @:</br>
+		         <span>请关注我行16号之后的兑奖公告</span>
+                    }
+                }
+                else
+                {
+                    if (ViewBag.Has_Use_Count == 0)
+                    {
+                        @:<span>您已经参与本月抽奖活动！下月再接再厉！<span>
+                    }
+                    @*else
+                    {
+                        @:<span>亲！您还有@(ViewBag.Has_Use_Count)次机会！<span>
+                    }*@
+                }
+            }
+
+        </p></ul>
+    </div>
+	<script type="text/javascript">
+
+	    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	        window.shareData = {
+	            "timeLineLink": "http://wx.ssrcb.com/plugins/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "sendFriendLink": "http://wx.ssrcb.com/plugins/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "weiboLink": "http://wx.ssrcb.com/plugins/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "ImgPath": "http://wximg.ssrcb.com/mpimages/2014/09/11/5fcc7619602-128113_jpg!431x462.jpg",
+	            "tTitle": "超高中奖率！小伙伴们，到石狮农商行抽取iphone6吧！",
+	            "tContent": "小伙伴们，到石狮农商行来抽取iphone6吧！",
+	            "fTitle": "超高中奖率！小伙伴们，到石狮农商行抽取iphone6吧！",
+	            "fContent": "手快有手慢无，小伙伴们，到石狮农商行抽取iphone6吧！",
+	            "wContent": "手快有手慢无，小伙伴们，到石狮农商行抽取iphone6吧！"
+	        };
+
+	        // 发送给好友
+	        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+	            WeixinJSBridge.invoke('sendAppMessage', {
+	                "img_url": window.shareData.ImgPath,
+	                "img_width": "431",
+	                "img_height": "462",
+	                "link": window.shareData.sendFriendLink,
+	                "desc": window.shareData.fContent,
+	                "title": window.shareData.fTitle
+	            }, function (res) {
+	                _report('send_msg', res.err_msg);
+	            })
+	        });
+	        // 分享到朋友圈
+	        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+	            WeixinJSBridge.invoke('shareTimeline', {
+	                "img_url": window.shareData.ImgPath,
+	                "img_width": "431",
+	                "img_height": "462",
+	                "link": window.shareData.timeLineLink,
+	                "desc": window.shareData.tContent,
+	                "title": window.shareData.tTitle
+	            }, function (res) {
+	                _report('timeline', res.err_msg);
+	            });
+	        });
+	        // 分享到微博
+
+	    }, false);
+
+	    AutoScroll = (function (obj) {
+	        $(obj).find("ul:first").animate({
+	            marginTop: "-25px"
+	        }, 500, function () {
+	            $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	        });
+	    });
+	    $(function () {
+	        if ($('.scrollbox li').length > 1) {
+	            setInterval('AutoScroll(".scrollbox")', 4000);
+	        }
+	    });
+	    var lotterying = false;
+	    $(function () {
+	        var rotateFunc = function (json) {
+	            $('#lotteryBtn').stopRotate();
+	            $("#lotteryBtn").rotate({
+	                angle: 0,
+	                duration: 5000,
+	                animateTo: (json.Angle >= 180 ? (json.Angle + 30) : json.Angle) + 1440,
+	                callback: function () {
+	                    lotterying = false;
+
+	                    if (json.ID >= 0) {
+	                        if (json.Has_Gift) {
+	                            if (json.Leavings_Quantity > 0) {
+	                                //alert("恭喜您，中了" + json.Name + "！");
+	                                alert("恭喜您，中了" + json.Name + "！");
+	                                $("#tipsinfo").html("请关注本微信16号后的公告，以便及时兑奖");
+	                                //                                    $("#resultId").val(json.ResultID);
+	                                //                                    $("#boxcontent").show();
+	                            }
+	                            else {
+	                                //alert("恭喜您，中了" + json.Name + ",但是您的运气来得太晚了些，奖品已被拿光！");
+	                                $("#tipsinfo").html("您的运气来的晚了那么些，请再接再厉哦！");
+	                            }
+	                        }
+	                        else {
+	                            //alert(json.Name + ",继续加油!");
+	                            var oppTimes = parseInt($("#Has_Use_Count").html(), 10);
+	                            if (oppTimes > 1) {
+	                                alert(json.Name + "，不要灰心，再接再厉!");
+	                            }
+	                            else {
+	                                alert( json.Name + "，感谢您的参与，请下个月继续努力!");
+	                            }
+	                            $("#tipsinfo").html("亲！您还有" + (parseInt($("#Has_Use_Count").html(), 10) - 1) + "次机会！");
+	                        }
+	                        $("#Has_Use_Count").html(parseInt($("#Has_Use_Count").html(), 10) - 1);
+	                    }
+	                    else {
+	                        //alert('对不起，您未中奖，根据系统转盘奖项设计，只有当抽中指针才能正常！');
+	                        //	                        $.messager.alert('提示', '对不起，您未中奖，根据系统转盘奖项设计，只有当抽中指针才能正常！', "warning", function () { });
+	                        //	                        $.messager.alert('提示', json.Name + ",继续加油!", "warning", function () { });
+	                        var oppTimes = parseInt($("#Has_Use_Count").html(), 10);
+	                        if (oppTimes > 1) {
+	                            alert(json.Name + "，不要灰心，再接再厉!");
+	                        }
+	                        else {
+	                            alert(json.Name + "，感谢您的参与，请下个月继续努力!");
+	                        }
+	                        $("#tipsinfo").html("亲！您还有" + (parseInt($("#Has_Use_Count").html(), 10) - 1) + "次机会！");
+	                        $("#Has_Use_Count").html(parseInt($("#Has_Use_Count").html(), 10) - 1);
+	                    }
+	                }
+	            });
+	        };
+	        $("#btnstart").rotate({
+	            bind: {
+	                click: function () {
+	                    var url = location.href;
+	                    if (!lotterying) {
+	                        lotterying = true;
+	                        $.ajax({
+	                            type: 'post',
+	                            url: '/plugins/lottery3?t=' + Math.random(),
+	                            data: { Id: '@(WebHelper.GetGuid("Id", Guid.Empty))' },
+	                            cache: false,
+	                            dataType: "json",
+	                            success: function (json) {
+	                                if (json.message) {
+	                                    lotterying = false;
+	                                    if (json.isLogin) {
+	                                        //	                                        location.href = '/login?refUrl=' + url;
+	                                        window.location = json.message;
+	                                    }
+	                                    else {
+	                                        if (json.isVertfy) {
+	                                            $("#boxcontent2").show();
+	                                        }
+	                                        else {
+	                                            //alert(json.message);
+	                                            alert(json.message);
+	                                        }
+	                                    }
+	                                }
+	                                else {
+	                                    if (json.ID < 0) {
+	                                        var index = Math.floor(Math.random() * 3);
+	                                        json.Angle = 30 + 60 * index;
+	                                    }
+	                                    rotateFunc(json);
+	                                }
+	                            },
+	                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+	                                lotterying = false;
+	                                alert(XMLHttpRequest.status);
+	                                alert(XMLHttpRequest.readyState);
+	                                alert(textStatus);
+	                                alert(errorThrown);
+	                            }
+	                            //	                            error: function () {
+	                            //	                                alert(1);
+	                            //	                            }
+	                        });
+	                    }
+	                    else {
+	                        //alert('正在摇奖中...');
+	                        alert('你的网速有点忙，正在摇奖中...');
+	                    }
+	                }
+	            }
+	        });
+	    });
+
+	    function certfySubmit() {
+	        $.ajax({
+	            type: 'post',
+	            url: '/plugins/CertSubmit2?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+	            data: $("#CertSubmitForm2").serialize(),
+	            cache: false,
+	            async: false,
+	            success: function (json) {
+	                alert(json.message);
+	                //$('#boxcontent').hide(); $('#re_again').hide();
+	                if (json.success) {
+	                    location.reload();
+	                }
+	            },
+	            error: function (XMLHttpRequest, textStatus, errorThrown) {
+	                lotterying = false;
+	                alert(XMLHttpRequest.status);
+	                alert(XMLHttpRequest.readyState);
+	                alert(textStatus);
+	                alert(errorThrown);
+	            }
+
+	        });
+	    }
+	    function modifySubmit(id) {
+	        $('#resultId').val(id);
+	        $.ajax({
+	            type: 'post',
+	            url: '/plugins/getresult?pluginId=@(WebHelper.GetString("Id"))&resultId=' + id + '&t=' + Math.random(),
+	            data: {},
+	            cache: false,
+	            success: function (json) {
+	                $('#Name').val(json.Name);
+	                $('#Phone').val(json.Phone);
+	                $('#Address').val(json.Address);
+	            }
+	        });
+	        $('#boxcontent').show();
+	    }
+	    var mobileCodeEnable = false;
+	    var countdown;
+	    var total = 120;
+	    var count = total;
+	    $.ajax({
+	        type: 'post',
+	        url: "GetMobileCodeSeconds",
+	        async: true,
+	        cache: false,
+	        datatype: "json",
+	        data: { operateType: 2 },
+	        success: function (result) {
+	            if (result.count > 0 && result.count < total) {
+	                mobileCodeEnable = false;
+	                count = result.count;
+	                countdown = setInterval(CountDown, 1000);
+	            }
+	            else {
+	                mobileCodeEnable = true;
+	            }
+	        }
+	    });
+	    function GetMobileCode() {
+	        if (mobileCodeEnable) {
+	            if (!$.trim($("#MobilePhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#MobilePhone").val())) {
+	                alert('请正确的手机号码');
+	                return false;
+	            }
+	            mobileCodeEnable = false;
+	            $.ajax({
+	                type: 'post',
+	                url: '/plugins/CertAndGetMobileCode?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+	                async: true,
+	                cache: false,
+	                datatype: "json",
+	                data: { mobile: $('#MobilePhone').val(), OperateType: 4 },
+	                success: function (result) {
+	                    if (result.success) {
+	                        $("#MobileCodeBtn").html(count + "秒后重新发送");
+	                        count = count - 1;
+	                        countdown = setInterval(CountDown, 1000);
+	                        if (result.message) {
+	                            $("#Code").val(result.message);
+	                        }
+	                    } else {
+	                        mobileCodeEnable = true;
+	                        alert(result.message);
+	                    }
+	                }
+	            });
+	        }
+	        else {
+	            alert('请稍等，验证码已发送');
+	        }
+	    }
+	    function CountDown() {
+	        $("#MobileCodeBtn").attr("disabled", true);
+	        $("#MobileCodeBtn").html(count + "秒后重新发送");
+	        if (count == 0) {
+	            $("#MobileCodeBtn").html("发送验证码").removeAttr("disabled");
+	            mobileCodeEnable = true;
+	            clearInterval(countdown);
+	            count = total;
+	        }
+	        count--;
+	    }
+    </script>
+
+<div style="width: 300px; height: 300px; margin: auto; margin-top: 10px; position: relative;">
+       <div class="out">
+        <div class="out1">
+            @if (!string.IsNullOrEmpty(ViewData.GetString("Cst_Plugin_PrizeImg" + 1)))
+            {
+                string prizeImg = ViewData.GetString("Cst_Plugin_PrizeImg" + 1);
+                if (prizeImg.StartsWith("http://"))
+                {
+                 <img id="lotteryBtn" src="@prizeImg" style="width:100%;" />
+                }
+                else
+                {
+                    <img id="lotteryBtn" src="@(Url.ImagesCdnRoot("", false) + prizeImg)" style="width:100%;" />
+                }
+            }
+            else
+            {
+                 <img id="lotteryBtn" src="@Url.PluginUrl("lottery/images/disc.png", false)" style="width:100%;" />
+            }
+            
+        </div>
+        </div>
+       <div class="in">
+        <div class="in1"><img id="btnstart" src="@Url.PluginUrl("lottery/images/in.png")" /></div>
+        </div>
+</div>
+
+    <div class="content">
+
+    	<div class="boxcontent" id="boxcontent" style="display:none;">
+        <form id="CertSubmitForm" action ="/plugin/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	<div class="box">
+            	<div class="title_orange">
+                	<span>输入验证码信息</span>
+                    <a href="#" onclick="$('#boxcontent').hide();" class="inclose">
+                    	<img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                    </a>
+                </div>
+                <div class="Detail">
+                	<p class="cat_list">
+					   <span class="ctit">姓名：</span>
+					   <span class="cinput"><input class="px" type="text" name="Name" id="Name" placeholder="请输入姓名" value=""></span>
+					</p>
+					<p class="cat_list">
+					   <span class="ctit">电话：</span>
+					   <span class="cinput"><input class="px" type="text" name="Phone" id="Phone" placeholder="请输入签约手机号码" value=""></span>
+					</p>
+					<p class="cat_list">
+					   <span class="ctit">证件：</span>
+					   <span class="cinput"><input class="px" type="text" name="CertNo2" id="CertNo2" placeholder="请输入证件后四位" value=""></span>
+					</p>
+                    <p class="cat_list"><input class="pxbtn" type="button" onclick="certfySubmit();" value="提交"></p>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="boxcontent" id="boxcontent2" style="display:none;">
+        <form id="CertSubmitForm2" action ="/plugin/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	<div class="box">
+            	<div class="title_orange">
+                	<span>输入验证码信息</span>
+                    <a href="#" onclick="$('#boxcontent2').hide();" class="inclose">
+                    	<img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                    </a>
+                </div>
+                <ul class="fnb_list">
+                    <li>
+                        <p><input class="txtinput" name="Phone" id="MobilePhone" type="text" placeholder="请输入签约手机号码" autocomplete="on" /></p>
+                        <em style="width:110px;"><a href="javascript:void(0);" id="MobileCodeBtn" onclick="GetMobileCode();">获取验证码</a></em>
+                        <span class="tel"></span>
+                    </li>
+                    <li>
+                        <p><input class="txtinput" name="Code" id="Code" type="text" placeholder="验证码" autocomplete="on" /></p>
+                        <span class="yzm"></span>
+                    </li>
+                    <li>
+                        <p class="cat_list"><input class="modBtnColor coloryellow" type="button" onclick="certfySubmit();" value="提交"></p>
+                    </li>
+                    </ul>
+            </div>
+            </form>
+        </div>
+
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>奖项设置：</span>
+                </div>
+                <div class="Detail">
+                   <p>一等奖1名：Iphone6手机一部；</p>
+                   <p>二等奖50名：高档保温瓶一个；</p>
+                   <p>三等奖200名：精美水杯一只。</p>
+                </div>
+            </div>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>活动说明：</span>
+                </div>
+                <div class="Detail">
+                	<p style="display:none;">
+                    	 您还有
+                    	 <span class="red" id="Has_Use_Count">@ViewBag.Has_Use_Count</span>
+                    	 次参与机会
+                    </p>
+                	<p> 
+                        @Html.Raw(ViewBag.Cst_Plugin_Info ?? "")
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+              </section>
+      </div>
+</div>

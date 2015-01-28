@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "任务调度编辑";
+}
+@model Ocean.Entity.Tasks.ScheduleTask
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="task-add" action="/Task/_TaskEdit" method="post">
+        <input type="hidden" name="TaskId" value="@(Model == null ? "" : Model.Id.ToString())" />
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    任务名称：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'Name[2,100]'" name="Name" value="@(Model == null ? "" : Model.Name)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    ITask类型：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,500]'" style="width:250px" name="Type" value="@(Model == null ? "" : Model.Type)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    间隔时间(秒)：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-numberbox" required name="Seconds" value="@(Model == null ? 0 : Model.Seconds)" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    是否启用：
+                </td>
+                <td style="width: 80%;">
+                    <select class="easyui-combobox" name="Enabled" style="width:100px;">
+                        <option value="">--请选择--</option>
+                        @if (Model != null && !Model.Enabled)
+                        { 
+                            <option value="false" selected="selected">禁用</option>
+                        }
+                        else
+                        { 
+                            <option value="false">禁用</option>
+                        }
+                        @if (Model != null && Model.Enabled)
+                        { 
+                            <option value="true" selected="selected">启用</option>
+                        }
+                        else
+                        { 
+                            <option value="true">启用</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    是否错误停止：
+                </td>
+                <td style="width: 80%;">
+                    <select class="easyui-combobox" name="StopOnError" style="width:100px;">
+                        <option value="">--请选择--</option>
+                        @if (Model != null && !Model.StopOnError)
+                        { 
+                            <option value="false" selected="selected">不停止</option>
+                        }
+                        else
+                        { 
+                            <option value="false">不停止</option>
+                        }
+                        @if (Model != null && Model.StopOnError)
+                        { 
+                            <option value="true" selected="selected">停止</option>
+                        }
+                        else
+                        { 
+                            <option value="true">停止</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" class="btn" value=" 提 交 " />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#task-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#task-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

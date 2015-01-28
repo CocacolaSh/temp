@@ -1,0 +1,37 @@
+2015-01-24 22:34:47,747 [5] ERROR OceanLog [(null)] - 未找到路径“/Themes/Default/Views/MpMaterial/Add.cshtml”。
+2015-01-24 22:34:47,747 [5] ERROR OceanLog [(null)] - 未找到路径“/Themes/Default/Views/MpMaterial/Add.cshtml”。
+2015-01-24 22:34:56,665 [17] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2015-01-24 22:34:56,665 [17] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2015-01-24 22:35:29,023 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2015-01-24 22:35:29,023 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+by Ocean2015-01-24 22:38:37,183 [20] ERROR OceanLog [(null)] - 未找到路径“/Themes/Default/Views/MpMaterial/Index.cshtml”。
+2015-01-24 22:38:37,183 [20] ERROR OceanLog [(null)] - 未找到路径“/Themes/Default/Views/MpMaterial/Index.cshtml”。
+by Ocean2015-01-24 22:41:41,693 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2015-01-24 22:41:41,693 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2015-01-24 23:33:27,340 [59] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:33:27,340 [59] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:35:33,606 [20] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:35:33,606 [20] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:35:50,508 [20] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:35:50,508 [20] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:36:35,514 [58] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:36:35,514 [58] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:37:17,183 [59] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:37:17,183 [59] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:37:29,393 [59] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:37:29,393 [59] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:42:10,539 [43] ERROR OceanLog [(null)] - The controller for path '/Baoxian/index' was not found or does not implement IController.
+2015-01-24 23:42:10,539 [43] ERROR OceanLog [(null)] - The controller for path '/Baoxian/index' was not found or does not implement IController.
+2015-01-24 23:42:12,288 [31] ERROR OceanLog [(null)] - The controller for path '/Baoxian/index' was not found or does not implement IController.
+2015-01-24 23:42:12,288 [31] ERROR OceanLog [(null)] - The controller for path '/Baoxian/index' was not found or does not implement IController.
+2015-01-24 23:42:12,580 [44] ERROR OceanLog [(null)] - The controller for path '/Baoxian/index' was not found or does not implement IController.
+2015-01-24 23:42:12,580 [44] ERROR OceanLog [(null)] - The controller for path '/Baoxian/index' was not found or does not implement IController.
+2015-01-24 23:42:12,838 [43] ERROR OceanLog [(null)] - The controller for path '/Baoxian/index' was not found or does not implement IController.
+2015-01-24 23:42:12,838 [43] ERROR OceanLog [(null)] - The controller for path '/Baoxian/index' was not found or does not implement IController.
+2015-01-24 23:42:13,750 [43] ERROR OceanLog [(null)] - The controller for path '/MyUnder/index' was not found or does not implement IController.
+2015-01-24 23:42:13,750 [43] ERROR OceanLog [(null)] - The controller for path '/MyUnder/index' was not found or does not implement IController.
+2015-01-24 23:47:20,703 [41] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:47:20,703 [41] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:57:07,728 [28] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+2015-01-24 23:57:07,728 [28] ERROR OceanLog [(null)] - A public action method 'UploadPhoto' was not found on controller 'Ocean.Admin.Controllers.MpMaterialController'.
+by Ocean

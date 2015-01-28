@@ -1,0 +1,330 @@
+﻿@{
+    Layout = "../../Shared/_VoteLayout.cshtml";
+}
+
+<style type="text/css">
+body {TEXT-ALIGN: center;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {TEXT-ALIGN: center;color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;position:relative;}
+
+.detail_border {margin-left:auto;margin-right:auto;@*border:1px solid #CCC;*@ padding:0px; text-align:center; vertical-align:middle; width:98%; height:150px;overflow: hidden;}
+.details_info {padding:5px; text-align: center; width:100%; }
+
+.leftin
+{
+   width:300px;  
+   height:200px;  
+   position:absolute;  
+   top:50%;  
+   margin:-100px 0 0 -150px 
+}
+.boxcontent .left
+{
+float:left;
+}
+
+.boxcontent .right
+{
+float:right;
+}
+.rightin
+{
+float:right;
+   width:300px;  
+   height:200px;  
+   position:absolute;  
+   top:50%;  
+   margin:-100px 0 0 -150px 
+}
+
+    .boxTemp {
+		width:100%; margin:0 auto; border-radius:3px;background-color: #FEF8B2;
+	}
+	
+	.leftTemp {
+		width:15%;height:100%;float:left;
+	}
+	
+	.divScoreItem {
+		width:45%;height:100%;float:left;margin-left:3%;margin-right:auto; margin-bottom:20px;border:1px solid #CCC;
+	}
+	.divScoreItem2 {
+		width:45%;height:100%;float:right;margin-left:auto;margin-right:3%; margin-bottom:20px;border:1px solid #CCC;
+	}
+	.rightTemp {
+		width:15%;height:100%;float:left;
+	}
+	.clear {clear:both;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+.zj_result {z-index: 99999; position: absolute; width: 80%; top: 25%; left: 5%; text-align: center; color: #fff; padding: 5%; border-radius: 10px; line-height: 30px; font-size: 16px; background: rgba(0,0,0,.8);}
+.zj_result .result{color:#fff;}
+.zj_result span {color: #ff0; font-size: 20px; font-weight: bold;}
+.zj_result em {position: absolute; right: 10px; top: 10px; width: 32px; height: 32px; text-indent: -99999px; background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 0; cursor: pointer; display: block;}
+.zj_result em:hover {background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 -32px;}
+.zj_result i {padding: 0 15px; height: 32px; line-height: 32px; font-style: normal; margin: 0 10%; text-shadow: 1px 1px #b3874d; color: #fff; font-size: 14px; margin-top: 20px; border-radius: 5px; box-shadow: 0 2px #f8df8a inset; font-weight: bold; background: -moz-linear-gradient(top,#f3cd4f,#e79217); background: -webkit-gradient(linear,left top,left bottom,from(#f3cd4f),to(#e79217)); display: block;}
+.zj_result i a:link {color: #fff; text-decoration: none;}
+.zj_result i a:visited {color: #fff; text-decoration: none;}
+.zj_result i a:hover {color: #fff; text-decoration: none;}
+.zj_result i a:active {color: #fff; text-decoration: none;}
+</style>
+
+
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">积分商城</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+
+	        <script type="text/javascript">
+
+	            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	                window.shareData = {
+	                    "timeLineLink": "http://wx.ssrcb.com/ScoreSys/index",
+	                    "sendFriendLink": "http://wx.ssrcb.com/ScoreSys/index",
+	                    "weiboLink": "http://wx.ssrcb.com/ScoreSys/index",
+	                    "ImgPath": "http://wximg.ssrcb.com/mpimages/2014/09/11/5fcc7619602-128113_jpg!431x462.jpg",
+	                    "tTitle": "有钱就是任性！石狮农商行积分大派送啦！",
+	                    "tContent": "没钱也不要认命！小伙伴们，到石狮农商行来抢积分啦！",
+	                    "fTitle": "有钱就是任性！石狮农商行积分大派送啦！",
+	                    "fContent": "没钱也不要认命！手快有手慢无，小伙伴们，到石狮农商行抢积分啦！",
+	                    "wContent": "没钱也不要认命！手快有手慢无，小伙伴们，到石狮农商行抢积分啦！"
+	                };
+
+	                // 发送给好友
+	                WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+	                    WeixinJSBridge.invoke('sendAppMessage', {
+	                        "img_url": window.shareData.ImgPath,
+	                        "img_width": "431",
+	                        "img_height": "462",
+	                        "link": window.shareData.sendFriendLink,
+	                        "desc": window.shareData.fContent,
+	                        "title": window.shareData.fTitle
+	                    }, function (res) {
+	                        _report('send_msg', res.err_msg);
+	                    })
+	                });
+	                // 分享到朋友圈
+	                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+	                    WeixinJSBridge.invoke('shareTimeline', {
+	                        "img_url": window.shareData.ImgPath,
+	                        "img_width": "431",
+	                        "img_height": "462",
+	                        "link": window.shareData.timeLineLink,
+	                        "desc": window.shareData.tContent,
+	                        "title": window.shareData.tTitle
+	                    }, function (res) {
+	                        _report('timeline', res.err_msg);
+	                    });
+	                });
+	                // 分享到微博
+	            }, false);
+                
+                function modifySubmit(Name, MobilePhone, Address, index) {
+                    $('#Name' + index).val(Name);
+                    $('#Phone' + index).val(MobilePhone);
+                    $('#Address' + index).val(Address);
+                    $('#boxcontent'+index).show();
+                }
+
+                var ExchangeErrorInfo = [];
+                ExchangeErrorInfo['ERR_NotLogin'] = '未登录';
+                ExchangeErrorInfo['ERR_ArgNotExist'] = '参数有问题';
+                ExchangeErrorInfo['ERR_StoreItemNotExist'] = '兑换商品不存在，请检查！';
+                ExchangeErrorInfo['ERR_RequireSuccess'] = '申请兑换成功，请耐心等待！';
+                ExchangeErrorInfo['ERR_ScorePluginResultNotExist'] = '参数有问题，不能修改资料！';
+                ExchangeErrorInfo['ERR_AlreadySend'] = '奖品已经发放不能更改！';
+                ExchangeErrorInfo['ERR_ModifySuccess'] = '发送地址更改更改成功，请耐心等待！';
+                ExchangeErrorInfo['ERR_StoreItemUserNotExist'] = '亲 您未绑定我行手机银行哦！';
+                ExchangeErrorInfo['ERR_StoreItemScoreRunOut'] = '对不起，商品已经兑换完了！';
+                function ExchangeSubmit(id, index) {
+                    var CurrentScore = parseInt($("#CurrentScore").html(), 10);
+                    var NeedScore = parseInt($("#ScoreNeedPoint"+index).html(), 10);
+                    if (CurrentScore < NeedScore) {
+                        alert('请继续努力，您的积分暂时不够');
+                        return false;
+                    }
+                    var strInfo = '您确定要兑换？';
+                    if ($('#resultId' + index).val() != '0') {
+                        strInfo = '您确定要修改吗？'
+                    }
+                    if (!$.trim($("#Name" + index).val())) {
+                        alert('请输入姓名');
+                        return false;
+                    }
+                    if (!$.trim($("#Phone" + index).val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#Phone" + index).val())) {
+                        alert('请输入正确的手机号码');
+                        return false;
+                    }
+                    
+                    if (!$.trim($("#Address" + index).val())) {
+                        alert('请输入正确的手机号码地址');
+                        return false;
+                    }
+                    if (confirm(strInfo)) {
+                        $.ajax({
+                            type: 'post',
+                            url: '/ScoreSys/StoreItemExchange?baseId=@(WebHelper.GetString("Id"))&itemId=' + id + '&t=' + Math.random(),
+                            data: $("#PrizerSubmitForm" + index).serialize(),
+                            cache: false,
+                            success: function (json) {
+                                if (json.isOK) {
+                                    $('.zj_result').hide();
+                                    $.messager.confirm('提示', ExchangeErrorInfo[json.error_code], "info", function () { });
+                                    return false;
+                                } else {
+                                    if (json.isLogin) {
+                                        window.location = json.message;
+                                    } else {
+                                        $('.zj_result').hide();
+                                        $.messager.confirm('提示', ExchangeErrorInfo[json.error_code], "error", function () { });
+                                        return false;
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+
+	            var currentShowItem = 0;
+	            var totalItemCnt = 0;
+	            function prevItem() {
+	                $(".divScoreItem").hide();
+	                currentShowItem--;
+                    if(currentShowItem < 1)
+                    {
+                        currentShowItem = totalItemCnt;
+                    }
+                    $("#ScoreItem" + currentShowItem).show();
+	            }
+	            function nextItem() {
+	                $(".divScoreItem").hide();
+	                currentShowItem++;
+	                if (currentShowItem > totalItemCnt) {
+	                    currentShowItem = 1;
+	                }
+	                $("#ScoreItem" + currentShowItem).show();
+	            }
+	            $(document).ready(function (e) {
+//	                totalItemCnt = $(".divScoreItem").length;
+//	                if (totalItemCnt <= 0) {
+//	                    alert("本系统暂未开放")
+//	                }
+//	                else {
+//	                    var index = Math.ceil(Math.random() * totalItemCnt);
+//	                    var divShowItem = "#ScoreItem" + index;
+//	                    $(divShowItem).show();
+//	                    currentShowItem = index;
+//	                }
+
+	            });
+            </script>
+            <div class="content">
+    	        <div class="boxTemp" style = "margin-top: 0px;">
+                    @*<div class="leftTemp"><p><a href="javascript:void(0);" onclick="prevItem();"><img style = "width:100%;margin-top:100px;" src="@Url.Content("~/Content/images/prev.png")"></a></p></div>*@
+                    @if (ViewBag.ScoreStoreItemList != null)
+                    {
+                        int i = 1;
+                        foreach (ScoreStoreItem scoreItem in ViewBag.ScoreStoreItemList)
+                        {
+                            if (i % 2 == 0)
+                            {
+                             @:<div class="divScoreItem2" id = "ScoreItem@(i.ToString())">  
+                            }
+                            else
+                            {
+                             @:<div class="divScoreItem" id = "ScoreItem@(i.ToString())">  
+                            }
+                                <div class="detail_border"><a href="#"><img style = "width:100%;height:100%;" src="@Url.Content("~/Content/images/" + @scoreItem.ItemPic.ToString())"></a></div>
+                        
+                                <div class="details_info">
+
+                                @{
+                                    bool bCanModify = false;
+                                    ScorePluginResult scorePluginResult2 = null;
+                                    if (ViewBag.ScorePluginResultList != null)
+                                    {
+                                        foreach (ScorePluginResult scorePluginResult in ViewBag.ScorePluginResultList)
+                                        {
+                                            if (scorePluginResult.Value.Contains(scoreItem.PluginName)&& scorePluginResult.IsUse == 0)
+                                            {
+                                                bCanModify = true;
+                                                scorePluginResult2 = scorePluginResult;
+                                                break;
+                                            }
+                                        }
+                                    }
+@*                                    if ((bCanModify))
+                                    {
+                                                @:<p><p class="cat_list"><input class="pxbtn" style = "width:96%" type="button" id="ExchangeLink@(i.ToString())" onclick="$('#resultId@(i.ToString())').val('@scorePluginResult2.Id.ToString()');modifySubmit('@scorePluginResult2.Name.ToString()','@scorePluginResult2.MobilePhone.ToString()', '@scorePluginResult2.Address.ToString()','@(i.ToString())');" value="【已申请】修改资料"></p>
+                                            }
+                                    else *@
+                                    if (@scoreItem.LeftCount > 0)
+                                    {
+                                                @:<p><p class="cat_list"><input class="pxbtn" style = "width:96%" type="button" id="ExchangeLink@(i.ToString())" onclick="$('#resultId@(i.ToString())').val('0');$('#boxcontent@(i.ToString())').show();" value="我要兑换"></p>
+
+                                    }
+                                    else if (scorePluginResult2.IsUse == 1)
+                                    {
+                                                @:<p><p class="cat_list"><input class="pxbtn" style = "width:96%" type="button" id="ExchangeLink@(i.ToString())" value="已发放"></p>
+
+                                    }
+                                }
+            	                    <ul>
+                	                    <li>名称：<span>@scoreItem.ItemName.ToString()</span></li>
+                                        <li>所需积分：<span id="ScoreNeedPoint@(i.ToString())">@scoreItem.NeedPoint</span></li>
+                                        <li>剩余个数：<span id="ScoreLeftCount@(i.ToString())">@scoreItem.LeftCount</span></li>
+                                        <li><span id="ScoreSummary@(i.ToString())">@scoreItem.ItemSummary</span></li>
+                                    </ul>
+                                    
+                	                <p style="display:none;">
+                    	                 您还有
+                    	                 <span class="red" id="CurrentScore">@ViewBag.CurrentScore</span>
+                    	                 点积分
+                                    </p>
+                                </div>
+                                <div class="zj_result" id="boxcontent@(i.ToString())" style="display:none;">
+                                    <em onclick="$('.zj_result').hide();">关闭</em>
+                                    <div class="result">
+                                        积分兑换
+                                    </div>
+                                    <form id="PrizerSubmitForm@(i.ToString())" action ="/plugin/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	                            <div class="box">
+                                            <div class="Detail">
+                                                <input type="hidden" id="resultId@(i.ToString())" name="resultId" />
+                	                            <p class="cat_list">
+					                                <span class="ctit">姓名：</span>
+					                                <span class="cinput"><input class="px" type="text" name="Name" id="Name@(i.ToString())" placeholder="请输入姓名" value="@ViewBag.RecvName"></span>
+					                            </p>
+					                            <p class="cat_list">
+					                                <span class="ctit">电话：</span>
+					                                <span class="cinput"><input class="px" type="text" name="Phone" id="Phone@(i.ToString())" placeholder="请输入电话" value="@ViewBag.RecvPhone"></span>
+					                            </p>
+					                            <p class="cat_list">
+					                                <span class="ctit">地址：</span>
+					                                <span class="cinput"><input class="px" type="text" name="Address" id="Address@(i.ToString())" placeholder="请输入地址" value="@ViewBag.RecvAddress"></span>
+					                            </p>
+                                                <p class="cat_list">
+                                                    <span class="ctit"><input name='DefaultAddr' style="border: dashed 2px Red; margin:0; padding:0; background-color:Red;" type="checkbox" id = "DefaultAddr@(i.ToString())" checked = 'checked' value='true' /><label>设置默认地址</label></span>
+                                                </p>
+                                                <p class="cat_list"><input class="pxbtn" type="button" onclick="ExchangeSubmit('@(scoreItem.Id)', '@(i.ToString())');" value="提交"></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            @:</div>
+                            i++;
+                        }
+                    }
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        </section>
+</div>

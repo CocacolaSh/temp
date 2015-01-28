@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "../Shared/_FunongbaoLayout.cshtml";
+}
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">申请额度调整</span>
+      </div>
+
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+                  <div class="modBd">
+                      <div class="bteBox">
+                		 <span class="error">
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>                            
+                         </span>
+                         <ul class="erts">
+                            <li>您尚未签订微信调额的相关协议，您可以联系客户经理签订协议。</li>
+                            <li>给您造成的不便，敬请谅解！</li>
+                         </ul>
+                	  </div>                      
+                      <div class="btnLoginBox">
+                          <a class="goback modBtnColor coloryellow" href="Apply?c=go">继续申请</a>
+                      </div>
+                  </div>
+          </section>
+      </div>
+</div>

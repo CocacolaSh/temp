@@ -1,0 +1,527 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>石狮农商行-积分商城</title>
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="@Url.Content("~/Content/javascripts/jquery/jquery-1.10.2.min.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bank/css/common.css")" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/score.css")" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/iscroll.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+<style type="text/css">
+.box .title_brown{background: url("@Url.PluginUrl("lottery/images/title-bg-brown.png")") no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .title_brown{background: url("@Url.PluginUrl("lottery/images/title-bg-brown.png")") no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail { padding: 15px;}
+.red { color: red;}
+.cat_list {float: left; width: 100%; overflow: hidden; clear: both;}
+.ctit {float: left; height: 50px; font-size: 16px; line-height: 50px;}
+.cinput {float: right; width: 75%; height: 50px;overflow: hidden;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+.leftTemp {width:15%;float:left;}
+.rightTemp {width:15%;float:right;}
+.boxcontent .ts {width: 100%; color: #135cab; line-height: 25px; font-size: 16px;}
+.detail_border {margin-top:auto;margin-bottom:auto;border:1px solid #CCC; padding:0px; text-align:center; vertical-align:middle; width:98%; height:150px;overflow: hidden;}
+</style>
+</head>
+<body>
+		<!--music-->
+<div id="mbMain">
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+            <div class="banner">
+                <div class="wrapper" style="height:200px;width: auto;overflow: hidden;" >
+                    
+                    <div id = "scroller"  style="height:200px; -webkit-transition: 0ms; transition: 0ms;">
+    	                <ul id="thelist">
+                            <li><p>宣传轮播1</p><a style="height:200px;" href=""><img style = "width:auto;height:100%;" src="@Url.Content("~/Content/images/狮子家庭A.jpg")" ></a></li>
+                            <li><p>宣传轮播2</p><a style="height:200px;" href=""><img style = "width:auto;height:100%;" src="@Url.Content("~/Content/images/狮子家庭B.jpg")"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                <ul class="mainmenu">
+                    <li>
+		                <a href="#" onclick="$('#myScore').show();$('html, body').animate({scrollTop: $('#myScore').offset().top}, 2000);">
+			                <b><img src="@Url.Content("~/Content/images/wodejifen.png")"></b>
+			                <span>我的积分</span>
+		                </a>
+                    </li>
+                    <li>
+		                <a href="./StoreItem?id=@(TempData["Id"])"" >
+			                <b><img src="@Url.Content("~/Content/images/jifen.png")"></b>
+			                <span>兑换商品</span>
+		                </a>
+	                </li>
+                    <li>
+		                <a href="./PluginLottery?id=@(TempData["Id"])">
+			                <b><img src="@Url.Content("~/Content/images/zhuanpan.png")"></b>
+			                <span>大转盘</span>
+		                </a>
+	                </li>
+                    <li>
+		                <a href="#"  onclick="$('#scoreDetail').show();$('html, body').animate({scrollTop: $('#scoreDetail').offset().top}, 2000);">
+			                <b><img src="@Url.Content("~/Content/images/dingdan.png")"></b>
+			                <span>积分明细</span>
+		                </a>
+	                </li>
+                    <li>
+		                <a href="#"  onclick="$('#scoreTrans').show();$('html, body').animate({scrollTop: $('#scoreTrans').offset().top}, 2000);">
+			                <b><img src="@Url.Content("~/Content/images/youhuiquan.png")"></b>
+			                <span>积分转让</span>
+		                </a>
+	                </li>
+                    @if (ViewBag.ScoreConsumeInfoList == null || (ViewBag.ScoreConsumeInfoList as IEnumerable<ScoreConsumeInfo>).Count() == 0)
+                    {                        
+                        <li>
+		                    <a href="#"  onclick="$('#firstBind').show();$('html, body').animate({scrollTop: $('#firstBind').offset().top}, 2000);">
+			                    <b><img src="@Url.Content("~/Content/images/huiyuanka.png")"></b>
+			                    <span>绑定</span>
+		                    </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+		                    <a href="#"  onclick="$('#myProduct').show();$('html, body').animate({scrollTop: $('#myProduct').offset().top}, 2000);">
+			                    <b><img src="@Url.Content("~/Content/images/houdong.png")"></b>
+			                    <span>我的商品</span>
+		                    </a>
+                        </li>
+                    }
+                </ul> 
+                </div>
+                <div class="boxcontent" id = "myScore" >
+                    <div class="box">
+                        <div class="title_brown">
+                            <span>我的积分：</span>
+                            <a href="#" onclick="$('#myScore').hide();" class="inclose">
+                    	        <img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                            </a>
+                        </div>
+                        <div class="Detail">
+                            <p>当前积分: <span id = "CurrentScore">@(ViewBag.CurrentScore)</span>(可兑换商品价值<span class="red">@(ViewBag.CurrentScore / 100)</span>元)</p>
+                            <p>推荐积分: @(ViewBag.RecommendScore)</p>
+                            <p>交易所得积分: @(ViewBag.DealScore)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxcontent" id = "scoreDetail" style="display:none;">
+                    <div class="box">
+                        <div class="title_brown">
+                            <span>积分明细：</span>
+                            <a href="#" onclick="$('#scoreDetail').hide();" class="inclose">
+                    	        <img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                            </a>
+                        </div>
+                        <div class="Detail" id = "TransDetail">
+                               @{
+                                   IEnumerable<ScoreConsumeInfo> myScoreConsumeInfo = ViewBag.ScoreConsumeInfoList as IEnumerable<ScoreConsumeInfo>;
+
+                                   if (myScoreConsumeInfo != null && myScoreConsumeInfo.Count() != 0)
+                                   {
+                                       int listCount = myScoreConsumeInfo.Count();
+                                       int pageSize = 10;
+                                       int totalPages = listCount / pageSize + 1;
+                                       for (int i = 1; i <= totalPages; i++)
+                                       {
+                                           @:<div id = "DetailPage@(i.ToString())" class = "DetailPage" style = "display:none;">
+                                           int startIndex = pageSize * (i - 1);
+                                           int endIndex = pageSize * (i) < listCount ? pageSize * (i) : listCount;
+                                           for (; startIndex < endIndex; startIndex++)
+                                           {
+                                               ScoreConsumeInfo scoreConsumeInfo = myScoreConsumeInfo.ElementAt(startIndex);
+                                               if (scoreConsumeInfo != null)
+                                               {
+                                                    <p>@(scoreConsumeInfo.CreateDate.ToString("yyyy-MM-dd")) @(scoreConsumeInfo.Summary)</p>
+                                               }
+                                           }
+                                           @:</div>
+                                       }
+                                       if (totalPages > 1)
+                                       {
+                                           <div style="height:20px;">
+                                           <div class="leftTemp" ><p><a href="javascript:void(0);" onclick="prevItem();"><img style = "width:100%;height:100%;" src="@Url.Content("~/Content/images/prev.png")"></a></p></div>
+                                           <div class="rightTemp"><p><a href="javascript:void(0);" onclick="nextItem();"><img style = "width:100%;height:100%;" src="@Url.Content("~/Content/images/next.png")"></a></p></div>
+                                           <div class="clear"></div>
+                                           </div>
+                                       }
+                                   }
+                                }
+                        </div>
+                    </div>
+                </div>
+                <div class="boxcontent" id="scoreTrans" style="display:none;">
+                    <form id="TransSubmitForm" action ="/plugin/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	            <div class="box">
+            	            <div class="title_orange">
+                	            <span>积分转让</span>
+                                <a href="#" onclick="$('#scoreTrans').hide();" class="inclose">
+                    	            <img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                                </a>
+                            </div>
+                            <div class="Detail">
+                	            <p class="cat_list">
+					                <span class="ctit">姓名：</span>
+					                <span class="cinput"><input class="px" type="text" name="Name" id="TransName" placeholder="请输入姓名" maxLength="4" value=""></span>
+					            </p>
+					            <p class="cat_list">
+					                <span class="ctit">电话：</span>
+					                <span class="cinput"><input class="px" type="text" name="Phone" id="TransPhone" placeholder="请输入对方签约手机号码" maxLength="14" value=""></span>
+					            </p>
+					            <p class="cat_list">
+					                <span class="ctit">转让积分：</span>
+					                <span class="cinput"><input class="px" type="text" name="TransScore" id="TransScore" placeholder="请输入转让积分" maxLength="5" value=""></span>
+					            </p>
+                                <p class="cat_list"><input class="pxbtn" type="button" onclick="transSubmit();" value="提交"></p>
+                            </div>
+                        </div>
+                        </form>
+                </div>
+                <div class="boxcontent" id="myProduct" style="display:none;">
+        	        <div class="box">
+            	        <div class="title_brown">
+                	        <span>我的商品：</span>
+                            <a href="#" onclick="$('#myProduct').hide();" class="inclose">
+                    	        <img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                            </a>
+                        </div>
+                        <div class="Detail">
+                        @{
+                            IEnumerable<ScorePluginResult> mysubmits = ViewBag.MyPlugin_SubmitList as IEnumerable<ScorePluginResult>;
+
+                            if (mysubmits != null && mysubmits.Count() != 0)
+                            {
+                                int listCount = mysubmits.Count();
+                                int pageSize = 10;
+                                int totalPages = listCount / pageSize + 1;
+                                for (int i = 1; i <= totalPages; i++)
+                                {
+                                           @:<div id = "DetailMyPage@(i.ToString())" class = "DetailMyPage" style = "display:none;">
+                                           int startIndex = pageSize * (i - 1);
+                                           int endIndex = pageSize * (i) < listCount ? pageSize * (i) : listCount;
+                                           for (; startIndex < endIndex; startIndex++)
+                                           {
+                                               ScorePluginResult mysubmit = mysubmits.ElementAt(startIndex);
+                                               if (mysubmit != null)
+                                               {
+                                                    <p>@(i.ToString()).@mysubmit.CreateDate.ToString("yyyy-MM-dd"):
+                                                    @if (@mysubmit.Summary.ToString().Contains("兑奖"))
+                                                    {
+                                                        @:@mysubmit.Value.Substring(@mysubmit.Value.IndexOf("++") + 2) 
+                                                        @:  [积分兑换]
+                                                    }
+                                                    else
+                                                    {
+                                                        @:@mysubmit.Value.Substring(@mysubmit.Value.IndexOf("++") + 2) 
+                                                        @:  [抽奖]
+                                                    }
+                                                    </p>
+                                               }
+                                           }
+                                           @:</div>
+                                   }
+                                    if (totalPages > 1)
+                                    {
+                                        <div style="height:20px;">
+                                        <div class="leftTemp" ><p><a href="javascript:void(0);" onclick="prevMyItem();"><img style = "width:100%;height:100%;" src="@Url.Content("~/Content/images/prev.png")"></a></p></div>
+                                        <div class="rightTemp"><p><a href="javascript:void(0);" onclick="nextMyItem();"><img style = "width:100%;height:100%;" src="@Url.Content("~/Content/images/next.png")"></a></p></div>
+                                        <div class="clear"></div>
+                                        </div>
+                                    }
+                                }
+                            }
+
+@*                            @{
+                                IEnumerable<ScorePluginResult> mysubmits = ViewBag.MyPlugin_SubmitList as IEnumerable<ScorePluginResult>;
+                                
+                                if (mysubmits != null)
+                                {
+                                    int i = 1;
+                                    foreach (ScorePluginResult mysubmit in mysubmits)
+                                    {
+                                        <p>@(i.ToString()).@mysubmit.CreateDate.ToString("yyyy-MM-dd"):
+                                        @if (@mysubmit.Summary.ToString().Contains("兑奖"))
+                                        {
+                                            @:@mysubmit.Value.Substring(@mysubmit.Value.IndexOf("++") + 2) 
+                                            @:  [积分兑换]
+                                        }
+                                        else
+                                        {
+                                            @:@mysubmit.Value.Substring(@mysubmit.Value.IndexOf("++") + 2) 
+                                            @:  [抽奖]
+                                        }
+                                        </p>
+                                        i++;
+                                    }
+                                }
+                             }*@
+                        </div>
+                    </div>
+                </div>
+                <div class="boxcontent" id="firstBind" style="display:none;">
+                    <form id="BindSubmitForm" action ="/ScoreSys/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	            <div class="box">
+            	            <div class="title_orange">
+                	            <span>绑定</span>
+                                <a href="#" onclick="$('#firstBind').hide();" class="inclose">
+                    	            <img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                                </a>
+                            </div>
+                            <div class="ts" id="tipsinfo">输入绑定说明，限制之类的！</div>
+                            <div class="Detail">
+                	            <p class="cat_list">
+					                <span class="ctit">姓名：</span>
+					                <span class="cinput"><input class="px" type="text" name="Name" id="BindName" placeholder="请输入姓名" maxLength="4" value=""></span>
+					            </p>
+					            <p class="cat_list">
+					                <span class="ctit">电话：</span>
+					                <span class="cinput"><input class="px" type="text" name="Phone" id="BindPhone" placeholder="请输入签约手机号码" maxLength="14" value=""></span>
+					            </p>
+					            <p class="cat_list">
+					                <span class="ctit">推荐人姓名：</span>
+					                <span class="cinput" style="width: 70%;"><input class="px" type="text" name="RecomendName" id="RecomendName" placeholder="推荐人姓名（可不填）" maxLength="4" value=""></span>
+					            </p>
+					            <p class="cat_list">
+					                <span class="ctit">推荐人电话：</span>
+					                <span class="cinput" style="width: 70%;"><input class="px" type="text" name="RecomendPhone" id="RecomendPhone" placeholder="推荐人电话（可不填）" maxLength="14" value=""></span>
+					            </p>
+                                <p class="cat_list"><input class="pxbtn" type="button" onclick="bindSubmit();" value="提交"></p>
+                            </div>
+                        </div>
+                        </form>
+                </div>
+                
+                <div class="boxcontent">
+        	        <div class="box">
+            	        <div class="title_brown">
+                	        <span>活动说明：</span>
+                        </div>
+                        <div class="Detail">
+                	        <p> 
+                                @Html.Raw(ViewBag.Score_Comment ?? "客户电话：40008-96336.")
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+    </div>
+</div>
+	<script type="text/javascript">
+
+	    AutoScroll = (function (obj) {
+	        $(obj).find("ul:first").animate({
+	            marginleft: "-500px"
+	        }, 500, function () {
+	            $(this).css({ marginleft: "0px" }).find("li:first").appendTo(this);
+	        });
+	    });
+	    $(function () {
+	        if ($('#thelist li').length > 1) {
+	            setInterval('AutoScroll(".wrapper")', 4000);
+	        }
+	    });
+
+
+	    var TransErrorInfo = [];
+	    TransErrorInfo['ERR_NotLogin'] = '未登录';
+	    TransErrorInfo['ERR_ArgNotExist'] = '参数有问题';
+	    TransErrorInfo['ERR_UserHadBind'] = '亲，您已经绑定！';
+	    TransErrorInfo['ERR_UserNotExist'] = '亲，您转让的用户不存在！';
+	    TransErrorInfo['ERR_TransSamePerson'] = '亲，不能自己转让给自己！';
+	    TransErrorInfo['ERR_ScoreNotEnough'] = '亲，积分不足以转让！';
+	    TransErrorInfo['ERR_ModifySuccess'] = '发送地址更改更改成功，请耐心等待！';
+	    TransErrorInfo['ERR_OK'] = '亲，转让成功！';
+	    function transSubmit() {
+	        if (!$.trim($("#TransPhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#TransPhone").val())) {
+	            alert('请正确的手机号码');
+	            return false;
+	        }
+	        $.messager.confirm('提示', '亲，您确定要转让吗？', function (r) {
+	            if (r) {
+	                $.ajax({
+	                    type: 'post',
+	                    url: '/ScoreSys/Trans?id=@(TempData["Id"])&t=' + Math.random(),
+	                    async: true,
+	                    cache: false,
+	                    datatype: "json",
+	                    data: { TransName: $('#TransName').val(), TransPhone: $('#TransPhone').val(), TransScore: $('#TransScore').val() },
+	                    success: function (json) {
+	                        if (json.isOK) {
+	                            $("#TransDetail").innerHTML = ("<p>" + json.scoreDetail + "</p>" + $("#TransDetail").innerHTML);
+	                            $("#CurrentScore").innerHTML = json.currentScore;
+	                            $('#scoreTrans').hide();
+	                            $.messager.alert('提示', TransErrorInfo[json.error_code], 'info', function () { });
+	                            return false;
+	                        } else {
+	                            if (json.isLogin) {
+	                                window.location = json.message;
+	                            } else {
+	                                $.messager.alert('提示', TransErrorInfo[json.error_code], 'info', function () { });
+	                                return false;
+	                            }
+	                        }
+	                    }
+	                });
+	            }
+	        });
+	    }
+
+	    var BindErrorInfo = [];
+	    BindErrorInfo['ERR_NotLogin'] = '未登录';
+	    BindErrorInfo['ERR_ArgNotExist'] = '参数有问题';
+	    BindErrorInfo['ERR_UserHadBind'] = '亲，您已经绑定！';
+	    BindErrorInfo['ERR_OK'] = '亲， 您已经绑定成功了！';
+	    function bindSubmit() {
+	        if (!$.trim($("#BindPhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#BindPhone").val())) {
+	            alert('请正确的手机号码');
+	            return false;
+	        }
+	        if ($.trim($("#RecomendPhone").val()) && !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#RecomendPhone").val())) {
+	            alert('请正确的推荐人手机号码');
+	            return false;
+	        }
+	        $.ajax({
+	            type: 'post',
+	            url: '/ScoreSys/Bind?id=@(TempData["Id"])&t=' + Math.random(),
+	            async: true,
+	            cache: false,
+	            datatype: "json",
+	            data: { Name: $('#BindName').val(), Phone: $('#BindPhone').val(), RecomendName: $('#RecomendName').val(), RecomendPhone: $('#RecomendPhone').val() },
+	            success: function (json) {
+	                if (json.isOK) {
+	                    $("#TransDetail").innerHTML = ("<p>" + json.scoreDetail + "</p>" + $("#TransDetail").innerHTML);
+	                    $("#CurrentScore").innerHTML = json.currentScore;
+	                    $.messager.alert( BindErrorInfo[json.error_code]);
+	                    $('#firstBind').hide();
+	                    return false;
+	                } else {
+	                    if (json.isLogin) {
+	                        window.location = json.message;
+	                    } else {
+	                        $.messager.alert(BindErrorInfo[json.error_code]);
+	                        return false;
+	                    }
+	                }
+	            }
+	        });
+	    }
+	    var currentShowPage = 0;
+	    var totalItemPage = 0;
+	    function prevItem() {
+	        $(".DetailPage").hide();
+	        currentShowPage--;
+	        if (currentShowPage < 1) {
+	            currentShowPage = totalItemPage;
+	        }
+	        $("#DetailPage" + currentShowPage).show();
+	    }
+	    function nextItem() {
+	        $(".DetailPage").hide();
+	        currentShowPage++;
+	        if (currentShowPage > totalItemPage) {
+	            currentShowPage = 1;
+	        }
+	        $("#DetailPage" + currentShowPage).show();
+	    }
+
+	    var currentMyItemShowPage = 0;
+	    var totalMyItemPage = 0;
+	    function prevMyItem() {
+	        $(".DetailMyPage").hide();
+	        currentMyItemShowPage--;
+	        if (currentMyItemShowPage < 1) {
+	            currentMyItemShowPage = totalMyItemPage;
+	        }
+	        $("#DetailMyPage" + currentMyItemShowPage).show();
+	    }
+	    function nextMyItem() {
+	        $(".DetailMyPage").hide();
+	        currentMyItemShowPage++;
+	        if (currentMyItemShowPage > totalMyItemPage) {
+	            currentMyItemShowPage = 1;
+	        }
+	        $("#DetailMyPage" + currentMyItemShowPage).show();
+	    }
+	    $(document).ready(function (e) {
+	        totalItemPage = $(".DetailPage").length;
+	        if (totalItemPage <= 0) {
+	            ;
+	        }
+	        else {
+	            var divShowItem = "#DetailPage1";
+	            $(divShowItem).show();
+	            currentShowPage = 1;
+	        }
+	        totalMyItemPage = $(".DetailMyPage").length;
+	        if (totalMyItemPage <= 0) {
+	            ;
+	        }
+	        else {
+	            var divShowItem = "#DetailMyPage1";
+	            $(divShowItem).show();
+	            currentMyItemShowPage = 1;
+	        }
+	    });
+	    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	        window.shareData = {
+	            "timeLineLink": "http://wx.ssrcb.com/ScoreSys/index",
+	            "sendFriendLink": "http://wx.ssrcb.com/ScoreSys/index",
+	            "weiboLink": "http://wx.ssrcb.com/ScoreSys/index",
+	            "ImgPath": "http://wximg.ssrcb.com/mpimages/2014/09/11/5fcc7619602-128113_jpg!431x462.jpg",
+	            "tTitle": "有钱就是任性！石狮农商行积分大派送啦！",
+	            "tContent": "没钱也不要认命！小伙伴们，到石狮农商行来抢积分啦！",
+	            "fTitle": "有钱就是任性！石狮农商行积分大派送啦！",
+	            "fContent": "没钱也不要认命！手快有手慢无，小伙伴们，到石狮农商行抢积分啦！",
+	            "wContent": "没钱也不要认命！手快有手慢无，小伙伴们，到石狮农商行抢积分啦！"
+	        };
+
+	        // 发送给好友
+	        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+	            WeixinJSBridge.invoke('sendAppMessage', {
+	                "img_url": window.shareData.ImgPath,
+	                "img_width": "431",
+	                "img_height": "462",
+	                "link": window.shareData.sendFriendLink,
+	                "desc": window.shareData.fContent,
+	                "title": window.shareData.fTitle
+	            }, function (res) {
+	                _report('send_msg', res.err_msg);
+	            })
+	        });
+	        // 分享到朋友圈
+	        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+	            WeixinJSBridge.invoke('shareTimeline', {
+	                "img_url": window.shareData.ImgPath,
+	                "img_width": "431",
+	                "img_height": "462",
+	                "link": window.shareData.timeLineLink,
+	                "desc": window.shareData.tContent,
+	                "title": window.shareData.tTitle
+	            }, function (res) {
+	                _report('timeline', res.err_msg);
+	            });
+	        });
+	        // 分享到微博
+
+	    }, false);
+    </script>
+</body>
+</html>

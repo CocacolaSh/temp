@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "模块编辑";
+}
+@model Ocean.Entity.PermissionModule
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="module-add" action="/Permission/_PermissionModuleEdit" method="post">
+        <input type="hidden" name="ModuleId" value="@(Model == null ? "" : Model.Id.ToString())" />
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    上级模块：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-combotree" data-options="
+                            url: '/Permission/_PermissionModuleList?buildTree=true',
+                            method: 'post',
+                            equired:true
+                        " name="ParentId" value="@((Model == null || Model.ParentId == Guid.Empty) ? Guid.Empty.ToString() : Model.ParentId.ToString())"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    模块名称：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,10]'"
+                            name="Name" value="@(Model == null ? "" : Model.Name)">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    模块标识：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,30]'"
+                            name="Identifying" value="@(Model == null ? "" : Model.Identifying)">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    链接地址：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[3,100]'"
+                            name="Url" value="@(Model == null ? "" : Model.Url)">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    排序：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-numberbox" data-options="required:true"
+                            name="Sort" value="@(Model == null ? 0 : Model.Sort)">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value=" 提 交 " class="btn" />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#module-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#module-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadPage();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+                            $('#module-add').form('clear');
+                            parent.CloseAddDialog();
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

@@ -1,0 +1,429 @@
+﻿<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jquery.transit.min.js?_d=1", false)"></script>
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/tigerslot.js?_d=1", false)"></script>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+body {margin: 0 auto; background: #F4F5F7;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 25px; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.cover { margin: 0 auto; max-width: 480px; position: relative; width: 320px;}
+.main img { border: 0 none; max-width: 100%;}
+.cover img { width: 320px;}
+
+.tigerslot{
+    padding: 0;
+    background: url(@Url.PluginUrl("lottery/images/fruit.png")) 0 0 repeat;
+    min-height: 290px;
+}
+.machine{
+    width: 316px;
+    height: 234px;
+    background: url(@Url.PluginUrl("lottery/images/tigerslot.png")) 0 0 no-repeat;
+    margin: 3px auto 60px auto;
+    position: relative;
+    overflow: visible;
+}
+
+.machine .gamebutton{
+    position: absolute;
+    bottom: -50px;
+    width: 122px;height: 94px;
+    left: 50%;margin-left: -61px;
+    background: url(@Url.PluginUrl("lottery/images/tigerslot.png")) -63px -253px no-repeat;
+    z-index: 200;
+}
+
+.machine .gamebutton.stop{
+    background: url(@Url.PluginUrl("lottery/images/tigerslot.png")) -185px -255px no-repeat;
+}
+.machine .gamebutton.disabled{
+    opacity: 0.4;
+}
+.tigerslot .strip{
+    position: absolute;
+    width: 63px;height: 100px;
+}
+
+.tigerslot .strip.left{
+    top: 84px;left: 50px;
+}
+.tigerslot .strip.middle{
+    top: 84px;left: 126px;
+}
+.tigerslot .strip.right{
+    top: 84px;left: 202px;
+}
+
+.tigerslot .box{
+    position: absolute;
+    width: 50px;height: 100%;
+    top: 0;left: 50%;margin-left: -25px;
+    overflow: hidden;
+    z-index: 100;
+    @{string styleId=ViewData.GetString("Field_Style_ID");}
+    @if (!string.IsNullOrEmpty(ViewData.GetString("Cst_Plugin_PrizeImg"+styleId)))
+    {
+        string prizeImg = Url.ImagesCdnRoot("", false) + ViewData.GetString("Cst_Plugin_PrizeImg" + styleId);
+    @:background: url(@prizeImg) 0 25px repeat-y;
+    }
+    else
+    {
+    @:background: url(@Url.PluginUrl("lottery/images/item.png")) 0 25px repeat-y;
+    }
+}
+
+.tigerslot .cover{
+    position: absolute;
+    left: 0;top: 0;
+    width: 100%;height: 100%;
+    z-index: 100;
+    margin: 0;
+    background: url(@Url.PluginUrl("lottery/images/tigerslot.png")) 0 -253px no-repeat;
+}
+.tigerslot .light{
+    position: absolute;
+    width: 24px;height: 24px;
+    background: url(@Url.PluginUrl("lottery/images/tigerslot.png")) -131px -354px no-repeat; 
+}
+.tigerslot .light.on{
+    background: url(@Url.PluginUrl("lottery/images/tigerslot.png")) -155px -354px no-repeat; 
+}
+.tigerslot .light.l0{
+    left: 65px;top: 0;
+}
+.tigerslot .light.l1{
+    left: 110px;top: 0;
+}
+.tigerslot .light.l2{
+    left: 154px;top: 0;
+}
+.tigerslot .light.l3{
+    left: 196px;top: 0;
+}
+.tigerslot .light.l4{
+    left: 240px;top: 0;
+}
+.tigerslot .light.l5{
+    left: 278px;top: 14px;
+}
+.tigerslot .light.l6{
+    left: 288px;top: 48px;
+}
+.tigerslot .light.l7{
+    left: 293px;top: 84px;
+}
+.tigerslot .light.l8{
+    left: 293px;top: 124px;
+}
+.tigerslot .light.l9{
+    left: 289px;top: 162px;
+}
+.tigerslot .light.l10{
+    left: 280px;top: 194px;
+}
+.tigerslot .light.l11{
+    left: 254px;top: 212px;
+}
+.tigerslot .light.l12{
+    left: 220px;top: 212px;
+}
+.tigerslot .light.l13{
+    left: 80px;top: 212px;
+}
+.tigerslot .light.l14{
+    left: 40px;top:212px;
+}
+.tigerslot .light.l15{
+    left: 11px;top: 194px;
+}
+.tigerslot .light.l16{
+    left: 4px;top: 162px;
+}
+.tigerslot .light.l17{
+    left: 0;top: 124px;
+}
+.tigerslot .light.l18{
+    left: 0;top: 84px;
+}
+.tigerslot .light.l19{
+    left: 5px;top: 48px;
+}
+.tigerslot .light.l20{
+    left: 17px;top: 14px;
+}
+
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px;}
+.box .title_brown{background: url(@Url.PluginUrl("lottery/images/title-bg-brown.png")) no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+.zj_result {z-index: 99999; position: absolute; width: 80%; top: 45%; left: 5%; text-align: center; color: #fff; padding: 5%; border-radius: 10px; line-height: 30px; font-size: 16px; background: rgba(0,0,0,.5);}
+.zj_result .result{color:#fff;}
+.zj_result span {color: #ff0; font-size: 20px; font-weight: bold;}
+.zj_result em {position: absolute; right: 10px; top: 10px; width: 32px; height: 32px; text-indent: -99999px; background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 0; cursor: pointer; display: block;}
+.zj_result em:hover {background: url(close_btn.png) no-repeat 0 -32px;}
+.zj_result i {padding: 0 15px; height: 32px; line-height: 32px; font-style: normal; margin: 0 10%; text-shadow: 1px 1px #b3874d; color: #fff; font-size: 14px; margin-top: 20px; border-radius: 5px; box-shadow: 0 2px #f8df8a inset; font-weight: bold; background: -moz-linear-gradient(top,#f3cd4f,#e79217); background: -webkit-gradient(linear,left top,left bottom,from(#f3cd4f),to(#e79217)); display: block;}
+.zj_result i a:link {color: #fff; text-decoration: none;}
+.zj_result i a:visited {color: #fff; text-decoration: none;}
+.zj_result i a:hover {color: #fff; text-decoration: none;}
+.zj_result i a:active {color: #fff; text-decoration: none;}
+.Refresh {width: 32px; height: 32px; margin: auto; text-indent: -9999px; cursor: pointer; background: url(@Url.PluginUrl("lottery/images/refresh.png")) no-repeat;}
+</style>
+<div class="scrollDiv scrollbox">
+    	<ul style="margin-top: 0px;">
+            @if (ViewBag.PluginResultList != null)
+            {
+                foreach (PluginResult submit in ViewBag.PluginResultList)
+                {
+                     <li>@submit.Summary</li>
+                }
+            }
+        </ul>
+    </div>
+	<script type="text/javascript">
+	    AutoScroll = (function (obj) {
+	        $(obj).find("ul:first").animate({
+	            marginTop: "-25px"
+	        }, 500, function () {
+	            $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	        });
+	    });
+	    $(function () {
+	        if ($('.scrollbox li').length > 1) {
+	            setInterval('AutoScroll(".scrollbox")', 4000);
+	        }
+	    });
+        var lotterying=false;
+        var lotteryed=false;
+	    $(function () {
+            var prizeJson;
+//            var scratchpad=$("#scratchpad").wScratchPad({
+//                width: 150,
+//                height: 40,
+//                image:null,
+//                color: "#a9a9a7",
+//                scratchMove: function (e, percent) {
+//                    if (percent > 30&&!lotteryed) {
+//                        lotteryed=true;
+//                        if(prizeJson.Has_Gift)
+//                        {
+//                            if(prizeJson.Leavings_Quantity>0)
+//                            {
+//                                $(".zj_result .result").html("恭喜您，中了“<span>"+prizeJson.Name+"</span>”,请填写在下面领奖信息！");
+//                                $(".zj_result").show();
+//                                $("#submitId").val(prizeJson.Submit_ID);
+//                                $("#boxcontent").show();
+//                                //$("#re_again").show();
+//                            }
+//                            else
+//                            {
+//                                $(".zj_result .result").html("恭喜您，中了“<span>"+prizeJson.Name+"</span>”,但是您的运气来得太晚了些，奖品已被拿光！");
+//                                $(".zj_result").show();
+//                            }
+//                        }
+//                        else{
+//                            $(".zj_result .result").html("很抱歉，您"+prizeJson.Name+",继续加油!");
+//                            $(".zj_result").show();
+//                        }
+//                        var useCount=parseInt($("#Has_Use_Count").html(),10)-1;
+//                        if(useCount<=0)
+//                        {
+//                            $(".zj_result i").hide();
+//                        }
+//                        $("#Has_Use_Count").html(useCount);
+//                    }
+
+//                }, scratchDown: function () {
+//                 if(!lotterying)
+//                        {
+//                        lotterying=true;
+//                        $.ajax({
+//	                        type: 'post',
+//	                        url: '/plugin/prizer.htm?t=' + Math.random(),
+            //	                        data: { pluginId: @(WebHelper.GetInt("pluginId"))},
+//	                        cache: false,
+//	                        success: function (json) {
+//                                if(json.message)
+//                                {
+//                                    lotterying=false;
+//                                    $(".zj_result .result").html(json.message);
+//                                    $(".zj_result").show();
+//                                }
+//                                else
+//                                {
+//                                    prizeJson=json;
+//                                    document.getElementById('prize').innerHTML = json.Prize_Name;
+//                                }
+//	                        }
+//	                    });
+//                    }
+//                }
+//            });
+	    });
+        function prizeSubmit() {
+            $.ajax({
+                type: 'post',
+                url: '/plugins/lotteryresult?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+                data: $("#PrizerSubmitForm").serialize(),
+                cache: false,
+                success: function (json) {
+                    alert(json.message);
+                    //$('#boxcontent').hide(); $('#re_again').hide();
+                    location.reload();
+                }
+            });
+        }
+        function modifySubmit(id) {
+            $('#resultId').val(id);
+            $.ajax({
+                type: 'post',
+                url: '/plugins/getresult?pluginId=@(WebHelper.GetString("Id"))&resultId=' + id + '&t=' + Math.random(),
+                data: {},
+                cache: false,
+                success: function (json) {
+                    $('#Name').val(json.Name);
+                    $('#Phone').val(json.Phone);
+                    $('#Address').val(json.Address);
+                }
+            });
+            $('#boxcontent').show();
+        }
+    </script>
+<div style="width: 320px; height: 200px; margin: auto; margin-top: 10px; position: relative; overflow:hidden;" class="tigerslot">
+    <div class="machine">
+                <div class="strip left">
+                    <div class="box" style="background-position: 0px -400px;"></div>
+                    <div class="cover"></div>
+                </div>
+                <div class="strip middle">
+                    <div class="box" style="background-position: 0px -200px;"></div>
+                    <div class="cover"></div>
+                </div>
+                <div class="strip right">
+                    <div class="box" style="background-position: 0px -300px;"></div>
+                    <div class="cover"></div>
+                </div>
+                <div class="gamebutton" pluginId="@WebHelper.GetGuid("id",Guid.Empty)"></div>
+            <div class="light l0"></div><div class="light l1"></div><div class="light l2"></div><div class="light l3"></div><div class="light l4 on"></div><div class="light l5"></div><div class="light l6"></div><div class="light l7"></div><div class="light l8"></div><div class="light l9"></div><div class="light l10"></div><div class="light l11"></div><div class="light l12"></div><div class="light l13"></div><div class="light l14"></div><div class="light l15"></div><div class="light l16"></div><div class="light l17"></div><div class="light l18"></div><div class="light l19"></div><div class="light l20"></div></div>
+</div>
+<div class="zj_result" style="display:none;">
+<em onclick="$('.zj_result').hide();">关闭</em>
+<div class="result">
+    中奖提示
+</div>
+</div>
+<div id="re_again" style="display:none;width:50%;height:36px;padding:15px 0;text-align:center;font-size:16px;background-color:#FEF8B2;margin:0 auto;border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);">
+</div>
+    <div class="content">
+    	<div class="boxcontent" id="boxcontent" style="display:none;">
+        <form id="PrizerSubmitForm" action ="/plugins/lotteryresult?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	<div class="box">
+            	<div class="title_orange">
+                	<span>输入验证码</span>
+                    <a href="javascript:void(0);" onclick="$('#boxcontent').hide();$('#re_again').hide();" class="inclose">
+                    	<img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                    </a>
+                </div>
+                <div class="Detail">
+                    <input type="hidden" id="resultId" name="resultId" />
+                	<p class="cat_list">
+					   <span class="ctit">姓名：</span>
+					   <span class="cinput"><input class="px" type="text" name="Name" id="Name" placeholder="请输入姓名" value=""></span>
+					</p>
+					<p class="cat_list">
+					   <span class="ctit">电话：</span>
+					   <span class="cinput"><input class="px" type="text" name="Phone" id="Phone" placeholder="请输入电话" value=""></span>
+					</p>
+					<p class="cat_list">
+					   <span class="ctit">地址：</span>
+					   <span class="cinput"><input class="px" type="text" name="Address" id="Address" placeholder="请输入地址" value=""></span>
+					</p>
+                    <p class="cat_list"><input class="pxbtn" type="button" onclick="prizeSubmit();" value="提交"></p>
+                </div>
+            </div>
+            </form>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>奖项设置：</span>
+                </div>
+                <div class="Detail">
+                   @foreach (Ocean.Entity.DTO.Plugins.PrizeGift gift in ViewBag.PrizeGift)
+                   {
+                        <p>@gift.Prize_Name: @gift.Name。数量：@gift.Quantity.ToString() 。剩余数量：<span style="color:Red;">@gift.Leavings_Quantity.ToString()</span></p>
+                   }
+                </div>
+            </div>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>活动说明：</span>
+                </div>
+                <div class="Detail">
+                	<p>
+                    	 您还有
+                    	 <span class="red" id="Has_Use_Count">@ViewBag.Has_Use_Count</span>
+                    	 次参与机会
+                    </p>
+                	<p> 
+                        @Html.Raw(ViewBag.Cst_Plugin_Info)
+                    </p>
+                </div>
+            </div>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>我的中奖记录：</span>
+                </div>
+                <div class="Detail">
+                   @{
+                       IEnumerable<PluginResult> mysubmits = ViewBag.MyPlugin_SubmitList as IEnumerable<PluginResult>;
+                      }
+                      @if (mysubmits != null)
+                      {
+                          int i = 1;
+                          foreach (PluginResult mysubmit in mysubmits)
+                          {
+                              PluginTemplate.GetDataToViewData(mysubmit.Value, "PluginSubmit");
+                	<p>@(i.ToString()).奖品：@ViewBag.Cst_Plugin_PrizeName
+                    @if (mysubmit.IsUse == 0)
+                    {
+                        if (!string.IsNullOrEmpty(mysubmit.Name))
+                        {
+                            <a href="javascript:void(0);" onclick="modifySubmit('@mysubmit.Id.ToString()');">【已申请】修改资料</a>
+                        }
+                        else
+                        {
+                            <a href="javascript:void(0);" onclick="$('#resultId').val('@mysubmit.Id.ToString()');$('#boxcontent').show();">申请兑奖</a>
+                        }
+                    }
+                    else
+                    {
+                        <a href="#">已兑奖</a>
+                    }
+                    </p>
+                    i++;
+                              PluginTemplate.RemoveViewData(0, "");
+                          }
+                      }
+                </div>
+            </div>
+        </div>
+    </div>

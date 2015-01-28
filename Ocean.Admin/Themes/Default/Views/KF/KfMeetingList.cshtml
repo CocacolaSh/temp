@@ -1,0 +1,140 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "客服会话列表";
+}
+@section Head{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            InitGrid();
+            $('#w').window('close');
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/KF/_KfMeetingList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                pageSize: '20',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+//                     { field: 'ck', checkbox: true }, //选择
+                     { title: '客服昵称', field: 'NickName', width: 100 },
+                     { title: '访客名称', field: 'MpUserName', width: 100 },
+                     { title: '记录总数', field: 'RecordCount', width: 100 },
+                     { title: '开始时间', field: 'BeginDate', width: 150,
+                         formatter: function (value) {
+                             return formatDateTime(value);
+                         }
+                     },
+                     { title: '结束时间', field: 'EndDate', width: 150,
+                         formatter: function (value) {
+                             return formatDateTime(value);
+                         }
+                     },
+                     { title: '时长', field: 'Duration', width: 120 },
+                     { title: '摘要', field: 'Explain', width: 250 },
+                     { title: '会话时间', field: 'CreateDate', width: 150,
+                         formatter: function (value) {
+                             return formatDateTime(value);
+                         }
+                     }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/KF/KfMeetingMessageList?KfMeetingId=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要查看的会话');
+            }
+        }
+
+//        function Delete() {
+//            var selectedRows = $('#grid').datagrid('getSelections');
+//            if (selectedRows.length > 0) {
+//                var idList = "";
+//                $.messager.confirm('提示', '确定要删除吗?', function (r) {
+//                    if (r) {
+//                        for (i = 0; i < selectedRows.length; i++) {
+//                            idList += selectedRows[i].Id + ",";
+//                        }
+//                        $.ajax({
+//                            type: "POST",
+//                            url: "#",
+//                            dataType: "json",
+//                            data: "idList=" + idList,
+//                            success: function (msg) {
+//                                if (msg.success) {
+//                                    $.messager.alert('提示', msg.message, "", function () {
+//                                        window.location.href = window.location.href;
+//                                    });
+//                                } else {
+//                                    $.messager.alert('提示', msg.message);
+//                                }
+//                            }
+//                        });
+//                    }
+//                });
+//            } else {
+//                $.messager.alert('提示', '请选择要删除的数据');
+//            }
+//        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+        function Search() {
+            var searchObject = {};
+            if ($("#startDate").datebox("getValue")) {
+                searchObject["MeetingStartDate"] = $("#startDate").datebox("getValue");
+            }
+            if ($("#endDate").datebox("getValue")) {
+                searchObject["MeetingEndDate"] = $("#endDate").datebox("getValue");
+            }
+            if ($("#nickName").val()) {
+                searchObject["NickName"] = $("#nickName").val();
+            }
+            InitGrid(searchObject);
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @Html.ActionLink("查看聊天记录", null, null, new { onclick = "ShowEditOrViewDialog()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').datagrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 5px;">
+        时间段:
+        <input class="easyui-datebox" style="width: 100px" id="startDate" />
+        ~
+        <input class="easyui-datebox" style="width: 100px" id="endDate" />
+        客服昵称：
+        <input class="easyui-validatebox" style="width: 100px" id="nickName" />
+        <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()"> 搜 索 </a></span>
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="聊天记录" data-options="iconCls:'icon-save'"
+    style="width: 900px; height: 450px; padding: 5px;" modal="true">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>

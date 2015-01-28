@@ -1,0 +1,55 @@
+﻿@using Ocean.Framework.Caching.Cache
+@using Ocean.Entity.Enums
+@using Ocean.Entity
+@{
+    ViewBag.Title = "福农宝客户导入";
+} 
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+    @if (ViewBag.Method=="post"&&ViewBag.Success)
+    {
+        @:parent.closeImport("成功导入了@(ViewBag.countPhone)个交易，更新了@(ViewBag.countPhoneUpdate)个交易");
+    }
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form action="_ImportPhoneExcel" id="_ImportPhoneExcel" method="post" enctype="multipart/form-data">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 80%;">
+                        请选择要导入的Excel文件：
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 80%;">
+                    导入日期：
+                        <input class="easyui-datebox" style="width: 100px" name="importTime" id="importTime" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style="width: 80%;">
+                        <input type="file" name="phoneExcel" id="phoneExcel" />
+                        <input type="submit" onclick="this.value = '导入中……'; this.disabled = true; document.getElementById('_ImportPhoneExcel').submit();" value="导入交易明细" />
+                    </td>
+                </tr>
+                @if (ViewBag.Method == "post" && !ViewBag.Success)
+                {
+                    <tr>
+                        <td style="color:red;width: 80%;">
+                            @ViewBag.Message
+                        </td>
+                    </tr>
+                }
+            </table>
+        </form>
+    </div> 
+</div>

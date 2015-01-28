@@ -1,0 +1,127 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "福农宝列表";
+}
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid({ isAll: 1 });
+            $('#w').window('close');
+            $('#dlg1').dialog('close');
+        });
+        
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/Pos/_PosList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: false,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                //                     { field: 'ck', checkbox: true }, 
+                     {title: '导入时间', field: 'CreateDate', width: 80,
+                     formatter: function (value) {
+                         value = value.replace("T", " ");
+                         return value.split(' ')[0].replace(/-/g, "");
+                     }
+                 },
+                     { title: '商户名称', field: 'VendorName', width: 180 },
+                     { title: '商户号', field: 'VendorNO', width: 180 },
+                     { title: '终端号', field: 'TerminalNO', width: 160 },
+                     { title: '装机地址', field: 'InstallAddress', width: 100 },
+                     { title: '扣率', field: 'DeductRate', width: 140 },
+                     {
+                         title: '关联手机', field: 'MobilePhones', width: 160, hidden: false, nowrap: "false",
+                         formatter: function (value) {
+                             if (value) {
+                                 return value.replace(',', "");
+                             }
+                         }
+                     },
+                     { title: 'OpenId', field: 'MpUserIds', width: 300,hidden: false,nowrap:"false",
+                        formatter: function (value) {
+                             if (value) {
+                                 return value.replace(',', "");
+                             }
+                         }
+                     }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+        function ViewClose() {
+            $('#View').window('close');
+        }
+
+        function ImportPosExcel() {
+            $('#importExcel').attr("src", "/pos/_ImportPosExcel?d=" + (new Date()).getTime());
+            $("#w").window("open");
+        }
+        function closeImport(message) {
+            $("#w").window("close");
+            $.messager.alert("提示", message);
+        }
+
+        function Search() {
+            var searchObject = {isAll:1};
+            if ($("#VendorName").val()) {
+                searchObject["VendorName"] = $("#VendorName").val();
+            }
+            if ($("#VendorNO").val()) {
+                searchObject["VendorNO"] = $("#VendorNO").val();
+            }
+            if ($("#TerminalNO").val()) {
+                searchObject["TerminalNO"] = $("#TerminalNO").val();
+            }
+            $('#grid').datagrid("options").pageNumber = 1;
+            InitGrid(searchObject);
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @if ((bool)ViewData["Pos_" + PermissionOperate.import])
+        { 
+            @Html.ActionLink("导入POS客户清单", null, null, new { onclick = "ImportPosExcel()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 10px;">
+        商户名称:
+        <input class="easyui-validatebox" style="width: 140px" id="VendorName" />
+        商户号：
+        <input class="easyui-validatebox" style="width: 140px" id="VendorNO" />
+        终端号：
+        <input class="easyui-validatebox" style="width: 140px" id="TerminalNO" />
+        @if ((bool)ViewData["Pos_" + PermissionOperate.search])
+        { 
+            <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()">搜 索 </a></span>
+        }
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="导入POS客户清单" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 300px; padding: 5px;" close="true" modal="true">
+    <iframe id="importExcel" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>

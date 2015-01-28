@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <p>
+            访客端</p>
+        @foreach (MpUser mpUser in ViewBag.ListMpUser) 
+        { 
+            <p><a href="/kf/customer?SendUserId=@(mpUser.Id)" target="_blank">@(mpUser.Id)</a></p>
+        }
+    </div>
+</body>
+</html>

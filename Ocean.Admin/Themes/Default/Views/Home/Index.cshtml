@@ -1,0 +1,286 @@
+﻿@using Ocean.Framework.Configuration.global.config
+@{
+    ViewBag.Title = GlobalConfig.GetConfig()["SystemName"] + "后台管理系统";
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>@(ViewBag.Title)</title>
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/default/easyui.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/extCore/ext.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript">
+        var menus = {
+	        @Html.Raw(ViewBag.JsonData)
+        };
+
+        if (self.location != top.location) {
+            top.location.href = "/";
+        }
+
+        $(function () {
+            //初始化树节点点击事件
+            $('#treemenu').tree({
+                onClick: function (node) {
+                    $(this).tree('toggle', node.target);
+                    var url = getUrl(node.id);
+                    if (url != "" && url != "#" && url != undefined) {
+                        addTab(node.id, node.text, url, "");
+                    }
+                }
+            });
+            //加载默认菜单
+            openMenuGroup(menus.m1, "m1");
+            closePwd();
+            $('#editpass').click(function () {
+                $('#w').window('open');
+            });
+            $('#btnEp').click(function () {
+                UpdatePwd();
+            })
+        });
+
+        //获取菜单URL
+        function getUrl(menuid) {
+            var url = '';
+            $.each(menus, function (i, n) {
+                $.each(n, function (j, o) {
+                    if (o.id == menuid) {
+                        url = o.url;
+                        return false;
+                    }
+                    $.each(o.children, function (k, m) {
+                        if (m.id == menuid) {
+                            url = m.url;
+                            return false;
+                        }
+                    });
+                    if (url != '') return false;
+                });
+                if (url != '') return false;
+            });
+            return url;
+        }
+
+        //加载树菜单 
+        function openMenuGroup(treeData, menuId) {
+            $('#treemenu').tree({
+                data: treeData
+            });
+            //设置当前选中的菜单样式
+            $('#nav li a').each(function (i) {
+                $(this).removeAttr("class");
+            });
+            if (menuId) $('#' + menuId).attr("class", "thisclass");
+        }
+
+        //折叠树
+        function collapseAll() {
+            $('#treemenu').tree('collapseAll');
+        }
+
+        //展开树
+        function expandAll() {
+            $('#treemenu').tree('expandAll');
+        }
+
+        //添加标签页并打开URL
+        function addTab(frameId, subtitle, url, icon) {
+            if (!$('#tabs').tabs('exists', subtitle)) {
+                $('#tabs').tabs('add', {
+                    title: subtitle,
+                    content: '<iframe scrolling="auto" id="' + frameId + '" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>',
+                    closable: true,
+                    icon: icon
+                });
+            } else {
+                $('#tabs').tabs('select', subtitle);
+                //$('#mm-tabupdate').click();
+                //IFRAME内部地址如果改变，重新加载默认地址
+                //var frameSrc = document.getElementById(frameId).contentWindow.document.location.href;
+                //if (frameSrc.indexOf(url) == -1) {
+                var tab = $('#tabs').tabs('getSelected');
+                $('#tabs').tabs('update', {
+                    tab: tab,
+                    options: { content: '<iframe scrolling="auto" id="' + frameId + '" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>' }
+                });
+                //} 
+            }
+            /* 双击关闭TAB选项卡 */
+            $(".tabs-inner").dblclick(function () {
+                var subtitle = $(this).children(".tabs-closable").text();
+                $('#tabs').tabs('close', subtitle);
+            });
+        }
+
+        /* 退出 */
+        function LogOut() {
+            $.messager.confirm('提示', '确定要退出吗?', function (r) {
+                if (r) {
+                    $.messager.progress({
+                        title: '管理退出中',
+                        msg: '管理退出中，请等待...'
+                    }); 
+                    $.ajax({
+                        type: "POST",
+                        url: "/Home/_LogOut",
+                        dataType: "json",
+                        data: "",
+                        success: function (msg) {
+                            if (!msg.success) {
+                                $.messager.alert('退出失败', msg.message, 'error', function () {
+                                    $.messager.progress('close');
+                                });
+                            } else {
+                                window.location.href = "/Login";
+                            }
+                        }
+                    });
+                }
+            })
+        }
+        //打开修改密码窗口
+        function openPwd() {
+            $('#w').window({
+                title: '修改密码',
+                width: 300,
+                modal: true,
+                shadow: true,
+                closed: true,
+                height: 200,
+                resizable: false
+            });
+        }
+        //关闭修改密码窗口
+        function closePwd() {
+            $('#w').window('close');
+        }
+        //修改密码
+        function UpdatePwd() {
+            var $oldpass = $('#txtOldPass');
+            var $newpass = $('#txtNewPass');
+            var $rePass = $('#txtRePass');
+
+            if ($oldpass.val() == '') {
+                $.messager.alert('提示', '请输入旧密码');
+                return false;
+            }
+
+            if ($newpass.val() == '') {
+                $.messager.alert('提示', '请输入新密码');
+                return false;
+            }
+
+            if ($rePass.val() == '') {
+                $.messager.alert('提示', '请再一次输入新密码');
+                return false;
+            }
+
+            if ($newpass.val() != $rePass.val()) {
+                $.messager.alert('提示', '两次密码不一至！请重新输入');
+                return false;
+            }
+
+            $.post('/Home/_UpdatePwd?Password=' + $oldpass.val() + "&NewPassword=" + $newpass.val() + "&ConfirmPwd=" + $rePass.val() + "&Id=@(Ocean.Page.AdminLogin.Instance.Admin.Id)", function (msg) {
+                if (msg.success) {
+                    $.messager.alert('提示',  '恭喜，密码修改成功！<br>您的新密码为：' + $newpass.val());
+                    $newpass.val('');
+                    $rePass.val('');
+                    closePwd();
+                 } else {
+                    $.messager.alert('提示', msg.message);
+                 }
+            })
+        }
+    </script>
+</head>
+<body class="easyui-layout" style="overflow-y: hidden" scroll="no">
+    <noscript>
+        <div style="position: absolute; z-index: 100000; height: 2046px; top: 0px; left: 0px; width: 100%; background: white; text-align: center;">
+            <img src="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/extCore/noscript.gif")" alt='抱歉，请开启脚本支持！' />
+        </div>
+    </noscript>
+    <div region="north" split="true" border="false" style="overflow: hidden; height: 96px;">
+        <div style="padding: 3px; color: white; background-color: #1C3E7E; font-size: 20px; font-weight: bold; margin: 0px; width: 100%;">
+            <span style="color: white">@(GlobalConfig.GetConfig()["SystemName"])后台管理系统</span>
+        </div>
+        <table width="100%" style="background: url(@Url.Content("~/Content/jquery-easyui-1.3.5/themes/extCore/toolbar.gif")) #7f99be repeat-x center 50%;
+            height: 30px">
+            <tr>
+                <td align="left">
+                    <a href="#" onclick="collapseAll()">全部折叠</a> <a href="#" onclick="expandAll()">全部展开</a>
+                    欢迎您，@(Ocean.Page.AdminLogin.Instance.Admin.Name)！[@(Ocean.Page.AdminLogin.Instance.Admin.PermissionRole.Name)]
+                </td>
+                <td align="right" style="padding-right: 3px">
+                    <img src="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icons/application_edit.png")" alt="修改密码" /> <a href="#" id="editpass">修改密码</a>
+                    <img src="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icons/door_out.png")" alt="安全退出" /> <a href="javascript:void(0);" onclick="LogOut()">安全退出</a>
+                </td>
+            </tr>
+        </table>
+        <div class="nav" id="nav" style="background: url(@Url.Content("~/Content/jquery-easyui-1.3.5/themes/extCore/toolbar.gif")) #7f99be repeat-x center 50%;
+            width: 100%">
+            <ul>
+                <li><a id="m1" class="thisclass" href="javascript:void(0)" onclick="openMenuGroup(menus.m1,'m1')">控制台</a></li>
+                <li><a id="m2" href="javascript:void(0)" onclick="openMenuGroup(menus.m2,'m2')">业务管理</a></li>
+                <li><a id="m3" href="javascript:void(0)" onclick="openMenuGroup(menus.m3,'m3')">微信运营</a></li>
+                <li><a id="m4" href="javascript:void(0)" onclick="openMenuGroup(menus.m4,'m4')">系统设置</a></li>
+            </ul>
+        </div>
+    </div>
+    <div region="south" split="false" style="height: 35px; line-height: 35px; background: #D2E0F2;">
+        <div class="footer">
+            @(GlobalConfig.GetConfig()["SystemName"])后台管理系统
+        </div>
+    </div>
+    <div region="west" hide="true" split="true" title="导航菜单" style="width: 180px;" id="west">
+        <ul id="treemenu" class="easyui-tree" animate="false">
+            <li><span>工作台</span>
+                <ul>
+                    <li><span></span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="mainPanle" region="center" style="background: #eee; overflow-y: hidden">
+        <div id="tabs" class="easyui-tabs" fit="true" border="false">
+            <div title="桌面" style="overflow: hidden;" id="home">
+                <iframe src="/Home/Main" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+            </div>
+        </div>
+    </div>
+    <!--修改密码窗口-->
+    <div id="w" class="easyui-window" title="修改密码" collapsible="false" minimizable="false"
+        maximizable="false" icon="icon-save"  style="width: 300px; height: 200px; padding: 5px;
+        background: #fafafa;">
+        <div class="easyui-layout" fit="true">
+            <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+                <table cellpadding=3>
+                    <tr>
+                        <td>旧密码：</td>
+                        <td><input id="txtOldPass" type="Password" data-options="required:true,validType:'length[6,20]'" /></td>
+                    </tr>
+                    <tr>
+                        <td>新密码：</td>
+                        <td><input id="txtNewPass" type="Password" data-options="required:true,validType:'length[6,20]'" /></td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td>
+                        <td><input id="txtRePass" type="Password" data-options="required:true,validType:'length[6,20]'" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div region="south" border="false" style="text-align: right; height: 40px; line-height: 40px;">
+                <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" >
+                    确定</a> <a class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)" onclick="closePwd();">取消</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

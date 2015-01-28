@@ -1,0 +1,67 @@
+2015-01-12 16:14:28,118 [13] ERROR OceanLog [(null)] - 未找到路径“/favicon.ico”的控制器或该控制器未实现 IController。
+2015-01-12 16:14:28,118 [13] ERROR OceanLog [(null)] - 未找到路径“/favicon.ico”的控制器或该控制器未实现 IController。
+by Ocean2015-01-12 16:34:21,657 [74] ERROR OceanLog [(null)] - An exception was thrown while invoking the constructor 'Void .ctor(Ocean.Services.IAdminService)' on type 'HomeController'.
+2015-01-12 16:34:21,657 [74] ERROR OceanLog [(null)] - An exception was thrown while invoking the constructor 'Void .ctor(Ocean.Services.IAdminService)' on type 'HomeController'.
+by Oceanby Ocean2015-01-12 17:09:17,356 [26] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+2015-01-12 17:09:17,356 [26] ERROR OceanLog [(null)] - 未找到路径“/DrivingLicense/index”的控制器或该控制器未实现 IController。
+by Ocean2015-01-12 17:25:27,712 [12] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-12 17:25:27,712 [12] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+by Ocean2015-01-12 17:33:30,735 [28] ERROR OceanLog [(null)] - 列名 'CreateDate' 不明确。
+2015-01-12 17:33:30,735 [28] ERROR OceanLog [(null)] - 列名 'CreateDate' 不明确。
+by Oceanby Ocean2015-01-12 19:46:55,171 [116] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_ImportExcel”。
+2015-01-12 19:46:55,171 [116] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_ImportExcel”。
+2015-01-12 19:49:09,024 [99] ERROR OceanLog [(null)] - 未找到视图“VehicleLicenseEdit”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Themes/Default/Views/VehicleLicense/VehicleLicenseEdit.cshtml
+~/Themes/Default/Views/VehicleLicense/VehicleLicenseEdit.vbhtml
+~/Themes/Default/Views/Shared/VehicleLicenseEdit.cshtml
+~/Themes/Default/Views/Shared/VehicleLicenseEdit.vbhtml
+~/Views/VehicleLicense/VehicleLicenseEdit.cshtml
+~/Views/VehicleLicense/VehicleLicenseEdit.vbhtml
+~/Views/Shared/VehicleLicenseEdit.cshtml
+~/Views/Shared/VehicleLicenseEdit.vbhtml
+~/Administration/Views/VehicleLicense/VehicleLicenseEdit.cshtml
+~/Administration/Views/VehicleLicense/VehicleLicenseEdit.vbhtml
+~/Administration/Views/Shared/VehicleLicenseEdit.cshtml
+~/Administration/Views/Shared/VehicleLicenseEdit.vbhtml
+2015-01-12 19:49:09,024 [99] ERROR OceanLog [(null)] - 未找到视图“VehicleLicenseEdit”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Themes/Default/Views/VehicleLicense/VehicleLicenseEdit.cshtml
+~/Themes/Default/Views/VehicleLicense/VehicleLicenseEdit.vbhtml
+~/Themes/Default/Views/Shared/VehicleLicenseEdit.cshtml
+~/Themes/Default/Views/Shared/VehicleLicenseEdit.vbhtml
+~/Views/VehicleLicense/VehicleLicenseEdit.cshtml
+~/Views/VehicleLicense/VehicleLicenseEdit.vbhtml
+~/Views/Shared/VehicleLicenseEdit.cshtml
+~/Views/Shared/VehicleLicenseEdit.vbhtml
+~/Administration/Views/VehicleLicense/VehicleLicenseEdit.cshtml
+~/Administration/Views/VehicleLicense/VehicleLicenseEdit.vbhtml
+~/Administration/Views/Shared/VehicleLicenseEdit.cshtml
+~/Administration/Views/Shared/VehicleLicenseEdit.vbhtml
+by Ocean2015-01-12 19:58:21,959 [44] ERROR OceanLog [(null)] - 未找到路径“/Themes/Default/Views/VehicleLicense/VehicleLicenseEdit.cshtml”。
+2015-01-12 19:58:21,959 [44] ERROR OceanLog [(null)] - 未找到路径“/Themes/Default/Views/VehicleLicense/VehicleLicenseEdit.cshtml”。
+2015-01-12 19:59:33,299 [98] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(89): error CS0173: 无法确定条件表达式的类型，因为“string”和“System.DateTime”之间没有隐式转换
+2015-01-12 19:59:33,299 [98] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(89): error CS0173: 无法确定条件表达式的类型，因为“string”和“System.DateTime”之间没有隐式转换
+2015-01-12 20:06:06,990 [115] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(89): error CS0173: 无法确定条件表达式的类型，因为“string”和“System.DateTime”之间没有隐式转换
+2015-01-12 20:06:06,990 [115] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(89): error CS0173: 无法确定条件表达式的类型，因为“string”和“System.DateTime”之间没有隐式转换
+2015-01-12 20:06:54,844 [115] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(89): error CS0173: 无法确定条件表达式的类型，因为“string”和“System.DateTime”之间没有隐式转换
+2015-01-12 20:06:54,844 [115] ERROR OceanLog [(null)] - g:\Dev\weixin\ocean_baoxian\Ocean.Admin\Themes\Default\Views\VehicleLicense\VehicleLicenseEdit.cshtml(89): error CS0173: 无法确定条件表达式的类型，因为“string”和“System.DateTime”之间没有隐式转换
+by Ocean2015-01-12 20:10:40,877 [79] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_UseCharacterType”。
+2015-01-12 20:10:40,877 [79] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_UseCharacterType”。
+2015-01-12 20:13:35,772 [97] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_VehicleType”。
+2015-01-12 20:13:35,772 [97] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_VehicleType”。
+2015-01-12 20:13:36,149 [72] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_UseCharacterType”。
+2015-01-12 20:13:36,149 [72] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_UseCharacterType”。
+by Ocean2015-01-12 20:36:40,116 [47] ERROR OceanLog [(null)] - 已添加了具有相同键的项。
+2015-01-12 20:36:40,116 [47] ERROR OceanLog [(null)] - 已添加了具有相同键的项。
+2015-01-12 20:39:44,501 [40] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-12 20:39:44,501 [40] ERROR OceanLog [(null)] - 未将对象引用设置到对象的实例。
+2015-01-12 20:52:36,471 [40] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_VehicleLicense”。
+2015-01-12 20:52:36,471 [40] ERROR OceanLog [(null)] - 在控制器“Ocean.Admin.Controllers.VehicleLicenseController”上未找到公共操作方法“_VehicleLicense”。
+by Ocean2015-01-12 21:01:44,647 [85] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-12 21:01:44,647 [85] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-12 21:01:50,234 [37] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-12 21:01:50,234 [37] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-12 21:01:56,356 [36] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-12 21:01:56,356 [36] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-12 21:06:40,417 [37] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+2015-01-12 21:06:40,417 [37] ERROR OceanLog [(null)] - An error occurred while updating the entries. See the inner exception for details.
+by Ocean

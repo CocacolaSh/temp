@@ -1,0 +1,55 @@
+2014-09-30 09:51:46,562 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-09-30 09:51:46,562 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-09-30 09:52:08,453 [15] ERROR OceanLog [(null)] - The view '_GetUserFromApi' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Themes/Default/Views/MpUser/_GetUserFromApi.cshtml
+~/Themes/Default/Views/MpUser/_GetUserFromApi.vbhtml
+~/Themes/Default/Views/Shared/_GetUserFromApi.cshtml
+~/Themes/Default/Views/Shared/_GetUserFromApi.vbhtml
+~/Views/MpUser/_GetUserFromApi.cshtml
+~/Views/MpUser/_GetUserFromApi.vbhtml
+~/Views/Shared/_GetUserFromApi.cshtml
+~/Views/Shared/_GetUserFromApi.vbhtml
+~/Administration/Views/MpUser/_GetUserFromApi.cshtml
+~/Administration/Views/MpUser/_GetUserFromApi.vbhtml
+~/Administration/Views/Shared/_GetUserFromApi.cshtml
+~/Administration/Views/Shared/_GetUserFromApi.vbhtml
+2014-09-30 09:52:08,453 [15] ERROR OceanLog [(null)] - The view '_GetUserFromApi' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Themes/Default/Views/MpUser/_GetUserFromApi.cshtml
+~/Themes/Default/Views/MpUser/_GetUserFromApi.vbhtml
+~/Themes/Default/Views/Shared/_GetUserFromApi.cshtml
+~/Themes/Default/Views/Shared/_GetUserFromApi.vbhtml
+~/Views/MpUser/_GetUserFromApi.cshtml
+~/Views/MpUser/_GetUserFromApi.vbhtml
+~/Views/Shared/_GetUserFromApi.cshtml
+~/Views/Shared/_GetUserFromApi.vbhtml
+~/Administration/Views/MpUser/_GetUserFromApi.cshtml
+~/Administration/Views/MpUser/_GetUserFromApi.vbhtml
+~/Administration/Views/Shared/_GetUserFromApi.cshtml
+~/Administration/Views/Shared/_GetUserFromApi.vbhtml
+by Ocean2014-09-30 10:00:30,734 [5] ERROR OceanLog [(null)] - The view '_GetUserFromApi' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Themes/Default/Views/MpUser/_GetUserFromApi.cshtml
+~/Themes/Default/Views/MpUser/_GetUserFromApi.vbhtml
+~/Themes/Default/Views/Shared/_GetUserFromApi.cshtml
+~/Themes/Default/Views/Shared/_GetUserFromApi.vbhtml
+~/Views/MpUser/_GetUserFromApi.cshtml
+~/Views/MpUser/_GetUserFromApi.vbhtml
+~/Views/Shared/_GetUserFromApi.cshtml
+~/Views/Shared/_GetUserFromApi.vbhtml
+~/Administration/Views/MpUser/_GetUserFromApi.cshtml
+~/Administration/Views/MpUser/_GetUserFromApi.vbhtml
+~/Administration/Views/Shared/_GetUserFromApi.cshtml
+~/Administration/Views/Shared/_GetUserFromApi.vbhtml
+2014-09-30 10:00:30,734 [5] ERROR OceanLog [(null)] - The view '_GetUserFromApi' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Themes/Default/Views/MpUser/_GetUserFromApi.cshtml
+~/Themes/Default/Views/MpUser/_GetUserFromApi.vbhtml
+~/Themes/Default/Views/Shared/_GetUserFromApi.cshtml
+~/Themes/Default/Views/Shared/_GetUserFromApi.vbhtml
+~/Views/MpUser/_GetUserFromApi.cshtml
+~/Views/MpUser/_GetUserFromApi.vbhtml
+~/Views/Shared/_GetUserFromApi.cshtml
+~/Views/Shared/_GetUserFromApi.vbhtml
+~/Administration/Views/MpUser/_GetUserFromApi.cshtml
+~/Administration/Views/MpUser/_GetUserFromApi.vbhtml
+~/Administration/Views/Shared/_GetUserFromApi.cshtml
+~/Administration/Views/Shared/_GetUserFromApi.vbhtml
+by Ocean

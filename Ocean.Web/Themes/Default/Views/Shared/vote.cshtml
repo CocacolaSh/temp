@@ -1,0 +1,335 @@
+﻿@{
+    Layout = "../../Shared/_VoteLayout.cshtml";
+}
+
+<style type="text/css">
+body {TEXT-ALIGN: center;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {TEXT-ALIGN: center;color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+.button {
+	display: inline-block;
+	zoom: 1;
+ *display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+.bigrounded {
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+}
+
+
+.white {
+	color: #606060;
+	border: solid 1px #b7b7b7;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+	background: -moz-linear-gradient(top, #fff, #ededed);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+ 
+	float: center; 
+}
+.white:hover {
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+	background: -moz-linear-gradient(top, #fff, #dcdcdc);
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.white:active {
+	color: #999;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+	background: -moz-linear-gradient(top, #ededed, #fff);
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;position:relative;}
+
+.detail_border {margin-left:auto;margin-right:auto;border:1px solid #CCC; padding:0px; text-align:center; vertical-align:middle; width:98%; height:350px;overflow: hidden;}
+.details_info {padding:5px; text-align: center; width:100%; }
+
+.arrow-left{border-width:50px; border-color:transparent transparent green transparent;  border-style:dashed dashed solid  dashed; border-top:none;}
+.arrow-right{border-width:50px; border-color: black transparent transparent transparent;  border-style: solid dashed dashed dashed; border-bottom:none;}
+
+.leftin
+{
+   width:300px;  
+   height:200px;  
+   position:absolute;  
+   top:50%;  
+   margin:-100px 0 0 -150px 
+}
+.boxcontent .left
+{
+float:left;
+}
+
+.boxcontent .right
+{
+float:right;
+}
+.rightin
+{
+float:right;
+   width:300px;  
+   height:200px;  
+   position:absolute;  
+   top:50%;  
+   margin:-100px 0 0 -150px 
+}
+
+    .boxTemp {
+		width:100%; margin:0 auto; border-radius:3px;background-color: #FEF8B2;
+	}
+	
+	
+	
+	.divVoteItem {
+		width:80%;height:100%;float:left;display:none;
+	}
+	.divLeftRight {
+		width:20%;height:100%;float:left;
+	}
+	.leftTemp {
+   position:relative;
+   margin-top:50px
+	}
+	.rightTemp {
+   position:relative;
+   margin-top:200px
+	}
+	.clear {clear:both;}
+</style>
+
+
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">@ViewBag.Title</span>
+    </div>
+    <section class="modBaseBox">
+
+	        <script type="text/javascript">
+
+	            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	                window.shareData = {
+	                    "timeLineLink": "http://wx.ssrcb.com/vote/VoteSummary?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	                    "sendFriendLink": "http://wx.ssrcb.com/vote/VoteSummary?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	                    "weiboLink": "http://wx.ssrcb.com/vote/VoteSummary?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	                    "ImgPath": "http://wximg.ssrcb.com/mpimages/2014/09/11/5fcc7619602-128113_jpg!431x462.jpg",
+	                    "tTitle": "石狮农商银行、闽南理工学院联名卡设计有奖征集活动",
+	                    "tContent": "石狮农商银行、闽南理工学院联名卡设计有奖征集活动",
+	                    "fTitle": "石狮农商银行、闽南理工学院联名卡设计有奖征集活动",
+	                    "fContent": "石狮农商银行、闽南理工学院联名卡设计有奖征集活动",
+	                    "wContent": "石狮农商银行、闽南理工学院联名卡设计有奖征集活动"
+	                };
+
+	                // 发送给好友
+	                WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+	                    WeixinJSBridge.invoke('sendAppMessage', {
+	                        "img_url": window.shareData.ImgPath,
+	                        "img_width": "431",
+	                        "img_height": "462",
+	                        "link": window.shareData.sendFriendLink,
+	                        "desc": window.shareData.fContent,
+	                        "title": window.shareData.fTitle
+	                    }, function (res) {
+	                        _report('send_msg', res.err_msg);
+	                    })
+	                });
+	                // 分享到朋友圈
+	                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+	                    WeixinJSBridge.invoke('shareTimeline', {
+	                        "img_url": window.shareData.ImgPath,
+	                        "img_width": "431",
+	                        "img_height": "462",
+	                        "link": window.shareData.timeLineLink,
+	                        "desc": window.shareData.tContent,
+	                        "title": window.shareData.tTitle
+	                    }, function (res) {
+	                        _report('timeline', res.err_msg);
+	                    });
+	                });
+	                // 分享到微博
+
+	            }, false);
+
+
+
+	            function voteSubmit(id, index) {
+	                $.messager.confirm('提示', "您确定要投票？", function (r) {
+	                    if (r) {
+	                        $.ajax({
+	                            type: 'post',
+	                            url: '/vote/Vote?baseId=@(WebHelper.GetString("Id"))&itemId=' + id + '&t=' + Math.random(),
+	                            data: {},
+	                            cache: false,
+	                            success: function (json) {
+	                                if (json.isSuccess) {
+	                                    $("#VoteLink" + index).html("您已投票");
+	                                    $("#VoteCount" + index).html(json.voteCount);
+	                                    $.messager.confirm('提示', json.message, "info", function () { });
+	                                    return false;
+	                                } else {
+	                                    $.messager.confirm('提示', json.message, "error", function () { });
+	                                }
+	                            }
+	                        });
+	                    }
+	                });
+	            }
+
+	            var currentShowItem = 0;
+	            var totalItemCnt = 0;
+	            function prevItem() {
+	                $(".divVoteItem").hide();
+	                currentShowItem--;
+	                if (currentShowItem < 1) {
+	                    currentShowItem = totalItemCnt;
+	                }
+	                $("#VoteItem" + currentShowItem).show();
+	            }
+	            function nextItem() {
+	                $(".divVoteItem").hide();
+	                currentShowItem++;
+	                if (currentShowItem > totalItemCnt) {
+	                    currentShowItem = 1;
+	                }
+	                $("#VoteItem" + currentShowItem).show();
+	            }
+	            $(document).ready(function (e) {
+	                totalItemCnt = $(".divVoteItem").length;
+	                if (totalItemCnt <= 0) {
+	                    alert("本投票系统暂未开放")
+	                }
+	                else {
+	                    $("#VoteItem1").show();
+	                    currentShowItem = 1;
+	                }
+
+	            });
+            </script>
+            <div class="content">
+    	        <div class="boxTemp" style = "margin-top: 0px;">
+                    
+                    @if (ViewBag.voteItemList != null)
+                    {
+                        int i = 1;
+                        foreach (VoteItem voteItem in ViewBag.voteItemList)
+                        {
+                             <div class="divVoteItem" id = "VoteItem@(i.ToString())">  
+                                <div class="detail_border"><a href="#"><img style = "width:100%;height:100%;" src="@Url.Content("~/Content/images/"+@voteItem.ItemPic.ToString())"></a></div>
+                        
+                                <div class="details_info">
+
+                                @{
+                                    bool bHasVote = false;
+                                    if (ViewBag.voteSubmitItemList != null)
+                                    {
+                                        foreach(VoteInfo voteInfo in ViewBag.voteSubmitItemList)
+                                        {
+                                            if(voteInfo.VoteItemID == voteItem.Id)
+                                            {
+                                                bHasVote = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if((bHasVote)){
+                                        @:<p><a  id="VoteLink@(i.ToString())" href="javascript:void(0);" onclick="voteSubmit('@voteItem.Id.ToString()', '@(i.ToString())');" class="button white bigrounded">您已经投票了</a></p>
+                                    }
+                                    else{
+                                        @:<p><a  id="VoteLink@(i.ToString())" href="javascript:void(0);" onclick="voteSubmit('@voteItem.Id.ToString()', '@(i.ToString())');" class="button white bigrounded">投TA一票</a></p>
+
+                                    }
+                                }
+            	                    <ul>
+                	                    <li>名称：<span>@voteItem.ItemName.ToString()</span></li>
+                
+                                        <li>得票数：<span id="VoteCount@(i.ToString())">@voteItem.VoteCount</span></li>
+                                    </ul>
+       
+                                </div>
+                            </div>
+                            i++;
+                        }
+                    }
+                    <div class="divLeftRight">
+                        <div class="leftTemp"><p><a href="javascript:void(0);" onclick="prevItem();" class="arrow-left"></a></p></div>
+                        <div class="rightTemp"><p><a href="javascript:void(0);" onclick="nextItem();" class="arrow-right"></a></p></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+@*            <div class="content">
+    	        <div class="boxcontent" style = "margin-top: 0px;">
+                    <div class="left"><div class="leftin"><p><a href="javascript:void(0);" onclick="prevItem();" class="arrow-left"></a></p> </div></div>
+
+                    @if (ViewBag.voteItemList != null)
+                    {
+                        int i = 1;
+                        foreach (VoteItem voteItem in ViewBag.voteItemList)
+                        {
+                             <div class="divVoteItem" id = "VoteItem@(i.ToString())">  
+                                <div class="detail_border"><a href="#"><img src="@Url.Content("~/Content/images/"+@voteItem.ItemPic.ToString())"></a></div>
+                        
+                                <div class="details_info">
+
+                                @{
+                                    bool bHasVote = false;
+                                    if (ViewBag.voteSubmitItemList != null)
+                                    {
+                                        foreach(VoteInfo voteInfo in ViewBag.voteSubmitItemList)
+                                        {
+                                            if(voteInfo.VoteItemID == voteItem.Id)
+                                            {
+                                                bHasVote = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if((bHasVote)){
+                                        @:<p><a  id="VoteLink@(i.ToString())" href="javascript:void(0);" onclick="voteSubmit('@voteItem.Id.ToString()', '@(i.ToString())');" class="button white bigrounded">您已经投票了</a></p>
+                                    }
+                                    else{
+                                        @:<p><a  id="VoteLink@(i.ToString())" href="javascript:void(0);" onclick="voteSubmit('@voteItem.Id.ToString()', '@(i.ToString())');" class="button white bigrounded">投TA一票</a></p>
+
+                                    }
+                                }
+            	                    <ul>
+                	                    <li>名称：<span>@voteItem.ItemName.ToString()</span></li>
+                
+                                        <li>得票数：<span id="VoteCount@(i.ToString())">@voteItem.VoteCount</span></li>
+                                    </ul>
+       
+                                </div>
+                            </div>
+                            i++;
+                        }
+                    }
+
+                    <div class="right"><div class="rightin"><p><a href="javascript:void(0);" onclick="nextItem();" class="arrow-right"></a></p> </div></div>
+                </div>
+
+            </div>*@
+        </section>
+</div>

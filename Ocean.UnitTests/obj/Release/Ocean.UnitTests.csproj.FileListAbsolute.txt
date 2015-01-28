@@ -1,0 +1,8 @@
+E:\微信\ocean7.18\Ocean.UnitTests\bin\Release\Ocean.UnitTests.dll
+E:\微信\ocean7.18\Ocean.UnitTests\bin\Release\Ocean.UnitTests.pdb
+E:\微信\ocean7.18\Ocean.UnitTests\bin\Release\Moq.dll
+E:\微信\ocean7.18\Ocean.UnitTests\bin\Release\Moq.pdb
+E:\微信\ocean7.18\Ocean.UnitTests\bin\Release\Moq.xml
+E:\微信\ocean7.18\Ocean.UnitTests\obj\Release\ResolveAssemblyReference.cache
+E:\微信\ocean7.18\Ocean.UnitTests\obj\Release\Ocean.UnitTests.dll
+E:\微信\ocean7.18\Ocean.UnitTests\obj\Release\Ocean.UnitTests.pdb

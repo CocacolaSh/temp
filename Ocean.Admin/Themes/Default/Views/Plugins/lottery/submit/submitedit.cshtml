@@ -1,0 +1,104 @@
+﻿@{
+    Layout = "../../shared/_SubmitLayout.cshtml";
+}
+
+<script type="text/javascript">
+    function sendGift(pluginId, id, page) {
+        $.ajax({
+            type: 'post',
+            url: "/plugins/ResultEdit",
+            cache: false,
+            //datatype: "json",
+            data: { IsUse: 1, pluginid: pluginId, Id: id, page: page },
+            success: function (result) {
+                if (result.message) {
+                    $("#resultList").html(result.message);
+                }
+                else {
+                    $("#resultList").html(result);
+                    $("#resultList").attr("isLoad", "1");
+                }
+            }
+        });
+    }
+    function resultGrid(queryData) {
+            $('#resultGrid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/plugins/ResultList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: false,
+                rownumbers: true,
+                singleSelect: true,
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { title: '奖项', field: 'Summary', width: 100, hidden: false ,formatter:function(value){
+                        return value.split('得')[1];
+                     }},
+                     { title: '名称', field: 'Name', width: 100, hidden: false },
+                     { title: '联系方式', field: 'Phone', width: 100, hidden: false ,formatter:function(value){
+                        if(value)
+                        {
+                            return value;
+                        }
+                        else{
+                            return "暂未提交";
+                        }
+                     }},
+                     { title: '奖品状态', field: 'ApplyRates', width: 100, hidden: false ,formatter:function(value,row){
+                        if(value==0)
+                        {
+                            return '<a class="in_edit" href="javascript:void(0);" style="color:Blue;" onclick="sendGift(row.PluginId,row.Id,@WebHelper.GetInt("page",1))">发放</a>';
+                        }
+                        else{
+                            return '<a class="in_edit">已发放</a>'
+                        }
+                     }}
+                ]]
+//                ,
+//                onLoadSuccess:function(data){
+//                    alert(data.message);
+//                    if(data.success)
+//                    {
+//                        alert(data.message);
+//                    }
+//                },
+//                onLoadError: function (data) {
+//                    $('#View').window('close');
+//                    alert(data.message);
+//                 }
+            });
+    }
+    $("#tab").tabs({
+        onSelect: function (title) {
+
+        }
+    });
+</script>
+
+@section head
+ {
+    <style type="text/css">
+ .contenSet table tr td{padding:5px;}
+ .js_list tr td{padding:5px;}
+ .prizechecked{background:#ccc;}
+ .tc_box {float: left;width:550px;background: rgba(0,0,0,.8);position: absolute;z-index: 99999;border: 1px solid #000;border-radius: 5px;color: #fff;padding: 10px;}
+ .tc_box dl {padding: 0px; padding-top: 16px; margin:0px;}
+ .tc_box dd {padding: 0px; margin:0px;float:left; width:100%; line-height: 30px; border-bottom: 1px dashed #666;}
+ .tc_box em {position: absolute; right: 10px; top: 10px; width: 16px; height: 16px; text-indent: -99999px; background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 0; background-size: 16px auto; cursor: pointer; display: block;}
+ .tc_box em:hover {background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 -32px; background-size: 16px auto;}
+ .tc_box dd span {float: left; width: 45%; overflow:hidden;}
+ .tc_box dd .qd_btn, .tc_box dd .pd_btn {width: 80px; color: #fff; padding: 0 15px; text-align: center; font-size: 14px; margin: auto; margin-top: 10px; border-radius: 5px; font-weight: bold;background: -moz-linear-gradient(top,#f3cd4f,#e79217); background: -webkit-gradient(linear,left top,left bottom,from(#f3cd4f),to(#e79217)); display:block;}
+ .page-num,.pageNavigator a{color:#fff;}
+ .submit_list table tr td{padding:6px 0px;}
+    </style>
+}
+<div id="tab" class="easyui-tabs" style="width:auto;height:auto;">
+    <div title="中奖记录" style="padding:10px" id="resultList" href="ResultList?pluginId=@(WebHelper.GetString("PluginId"))">
+    </div>
+</div>

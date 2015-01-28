@@ -1,0 +1,600 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "客户调客申请列表";
+} 
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            var searchObject = {};
+            @if(WebHelper.GetGuid("mpuserid",Guid.Empty) != Guid.Empty)
+            {
+                @:searchObject["mpuserid"]='@(WebHelper.GetGuid("mpuserid",Guid.Empty))';
+            }
+            @if(!string.IsNullOrEmpty(ViewBag.FunongbaoNO))
+            {
+                @:searchObject["RFunongbao.FunongbaoNO"]="@ViewBag.FunongbaoNO";
+                @:InitGrid(searchObject);
+            }
+            else
+            {
+                @:InitGrid(searchObject);
+            }
+            $('#exportExcel').load(function () {
+                $('#w').window('close');
+            });
+
+            $("#ProcessStatus2").combobox({ onChange: function (n, o) {
+                if (n == "2") {
+                    $("#NoPass").show();
+                    $("#Suggestion").hide();
+                }
+                else if (n == "3") {
+                    $("#Suggestion").show();
+                    $("#NoPass").hide();
+                    $.ajax({
+                        type: "POST",
+                        url: "/FunongBao/_AcceptLimitProgrammes",
+                        dataType: "json",
+                        data: { id: currentCheckedId },
+                        success: function (msg) {
+                            if (msg.success) {
+                                $.messager.alert('提示', msg.message);
+                            } else {
+                                var listHtml = "";
+                                $.each(msg.rows,function (i,row) {
+                                    listHtml += "<input id='l"+i+"' name='ApplyLimitRates' type='radio' value='" + (row.ApplyLimit * 10000) + "," + row.ApplyRates + "' /><label for='l"+i+"'>" + row.ApplyLimit + "万元，" + row.ApplyRates + "‰</label><br />";
+                                });
+                                $("#radiolist").html(listHtml);
+                            }
+                        }
+                    });
+                }
+                else {
+                    $("#Suggestion").hide();
+                    $("#NoPass").hide();
+                }
+            }
+            });
+
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/FunongBao/_FunongBaoApplyList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { title: '申请日期', field: 'ApplyDate', width: 100,
+                         formatter: function (value) {
+                             value = value.replace("T", " ");
+                             if (value == '1900-01-01 00:00:00') {
+                                 return "";
+                             }
+                             else {
+                                 return value.split(' ')[0].replace(/-/g, "");
+                             }
+                         }
+                     },
+                     { title: '组编号', field: 'RFunongbao.GroupNO', width: 160 },
+                     { title: '姓名', field: 'RFunongbao.Name', width: 50 },
+                     { title: '证件号', field: 'RFunongbao.PassportNO', width: 150 },
+                     { title: '手机号码', field: 'RFunongbao.MobilePhone', width: 100 },
+                     { title: '福农宝卡号', field: 'RFunongbao.FunongbaoNO', width: 140 },
+                     { title: '组额度', field: 'PreGroupLimit', width: 60 },
+                     { title: '当前额度', field: 'PreLimit', width: 60 },
+                     { title: '当前费率', field: 'PreRates', width: 60,
+                         formatter: function (value) {
+                             return value + "‰";
+                         } 
+                     },
+                     {title:'申请类型',field:'ApplyType',width:60,
+                        formatter:function(value){
+                            if(value==1)
+                            {
+                                return "提升额度";
+                            }
+                            else if(value==2)
+                            {
+                                return "降低费率";
+                            }
+                            else{
+                                return "旧数据";
+                            }
+                        }
+                     },
+//                     { title: '申请额度', field: 'ApplyLimit', width: 60 },
+//                     { title: '申请费率', field: 'ApplyRates', width: 60,
+//                         formatter: function (value) {
+//                             return value + "‰";
+//                         }
+//                     },
+                     { title: '调整后额度', field: 'ChangedLimit', width: 70 },
+                     { title: '调整后费率', field: 'ChangedRates', width: 70,
+                         formatter: function (value) {
+                             return value + "‰";
+                         }
+                     },
+                     { title: '受理情况', field: 'ProcessStatus', width: 60,
+                         formatter: function (value, row, index) {
+                            var message="";
+//                            if(row.ApplyStatus==0 || row.ApplyStatus==-1)
+//                            {
+//                                $.ajax({
+//                                    type: "POST",
+//                                    url: "/FunongBao/_AcceptStatus",
+//                                    dataType: "json",
+//                                    async:false,
+//                                    data: { id: row.Id,applyLimit:row.ApplyLimit },
+//                                    success: function (msg) {
+//                                        if (msg.success) {
+//                                            if (value == 0) {
+//                                                 message= "未受理";
+//                                             } 
+//                                             else
+//                                             {
+//                                                message="已受理";
+//                                             }
+////                                             else if (value == 1) {
+////                                                 message= "通过";
+////                                             } else if (value == 2) {
+////                                                 message= "未通过";
+////                                             } else if (value == 3) {
+////                                                 message= "建议额度";
+////                                             }
+//                                        } else {
+//                                            message='<span style="color:red;">'+msg.message+'</span>';                                 
+//                                        }
+//                                    }
+
+//                                });
+//                            }
+//                            else
+//                            {
+                            if (value == 0) {
+                                 message= "未受理";
+                             } 
+                             else
+                             {
+                                message= "已受理";
+                             }
+//                             else if (value == 1) {
+//                                 message= "通过";
+//                             } else if (value == 2) {
+//                                 message= "未通过";
+//                             } else if (value == 3) {
+//                                 message= "建议额度";
+//                             }
+//                            }
+                             return message;
+                         }
+                     },
+                     { title: '受理日期', field: 'FinishDate', width: 100,
+                         formatter: function (value) {
+                             value = value.replace("T", " ");
+                             if (value == '1900-01-01 00:00:00') {
+                                 return "";
+                             }
+                             else {
+                                 return value;
+                             }
+                         }
+                     },
+                     { title: '营销机构', field: 'Subbranch', width: 80 },
+                     { title: '营销人', field: 'Marketer', width: 50 },
+                     { title: '', field: 'ApplyStatus', width: 50,hideColumn:true }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+             $('#grid').datagrid("hideColumn","ApplyStatus");
+        }
+
+        function Accept() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].ProcessStatus != 0) {
+                    $.messager.alert('提示', '当前申请已被受理');
+                    return void (0);
+                }
+//                if (selectedRows[0].ApplyLimit <= 0) {
+//                    $.messager.alert('提示', '当前申请还未提交申请!');
+//                    return void(0);
+//                }
+//                else
+//                {
+                                $('#ProcessStatus2').combobox('setValue', '1');
+                                $("#Suggestion").hide();
+                                $("#NoPass").hide();
+                                $('#dlg1').dialog('open');
+//                     $.ajax({
+//                        type: "POST",
+//                        url: "/FunongBao/_AcceptStatus",
+//                        dataType: "json",
+//                        data: { id: currentCheckedId,applyLimit:selectedRows[0].ApplyLimit },
+//                        success: function (msg) {
+//                            if (msg.success) {
+//                            } else {
+//                                $.messager.alert('提示', msg.message);
+//                                
+//                            }
+//                        }
+
+//                    });
+                    //if(selectedRows[0].ApplyStatus==0||selectedRows[0].ApplyStatus==-1)
+//                }
+            } else {
+                $.messager.alert('提示', '请选择要受理的数据');
+            }
+        }
+
+        function AcceptEdit() {
+            if($('#AcceptEditForm').form('validate'))
+            {
+                var processStatus = $("#ProcessStatus2").combobox("getValue");
+                if (processStatus == 3 && $("input[name='ApplyLimitRates']:checked").length <= 0) {
+                    $.messager.alert('提示', '请选择建议额度方案');
+                    return false;
+                }
+                var applyLimit = 0;
+                var applyRate = 0;
+                if(processStatus == 3)
+                {
+                    if ($("input[name='ApplyLimitRates']:checked").length > 0) {
+                        var applystr = $("input[name='ApplyLimitRates']:checked").val().split(',');
+                        applyLimit = applystr[0];
+                        applyRate = applystr[1];
+                    }
+                }
+                else
+                {
+                    applyLimit=0;
+                    applyRate = 0;
+                }
+                var AcceptData = { id: currentCheckedId, ProcessStatus: processStatus, ProcessResult: $("#ProcessResult").val(), applyRates: applyRate, applyLimit: applyLimit,changedLimit:$('#ChangedLimit').val(),changedRates:$('#ChangedRates').val(),finishDate:$("#ProcessFinishDate").datebox("getValue") };
+                //alert(JSON.stringify(AcceptData));
+                $.ajax({
+                    type: "POST",
+                    url: "/FunongBao/_AcceptEdit",
+                    dataType: "json",
+                    data: AcceptData,
+                    success: function (msg) {
+                        if (msg.success) {
+                            $('#dlg1').dialog('close');
+                            $.messager.alert('提示', msg.message, "", function () {
+                                //window.location.href = window.location.href;
+                                $("#grid").datagrid('reload'); 
+                            });
+                        } else {
+                            $.messager.alert('提示', msg.message);
+                        }
+                    }
+                });
+            }
+        }
+
+        function LimitProgrammeView() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                ProgrammeGrid({id:id});
+                $('#View').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要查看的数据');
+            }
+        }
+        function ProgrammeGrid(queryData) {
+            $('#programmeGrid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/FunongBao/_AcceptLimitProgrammes',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: false,
+                rownumbers: true,
+                singleSelect: true,
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { title: '调整额度', field: 'ApplyLimit', width: 100, hidden: false ,formatter:function(value){
+                        return value+"万元";
+                     }},
+                     { title: '调整费率', field: 'ApplyRates', width: 100, hidden: false }
+                ]]
+//                ,
+//                onLoadSuccess:function(data){
+//                    alert(data.message);
+//                    if(data.success)
+//                    {
+//                        alert(data.message);
+//                    }
+//                },
+//                onLoadError: function (data) { 
+//                    $('#View').window('close');
+//                    alert(data.message);
+//                 }
+            });
+        }
+        function ExportExcel() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                //$('#w').window('open');
+                $('#exportExcel').attr("src", "ExportExcel?id=" + currentCheckedId);
+//                var iframe = $('#exportExcel')[0];
+//                if (iframe.attachEvent) {
+//                    iframe.attachEvent("onload", function () {
+//                        alert("Local iframe is now loaded.");
+//                    });
+//                } else {
+//                    iframe.onload = function () {
+//                        alert("Local iframe is now loaded.");
+//                    };
+//                }
+//                var interval = window.setInterval(function () {
+//                    //前面是高级浏览器，后面是ie
+//                    if (document.readyState == 'complete' || $('#exportExcel')[0].readyState == 'interactive') {
+//                        window.clearInterval(interval);
+//                        alert(1);
+//                    }
+//                }, 1000);
+
+            } else {
+                $.messager.alert('提示', '请选择要导出的数据');
+            }
+        }
+
+        function ImportExcel() {
+            $('#importExcel').attr("src", "_ImportExcel?d=" + (new Date()).getTime());
+            $("#w").window("open");
+        }
+        function closeImport(message) {
+            $("#w").window("close");
+            $.messager.alert("提示", message);
+        }
+        function Search() {
+            var searchObject = {};
+            @if(WebHelper.GetGuid("mpuserid",Guid.Empty) != Guid.Empty)
+            {
+                @:searchObject["mpuserid"]='@(WebHelper.GetGuid("mpuserid",Guid.Empty))';
+            }
+            if ($("#RFunongbao_Name").val()) {
+                searchObject["RFunongbao.Name"] = $("#RFunongbao_Name").val();
+            }
+            if ($("#RFunongbao_FunongbaoNO").val()) {
+                searchObject["RFunongbao.FunongbaoNO"] = $("#RFunongbao_FunongbaoNO").val();
+            }
+            if ($("#RFunongbao_GroupNO").val()) {
+                searchObject["RFunongbao.GroupNO"] = $("#RFunongbao_GroupNO").val();
+            }
+            if ($("#ProcessStatus").combobox("getValue")!='') {
+                searchObject["ProcessStatus"] = $("#ProcessStatus").combobox("getValue");
+            }
+            if ($("#FinishDate").datebox("getValue")) {
+                searchObject["FinishDate"] = $("#FinishDate").datebox("getValue");
+            }
+            if ($("#FinishEndDate").datebox("getValue")) {
+                searchObject["FinishEndDate"] = $("#FinishEndDate").datebox("getValue");
+            }
+            if ($("#ApplyDate").combobox("getValue")) {
+                searchObject["ApplyDate"] = $("#ApplyDate").combobox("getValue");
+            }
+            $('#grid').datagrid("options").pageNumber = 1;
+            InitGrid(searchObject);
+        }
+//        function autoUpload(id) {
+//            $("#"+id).ajaxStart(function () {          
+//                    $("#lodingDiv").show();
+//                }).ajaxComplete(function () {
+//                    $("#lodingDiv").hide();
+//            });
+//            $.ajaxFileUpload
+//		    ({
+//		        url: "Import?id=" + id + "&t=" + Math.random(),
+//		        secureuri: false,
+//		        fileElementId: 'Logo',
+//		        dataType: 'json',
+//		        success: function (data, status) {
+//		            if (data.success) {
+//                        
+//                        return true;
+//                    } else {
+//                        
+//		            }
+//		        },
+//		        error: function (data, status, e) {
+//		            alert("上传不成功...");
+//                    return false;
+//		        }
+//		    }); 
+//        }
+        //测试
+        function CancelApply() {
+            $.messager.confirm('Confirm', '确定取消申请吗？', function (r) {
+                if (r) {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+             }
+            $.ajax({
+                type: "POST",
+                url: "/FunongBao/CancelApply",
+                dataType: "json",
+                data: "id=" + currentCheckedId,
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            $("#grid").datagrid('reload'); 
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+            }
+            });
+        }
+        
+        function TaskUser() {
+            parent.addTab('TaskUser', '查看群发用户', '/funongbao/TaskUser', '');
+        }
+
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    @if (WebHelper.GetGuid("mpuserid", Guid.Empty) == Guid.Empty)
+    {
+    <div style="margin-bottom: 5px">
+        @*@Html.ActionLink("查看", null, null, new { onclick = "ShowEditOrViewDialog('view')", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })*@
+        @if ((bool)ViewData["FunongBaoApply_" + PermissionOperate.process])
+        {
+           @Html.ActionLink("受理情况登记", null, null, new { onclick = "Accept()", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @if ((bool)ViewData["FunongBaoApply_" + PermissionOperate.export])
+        { 
+            @Html.ActionLink("导出工单", null, null, new { onclick = "ExportExcel();", data_options = "iconCls:'icon-print', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @*@Html.ActionLink("查看调额策略", null, null, new { onclick = "LimitProgrammeView();", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })*@
+        @if ((bool)ViewData["FunongBaoApply_" + PermissionOperate.delete])
+        { 
+            @Html.ActionLink("取消申请", null, null, new { onclick = "CancelApply()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })              
+        }
+        @Html.ActionLink("查看本季度可调额客户", null, null, new { onclick = "TaskUser();", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 10px;">
+        申请日期:
+        <input class="easyui-datebox" style="width: 100px" id="FinishDate" />
+        -<input class="easyui-datebox" style="width: 100px" id="FinishEndDate" />
+        受理情况：
+        <select class="easyui-combobox" id="ProcessStatus" style="width: 80px;">
+            <option value="-1">请选择...</option>
+            <option value="0">未受理</option>
+            <option value="1">已受理</option>
+           @* <option value="2">未通过</option>
+            <option value="3">建议额度</option>*@
+        </select>
+        申请状态：
+        <select class="easyui-combobox" id="ApplyDate" style="width: 80px;">
+            <option value="@(new DateTime(1900, 1, 2))">未申请</option>
+            <option value="@DateTime.Now" selected="selected">已申请</option>
+        </select>
+        <br />
+        <br />
+        姓名:
+        <input class="easyui-validatebox" style="width: 60px" id="RFunongbao_Name" />
+        福农宝号：
+        <input class="easyui-validatebox" style="width: 140px" id="RFunongbao_FunongbaoNO" value="@ViewBag.FunongbaoNO" />
+        组编号：
+        <input class="easyui-validatebox" style="width: 140px" id="RFunongbao_GroupNO" />
+        @if ((bool)ViewData["FunongBaoApply_" + PermissionOperate.search])
+        { 
+            <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()">搜 索 </a></span>
+        }
+    </div>
+    }
+</div>
+<div id="grid">
+</div>
+<div id="dlg1" class="easyui-dialog" closed="true" title="受理情况登记" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 250px; padding: 10px;">
+    <form id="AcceptEditForm" action="">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                受理时间:
+            </td>
+            <td style="width: 70%;">
+                <input class="easyui-datebox" name="ProcessFinishDate" id="ProcessFinishDate" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                调整后额度:
+            </td>
+            <td style="width: 70%;">
+                <input class="easyui-numberbox" data-options="precision:2,required:true"  name="ChangedLimit" id="ChangedLimit" />元
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                调整后费率:
+            </td>
+            <td style="width: 70%;">
+                <input class="easyui-numberbox" data-options="precision:3,required:true" name="ChangedRates" id="ChangedRates" />‰
+            </td>
+        </tr>
+        <tr style="display:none;">
+            <td style="text-align: right;">
+                受理状态:
+            </td>
+            <td style="width: 70%;">
+                <select class="easyui-combobox" name="state" style="width: 70px;" name="ProcessStatus"
+                    id="ProcessStatus2">
+                    <option value="1" selected="selected">通过</option>
+                    <option value="2">不通过</option>
+                    <option value="3">调整到建议额度</option>
+                </select>
+            </td>
+        </tr>
+        <tr id="NoPass" style="display:none">
+            <td style="text-align: right;">
+                不通过原因：
+            </td>
+            <td style="width: 70%;">
+                <textarea id="ProcessResult" rows="6" cols="30"></textarea>
+            </td>
+        </tr>
+        <tr id="Suggestion" style="display:none;">
+            <td style="text-align: right;">
+                建议额度：
+            </td>
+            <td style="width: 70%;">
+                <span id="radiolist" class="option">
+                    
+                </span>
+            </td>
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="AcceptEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg1').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+    </form>
+</div>
+<div id="w" class="easyui-window" closed="true" title="福农宝调额方案导入" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 300px; padding: 5px;" modal="true">
+    <iframe id="importExcel" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>
+ <iframe id="exportExcel" src="" frameborder="0" style="display:none;" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+<div id="View" class="easyui-window" title="调额方案" data-options="iconCls:'icon-save'"
+    style="width: 300px; height: 200px; padding: 5px;" closed="true" modal="true">
+    <div id="programmeGrid">
+        
+    </div>
+</div>

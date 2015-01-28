@@ -1,0 +1,106 @@
+﻿@using Ocean.Framework.Caching.Cache
+@using Ocean.Entity.Enums.Loan
+@using Ocean.Entity.Enums.TypeIdentifying
+@using Ocean.Entity
+@using Ocean.Core
+@{
+    ViewBag.Title = "投诉明细";
+    string returnStatus = string.Empty;
+    if (Model.ReturnStatus == 1)
+    {
+        returnStatus = "满意";
+    }
+    else if (Model.ReturnStatus == 2)
+    {
+        returnStatus = "一般";
+    }
+    else if (Model.ReturnStatus == 3)
+    {
+        returnStatus = "不满意";
+    }
+}
+@model Complain
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    被投诉人姓名：
+                </td>
+                <td style="width: 80%;">
+                    @Model.Name
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    被投诉人手机：
+                </td>
+                <td style="width: 80%;">
+                    @Model.Phone
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    投诉内容：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ComplainContent
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    投诉人姓名：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ContactName
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    投诉人手机：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ContactPhone
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="text-align: right;">
+                    投诉日期：
+                </td>
+                <td style="width: 80%;">
+                    @Model.CreateDate
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    处理状态：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ProcessStatus
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    处理结果：
+                </td>
+                <td style="width: 80%;">
+                    @(((AssignStatusEnum)Model.AssignStatus).Discription())
+                </td>
+            </tr>
+            
+        </table>
+    </div> 
+</div>

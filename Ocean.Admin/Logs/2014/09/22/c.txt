@@ -1,0 +1,6 @@
+2014-09-22 17:43:52,671 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-09-22 17:43:52,671 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-09-22 17:44:23,437 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-09-22 17:44:23,437 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-09-22 17:44:53,906 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-09-22 17:44:53,906 [8] ERROR OceanLog [(null)] - File does not exist.

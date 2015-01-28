@@ -1,0 +1,138 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "积分系统用户列表";
+}
+@section Head{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            InitGrid();
+            $('#w').window('close');
+            $('#gw').window('close');
+            $('#phonew').window('close');
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/ScoreSys/_ScoreSysUserList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                pageSize: '20',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { title: '用户ID', field: 'MpUserId', width: 100 },
+                     { title: '用户名称', field: 'ClientName', width: 100 },
+                     { title: '用户手机号', field: 'ClientPhone', width: 100 },
+                     { title: '推荐人姓名', field: 'RecommendName', width: 100 },
+                     { title: '推荐人手机号', field: 'RecommendPhone', width: 100 },
+                     { title: '当前积分', field: 'CurrentScore', width: 100 },
+                     { title: '推荐积分', field: 'RecommendScore', width: 100 },
+                     { title: '交易所得积分', field: 'DealScore', width: 100 },
+                     { title: '是否员工', field: 'IsEmployee', width: 100,
+                         formatter: function (value) {
+                             return value == 1 ? "是" : "否";
+                         }
+                     },
+                     { title: '绑定时间', field: 'CreateDate', width: 150,
+                         formatter: function (value) {
+                             return formatDateTime(value);
+                         }
+                     }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var MpUserId = selectedRows[0].MpUserId;
+                $('#iframe').attr("src", "/ScoreSys/ScoreSysUserConsumeList?MpUserId=" + MpUserId);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要查看的会话');
+            }
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+        function Search() {
+            var searchObject = {};
+            if ($("#startDate").datebox("getValue")) {
+                searchObject["MeetingStartDate"] = $("#startDate").datebox("getValue");
+            }
+            if ($("#endDate").datebox("getValue")) {
+                searchObject["MeetingEndDate"] = $("#endDate").datebox("getValue");
+            }
+            if ($("#nickName").val()) {
+                searchObject["NickName"] = $("#nickName").val();
+            }
+            InitGrid(searchObject);
+        }
+        function PluginGiftSend() {
+            var pluginId = "7863C7F9-70B3-4B93-B005-E3941FDC791E";
+            $('#GiftSend').attr("src", "SubmitEdit?pluginId=" + pluginId + "&d=" + (new Date()).getTime());
+            var setWin = $("#gw").window({ title: "-奖品发放" });
+            setWin.window("open");
+        }
+        function PluginGiftSendClose() {
+            $("#gw").window("close");
+            $('#grid').datagrid("reload");
+        }
+        function ImportPhoneExcel() {
+            $('#importExcel').attr("src", "/ScoreSys/_ImportPhoneExcel?d=" + (new Date()).getTime());
+            $("#phonew").window("open");
+        }
+
+        function closeImport(message) {
+            $("#phonew").window("close");
+            $.messager.alert("提示", message);
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @Html.ActionLink("查看积分记录", null, null, new { onclick = "ShowEditOrViewDialog()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').datagrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("奖品发放", null, null, new { onclick = "PluginGiftSend()", id = "pluginGiftSend", style = "display:inline-block;", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("导入手机交易清单", null, null, new { onclick = "ImportPhoneExcel()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 5px;">
+        时间段:
+        <input class="easyui-datebox" style="width: 100px" id="startDate" />
+        ~
+        <input class="easyui-datebox" style="width: 100px" id="endDate" />
+        客服昵称：
+        <input class="easyui-validatebox" style="width: 100px" id="nickName" />
+        <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()"> 搜 索 </a></span>
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="积分记录" data-options="iconCls:'icon-save'"
+    style="width: 900px; height: 450px; padding: 5px;" modal="true">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>
+<div id="gw" class="easyui-window" closed="true" title="奖品发放" data-options="iconCls:'icon-save'"
+     style="width: 900px; height: 460px; padding: 5px;" modal="true">
+    <iframe id="GiftSend" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+</div>
+<div id="phonew" class="easyui-window" title="导入手机交易清单" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 300px; padding: 5px;" close="true" modal="true">
+    <iframe id="importExcel" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>

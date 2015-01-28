@@ -1,0 +1,79 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "福农宝群发用户列表";
+}
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid();
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/Funongbao/_TaskUserList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                pageSize: 10,
+                pageList: [5, 10, 15, 20],
+                rownumbers: true,
+                sortName: 'CreateDate',    //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { field: 'ck', checkbox: true },   //选择
+                     {title: 'OpenID', field: 'OpenID', width: 250, sortable: true },
+                     {
+                         title: '头像', field: 'HeadImgUrl', width: 100, height: 100,
+                         formatter: function (value) {
+                             return '<img src="' + value + '" style="height:100px"/>';
+                         }
+                     },
+                     { title: '昵称', field: 'NickName', width: 100},
+                     { title: '姓名', field: 'Name', width: 100},
+                     { title: '手机', field: 'MobilePhone', width: 100 },
+                     { title: '地区', field: 'Area', width: 130,
+                         formatter: function (value, row) {
+                             return ((row.Country ? row.Country : "") + "," + (row.Province ? row.Province : "") + "," + (row.City ? row.City : ""));
+                         }
+                     },
+                     {
+                         title: '最后访问时间', field: 'LastVisitDate', width: 100,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     },
+                     {
+                         title: '关注时间', field: 'SubscribeDate', width: 100,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     }
+
+                ]],
+                toolbar: '#gridtoolbar'
+            }).datagrid("clearChecked");
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+    </div>
+</div>
+<div id="grid">
+</div>

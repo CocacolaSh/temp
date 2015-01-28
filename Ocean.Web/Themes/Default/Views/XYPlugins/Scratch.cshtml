@@ -1,0 +1,290 @@
+﻿@{
+    Layout = "../Shared/_xyLayout.cshtml";
+}
+
+@using Ocean.Entity;
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/wScratchPad.js", false)"></script>
+
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+body {margin: 0 auto; background: #F4F5F7;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 25px; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.cover { margin:10px auto 0; max-width: 480px; position: relative; }
+.main img { border: 0 none; max-width: 100%;}
+.cover img {}
+#scratchpad, #prize { color: #333333; font-size: 20px; height: 40px; left: 50%; margin-left: -125px; line-height: 40px; position: absolute; text-align: center; bottom: 25px; width: 250px;}
+#scratchpad{ position:absolute; bottom:105px;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px;}
+.box .title_brown{background: url(@Url.PluginUrl("lottery/images/title-bg-brown.png")) no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+.boxcontent .txt {width: 100%; line-height: 25px; text-align: center; font-size: 16px;}
+.boxcontent .ts {width: 100%; color: #135cab; line-height: 25px; text-align: center; font-size: 16px;}
+.boxcontent .btn {width: 100%; margin-top: 10px; display: -webkit-box;}
+.boxcontent .btn a {width: 100%; display: block; line-height: 28px; border-radius: 3px; margin: 5px; text-align: center; color: #fff; font-size: 16px; background: -webkit-gradient(linear,left top,left bottom,from(#4fc1f5),to(#115aa9)); -webkit-box-flex: 1; border: 1px solid #1087db; box-shadow: 1px 1px 2px #999; text-decoration: none;}
+.boxcontent .btn a:hover,.boxcontent .btn a:active {background: -webkit-gradient(linear,left top,left bottom,from(#5dcaf3),to(#1d7bc4));}
+
+
+
+.page-bizinfo, #activity-detail .page-content {
+width: 700px;
+margin: 0 auto;
+padding: 20px 20px 0;
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+background: #fff;
+}
+.page-bizinfo {
+border-bottom: none;
+}
+#activity-name {
+padding-bottom: 10px;
+border-bottom: 1px dotted #ccc;
+font-size: 20px;
+}
+#activity-detail .page-bizinfo .header #activity-name {
+color: #000;
+font-size: 20px;
+font-weight: bold;
+word-break: normal;
+word-wrap: break-word;
+}
+.activity-info {
+margin-top: 6px;
+}
+.activity-meta.no-extra {
+margin-left: 0;
+}
+.activity-meta {
+display: inline-block;
+margin-left: 8px;
+padding-top: 2px;
+padding-bottom: 2px;
+color: #8c8c8c;
+font-size: 11px;
+}
+#post-user {
+text-decoration: none;
+outline: 0;
+color: #607FA6;
+}
+.page-bizinfo .header a.activity-meta {
+vertical-align: middle;
+}
+.activity-info .text-ellipsis {
+display: inline-block;
+max-width: 104px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+#activity-detail .page-content .text {
+color: #3e3e3e;
+line-height: 1.5;
+width: 100%;
+}
+.page-content {
+width: 700px;
+margin: 0 auto;
+padding: 20px 20px 0;
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+background: #fff;
+}
+.page-content img {width: 100%;}
+</style>
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">仙游瑞狮村镇银行刮刮乐</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+            <div class="jjtxt">
+    	        <ul style="margin-bottom: 5px;">
+                    <p id = "tipsinfo" style="text-align:center;" class="scrollDiv">
+                        <span>不要泄气，刮刮乐还有更多惊喜哦</span>
+                    </p>
+                </ul>
+            </div>
+            <div class="car_bj">
+
+	            <script type="text/javascript">
+
+	                function CurentTime() {
+	                    var now = new Date();
+	                    return now.toDateString();
+	                } 
+	                AutoScroll = (function (obj) {
+	                    $(obj).find("ul:first").animate({
+	                        marginTop: "-25px"
+	                    }, 500, function () {
+	                        $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	                    });
+	                });
+	                $(function () {
+	                    if ($('.scrollbox li').length > 1) {
+	                        setInterval('AutoScroll(".scrollbox")', 4000);
+	                    }
+	                });
+	                var useragent = window.navigator.userAgent.toLowerCase();
+	                var scratching = false;
+	                var scratched = false;
+	                $(function () {
+	                    var prizeJson;
+	                    var scratchpad = $("#scratchpad").wScratchPad({
+	                        width: 250,
+	                        height: 50,
+	                        image: null,
+	                        image2: '@Url.PluginUrl("lottery/images/slide1.jpg")',
+	                        color: "#a9a9a7",
+	                        scratchMove: function (e, percent) {
+	                            $(this.canvas).css('margin-right', $(this.canvas).css('margin-right') == "0px" ? "1px" : "0px");
+	                            if (useragent.indexOf("android 4") > 0) {
+
+	                                $("#scratchpad").css("color", "rgb(50,50,50)");
+	                                if ($("#scratchpad").css("color").indexOf("51") > 0) {
+
+	                                    $("#scratchpad").css("color", "rgb(50,50,50)");
+	                                }
+	                                else if ($("#scratchpad").css("color").indexOf("50") > 0) {
+
+	                                    $("#scratchpad").css("color", "rgb(51,51,51)");
+	                                }
+	                            }
+
+	                            if (prizeJson && percent > 30 && !scratched) {
+	                                scratched = true;
+	                                if (prizeJson.Has_Gift == 1) {
+	                                    if (prizeJson.Leavings_Quantity > 0) {
+	                                        $.messager.alert('提示', "恭喜您，中了" + prizeJson.Name + "！", "warning", function () { });
+	                                        $("#tipsinfo").html("请持个人身份证到我行营业网点领取奖品");
+	                                    }
+	                                    else {
+	                                        $.messager.alert('提示', "运气先攒着，感谢您的参与，欢迎光临我行办理其他业务！", "warning", function () { });
+	                                        $("#tipsinfo").html("您的运气来得晚了那么些，请再接再厉哦，欢迎光临我行办理其他业务。");
+	                                    }
+	                                }
+	                                else {
+	                                    $.messager.alert('提示', "运气先攒着，感谢您的参与，欢迎光临我行办理其他业务！", "warning", function () { });
+	                                    $("#tipsinfo").html("您的运气来得晚了那么些，请再接再厉哦，欢迎光临我行办理其他业务。");
+	                                }
+	                            }
+	                            this.canvas.style.zIndex++; // force redraw to fix samsung bug
+
+	                        },
+	                        scratchUp: function () {
+	                            $(this.canvas).css('margin-right', $(this.canvas).css('margin-right') == "0px" ? "1px" : "0px");
+	                        }, scratchDown: function () {
+	                            $(this.canvas).css('margin-right', $(this.canvas).css('margin-right') == "0px" ? "1px" : "0px");
+	                            if (!scratching) {
+	                                scratching = true;
+	                                //alert('scratchDown');
+	                                $.ajax({
+	                                    type: 'post',
+	                                    url: '/xyplugins/ScratchVerifyCode?t=' + Math.random(),
+	                                    data: { Id: '@(WebHelper.GetGuid("Id", Guid.Empty))', OpenID: $("#OpenID").val() },
+	                                    dataType: "json",
+	                                    cache: false,
+	                                    success: function (json) {
+	                                        if (json.isOK == false) {
+	                                            scratching = false;
+	                                            if (json.isLogin) {
+	                                                window.location = json.message;
+	                                            }
+	                                            else {
+
+	                                                $.messager.alert('提示', json.message, "warning", function () { });
+	                                            }
+	                                        }
+	                                        else {
+	                                            prizeJson = json;
+	                                            document.getElementById('prize').innerHTML = json.Name;
+	                                        }
+	                                    }
+	                                });
+	                            }
+	                        }
+	                    });
+	                });
+	               
+                </script>
+                <div class="main">
+    	            <div id="outercont" class="cover">
+        	            <img src="@Url.PluginUrl("lottery/images/scratch.jpg")" />
+                        <div id="prize" style="background:#fff;"></div>
+                        <div id="scratchpad">
+            	            <div style="position: relative; width: 250px; height: 40px; cursor: default;">
+                	            <canvas width="250" height="40" style="cursor: default;"></canvas>
+                            </div>
+                            <div style="position: relative; width: 250px; height: 40px; cursor: default; ">
+                	            <canvas width="200" height="40" style="cursor: default;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="re_again" style="display:none;width:50%;height:36px;padding:15px 0;text-align:center;font-size:16px;background-color:#FEF8B2;margin:0 auto;border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);">
+                </div>
+                <div class="content">
+                    <input type="hidden" id="OpenID" name="OpenID" value = "@(ViewBag.OpenID)"/>
+    	            <div class="boxcontent">
+        	            <div class="box">
+            	            <div class="title_brown">
+                	            <span>奖项设置：</span>
+                            </div>
+                            <div class="Detail">
+                                <p>精美礼品一份400名 剩余数量：<span style="color:Red;">@ViewBag.Cst_Plugin_GuaItems_PrizeUsedNum0.ToString()</span></p>
+                               @*<a href="./GetSeqNo">[怎么获取交易流水号]</a>*@
+                            </div>
+                        </div>
+                    </div>
+    	            <div class="boxcontent">
+        	            <div class="box">
+            	            <div class="title_brown">
+                	            <span>活动说明：</span>
+                            </div>
+                            <div class="Detail">
+<p>
+	<span style="font-size:18px;">1、活动期间：2015年01月01日至2015年3月31日</span>
+</p>
+<p>
+	<span style="font-size:18px;">2、活动规则：</span>
+</p>
+<p>
+	<span style="font-size:18px;">①我行客户端手机银行客户，在活动期间，通过我行手机银行交易<span style="color:#ff0000;">1笔（含）</span>以上，即可参与微信抽奖一次（关注我行微信公众号“福建仙游瑞狮村镇银行”，在微信公众号参与抽奖）。</span>
+</p>
+<p>
+	<span style="font-size:18px;">②未开卡客户请到我行营业网点开卡（开户有礼，活动期间在我行新开户的客户即可获得票面价值2元的福利彩票刮刮乐一张，更多惊喜等你来拿）,开通手机银行，再参与微信抽奖。</span>
+</p>
+<p>
+	<span style="font-size:18px;">③我行客户端手机银行客户在抽奖时要输入手机银行交易流水号和付款卡号（我行）方可参与抽奖。<a href="./GetSeqNo">[怎么获取交易流水号和付款卡号]</a></span>
+</p>
+<p>
+	<span style="font-size:18px;">④请中奖客户持个人身份证到我行营业网点领取奖品。</span>
+</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

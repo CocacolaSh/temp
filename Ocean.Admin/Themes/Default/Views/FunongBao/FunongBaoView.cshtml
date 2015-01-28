@@ -1,0 +1,49 @@
+﻿@using Ocean.Framework.Caching.Cache
+@using Ocean.Entity.Enums
+@using Ocean.Entity
+@{
+    ViewBag.Title = "福农宝明细";
+} 
+@model Funongbao
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    证件号码：
+                </td>
+                <td style="width: 80%;">
+                    @Model.PassportNO
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    手机号码：
+                </td>
+                <td style="width: 80%;">
+                    @Model.MobilePhone
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    受理状态：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ProcessStatus
+                </td>
+            </tr>
+        </table>
+    </div> 
+</div>

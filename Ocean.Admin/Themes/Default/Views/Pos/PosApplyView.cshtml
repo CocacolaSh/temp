@@ -1,0 +1,197 @@
+﻿@using Ocean.Framework.Caching.Cache
+@using Ocean.Entity.Enums.Loan
+@using Ocean.Entity.Enums.TypeIdentifying
+@using Ocean.Entity
+@using Ocean.Core
+@{
+    ViewBag.Title = "POS申请明细";
+    string returnStatus = string.Empty;
+    if (Model.ReturnStatus == 1)
+    {
+        returnStatus = "满意";
+    }
+    else if (Model.ReturnStatus == 2)
+    {
+        returnStatus = "一般";
+    }
+    else if (Model.ReturnStatus == 3)
+    {
+        returnStatus = "不满意";
+    }
+    PosAuth posAuth = ViewBag.PosAuth as PosAuth;
+    string imgUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"].Replace("wximg", "wx") + "/images";
+}
+@model PosApply
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    申请人姓名：
+                </td>
+                <td style="width: 80%;">
+                    @posAuth.Name
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    手机号码：
+                </td>
+                <td style="width: 80%;">
+                    @posAuth.MobilePhone
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    经营地址：
+                </td>
+                <td style="width: 80%;">
+                    @Model.InstallAddress
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    门店照片：
+                </td>
+                <td style="width: 80%;">
+                    <div style="width:160px;">
+                    <img src="@(imgUrl+Model.VendorPic)" style="width:100%;" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    商户名称：
+                </td>
+                <td style="width: 80%;">
+                    @Model.VendorName
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    装机地址：
+                </td>
+                <td style="width: 80%;">
+                    @Model.InstallAddress
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    扣率：
+                </td>
+                <td style="width: 80%;">
+                    @Model.DeductRate
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: right;">
+                    撤消日期：
+                </td>
+                <td style="width: 80%;">
+                    @Model.RepealDate
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    申请状态：
+                </td>
+                <td style="width: 80%;">
+                    @(((StatusEnum)Model.Status).Discription())
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    分配状态：
+                </td>
+                <td style="width: 80%;">
+                    @(((AssignStatusEnum)Model.AssignStatus).Discription())
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    分配支行：
+                </td>
+                <td style="width: 80%;">
+                    @Model.AssignSubbranch
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    分配客服经理：
+                </td>
+                <td style="width: 80%;">
+                    @Model.AssignCustomerManager
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    客户经理手机：
+                </td>
+                <td style="width: 80%;">
+                    @Model.CustomerManagerPhone
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    受理状态：
+                </td>
+                <td style="width: 80%;">
+                    @(((ProcessStatusEnum)Model.ProcessStatus).Discription().Replace("已通过", "已装机"))
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    受理结果：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ProcessResult
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    受理日期：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ProcessDate
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    回访日期：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ReturnVisitDate
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    回访结果：
+                </td>
+                <td style="width: 80%;">
+                    @Model.ReturnVisitResult
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    回访满意度：
+                </td>
+                <td style="width: 80%;">
+                    @returnStatus
+                </td>
+            </tr>
+        </table>
+    </div> 
+</div>

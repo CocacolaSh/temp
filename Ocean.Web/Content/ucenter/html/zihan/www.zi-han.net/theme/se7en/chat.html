@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from www.zi-han.net/theme/se7en/chat.html by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 19 Dec 2013 07:32:19 GMT -->
+<head>
+    <title>
+      聊天工具 - Se7en - 最好的Bootstrap后台主题框架
+    </title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Bootstrap后台主题框架,ios7风格后台框架,响应式后台框架" />
+    <meta name="description" content="Se7en是一个基于基于Bootstrap3的，仿ios7风格的，完全响应式的后台框架，她内置了5套简单的皮肤模板，她还加入了近20个国外优秀的开源项目，并可简单组合与拆卸。" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/font-awesome.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/se7en-font.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/isotope.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/jquery.fancybox.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/fullcalendar.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/wizard.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/select2.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/morris.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/datatables.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/datepicker.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/timepicker.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/colorpicker.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/bootstrap-switch.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/daterange-picker.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/typeahead.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/summernote.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/pygments.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/style.css" media="all" rel="stylesheet" type="text/css" /><link href="stylesheets/color/green.css" media="all" rel="alternate stylesheet" title="green-theme" type="text/css" /><link href="stylesheets/color/orange.css" media="all" rel="alternate stylesheet" title="orange-theme" type="text/css" /><link href="stylesheets/color/magenta.css" media="all" rel="alternate stylesheet" title="magenta-theme" type="text/css" /><link href="stylesheets/color/gray.css" media="all" rel="alternate stylesheet" title="gray-theme" type="text/css" /><script src="../../../code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script><script src="../../../code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script><script src="javascripts/bootstrap.min.js" type="text/javascript"></script><script src="javascripts/raphael.min.js" type="text/javascript"></script><script src="javascripts/selectivizr-min.js" type="text/javascript"></script><script src="javascripts/jquery.mousewheel.js" type="text/javascript"></script><script src="javascripts/jquery.vmap.min.js" type="text/javascript"></script><script src="javascripts/jquery.vmap.sampledata.js" type="text/javascript"></script><script src="javascripts/jquery.vmap.world.js" type="text/javascript"></script><script src="javascripts/jquery.bootstrap.wizard.js" type="text/javascript"></script><script src="javascripts/fullcalendar.min.js" type="text/javascript"></script><script src="javascripts/gcal.js" type="text/javascript"></script><script src="javascripts/jquery.dataTables.min.js" type="text/javascript"></script><script src="javascripts/datatable-editable.js" type="text/javascript"></script><script src="javascripts/jquery.easy-pie-chart.js" type="text/javascript"></script><script src="javascripts/excanvas.min.js" type="text/javascript"></script><script src="javascripts/jquery.isotope.min.js" type="text/javascript"></script><script src="javascripts/isotope_extras.js" type="text/javascript"></script><script src="javascripts/modernizr.custom.js" type="text/javascript"></script><script src="javascripts/jquery.fancybox.pack.js" type="text/javascript"></script><script src="javascripts/select2.js" type="text/javascript"></script><script src="javascripts/styleswitcher.js" type="text/javascript"></script><script src="javascripts/wysiwyg.js" type="text/javascript"></script><script src="javascripts/summernote.min.js" type="text/javascript"></script><script src="javascripts/jquery.inputmask.min.js" type="text/javascript"></script><script src="javascripts/jquery.validate.js" type="text/javascript"></script><script src="javascripts/bootstrap-fileupload.js" type="text/javascript"></script><script src="javascripts/bootstrap-datepicker.js" type="text/javascript"></script><script src="javascripts/bootstrap-timepicker.js" type="text/javascript"></script><script src="javascripts/bootstrap-colorpicker.js" type="text/javascript"></script><script src="javascripts/bootstrap-switch.min.js" type="text/javascript"></script><script src="javascripts/typeahead.js" type="text/javascript"></script><script src="javascripts/daterange-picker.js" type="text/javascript"></script><script src="javascripts/date.js" type="text/javascript"></script><script src="javascripts/morris.min.js" type="text/javascript"></script><script src="javascripts/skycons.js" type="text/javascript"></script><script src="javascripts/fitvids.js" type="text/javascript"></script><script src="javascripts/jquery.sparkline.min.js" type="text/javascript"></script><script src="javascripts/main.js" type="text/javascript"></script><script src="javascripts/respond.js" type="text/javascript"></script>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  </head>
+  <body>
+    <div class="modal-shiftfix">
+      <!-- Navigation -->
+      <div class="navbar navbar-fixed-top scroll-hide">
+      <div class="container-fluid top-bar">
+          <div class="pull-right">
+              <ul class="nav navbar-nav pull-right">
+                  <li class="dropdown notifications hidden-xs">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span aria-hidden="true" class="se7en-flag"></span>
+                          <div class="sr-only">
+                              通知
+                          </div>
+                          <p class="counter">
+                              4
+                          </p>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#">
+                              <div class="notifications label label-info">
+                                  新
+                              </div>
+                              <p>
+                                  新加入用户：王晓
+                              </p></a>
+
+                          </li>
+                          <li><a href="#">
+                              <div class="notifications label label-info">
+                                  新
+                              </div>
+                              <p>
+                                  销售目标
+                              </p></a>
+
+                          </li>
+                          <li><a href="#">
+                              <div class="notifications label label-info">
+                                  新
+                              </div>
+                              <p>
+                                  新性能指标
+                              </p></a>
+
+                          </li>
+                          <li><a href="#">
+                              <div class="notifications label label-info">
+                                  新
+                              </div>
+                              <p>
+                                  提供新的经济增长数据
+                              </p></a>
+
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="dropdown messages hidden-xs">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span aria-hidden="true" class="se7en-envelope"></span>
+                          <div class="sr-only">
+                              消息
+                          </div>
+                          <p class="counter">
+                              3
+                          </p>
+                      </a>
+                      <ul class="dropdown-menu messages">
+                          <li><a href="#">
+                              <img width="34" height="34" src="images/avatar-male2.png" />我们可以见面吗？我想...</a>
+                          </li>
+                          <li><a href="#">
+                              <img width="34" height="34" src="images/avatar-female.png" />重要的数据需要分析...</a>
+                          </li>
+                          <li><a href="#">
+                              <img width="34" height="34" src="images/avatar-male2.png" />Se7en是一款不错的主题。</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="dropdown settings hidden-xs">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span aria-hidden="true" class="se7en-gear"></span>
+                          <div class="sr-only">
+                              设置
+                          </div>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li>
+                              <a class="settings-link blue" href="javascript:chooseStyle('none', 30)"><span></span>蓝色</a>
+                          </li>
+                          <li>
+                              <a class="settings-link green" href="javascript:chooseStyle('green-theme', 30)"><span></span>绿色</a>
+                          </li>
+                          <li>
+                              <a class="settings-link orange" href="javascript:chooseStyle('orange-theme', 30)"><span></span>橘黄色</a>
+                          </li>
+                          <li>
+                              <a class="settings-link magenta" href="javascript:chooseStyle('magenta-theme', 30)"><span></span>品红</a>
+                          </li>
+                          <li>
+                              <a class="settings-link gray" href="javascript:chooseStyle('gray-theme', 30)"><span></span>灰色</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="dropdown user hidden-xs"><a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                      <img width="34" height="34" src="images/avatar-male.jpg" />管理员<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#">
+                              <i class="icon-user"></i>我的账户</a>
+                          </li>
+                          <li><a href="#">
+                              <i class="icon-gear"></i>账户设置</a>
+                          </li>
+                          <li><a href="login1.html">
+                              <i class="icon-signout"></i>退出</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+          <button class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="logo" href="index-2.html">se7en</a>
+          <form class="navbar-form form-inline col-lg-2 hidden-xs">
+              <input class="form-control" placeholder="搜索" type="text">
+          </form>
+      </div>
+      <div class="container-fluid main-nav clearfix">
+          <div class="nav-collapse">
+              <ul class="nav">
+                  <li>
+                      <a href="index-2.html"><span aria-hidden="true" class="se7en-home"></span>控制台</a>
+                  </li>
+                  <li><a href="social.html">
+                      <span aria-hidden="true" class="se7en-feed"></span>社交订阅</a>
+                  </li>
+                  <li class="dropdown"><a data-toggle="dropdown" href="#">
+                      <span aria-hidden="true" class="se7en-star"></span>特色<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li>
+                              <a href="buttons.html">按钮</a>
+                          </li>
+                          <li>
+                              <a href="fontawesome.html">Font Awesome Icons</a>
+                          </li>
+                          <li><a href="glyphicons.html">
+                              <span class="notifications label label-warning">新</span>
+                              <p>
+                                  Glyphicons
+                              </p></a>
+
+                          </li>
+                          <li>
+                              <a href="components.html">组件</a>
+                          </li>
+                          <li>
+                              <a href="widgets.html">小工具</a>
+                          </li>
+                          <li>
+                              <a href="typo.html">排版</a>
+                          </li>
+                          <li>
+                              <a href="grid.html">栅格</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="dropdown"><a data-toggle="dropdown" href="#">
+                      <span aria-hidden="true" class="se7en-forms"></span>表单<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="form-components.html">
+                              <span class="notifications label label-warning">新</span>
+                              <p>
+                                  表格组件
+                              </p></a>
+
+                          </li>
+                          <li>
+                              <a href="form-advanced.html">高级形式</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="dropdown"><a data-toggle="dropdown" href="#">
+                      <span aria-hidden="true" class="se7en-tables"></span>表格<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li>
+                              <a href="tables.html">基本表格</a>
+                          </li>
+                          <li>
+                              <a href="datatables.html">数据表格</a>
+                          </li>
+                          <li><a href="datatables-editable.html">
+                              <div class="notifications label label-warning">
+                                  新
+                              </div>
+                              <p>
+                                  编辑数据表格
+                              </p></a>
+
+                          </li>
+                      </ul>
+                  </li>
+                  <li><a href="charts.html">
+                      <span aria-hidden="true" class="se7en-charts"></span>图表</a>
+                  </li>
+                  <li class="dropdown"><a data-toggle="dropdown" href="#" class="current">
+                      <span aria-hidden="true" class="se7en-pages"></span>页面<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a class="current" href="chat.html">
+                              <span class="notifications label label-warning">新</span>
+                              <p>
+                                  聊天窗口
+                              </p></a>
+                          </li>
+                          <li>
+                              <a href="calendar.html">日历</a>
+                          </li>
+                          <li><a href="timeline.html">
+                              <span class="notifications label label-warning">新</span>
+                              <p>
+                                  时间轴
+                              </p></a>
+
+                          </li>
+                          <li><a href="login1.html">
+                              <span class="notifications label label-warning">新</span>
+                              <p>
+                                  登录(1)
+                              </p></a>
+
+                          </li>
+                          <li>
+                              <a href="login2.html">登录(2)</a>
+                          </li>
+                          <li><a href="signup1.html">
+                              <span class="notifications label label-warning">新</span>
+                              <p>
+                                  注册(1)
+                              </p></a>
+
+                          </li>
+                          <li>
+                              <a href="signup2.html">注册(2)</a>
+                          </li>
+                          <li><a href="invoice.html">
+                              <span class="notifications label label-warning">新</span>
+                              <p>
+                                  订单
+                              </p></a>
+
+                          </li>
+                          <li><a href="faq.html">
+                              <span class="notifications label label-warning">新</span>
+                              <p>
+                                  FAQ
+                              </p></a>
+
+                          </li>
+                          <li>
+                              <a href="filters.html">筛选结果</a>
+                          </li>
+                          <li>
+                              <a href="404-page.html">404页面</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li><a href="gallery.html">
+                      <span aria-hidden="true" class="se7en-gallery"></span>相册</a>
+                  </li>
+                  <li><a href="docs/index.html" target="_blank">
+                      <span aria-hidden="true" class="se7en-doc"></span>帮助文档</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      </div>
+      <!-- End Navigation -->
+      <div class="container-fluid main-content">
+        <div class="page-title">
+          <h1>
+                聊天窗口
+          </h1>
+        </div>
+        <div class="row">
+          <!-- Conversation -->
+          <div class="col-lg-12">
+            <div class="widget-container scrollable chat chat-page">
+              <div class="contact-list">
+                <div class="heading">
+                      联系人(15)<i class="icon-plus pull-right"></i>
+                </div>
+                <ul>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female.png" />兰若 <i class="icon-circle text-danger"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female2.png" />米琪<i class="icon-circle text-success"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-male.jpg" />佳悦<i class="icon-circle text-warning"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female.png" />采萱<i class="icon-circle text-danger"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female2.png" />初雪<i class="icon-circle text-muted"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-male.jpg" />古香<i class="icon-circle text-success"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female.png" />浩岚<i class="icon-circle text-warning"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female2.png" />浩岚<i class="icon-circle text-success"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-male.jpg" />浩岚<i class="icon-circle text-success"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female.png" />碧莹<i class="icon-circle text-muted"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female2.png" />布欣<i class="icon-circle text-muted"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-male.jpg" />丁兰<i class="icon-circle text-success"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female.png" />偲偲<i class="icon-circle text-warning"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female2.png" />偲偲<i class="icon-circle text-muted"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-male.jpg" />凌霜<i class="icon-circle text-success"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><img width="30" height="30" src="images/avatar-female.png" />凌霜<i class="icon-circle text-warning"></i></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="heading">
+                <i class="icon-comments"></i>与 <a href="#">兰若</a> 的聊天<i class="icon-cog pull-right"></i><i class="icon-smile pull-right"></i>
+              </div>
+              <div class="widget-content padded">
+                <ul>
+                  <li>
+                    <img width="30" height="30" src="images/avatar-male.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">兰若</a>
+                      <p class="message">
+                          你曾经深爱过的某人，无非也就是芸芸众生中的一个，只是爱由心生，自以为他/她会是今生最爱，当你感觉你爱她，你用心去爱就觉的他/她最珍贵，当万物归原，生命仍然继续，他/她无非也就是你生命中的一个过客。
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+                  <li class="current-user">
+                    <img width="30" height="30" src="images/avatar-female.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">王晓</a>
+                      <p class="message">
+                          我们根本无法确定哪一个才是今生最爱，如果不懂得去珍惜，你身边这个爱你的/你爱的人，在某一天，也会成为你身边的过客。
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <img width="30" height="30" src="images/avatar-male.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">兰若</a>
+                      <p class="message">
+                          找一个你爱的人不容易，找一个爱你的人也不容易。如果无法确定哪一个才是你最爱的人，何不在自己成为别人的爱人的时候珍惜这份感情？爱由心生，你告诉自己是爱他/她的，自然就可以爱上他/她。
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <img width="30" height="30" src="images/avatar-male.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">兰若</a>
+                      <p class="message">
+                          如果你爱的人不爱你，也请记得：爱由心生。是你太过于把目光集中在他/她身上了，试着放开视线焦点，你会发现光亮的蜡烛到处都有。
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+                  <li class="current-user">
+                    <img width="30" height="30" src="images/avatar-female.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">王晓</a>
+                      <p class="message">
+                          爱与不爱，无非也就是在一念之间。
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <img width="30" height="30" src="images/avatar-male.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">兰若</a>
+                      <p class="message">
+                          过去的事情过去的爱情，就让它过去吧，那只是我们生命的一部分，只是茫茫大海中的一滴水珠，只是漫漫苍弩中的一粒微尘。没有那些过去，也不会造就现在的你我。
+
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+                  <li class="current-user">
+                    <img width="30" height="30" src="images/avatar-female.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">王晓</a>
+                      <p class="message">
+                          珍惜当前，永远胜于三心二意。
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+                  <li class="current-user">
+                    <img width="30" height="30" src="images/avatar-female.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">王晓</a>
+                      <p class="message">
+                          >>>阅读《婚恋潜规则》<<<
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <img width="30" height="30" src="images/avatar-male.jpg" />
+                    <div class="bubble">
+                      <a class="user-name" href="#">兰若</a>
+                      <p class="message">
+                          柯云路作品出版联络信箱：keyunlu@vip.sina.com
+                      </p>
+                      <p class="time">
+                        <strong>今天 </strong>3:53 pm
+                      </p>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+              <div class="post-message">
+                <input class="form-control" placeholder="输入需要发送的信息…" type="text"><input type="submit" value="发送">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+  </body>
+
+<!-- Mirrored from www.zi-han.net/theme/se7en/chat.html by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 19 Dec 2013 07:32:19 GMT -->
+</html>

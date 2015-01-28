@@ -1,0 +1,251 @@
+﻿@inherits Ocean.Web.App_Code.HelperPage
+@using System.Xml;
+@using System.Web.Mvc;
+@using System.Web.Mvc.Html;
+@using Ocean.Framework.Mvc.Extensions;
+@using Ocean.Entity;
+@using Ocean.Core.Logging;
+@functions{
+
+    #region 抽奖
+    /// <summary>
+    /// 将数据塞到ViewData
+    /// </summary>
+    /// <param name="viewdata"></param>
+    /// <param name="widgetNode"></param>
+    public static void GetDataToViewData(string xmlValue, string rootName)
+    {
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(xmlValue);
+        XmlNode pluginNode = xmlDoc.SelectSingleNode(rootName);
+        if (pluginNode == null)
+        {
+            return;
+        }
+        foreach (System.Xml.XmlNode propNode in pluginNode.ChildNodes)
+        {
+            if (propNode.Name.Trim().ToLower() == "cst_plugin_items")
+            {
+                foreach (System.Xml.XmlNode itemNode in propNode.ChildNodes)
+                {
+                    CurrentPage.ViewData[itemNode.Name] = itemNode.InnerText;
+                }
+            }
+            else
+            {
+                CurrentPage.ViewData[propNode.Name] = propNode.InnerText;
+            }
+        }
+    }
+    /// <summary>
+    /// 移除所有以Cst_，Sys_开头的值，以免下个控件使用时，错误使用
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="key"></param>
+    public static void RemoveViewData(int index, string key)
+    {
+        IList<string> keys = new List<string>();
+        foreach (string _key in CurrentPage.ViewData.Keys)
+        {
+            if (_key.ToLower().StartsWith("cst_plugin_") || _key.ToLower().StartsWith("cst_plugin_items"))
+            {
+                keys.Add(_key);
+            }
+        }
+        foreach (string _key in keys)
+        {
+            CurrentPage.ViewData.Remove(_key);
+        }
+    }
+    #endregion
+
+    #region 加载
+    /// <summary>
+    /// 将数据加载到ViewData
+    /// </summary>
+    /// <param name="viewdata"></param>
+    /// <param name="widgetNode"></param>
+    public static void InitViewData(System.Xml.XmlNode widgetNode)
+    {
+        if (widgetNode == null)
+        {
+            return;
+        }
+        foreach (System.Xml.XmlNode propNode in widgetNode.ChildNodes)
+        {
+            if (propNode.Name.Trim().ToLower() == "items" || propNode.Name.Trim().ToLower() == "cst_plugin_items")
+            {
+                foreach (System.Xml.XmlNode itemNode in propNode.ChildNodes)
+                {
+                    CurrentPage.ViewData[itemNode.Name] = itemNode.InnerText;
+                }
+            }
+            else
+            {
+                CurrentPage.ViewData[propNode.Name] = propNode.InnerText;
+            }
+        }
+    }
+    /// <summary>
+    /// 移除所有以Cst_，Sys_开头的值，以免下个控件使用时，错误使用
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="key"></param>
+    private static void RemoveCst(int index, string key)
+    {
+        IList<string> keys = new List<string>();
+        foreach (string _key in CurrentPage.ViewData.Keys)
+        {
+            if (_key.ToLower().StartsWith("sys_") || _key.ToLower().StartsWith("cst_") || _key.ToLower().StartsWith("items_"))
+            {
+                //分页所需sys_pageid
+                if (_key.ToLower() == "sys_pageid")
+                {
+                    continue;
+                }
+                keys.Add(_key);
+            }
+        }
+        foreach (string _key in keys)
+        {
+            CurrentPage.ViewData.Remove(_key);
+        }
+    }
+    #endregion
+}
+@helper Plugins()
+    {
+
+        int index = 0;
+        string key = string.Empty;
+        IList<Plugin> sitePlugins = (IList<Plugin>)CurrentPage.ViewBag.ContentPlugins;
+        if (sitePlugins != null)
+        {
+            XmlDocument xmlDoc2 = new XmlDocument();
+            foreach (Plugin plugin in sitePlugins)
+            {
+                if (plugin != null && CurrentPage.ViewBag.CurPlugin.Id == plugin.Id)
+                {
+                    bool catchFlag = false;
+                    try
+                    {
+                        CurrentPage.ViewBag.cur_plugin_Info = "当前页面中ID为[" + plugin.Id + "]的" + (plugin.RPluginBase == null ? "" : plugin.RPluginBase.Name) + "插件";
+                        xmlDoc2.LoadXml(plugin.Value);
+                        XmlNode xmlPlugin = xmlDoc2.SelectSingleNode("plugin");
+                        InitViewData(xmlPlugin);
+                        CurrentPage.ViewBag.cst_p_isShow = (plugin.IsShow == true ? "1" : "0");
+                        CurrentPage.ViewBag.Field_Style_Folder = plugin.StyleFolder;
+                        if (plugin.RPluginBase != null)
+                        {
+                            CurrentPage.ViewBag.Field_Plugin = plugin.RPluginBase;
+                            CurrentPage.ViewBag.Field_Style_ID = plugin.RPluginBaseStyle.Id;
+                        }
+                        if (plugin.RPluginBase == null)
+                        {
+                            Html.RenderPartial(plugin.StyleFolder + "/plugin");
+                        }
+                        else
+                        {
+                            Html.RenderPartial(plugin.RPluginBase.FolderName + "/plugin");
+                        }
+                    }
+                    catch (NullReferenceException ex)
+                    {
+                        Log4NetImpl.Write("插件加载出错:" + ex.Message + "=======:" + ex.StackTrace,Log4NetImpl.ErrorLevel.Debug);
+                        catchFlag = true;
+                    }
+                    catch (IndexOutOfRangeException ex)
+                    {
+                        Log4NetImpl.Write("插件加载出错:" + ex.Message + "=======:" + ex.StackTrace, Log4NetImpl.ErrorLevel.Debug);
+                        catchFlag = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Log4NetImpl.Write("插件加载出错:" + ex.Message + "=======:" + ex.StackTrace, Log4NetImpl.ErrorLevel.Debug);
+                        catchFlag = true;
+                    }
+                    finally
+                    {
+                        CurrentPage.ViewBag.Sys_PluginId = plugin.Id;
+                        if (catchFlag)
+                        {
+                            Html.RenderPartial("~/plugins/error/plugin.cshtml");
+                        }
+                    }
+
+                    RemoveCst(index, key);
+                }
+            }
+        }
+        else
+        {
+            CurrentPage.ViewBag.cur_plugin_Info = "不存在的插件，无法正常加载!";
+        }
+}
+
+@helper CurrentPlugins()
+    {
+
+        int index = 0;
+        string key = string.Empty;
+        Plugin plugin = (Plugin)CurrentPage.ViewBag.CurPlugin;
+        if (plugin != null)
+        {
+            XmlDocument xmlDoc2 = new XmlDocument();
+            if (plugin != null && CurrentPage.ViewBag.CurPlugin.Id == plugin.Id)
+            {
+                bool catchFlag = false;
+                try
+                {
+                    CurrentPage.ViewBag.cur_plugin_Info = "当前页面中ID为[" + plugin.Id + "]的" + (plugin.RPluginBase == null ? "" : plugin.RPluginBase.Name) + "插件";
+                    xmlDoc2.LoadXml(plugin.Value);
+                    XmlNode xmlPlugin = xmlDoc2.SelectSingleNode("plugin");
+                    InitViewData(xmlPlugin);
+                    CurrentPage.ViewBag.cst_p_isShow = (plugin.IsShow == true ? "1" : "0");
+                    CurrentPage.ViewBag.Field_Style_Folder = plugin.StyleFolder;
+                    if (plugin.RPluginBase != null)
+                    {
+                        CurrentPage.ViewBag.Field_Plugin = plugin.RPluginBase;
+                        CurrentPage.ViewBag.Field_Style_ID = plugin.RPluginBaseStyle.Id;
+                    }
+                    if (plugin.RPluginBase == null)
+                    {
+                        Html.RenderPartial(plugin.StyleFolder + "/plugin");
+                    }
+                    else
+                    {
+                        Html.RenderPartial(plugin.RPluginBase.FolderName + "/plugin");
+                    }
+                }
+                catch (NullReferenceException ex)
+                {
+                    Log4NetImpl.Write("插件加载出错:" + ex.Message + "=======:" + ex.StackTrace, Log4NetImpl.ErrorLevel.Debug);
+                    catchFlag = true;
+                }
+                catch (IndexOutOfRangeException ex)
+                {
+                    Log4NetImpl.Write("插件加载出错:" + ex.Message + "=======:" + ex.StackTrace, Log4NetImpl.ErrorLevel.Debug);
+                    catchFlag = true;
+                }
+                catch (Exception ex)
+                {
+                    Log4NetImpl.Write("插件加载出错:" + ex.Message + "=======:" + ex.StackTrace, Log4NetImpl.ErrorLevel.Debug);
+                    catchFlag = true;
+                }
+                finally
+                {
+                    CurrentPage.ViewBag.Sys_PluginId = plugin.Id;
+                    if (catchFlag)
+                    {
+                        Html.RenderPartial("~/plugins/error/plugin.cshtml");
+                    }
+                }
+
+                RemoveCst(index, key);
+            }
+        }
+        else
+        {
+            CurrentPage.ViewBag.cur_plugin_Info = "不存在的插件，无法正常加载!";
+        }
+}

@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "../Shared/_FunongbaoLayout.cshtml";
+}
+@model FunongbaoApply
+<div id="mbMain">
+      
+      <div class="frameChang">
+          <span class="stitle">申请额度调整</span>
+      </div>
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+                  <div class="modBd">
+                      @*申请成功*@
+                      @if (ViewBag.ApplyStatus == 1)
+                      {
+                      <ul class="btts">
+                            <span>
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                         </span>
+                            <li>您的申请已经提交成功，我行将尽快处理，请您耐心等待！</li>
+                      </ul>               
+                      <div class="btnLoginBox">
+                          @*<a class="goback modBtnColor coloryellow">返回</a>*@
+                      </div>
+                      }
+                      @*申请失败，超出单卡的最大限*@
+                      else if (ViewBag.ApplyStatus == 2)
+                      {
+                      <ul class="btts">
+                            <span>
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                            </span>
+                            <li>单张福农宝卡的额度最高为<em>30</em>万元，如果您想申请30万元以上的额度，请及时提醒您的关联人<em>@(ViewBag.RelationNames)</em>也提交调额申请。</li>
+                            <li>给您造成的不便，敬请谅解！</li>
+                      </ul>                    
+                      <div class="btnLoginBox">
+                          @*<a class="goback modBtnColor coloryellow">返回</a>*@
+                      </div>
+
+                      }
+                      @*申请失败，超出单卡的最低限*@
+                      else if (ViewBag.ApplyStatus == 3)
+                      {
+                        <ul class="btts">
+                        <span>
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                         </span>
+                        <li>如果您想申请选择@(Model.ApplyLimit/10000)万元，月费率为@(Model.ApplyRates.ToString().ToDecimalString())‰的额度类型，请及时提醒您的关联人<em>@(ViewBag.RelationNames)</em>也提交调额申请！</li>
+                        <li>给您造成的不便，敬请谅解！</li>
+                      </ul> 
+                      <div class="btnLoginBox">
+                          @*<a class="goback modBtnColor coloryellow">返回</a>*@
+                      </div>
+
+                      }
+                      else if (ViewBag.ApplyStatus == -1)
+                      {
+                        <ul class="btts">
+                        <span>
+                            <p>尊敬的<em>@ViewBag.UserName</em>@ViewBag.Sex，您好！</p>
+                         </span>
+                         <li>您申请的额度已经超过组的最大额度，请联系客户经理再开一张卡。</li>
+                      </ul>
+                      }
+                  </div>
+          </section>
+      </div>
+</div>

@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "管理员编辑";
+}
+@model Ocean.Entity.Admin
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        $.extend($.fn.validatebox.defaults.rules, {
+            equals: {
+                validator: function (value, param) {
+                    return value == $(param[0]).val();
+                },
+                message: '两次密码不一致'
+            }
+        });
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="admin-add" action="/Permission/_AdminEdit" method="post">
+        <input type="hidden" name="AdminId" value="@(Model == null ? "" : Model.Id.ToString())" />
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    用户名：
+                </td>
+                <td style="width: 80%;">
+                    @if (Model == null)
+                    {
+                        <input class="easyui-validatebox" data-options="required:true,validType:'length[6,10]'"
+                            name="Name" />
+                    }
+                    else
+                    {
+                        <input class="easyui-validatebox" data-options="required:true,validType:'length[6,10]'" name="Name" value="@(Model.Name)" readonly="readonly" />
+                    }
+                </td>
+            </tr>
+            @if (Model == null)
+            {
+                <tr>
+                    <td style="text-align: right;">
+                        密码：
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" data-options="required:true,validType:'length[6,20]'"
+                            name="Password" type="password" id="Password">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">
+                        确认密码：
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" data-options="required:true,validType:'length[6,20]'"
+                            name="PasswordConfirm" type="password" validType="equals['#Password']">
+                    </td>
+                </tr>
+            }
+            else
+            { 
+                    
+                <tr>
+                    <td style="text-align: right;">
+                        密码：
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" name="Password" type="password"><span style="color: red;
+                            padding: 5px;">为空则延用原来的密码</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">
+                        确认密码：
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" name="PasswordConfirm" type="password">
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td style="text-align: right;">
+                    所属部门：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-combotree" data-options="
+                            url: '/Permission/_PermissionOrganizationList?buildTree=true',
+                            method: 'post',
+                            equired:true
+                        " name="PermissionOrganizationId" value="@(Model == null ? Guid.Empty.ToString() : Model.PermissionOrganizationId.ToString())" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    所属角色：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-combotree" data-options="
+                            url: '/Permission/_PermissionRoleList',
+                            method: 'post',
+                            equired:true
+                        " name="PermissionRoleId" value="@(Model == null ? Guid.Empty.ToString() : Model.PermissionRoleId.ToString())" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" class="btn" value=" 提 交 " />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#admin-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#admin-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

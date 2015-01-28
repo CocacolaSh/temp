@@ -1,0 +1,185 @@
+﻿@{
+    Layout = "../Shared/_MenuLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["Domain"] + "/images";
+    bool isProcess = @Model.ProcessDate.HasValue;
+}
+@model Complain
+<script type="text/javascript">
+    $(function () {
+        $('#ComplainRegister').form({
+            success: function (data) {
+                data = eval("(" + data + ")");
+                if (data.success) {
+                    $.messager.alert('操作成功', data.message, 'info', function () {
+                    });
+                } else {
+                    $.messager.alert('操作失败', data.message, 'error', function () {
+
+                    });
+                }
+            }
+        });
+        var ProcessDate = '@Model.ProcessDate';
+        alert(ProcessDate);
+        if ('@Model.ProcessDate.HasValue' === 'True'){
+            $("#Name").attr("disabled",true);
+            $("#Phone").attr("disabled",true);
+            $("#ContactName").attr("disabled",true);
+            $("#ContactPhone").attr("disabled",true);
+            $("#ComplainContent").attr("disabled",true);
+            $("#ProcessResult").attr("disabled",true);
+            $("#ProcessDate").attr("disabled",true);
+            $("#ProcessResultShow").show();
+            $("#ProcessDateShow").show();
+        }else{
+            $("#Name").attr("disabled", false);
+            $("#Phone").attr("disabled",false);
+            $("#ContactName").attr("disabled",false);
+            $("#ContactPhone").attr("disabled",false);
+            $("#ComplainContent").attr("disabled",false);
+//            $("#ProcessResult").attr("disabled",false);
+//            $("#ProcessDate").attr("disabled",false);
+            $("#ProcessResultShow").hide();
+            $("#ProcessDateShow").hide();
+        }
+    });
+
+    function submitForm() {
+        if (!$.trim($("#Name").val())) {
+            $.messager.alert('提示', '投诉人不能为空');
+            return void (0);
+        }
+        if (!$.trim($("#Phone").val())) {
+            $.messager.alert('提示', '手机不能为空');
+            return void (0);
+        }
+        if (!$.trim($("#ContactName").val())) {
+            $.messager.alert('提示', '联系人不能为空');
+            return void (0);
+        }
+        if (!$.trim($("#ContactPhone").val())) {
+            $.messager.alert('提示', '联系手机不能为空');
+            return void (0);
+        }
+        if (!$.trim($("#ComplainContent").val())) {
+            $.messager.alert('提示', '投诉内容不能为空');
+            return void (0);
+        }
+        $("#ComplainRegister").submit();
+    }
+    function ImgUpload() {
+        $.messager.progress({ title: "门店照片上传", msg: "照片上传中..." });
+        $.ajaxFileUpload
+		    ({
+		        url: "/Pos/UploadPhoto?t=" + Math.random(),
+		        secureuri: false,
+		        fileElementId: 'picUpload',
+		        dataType: 'json',
+		        success: function (data, status) {
+		            if (data.success) {
+		                $("#VendorPic").val(data.message);
+		                $("#showpic").attr("src", '@ImrUrl' + data.message);
+		            } else {
+		                $.messager.progress("close");
+		                $.messager.alert('错误提示', '上传不成功：' + data.message.replace('<li>', '').replace("</li>", ""));
+		                return false;
+		            }
+		            $.messager.progress("close");
+		        },
+		        error: function (data, status, e) {
+		            $.messager.progress("close");
+		            $.messager.alert('提示', '上传不成功');
+		            return false;
+		        }
+		    });
+    }
+</script>
+<style type="text/css">
+        .oh {
+	        overflow:hidden
+        }
+        .z {
+        *zoom:1
+        }
+        .icon28C {
+	        background:url('@Url.Content("~/content/images/icon28.png")') no-repeat scroll 0 0 transparent;
+	        padding-left:28px
+        }
+        .cover-hd {
+	        padding:2px 8px 3px;
+	        position:relative
+        }
+        .cover-hd .upload-btn {
+	        background-position:0 -251px;
+	        color:#666;
+	        display:inline-block;
+	        font-size:14;
+	        line-height:28px;
+	        margin-right:12px
+        }
+        .upload-tip {
+	        color:#666;
+	        font-size:12px;
+	        margin-top:2px
+        }
+        .upload-btn {
+	        display:inline-block;
+	        line-height:28px;
+	        font-size:14px;
+	        color:#666;
+	        background-position:0 -251px
+        }
+</style>
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">投诉</span>
+      </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("_ComplainApply", "Complain")" id="ComplainRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                @if (WebHelper.GetString("isEdit") == "1")
+                {
+                    <input type="hidden" name="isEdit" id="isEdit" value="1" /> 
+                    <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                }
+                  <div class="modBd"> 
+                      <ul class="fnb_list">
+                         <li class="line">
+                            <b>投诉姓名：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-validatebox" data-options="required:true" id="Name" name="Name" value="@(Model == null? "" : Model.Name)" type="text" placeholder="您要投诉的姓名(必填)" autocomplete="on" /></p>
+                         </li> 
+                         <li class="line">
+                            <b>投诉姓名手机：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-validatebox" data-options="required:true" id = "Phone" name="Phone" value="@(Model == null ? "" : Model.Phone)"  placeholder="您要投诉的手机(必填)" autocomplete="on" /></p>
+                         </li> 
+                        <li class="line">
+                            <b>联系人：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-validatebox" data-options="required:true" id="ContactName" name="ContactName" value="@(Model == null ? "" : Model.ContactName)" type="text" placeholder="您的姓名(必填)" autocomplete="on" /></p>
+                         </li> 
+                         <li class="line">
+                            <b>联系手机：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-validatebox" data-options="required:true" id="ContactPhone" name="ContactPhone" value="@(Model == null ? "" : Model.ContactPhone)" type="text" placeholder="联系手机(必填)" autocomplete="on" /></p>
+                         </li> 
+                         <li class="line">
+                            <b>投诉内容：</b>
+                            <p style="margin: 11px 0 0 80px;"><textarea style="height:100px;" class="easyui-validatebox" data-options="required:true" class="easyui-combobox" id = "ComplainContent" name="ComplainContent" value="@(Model == null ? "" : Model.ComplainContent)"></textarea></p>
+                         </li> 
+                         <li class="line" id="ProcessResultShow">
+                            <b>处理结果：</b>
+                            <p style="margin: 11px 0 0 80px;"><textarea  style="height:60px;" disabled= true  id="ProcessResult" name="ProcessResult" value="@(Model == null ? "" : Model.ProcessResult)" type="text" placeholder="处理结果" autocomplete="on" ></textarea>  </p>
+                         </li> 
+                         <li class="line" id="ProcessDateShow">
+                            <b>处理日期：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-datebox" disabled= true id="ProcessDate" name="ProcessDate" value="@(Model == null ? DateTime.Now : Model.ProcessDate)" type="text" placeholder="" autocomplete="on" /></p>
+                         </li>
+                      </ul>
+                                                          
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="提交" onclick="submitForm();" id="posBtn" />
+                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

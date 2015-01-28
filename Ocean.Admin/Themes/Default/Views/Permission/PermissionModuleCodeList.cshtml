@@ -1,0 +1,142 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "权限列表";
+}
+@section Head{
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid();
+            $('#tt').tree({
+                onClick: function (node) {
+                    currentCheckedId = node.id;
+                    if (currentCheckedId != "00000000-0000-0000-0000-000000000000") {
+                        InitGrid({ "ModuleId": currentCheckedId })
+                    }
+                }
+            });
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/Permission/_PermissionModuleCodeList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                pageSize: 20,
+                pageList: [5, 10, 15, 20],
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',    //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                //                     { field: 'ck', checkbox: true },   //选择
+                     { title: '权限名称', field: 'Name', width: 150, sortable: true },
+                     { title: '权限编码', field: 'Code', width: 200, sortable: true },
+                     { title: '模块名称', field: 'ModuleName', width: 150, sortable: true }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        $(document).ready(function () {
+            $('#w').window('close');
+        });
+
+        function ShowAddDialog() {
+            if (!currentCheckedId || currentCheckedId == "00000000-0000-0000-0000-000000000000") {
+                $.messager.alert('', '请选择模块!');
+            } else {
+                $("#iframe").attr("src", "/Permission/PermissionModuleCodeEdit?PermissionModuleId=" + currentCheckedId);
+                $('#w').window('open');
+            }
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/Permission/PermissionModuleCodeEdit?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要编辑的数据');
+            }
+        }
+
+        function Delete() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '确定要删除吗?', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].Id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/Permission/_PermissionModuleCodeDelete",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的数据');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+    </script>
+}
+<div class="easyui-layout" fit="true">
+    <div data-options="region:'west',split:true" title="模块" style="width: 200px;">
+        <ul id="tt" class="easyui-tree" data-options="url:'/Permission/_PermissionModuleList?buildTree=true',method:'post',animate:true">
+        </ul>
+    </div>
+    <div data-options="region:'center',title:'权限'">
+        <div id="gridtoolbar" style="padding: 5px; height: auto">
+            <div style="margin-bottom: 5px">
+                @if ((bool)ViewData["Permission_" + PermissionOperate.add])
+                {
+                     @Html.ActionLink("添加", null, null, new { onclick = "ShowAddDialog()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+                }
+                @if ((bool)ViewData["Permission_" + PermissionOperate.edit])
+                { 
+                    @Html.ActionLink("修改", null, null, new { onclick = "ShowEditOrViewDialog()", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+                }
+                @if ((bool)ViewData["Permission_" + PermissionOperate.delete])
+                { 
+                    @Html.ActionLink("删除", null, null, new { onclick = "Delete()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+                }             
+                @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').datagrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+            </div>
+        </div>
+        <table id="grid">
+        </table>
+    </div>
+    <div id="w" class="easyui-window" title="权限管理" data-options="iconCls:'icon-save'"
+        style="width: 500px; height: 300px; padding: 5px;" modal="true">
+        <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+        </iframe>
+    </div>
+</div>

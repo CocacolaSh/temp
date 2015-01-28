@@ -1,0 +1,40 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_PosLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"];
+}
+@model Pos
+@section Head{
+}
+
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">POS</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox2">
+              <form action="" id="mobileRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      <ul class="btts2">
+                          <li style="margin-top:10px;">
+                            您可以进行POS申请
+                          </li>
+                          <li style="margin-left:50px;margin-top:10px;">
+                            <a href="/pos/posapply" style="color:blue;">POS申请</a>
+                          </li>
+                      </ul>
+
+                      <ul class="btts2">
+                          <li style="margin-top:10px;">
+                            您也可以查询在我行办理的POS详情
+                          </li>
+                          <li style="margin-left:50px;margin-top:10px;">
+                            <a href="/pos/mypos" style="color:blue;">我的POS</a>
+                          </li>
+                      </ul>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

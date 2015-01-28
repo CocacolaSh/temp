@@ -1,0 +1,45 @@
+2014-12-10 10:40:24,609 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-10 10:40:24,609 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-10 10:40:35,359 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 10:40:35,359 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 10:40:35,609 [11] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 10:40:35,609 [11] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 10:40:45,468 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-10 10:40:45,468 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-10 10:40:45,812 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 10:40:45,812 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 10:57:35,203 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-10 10:57:35,203 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-10 11:19:07,265 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:07,265 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:12,515 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:12,515 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:14,734 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:14,734 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:15,687 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:15,687 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:16,843 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:16,843 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:17,921 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:17,921 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:19,484 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:19:19,484 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 11:33:11,734 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-10 11:33:11,734 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-10 17:22:27,781 [4] ERROR OceanLog [(null)] - The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.
+2014-12-10 17:22:27,781 [4] ERROR OceanLog [(null)] - The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.
+2014-12-10 17:22:29,843 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 17:22:29,843 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-10 17:47:31,125 [13] ERROR OceanLog [(null)] - The controller for path '/xyplugin/PluginsLottery' was not found or does not implement IController.
+2014-12-10 17:47:31,125 [13] ERROR OceanLog [(null)] - The controller for path '/xyplugin/PluginsLottery' was not found or does not implement IController.
+2014-12-10 17:47:43,250 [4] ERROR OceanLog [(null)] - The controller for path '/xyplugin/PluginsLottery' was not found or does not implement IController.
+2014-12-10 17:47:43,250 [4] ERROR OceanLog [(null)] - The controller for path '/xyplugin/PluginsLottery' was not found or does not implement IController.
+2014-12-10 17:47:45,140 [13] ERROR OceanLog [(null)] - The controller for path '/xyplugin/PluginsLottery' was not found or does not implement IController.
+2014-12-10 17:47:45,140 [13] ERROR OceanLog [(null)] - The controller for path '/xyplugin/PluginsLottery' was not found or does not implement IController.
+2014-12-10 17:47:56,781 [12] ERROR OceanLog [(null)] - None of the constructors found with 'Public binding flags' on type 'Ocean.Web.Controllers.XYPluginsController' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Ocean.Services.IXYPluginUserService xyPluginUserService' of constructor 'Void .ctor(Ocean.Services.IXYPluginUserService, Ocean.Services.IPluginService, Ocean.Services.IPluginSceneResultService)'.
+2014-12-10 17:47:56,781 [12] ERROR OceanLog [(null)] - None of the constructors found with 'Public binding flags' on type 'Ocean.Web.Controllers.XYPluginsController' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Ocean.Services.IXYPluginUserService xyPluginUserService' of constructor 'Void .ctor(Ocean.Services.IXYPluginUserService, Ocean.Services.IPluginService, Ocean.Services.IPluginSceneResultService)'.
+2014-12-11 08:41:36,656 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-11 08:41:36,656 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

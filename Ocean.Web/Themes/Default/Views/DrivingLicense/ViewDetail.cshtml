@@ -1,0 +1,176 @@
+﻿@{
+    Layout = "../Shared/_MenuLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["Domain"] + "/images";
+}
+@model DrivingLicense
+<script type="text/javascript" src="@Url.Content("~/Content/javascripts/ajaxfileupload.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#DrivingLicenseRegister').form({
+            success: function (data) {
+                data = eval("(" + data + ")");
+                if (data.success) {
+                    $.messager.alert('操作成功', data.message, 'info', function () {
+                    });
+                } else {
+                    $.messager.alert('操作失败', data.message, 'error', function () {
+
+                    });
+                }
+            }
+        });
+    });
+
+    function submitForm() {
+        if (!$.trim($("#CertNo").val())) {
+            $.messager.alert('提示', '证件号码不能为空');
+            return void (0);
+        }
+        if (!$.trim($("#Name").val())) {
+            $.messager.alert('提示', '车主不能为空');
+            return void (0);
+        }
+        $("#DrivingLicenseRegister").submit();
+    }
+    function ImgUpload() {
+        $.messager.progress({ title: "驾驶证照片上传", msg: "照片上传中..." });
+        $.ajaxFileUpload
+		    ({
+		        url: "/DrivingLicense/UploadPhoto?t=" + Math.random(),
+		        secureuri: false,
+		        fileElementId: 'picUpload',
+		        dataType: 'json',
+		        success: function (data, status) {
+		            if (data.success) {
+		                $("#VendorPic").val(data.message);
+		                $("#showpic").attr("src", '@ImrUrl' + data.message);
+		            } else {
+		                $.messager.progress("close");
+		                $.messager.alert('错误提示', '上传不成功：' + data.message.replace('<li>', '').replace("</li>", ""));
+		                return false;
+		            }
+		            $.messager.progress("close");
+		        },
+		        error: function (data, status, e) {
+		            $.messager.progress("close");
+		            $.messager.alert('提示', '上传不成功');
+		            return false;
+		        }
+		    });
+    }
+</script>
+<style type="text/css">
+        .oh {
+	        overflow:hidden
+        }
+        .z {
+        *zoom:1
+        }
+        .icon28C {
+	        background:url('@Url.Content("~/content/images/icon28.png")') no-repeat scroll 0 0 transparent;
+	        padding-left:28px
+        }
+        .cover-hd {
+	        padding:2px 8px 3px;
+	        position:relative
+        }
+        .cover-hd .upload-btn {
+	        background-position:0 -251px;
+	        color:#666;
+	        display:inline-block;
+	        font-size:14;
+	        line-height:28px;
+	        margin-right:12px
+        }
+        .upload-tip {
+	        color:#666;
+	        font-size:12px;
+	        margin-top:2px
+        }
+        .upload-btn {
+	        display:inline-block;
+	        line-height:28px;
+	        font-size:14px;
+	        color:#666;
+	        background-position:0 -251px
+        }
+</style>
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">驾驶证证详情修改</span>
+      </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("_DrivingLicenseApply", "DrivingLicense")" id="DrivingLicenseRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                @if (WebHelper.GetString("isEdit") == "1")
+                {
+                    <input type="hidden" name="isEdit" id="isEdit" value="1" /> 
+                    <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                }
+                  <div class="modBd"> 
+                      <ul class="fnb_list">
+                         <li class="line">
+                            <b>证件号码：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="add" id="CertNo" name="CertNo" value="@Model.CertNo" type="text" placeholder="驾驶证号码(必填)" autocomplete="on" /></p>
+                         </li> 
+                         <li class="line">
+                            <b>车主姓名：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="add" id="Name" name="" value="@Model.Name" type="text" placeholder="姓名(必填)" autocomplete="on" /></p>
+                         </li> 
+                         <li class="line">
+                            <b>性别：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-combobox" data-options="required:true,validType:'length[1,5]',valueField:'id',textField:'text',url:'/DrivingLicense/_SexType'" name="Sex" value="@(Model == null || Model.Sex == 0 ? "" : Model.Sex.ToString())"/></p>
+                         </li> 
+                         <li class="line">
+                            <b>国籍：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-validatebox" data-options="required:true,validType:'length[2,20]'" name="Nationality" value="@(Model == null ? "" : Model.Nationality)"/></p>
+                         </li> 
+                         <li class="line">
+                            <b>地址：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-validatebox" data-options="required:true,validType:'length[2,50]'" name="Address" value="@(Model == null ? "" : Model.Address)"/></p>
+                         </li> 
+                         <li class="line">
+                            <b>生日：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-datebox" name="Birthday" id="Birthday" value="@(Model == null ? DateTime.Now : Model.Birthday)"/></p>
+                         </li> 
+                         <li class="line">
+                            <b>发证日期：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-datebox" name="IssueDate" id="IssueDate" value="@(Model == null ? DateTime.Now : Model.IssueDate)"/></p>
+                         </li> 
+                         <li class="line">
+                            <b>驾照类型：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-combobox" data-options="required:true,validType:'length[1,5]',valueField:'id',textField:'text',url:'/DrivingLicense/_ClassType'" name="Class" value="@(Model == null || Model.Class == 0 ? "" : Model.Class.ToString())"/></p>
+                         </li> 
+                         <li class="line">
+                            <b>有效日期：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-datebox" data-options="required:true" name="ValidFrom" id="ValidFrom" value="@(Model == null ? DateTime.Now : Model.ValidFrom)"/></p>
+                         </li> 
+                         <li class="line">
+                            <b>有效期限：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="easyui-numberbox" data-options="required:true" name="ValidFor" id="ValidFor" value="@(Model == null ? 0 : Model.ValidFor)"/></p>
+                         </li> 
+                         
+                         <li class="line">
+                            <b style="width:120px;">上传照片：</b>
+                            <p style="margin:11px 0 0 100px; position:relative;" class="oh z cover-hd">
+                                    <a href="javascript:$('#picUpload').click();" class="icon28C upload-btn" style="width: 30px;height:24px;">
+                                        <input type="file" id="picUpload" name="picUpload" onchange="ImgUpload();" style="opacity: 0; width: 0px; cursor: pointer;" />
+                                    </a>
+                                <input type="hidden" value="@Model.VendorPic" id="VendorPic" name="VendorPic" />
+                            </p>
+                            <p style="margin: 6px 0 0 0;">
+                                <span style="color:Red;">请升级微信至5.0版本，照片大小不要超过2M(可不上传)</span>
+                                <img id="showpic" src="@(!string.IsNullOrEmpty(Model.VendorPic) ? (ImrUrl+Model.VendorPic) : Url.Content("~/content/images/vendorpic.jpg"))" style="max-width:100%;" />
+                            </p>
+                         </li> 
+                      </ul>
+                                                          
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="提交" onclick="submitForm();" id="posBtn" />
+                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

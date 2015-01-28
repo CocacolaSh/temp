@@ -1,0 +1,454 @@
+2014-12-05 16:07:52,140 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 16:07:52,140 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 16:10:12,000 [13] DEBUG OceanLog [(null)] - OPenid:
+2014-12-05 16:10:12,000 [13] DEBUG OceanLog [(null)] - OPenid:
+2014-12-05 16:10:13,687 [15] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-12-05 16:10:13,687 [15] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-12-05 16:10:55,265 [12] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:10:55,265 [12] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:11:33,281 [14] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:11:33,281 [14] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:12:20,250 [14] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:12:20,250 [14] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:22:16,359 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 16:22:16,359 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 16:22:37,578 [13] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-05 16:22:37,578 [13] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-05 16:23:01,328 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 16:23:01,328 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 16:24:56,375 [16] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 16:24:56,375 [16] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 16:25:14,718 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-05 16:25:14,718 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-05 16:25:25,375 [15] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:25:25,375 [15] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:26:06,078 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:26:06,078 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:26:20,812 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:26:20,812 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:27:13,281 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:27:13,281 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:28:00,515 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:28:00,515 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:28:46,390 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:28:46,390 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:29:32,265 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:29:32,265 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:29:51,703 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:29:51,703 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:30:55,812 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:30:55,812 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:56:37,968 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:56:37,968 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:56:52,687 [11] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:56:52,687 [11] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 16:57:23,421 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 16:57:23,421 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 17:01:09,625 [12] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:The data reader is incompatible with the specified 'Ocean.Data.ScorePluginResult'. A member of the type, 'Email', does not have a corresponding column in the data reader with the same name.
+2014-12-05 17:01:09,625 [12] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:The data reader is incompatible with the specified 'Ocean.Data.ScorePluginResult'. A member of the type, 'Email', does not have a corresponding column in the data reader with the same name.
+2014-12-05 17:02:37,156 [11] ERROR OceanLog [(null)] - The path is not of a legal form.
+2014-12-05 17:02:37,156 [11] ERROR OceanLog [(null)] - The path is not of a legal form.
+by Ocean2014-12-05 17:06:58,953 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 17:06:58,953 [8] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 17:07:06,421 [12] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 17:07:06,421 [12] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 17:08:07,734 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 17:08:07,734 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 17:10:55,953 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 17:10:55,953 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 17:13:31,000 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 17:13:31,000 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 17:14:32,453 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:14:32,453 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:17:35,625 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:17:35,625 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:20:04,406 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:20:04,406 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:21:40,125 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:21:40,125 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:23:09,937 [17] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 17:23:09,937 [17] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 17:23:52,796 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:23:52,796 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:25:21,203 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:25:21,203 [18] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:27:18,609 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:27:18,609 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:28:22,828 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:28:22,828 [15] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:29:51,546 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:29:51,546 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:30:46,031 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:30:46,031 [17] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:30:55,046 [15] DEBUG An error occurred while reading from the store provider's data reader. See the inner exception for details.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while reading from the store provider's data reader. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 将字符串转换为 uniqueidentifier 时失败。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   at System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.StoreRead()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.HandleReaderException(Exception e)
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.StoreRead()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 599
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 592
+   at Ocean.Web.Controllers.ScoreSysController.StoreItemExchange(Guid baseId, Guid itemId, String resultId, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 772
+2014-12-05 17:31:14,281 [16] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:31:14,281 [16] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:39:19,500 [16] DEBUG Value cannot be null.
+Parameter name: model===detail===> [(null)] - System.ArgumentNullException: Value cannot be null.
+Parameter name: model
+   at System.Web.Mvc.Controller.TryUpdateModel[TModel](TModel model, String prefix, String[] includeProperties, String[] excludeProperties, IValueProvider valueProvider)
+   at System.Web.Mvc.Controller.TryUpdateModel[TModel](TModel model)
+   at Ocean.Web.Controllers.ScoreSysController.StoreItemExchange(Guid baseId, Guid itemId, String resultId, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 786
+2014-12-05 17:44:15,515 [4] DEBUG Value cannot be null.
+Parameter name: model===detail===> [(null)] - System.ArgumentNullException: Value cannot be null.
+Parameter name: model
+   at System.Web.Mvc.Controller.TryUpdateModel[TModel](TModel model, String prefix, String[] includeProperties, String[] excludeProperties, IValueProvider valueProvider)
+   at System.Web.Mvc.Controller.TryUpdateModel[TModel](TModel model)
+   at Ocean.Web.Controllers.ScoreSysController.StoreItemExchange(Guid baseId, Guid itemId, String resultId, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 786
+2014-12-05 17:48:41,218 [9] DEBUG An error occurred while reading from the store provider's data reader. See the inner exception for details.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while reading from the store provider's data reader. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 将字符串转换为 uniqueidentifier 时失败。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   at System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.StoreRead()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.HandleReaderException(Exception e)
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.StoreRead()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 599
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 592
+   at Ocean.Web.Controllers.ScoreSysController.StoreItemExchange(Guid baseId, Guid itemId, String resultId, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 772
+2014-12-05 17:50:41,671 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 17:50:41,671 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 17:51:09,421 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:51:09,421 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 17:51:22,687 [13] DEBUG An error occurred while reading from the store provider's data reader. See the inner exception for details.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while reading from the store provider's data reader. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 将字符串转换为 uniqueidentifier 时失败。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   at System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.StoreRead()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.HandleReaderException(Exception e)
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.StoreRead()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 599
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 592
+   at Ocean.Web.Controllers.ScoreSysController.StoreItemExchange(Guid baseId, Guid itemId, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 776
+2014-12-05 17:53:25,687 [9] DEBUG An error occurred while reading from the store provider's data reader. See the inner exception for details.===detail===> [(null)] - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while reading from the store provider's data reader. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 将字符串转换为 uniqueidentifier 时失败。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   at System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.StoreRead()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.HandleReaderException(Exception e)
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.StoreRead()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 599
+   at Ocean.Services.ServiceBase`1.GetUnique(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 592
+   at Ocean.Web.Controllers.ScoreSysController.StoreItemExchange(Guid baseId, Guid itemId, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 776
+2014-12-05 18:58:40,828 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 18:58:40,828 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 18:59:06,906 [18] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 18:59:06,906 [18] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 18:59:33,125 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 18:59:33,125 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:00:02,921 [15] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 19:00:02,921 [15] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 19:01:06,640 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 19:01:06,640 [13] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 19:03:39,203 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 19:03:39,203 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 19:03:45,000 [13] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 19:03:45,000 [13] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 19:03:51,375 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 19:03:51,375 [4] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:Object reference not set to an instance of an object.
+2014-12-05 19:04:31,078 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 19:04:31,078 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 19:04:52,203 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:04:52,203 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:14:23,718 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 19:14:23,718 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 19:14:48,500 [12] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:14:48,500 [12] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:21:48,921 [16] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 19:21:48,921 [16] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 19:22:13,718 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:22:13,718 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:23:30,375 [10] DEBUG Cannot perform runtime binding on a null reference===detail===> [(null)] - Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object , String )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 304
+2014-12-05 19:24:56,484 [15] DEBUG Cannot perform runtime binding on a null reference===detail===> [(null)] - Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object , String )
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 304
+2014-12-05 19:25:19,109 [16] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 19:25:19,109 [16] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 19:25:42,203 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:25:42,203 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:28:37,625 [11] DEBUG Value cannot be null.
+Parameter name: property===detail===> [(null)] - System.ArgumentNullException: Value cannot be null.
+Parameter name: property
+   at System.Linq.Expressions.Expression.Property(Expression expression, PropertyInfo property)
+   at Ocean.Core.Data.OrderBy.LinqOrder.ApplyOrder[T](IQueryable`1 source, String property, String methodName) in E:\微信\ocean7.18\Ocean.Core\Data\OrderBy\LinqOrder.cs:line 39
+   at Ocean.Core.Data.OrderBy.LinqOrder.OrderBy[T](IQueryable`1 source, String property) in E:\微信\ocean7.18\Ocean.Core\Data\OrderBy\LinqOrder.cs:line 14
+   at Ocean.Services.ServiceBase`1.GetALL(String keySelector, Boolean isAscendingOrder) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 119
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 322
+2014-12-05 19:30:04,703 [10] DEBUG Value cannot be null.
+Parameter name: property===detail===> [(null)] - System.ArgumentNullException: Value cannot be null.
+Parameter name: property
+   at System.Linq.Expressions.Expression.Property(Expression expression, PropertyInfo property)
+   at Ocean.Core.Data.OrderBy.LinqOrder.ApplyOrder[T](IQueryable`1 source, String property, String methodName) in E:\微信\ocean7.18\Ocean.Core\Data\OrderBy\LinqOrder.cs:line 39
+   at Ocean.Core.Data.OrderBy.LinqOrder.OrderBy[T](IQueryable`1 source, String property) in E:\微信\ocean7.18\Ocean.Core\Data\OrderBy\LinqOrder.cs:line 14
+   at Ocean.Services.ServiceBase`1.GetALL(String keySelector, Boolean isAscendingOrder) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 119
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 322
+2014-12-05 19:31:07,109 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 19:31:07,109 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 19:34:04,890 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:34:04,890 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:52:51,625 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 19:52:51,625 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 19:53:09,406 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:53:09,406 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:54:31,312 [4] DEBUG Value cannot be null.
+Parameter name: property===detail===> [(null)] - System.ArgumentNullException: Value cannot be null.
+Parameter name: property
+   at System.Linq.Expressions.Expression.Property(Expression expression, PropertyInfo property)
+   at Ocean.Core.Data.OrderBy.LinqOrder.ApplyOrder[T](IQueryable`1 source, String property, String methodName) in E:\微信\ocean7.18\Ocean.Core\Data\OrderBy\LinqOrder.cs:line 39
+   at Ocean.Core.Data.OrderBy.LinqOrder.OrderBy[T](IQueryable`1 source, String property) in E:\微信\ocean7.18\Ocean.Core\Data\OrderBy\LinqOrder.cs:line 14
+   at Ocean.Services.ServiceBase`1.GetALL(String keySelector, Boolean isAscendingOrder) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 119
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 333
+2014-12-05 19:58:37,546 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 19:58:37,546 [15] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 19:58:57,421 [14] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 19:58:57,421 [14] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:06:50,875 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 20:06:50,875 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 20:07:06,593 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/Lottery.cshtml' was not found.
+2014-12-05 20:07:06,593 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/Lottery.cshtml' was not found.
+2014-12-05 20:07:08,562 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:07:08,562 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:08:26,500 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 20:08:26,500 [12] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 20:18:40,328 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 20:18:40,328 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 20:19:00,890 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:19:00,890 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:21:03,906 [12] DEBUG Value cannot be null.
+Parameter name: property===detail===> [(null)] - System.ArgumentNullException: Value cannot be null.
+Parameter name: property
+   at System.Linq.Expressions.Expression.Property(Expression expression, PropertyInfo property)
+   at Ocean.Core.Data.OrderBy.LinqOrder.ApplyOrder[T](IQueryable`1 source, String property, String methodName) in E:\微信\ocean7.18\Ocean.Core\Data\OrderBy\LinqOrder.cs:line 39
+   at Ocean.Core.Data.OrderBy.LinqOrder.OrderBy[T](IQueryable`1 source, String property) in E:\微信\ocean7.18\Ocean.Core\Data\OrderBy\LinqOrder.cs:line 14
+   at Ocean.Services.ServiceBase`1.GetALL(String keySelector, Boolean isAscendingOrder) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 119
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 331
+2014-12-05 20:21:30,093 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 20:21:30,093 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 20:40:20,421 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 20:40:20,421 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 20:41:20,531 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:列名 'VirtualGif' 无效。
+2014-12-05 20:41:20,531 [9] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:列名 'VirtualGif' 无效。
+2014-12-05 20:42:26,859 [11] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:列名 'VirtualGif' 无效。
+2014-12-05 20:42:26,859 [11] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:列名 'VirtualGif' 无效。
+2014-12-05 20:43:55,000 [12] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:列名 'VirtualGif' 无效。
+2014-12-05 20:43:55,000 [12] DEBUG OceanLog [(null)] - ScoreSys_PluginLottery:列名 'VirtualGif' 无效。
+2014-12-05 20:47:37,343 [15] DEBUG OceanLog [(null)] - OPenid:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-12-05 20:47:37,343 [15] DEBUG OceanLog [(null)] - OPenid:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-12-05 20:47:37,578 [15] DEBUG OceanLog [(null)] - CurrentFunongbao:
+2014-12-05 20:47:37,578 [15] DEBUG OceanLog [(null)] - CurrentFunongbao:
+2014-12-05 20:47:51,171 [4] DEBUG OceanLog [(null)] - OPenid:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-12-05 20:47:51,171 [4] DEBUG OceanLog [(null)] - OPenid:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-12-05 20:47:51,171 [4] DEBUG OceanLog [(null)] - CurrentFunongbao:
+2014-12-05 20:47:51,171 [4] DEBUG OceanLog [(null)] - CurrentFunongbao:
+2014-12-05 20:48:00,500 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 20:48:00,500 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 20:48:18,328 [9] DEBUG OceanLog [(null)] - OPenid:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-12-05 20:48:18,328 [9] DEBUG OceanLog [(null)] - OPenid:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-12-05 20:48:18,562 [9] DEBUG OceanLog [(null)] - CurrentFunongbao:
+2014-12-05 20:48:18,562 [9] DEBUG OceanLog [(null)] - CurrentFunongbao:
+2014-12-05 20:48:21,406 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:48:21,406 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:49:39,796 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:49:39,796 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:49:48,265 [12] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:49:48,265 [12] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:49:57,328 [8] DEBUG OceanLog [(null)] - OPenid:
+2014-12-05 20:49:57,328 [8] DEBUG OceanLog [(null)] - OPenid:
+2014-12-05 20:49:58,546 [16] DEBUG OceanLog [(null)] - oAuth:oy4Pvjp9_Yb7dttwfx9G2BJuGwyw
+2014-12-05 20:49:58,546 [16] DEBUG OceanLog [(null)] - oAuth:oy4Pvjp9_Yb7dttwfx9G2BJuGwyw
+2014-12-05 20:52:36,390 [16] DEBUG Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries.===detail===> [(null)] - System.Data.Entity.Infrastructure.DbUpdateConcurrencyException: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. ---> System.Data.Entity.Core.OptimisticConcurrencyException: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries.
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ValidateRowsAffected(Int64 rowsAffected, UpdateCommand source)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction, Boolean throwOnClosedConnection)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update(Boolean throwOnClosedConnection)
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__b()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass9.<SaveChanges>b__6()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Ocean.Data.EfRepository`1.Update(T entity) in E:\微信\ocean7.18\Ocean.Data\EfRepository.cs:line 75
+   at Ocean.Services.ServiceBase`1.Update(T entity) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 60
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 404
+2014-12-05 20:54:55,984 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 20:54:55,984 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 20:55:16,609 [16] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:55:16,609 [16] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:57:21,828 [15] DEBUG 列名 'pluginId' 无效。===detail===> [(null)] - System.Data.SqlClient.SqlException (0x80131904): 列名 'pluginId' 无效。
+
+Server stack trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetCount(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 501
+   at Ocean.Services.ServiceBase`1.GetCount(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 511
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 412
+2014-12-05 20:57:57,593 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 20:57:57,593 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 20:58:15,218 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 20:58:15,218 [15] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 21:00:00,937 [4] DEBUG Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index===detail===> [(null)] - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.RemoveAt(Int32 index)
+   at Ocean.Web.Controllers.ScoreSysController.PluginsLottery(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 419
+2014-12-05 21:03:16,968 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 21:03:16,968 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 21:03:34,218 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 21:03:34,218 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 21:05:53,921 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 21:05:53,921 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 21:11:08,890 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 21:11:08,890 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-05 21:23:14,906 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:23:14,906 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:25:07,281 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:25:07,281 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:28:29,578 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:28:29,578 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:30:30,000 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:30:30,000 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:32:29,046 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:32:29,046 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:33:06,750 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:33:06,750 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:40:49,031 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:40:49,031 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:40:53,406 [16] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:40:53,406 [16] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:42:16,343 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:42:16,343 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:42:36,906 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:42:36,906 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:43:14,406 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:43:14,406 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:45:05,812 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:45:05,812 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:46:13,484 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:46:13,484 [8] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:47:36,843 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:47:36,843 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-12-05 21:54:47,250 [10] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
+2014-12-05 21:54:47,250 [10] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
+2014-12-05 21:54:47,687 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 21:54:47,687 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-05 22:08:07,171 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-05 22:08:07,171 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-06 01:23:18,640 [8] DEBUG OceanLog [(null)] - 执行任务！2014-12-6 1:23:18
+2014-12-06 01:23:18,640 [8] DEBUG OceanLog [(null)] - 执行任务！2014-12-6 1:23:18
+2014-12-06 01:23:19,000 [8] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141206ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141206ocean.bak' with INIT
+2014-12-06 01:23:19,000 [8] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141206ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141206ocean.bak' with INIT
+2014-12-06 09:53:39,843 [12] ERROR OceanLog [(null)] - The path is not of a legal form.
+2014-12-06 09:53:39,843 [12] ERROR OceanLog [(null)] - The path is not of a legal form.
+by Ocean

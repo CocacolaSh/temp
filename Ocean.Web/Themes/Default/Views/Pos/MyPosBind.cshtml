@@ -1,0 +1,96 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_PosLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"];
+}
+@model Pos
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        function MyPosUnbind() {
+            $.messager.confirm('Confirm', '确定解除绑定POS？', function (r) {
+                if (r) {
+                    $.ajax({
+                        type: 'post',
+                        url: "MyPosUnbind",
+                        async: true,
+                        cache: false,
+                        datatype: "json",
+                        data: { id:'@WebHelper.GetString("id")' },
+                        success: function (result) {
+                            if (result.success) {
+                                $.messager.alert('提示', '解绑成功', "info", function () {
+                                    location.href = 'myposbindlist';
+                                })
+                            } else {
+                                mobileCodeEnable = true;
+                                $.messager.alert('提示', result.message, "warning", function () { $("#MobilePhone").focus(); });
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+    <style type="text/css">
+        .fnb_list li b{width:140px;margin-left:32px;}
+        .fnb_list li{padding:0px;line-height:20px;}
+    </style>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">POS明细</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("PosBind", "Pos")" id="posRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      @*<ul class="btts" style="padding-bottom:0px;">
+                          <span>尊敬的<em>@(ViewBag.Name)</em>@(ViewBag.Sex)，您好！</span>
+                          <li>
+                            您在我行办理的POS业务情况如下：
+                          </li>
+                       </ul>     *@  
+                      
+                      <ul class="fnb_list">
+                             <li>
+                                <b>商户名称：</b>
+                                <p style="margin: 11px 0 0 120px;">@Model.VendorName</p>
+                             </li>
+                             <li>
+                                <b>商 户 号：</b>
+                                <p style="margin: 11px 0 0 120px;">@Model.VendorNO</p>
+                             </li>
+                             <li>
+                                <b>终 端 号：</b>
+                                <p style="margin: 11px 0 0 120px;">@Model.TerminalNO</p>
+                             </li>
+                             <li>
+                                <b>装机地址：</b>
+                                <p style="margin: 11px 0 0 120px;">@Model.InstallAddress</p>
+                             </li>
+                             <li class="line">
+                                <b>扣率：</b>
+                                <p style="margin: 11px 0 0 120px;">@Model.DeductRate.ToString()</p>
+                             </li>
+                             <li>
+                                <b>数据更新日期：</b>
+                                <p style="margin: 14px 0 0 140px;">@Model.CreateDate.ToShortDateString()</p>
+                             </li>
+                      </ul>
+                                                          
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="解除绑定" onclick="MyPosUnbind();" />
+                          <input type="button" class="modBtnColor coloryellow" value="查看更多" onclick="location.href='mypos';" />
+                          <input type="button" class="modBtnColor coloryellow" value="我的POS" onclick="location.href='myposbindlist';" />
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />*@
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

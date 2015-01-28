@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+    }
+@model PagedList<MpUser>
+@using Ocean.Framework.Mvc.Pagination;
+<dl>
+	用户名：<input type="text" id="skey" value="@WebHelper.GetString("skey")" /><button onclick="getSiteUser($('#skey').val(),$('.qd_btn').attr('uindex'));return false;">搜索</button><em onclick="$('#UserBox').html('').hide();">关闭</em>
+    @foreach (MpUser user in Model)
+    {
+	<dd><span class="username">@(string.IsNullOrEmpty(user.Name)?user.NickName:user.Name)</span><span style="width:10%;"><input name="userid" type="checkbox" value="@user.Id.ToString()" onclick="$(this).prop('checked',!$(this).prop('checked'));" /></span></dd>
+    }
+    <div class="pageNavigator right">
+                    @{
+                        if (Model != null && Model.Count > 0)
+                        { 
+                        PagerOptions pageOpt = new PagerOptions()
+                        {
+                            AutoHide = true,
+                            /*跳转区*/
+                            PageIndexBoxType = PageIndexBoxType.DropDownList,/*跳转输入方式*/
+                            ShowGoButton = false,
+                            ShowInfo = true,
+                            PageIndexBoxWrapperFormatString = "到第{0}页",
+                            NumericPagerItemCount=5,
+                            CssClass = "pager",
+                            ShowFirstLast=false,
+                            ShowPrevNext=false,
+                            FirstPageText = "第一页",
+                            PrevPageText = "前一页",
+                            NextPageText = "下一页",
+                            LastPageText = "最后页",
+                            PageIndexParameterName = "page",
+                            AlwaysShowFirstLastPageNumber = true,
+                            
+                            PrevItemWrapperCss = "page-pre",
+                            NextItemWrapperCss = "page-next",
+                            LastItemWrapperCss = "page-last",
+                            FirstItemWrapperCss = "page-fir",
+                            /*数字部分*/
+                            ShowNumericPagerItems = true,
+                            PageNumberCss = "page-num",
+                            SeparatorHtml = " ",
+                            CurrentPagerItemWrapperCss = "page-cur",
+                            DisabledCss = "page-disabled",
+                            MorePagerItemWrapperCss = "page-more",
+                            GoToPageSectionWrapperFormatString = ""
+                        };
+                    @Html.AjaxPager(Model.TotalPageCount, Model.CurrentPageIndex, "GetMpUsers", "Plugins", "", pageOpt, new { skey = WebHelper.GetString("skey"), uindex = WebHelper.GetString("uindex") }, new AjaxOptions() { OnComplete = "function(){getUserInit(" + WebHelper.GetString("uindex") + ");}", UpdateTargetId = "UserBox" }, null)
+                        }
+                 }
+                </div>
+	<dd style="text-align:center; border:none;"><a class="qd_btn" href="javascript:void(0);" onclick="setMpUser($(this).attr('uindex'));">确定选择</a></dd>
+</dl>

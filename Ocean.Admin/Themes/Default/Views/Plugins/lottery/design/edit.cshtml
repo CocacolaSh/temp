@@ -1,0 +1,758 @@
+﻿@{
+    Layout = "../../Shared/_DesignLayout.cshtml";
+
+    //
+    int itemCount = TypeConverter.StrToInt(ViewBag.Cst_Plugin_Items_Count ?? "1");
+    string[] prizeItems = new string[] { "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二" };
+    string styleId = ViewData.GetString("Field_Style_ID", "1");
+    string prizeImg = ViewData.GetString("Cst_Plugin_PrizeImg" + styleId, "");
+    string curDemo = string.Empty;
+ }
+ @section head
+ {
+ <style type="text/css">
+ .contenSet table tr td{padding:5px;}
+ .js_list tr td{padding:5px;}
+ .prizechecked{background:#ccc;}
+ .tc_box {float: left;width:550px;background: rgba(0,0,0,.8);position: absolute;z-index: 99999;border: 1px solid #000;border-radius: 5px;color: #fff;padding: 10px;}
+ .tc_box dl {padding: 0px; padding-top: 16px; margin:0px;}
+ .tc_box dd {padding: 0px; margin:0px;float:left; width:100%; line-height: 30px; border-bottom: 1px dashed #666;}
+ .tc_box em {position: absolute; right: 10px; top: 10px; width: 16px; height: 16px; text-indent: -99999px; background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 0; background-size: 16px auto; cursor: pointer; display: block;}
+ .tc_box em:hover {background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 -32px; background-size: 16px auto;}
+ .tc_box dd span {float: left; width: 45%; overflow:hidden;}
+ .tc_box dd .qd_btn, .tc_box dd .pd_btn {width: 80px; color: #fff; padding: 0 15px; text-align: center; font-size: 14px; margin: auto; margin-top: 10px; border-radius: 5px; font-weight: bold;background: -moz-linear-gradient(top,#f3cd4f,#e79217); background: -webkit-gradient(linear,left top,left bottom,from(#f3cd4f),to(#e79217)); display:block;}
+ .panel{margin:0 auto;}
+ .page-num,.pageNavigator a{color:#fff;}
+ .submit_list table tr td{padding:6px 0px;}
+ </style>
+ @if(ViewBag.IsPost==true)
+ {
+     if (ViewBag.Success)
+     {
+         <script type="text/javascript">
+            parent.PluginSetClose(); 
+         </script>
+     }
+ }
+ else{
+<script type="text/javascript" src="@Url.Content("~/Content/MpMaterial/javascript/ajaxfileupload.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/xheditor/xheditor-1.2.1.min.js")"></script>
+ <script type="text/javascript">
+        
+        $(function(){
+            Editor('Cst_Plugin_PrizeInfo');
+            Editor('Cst_Plugin_Info');
+            Editor('Cst_Plugin_OverInfo');
+//            $("#Cst_Plugin_StartDate").datetimebox();
+//            $("#Cst_Plugin_EndDate").datetimebox();
+        });
+        var prizeItems = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"];
+        var prizeCount = @(itemCount - 1);
+        var Plugin_Items_PrizeUsedNum=[];
+        var Plugin_Items_PrizeNum=[];
+        var Cst_Plugin_UseCount=@(!string.IsNullOrEmpty(ViewBag.Cst_Plugin_UseCount) ? ViewBag.Cst_Plugin_UseCount : "0");
+        @if (ViewBag.Cst_Plugin_Items_PrizeUsedNum0 != null)
+        {
+           @:Plugin_Items_PrizeUsedNum[0]=@ViewBag.Cst_Plugin_Items_PrizeUsedNum0;
+           }
+        else
+        {
+           @:Plugin_Items_PrizeUsedNum[0]=-1;
+           }
+           @if (ViewBag.Cst_Plugin_Items_PrizeNum0 != null)
+           {
+           @:Plugin_Items_PrizeNum[0]=@(!string.IsNullOrEmpty(ViewBag.Cst_Plugin_Items_PrizeNum0) ? ViewBag.Cst_Plugin_Items_PrizeNum0 : "0");
+           }
+           else
+           {
+           @:Plugin_Items_PrizeNum[0]=0;
+           }
+           @if (itemCount > 1)
+           {
+               for (int i = 1; i < itemCount; i++)
+               {
+                   if (ViewData["Cst_Plugin_Items_PrizeUsedNum" + i] != null)
+                   {
+               @:Plugin_Items_PrizeUsedNum[@i]=@ViewData.GetInt("Cst_Plugin_Items_PrizeUsedNum" + i);
+               }
+                   else
+                   {
+                @:Plugin_Items_PrizeUsedNum[@i]=-1;
+               }
+                   if (ViewData["Cst_Plugin_Items_PrizeNum" + i] != null)
+                   {
+                   @:Plugin_Items_PrizeNum[@i]=@ViewData.GetInt("Cst_Plugin_Items_PrizeNum" + i);
+                   }
+                   else
+                   {
+                   @:Plugin_Items_PrizeNum[@i]=0;
+                   }
+               }
+           }
+        function addPrize() {
+            if (prizeCount > 10) {
+                alert('最多只能设置12奖项！');
+             }
+            else {
+                var prizeStr = $("#PrizeName0").html();
+                $("#prize_items").append('<table style="width:100%; border:solid 1px #ccc;margin-top:6x;" cellpadding="0" cellspacing="0" onclick="checkedPrize(this);" prizeIndex="' + (prizeCount+1) + '" id="PrizeName' + (prizeCount + 1) + '" class="js_list">' + prizeStr.replace(/一/g, prizeItems[prizeCount + 1]).replace(/0"/g, prizeCount + 1 + '"').replace('getSiteUser(\'\',0);','getSiteUser(\'\','+(prizeCount + 1)+');') + '</table>'); //eval('/' + prizeItems[prizeCount] + '/g')
+                $("#Cst_Plugin_Items_SiteUsers"+(prizeCount+1)).val("");
+                $("#Cst_Plugin_Items_SiteUsersName"+(prizeCount+1)).val("");
+                prizeCount++;
+            }
+        }
+        function checkedPrize(obj) {
+            $("#prize_items table").removeClass("prizechecked");
+            $(obj).addClass("prizechecked");
+        }
+        function delPrize() {
+            var curPrize = $("#prize_items .prizechecked");
+            if (curPrize.length > 0) {
+                curPrize.remove();
+                var curPrizeInt = parseInt(curPrize.attr("prizeIndex"));
+                prizeCount--;
+                $("#prize_items table").each(function () {
+                    thisPrizeInt = parseInt($(this).attr("prizeIndex"), 10);
+                    if (thisPrizeInt > curPrizeInt) {
+                        $(this).attr("id",$(this).attr("id").replace(thisPrizeInt,thisPrizeInt-1));
+                        var hidUsedNum=$(this).find("input[type='hidden']:eq(0)");
+                        if(hidUsedNum.length>0){
+                            hidUsedNum.attr("name",hidUsedNum.attr("name").replace(eval('/' + thisPrizeInt + '/g'), (thisPrizeInt - 1)));
+                            hidUsedNum.attr("id",hidUsedNum.attr("id").replace(eval('/' + thisPrizeInt + '/g'), (thisPrizeInt - 1)));
+                        }
+                        $(this).attr("prizeIndex", thisPrizeInt - 1);
+                        //$(this).html($(this).html().replace(eval('/' + prizeItems[thisPrizeInt] + '/g'), prizeItems[thisPrizeInt-1]).replace(eval('/' + thisPrizeInt + '"/g'), (thisPrizeInt - 1) + '"'));
+                        $(this).find("td input").each(function () {
+                            $(this).attr("name", $(this).attr("name").replace(eval('/' + thisPrizeInt + '/g'), (thisPrizeInt - 1)));
+                            $(this).attr("id", $(this).attr("id").replace(eval('/' + thisPrizeInt + '/g'), (thisPrizeInt - 1)));
+                        });
+                        $(this).find("td label").each(function () {
+                            $(this).html($(this).html().replace(eval('/' + prizeItems[thisPrizeInt] + '/g'), prizeItems[thisPrizeInt - 1]));
+                        });
+                    }
+                });
+            }
+            else {
+                alert('请先选择要删除的项！');
+            }
+        }
+        function PrizeUsedNum(obj)
+        {
+            var newNum=parseInt($(obj).val(),10);
+            var _index=parseInt($(obj).attr("id").replace('Cst_Plugin_Items_PrizeNum',''),10);
+            var oldNum=Plugin_Items_PrizeNum[_index];
+                var oldUsedNumObj=$('#Cst_Plugin_Items_PrizeUsedNum'+_index);
+            if(newNum!=oldNum)
+            {
+                var subtractNum=newNum-oldNum;
+                if(oldUsedNumObj.length>0)
+                {
+                    var oldUsedNum=Plugin_Items_PrizeUsedNum[_index];
+                    if(oldUsedNum+subtractNum>0)
+                    {
+                        oldUsedNumObj.val(oldUsedNum+subtractNum);
+                    }
+                    else
+                    {
+                        oldUsedNumObj.val("0");
+                    }
+                }
+            }
+            else
+            {
+                if(oldUsedNumObj.length>0)
+                {
+                    oldUsedNumObj.val(Plugin_Items_PrizeUsedNum[_index]);
+                }
+            }
+        }
+
+        var Cst_Plugin_Items_SiteUsersName='';
+        var Cst_Plugin_Items_SiteUsers=',';
+        function getUserInit(uindex)
+        {
+            $("#UserBox dd").each(function(){
+                        var cur=$(this);
+                        if(Cst_Plugin_Items_SiteUsers.indexOf(','+cur.find("input[type='checkbox']").val()+',')>=0)
+                        {
+                             cur.find("input[type='checkbox']").prop("checked",true);
+                        }
+                        $(this).click(function(){
+                            var chk=cur.find("input[type='checkbox']");
+                            if(chk.length>0)
+                            {
+                                if(chk.prop("checked"))
+                                {
+                                    Cst_Plugin_Items_SiteUsersName=(","+Cst_Plugin_Items_SiteUsersName+",").replace(','+cur.find(".username").html()+',',',');
+                                    if(Cst_Plugin_Items_SiteUsersName.length>1)
+                                    {
+                                        Cst_Plugin_Items_SiteUsersName=Cst_Plugin_Items_SiteUsersName.substring(1,Cst_Plugin_Items_SiteUsersName.length-1);
+                                    }
+                                    else{Cst_Plugin_Items_SiteUsersName='';}
+                                    if(Cst_Plugin_Items_SiteUsers.length>2)
+                                    {
+                                        Cst_Plugin_Items_SiteUsers=Cst_Plugin_Items_SiteUsers.replace(','+chk.val()+',',',');
+                                    }
+                                    else{Cst_Plugin_Items_SiteUsers='';}
+                                    chk.prop("checked",false);
+                                }
+                                else
+                                {
+                                    if(!Cst_Plugin_Items_SiteUsersName)
+                                    {
+                                        Cst_Plugin_Items_SiteUsersName=cur.find(".username").html();
+                                    }
+                                    else
+                                    {
+                                        Cst_Plugin_Items_SiteUsersName+=","+cur.find(".username").html();
+                                    }
+                                        Cst_Plugin_Items_SiteUsers+=chk.val()+',';
+                                    chk.prop("checked",true);
+                                }
+                            }
+                        });
+                    });
+                    $(".qd_btn").attr("uindex", uindex);
+        }
+        function getSiteUser(skey,uindex)
+        {
+            Cst_Plugin_Items_SiteUsersName=$('#Cst_Plugin_Items_SiteUsersName'+uindex).val();
+            Cst_Plugin_Items_SiteUsers=$('#Cst_Plugin_Items_SiteUsers'+uindex).val()==""?",":$('#Cst_Plugin_Items_SiteUsers'+uindex).val();
+            $.ajax({
+                type:"post",
+                url:"GetMpUsers",
+                data:{skey:skey,uindex:uindex},
+                success:function(result)
+                {
+                    
+                    $("#UserBox").html(result);
+                    $("#uwin").window("open");
+                    $("#UserBox dd").each(function(){
+                        var cur=$(this);
+                        if(Cst_Plugin_Items_SiteUsers.indexOf(','+cur.find("input[type='checkbox']").val()+',')>=0)
+                        {
+                             cur.find("input[type='checkbox']").prop("checked",true);
+                        }
+                        $(this).click(function(){
+                            var chk=cur.find("input[type='checkbox']");
+                            if(chk.length>0)
+                            {
+                                if(chk.prop("checked"))
+                                {
+                                    Cst_Plugin_Items_SiteUsersName=(","+Cst_Plugin_Items_SiteUsersName+",").replace(','+cur.find(".username").html()+',',',');
+                                    if(Cst_Plugin_Items_SiteUsersName.length>1)
+                                    {
+                                        Cst_Plugin_Items_SiteUsersName=Cst_Plugin_Items_SiteUsersName.substring(1,Cst_Plugin_Items_SiteUsersName.length-1);
+                                    }
+                                    else{Cst_Plugin_Items_SiteUsersName='';}
+                                    if(Cst_Plugin_Items_SiteUsers.length>2)
+                                    {
+                                        Cst_Plugin_Items_SiteUsers=Cst_Plugin_Items_SiteUsers.replace(','+chk.val()+',',',');
+                                    }
+                                    else{Cst_Plugin_Items_SiteUsers='';}
+                                    chk.prop("checked",false);
+                                }
+                                else
+                                {
+                                    if(!Cst_Plugin_Items_SiteUsersName)
+                                    {
+                                        Cst_Plugin_Items_SiteUsersName=cur.find(".username").html();
+                                    }
+                                    else
+                                    {
+                                        Cst_Plugin_Items_SiteUsersName+=","+cur.find(".username").html();
+                                    }
+                                        Cst_Plugin_Items_SiteUsers+=chk.val()+',';
+                                    chk.prop("checked",true);
+                                }
+                            }
+                        });
+                    });
+                    $(".qd_btn").attr("uindex", uindex);
+                }
+            });
+        }
+        function setMpUser(uindex)
+        {
+            $('#Cst_Plugin_Items_SiteUsersName'+uindex).val(Cst_Plugin_Items_SiteUsersName);
+            $('#Cst_Plugin_Items_SiteUsers'+uindex).val(Cst_Plugin_Items_SiteUsers);
+            $('#UserBox').html('');
+            $("#uwin").window("close");
+        }
+
+
+        $("#UseEveryDay").click(function(){
+            if($(this).prop("checked"))
+            {
+                $("#Cst_Plugin_UseEveryDay").val("1");
+            }
+            else{
+                $("#Cst_Plugin_UseEveryDay").val("0");
+            }
+        });
+        function change_style(folder, styleid,obj) {
+            var rootUrl="@Url.ImagesCdnRoot("", false)";
+            $("#Field_Style_Folder").val(folder);
+            $("#Cst_Plugin_Prize_Multi").val($(obj).attr("multi"));
+            $("#Field_Style_ID").val(styleid);
+            $(".list_num a").removeClass("l-btn-selected");
+            $(obj).addClass("l-btn-selected");
+            if($(obj).attr("prizeImg"))
+            {
+                $("#Prize_img").attr("src",$(obj).attr("prizeImg")).show();
+                $("#Prize_img_delbtn").show();
+            }
+            else if($("#Cst_Plugin_PrizeImg"+styleid).val())
+            {
+                $("#Prize_img").attr("src",rootUrl+$("#Cst_Plugin_PrizeImg"+styleid).val()).show();
+                $("#Prize_img_delbtn").show();
+            }
+            else
+            {
+                $("#Prize_img").hide();
+                $("#Prize_img_delbtn").hide()
+            }
+            $("#display_img").attr("src","@(Url.PluginUrl("lottery/design/images/", false))preview_"+folder+".png");
+            if($(obj).attr("pic"))
+            {
+                $('#Prize_img_demo').show();
+            }
+            else{
+                $('#Prize_img_demo').hide();
+            }
+        }
+
+//                $("#"+id).ajaxStart(function () {          
+//                        $("#lodingDiv").show();
+//                    }).ajaxComplete(function () {
+//                        $("#lodingDiv").hide();
+//               });
+                function autoUpload(){
+                $.ajaxFileUpload
+		        ({
+		            url: "/plugins/UploadBanner?id=@(WebHelper.GetString("id"))&t=" + Math.random(),
+		            secureuri: false,
+		            fileElementId: 'Plugin_PrizeImg',
+		            dataType: 'json',
+		            success: function (data, status) {
+		                if (!data.err) {
+                            var styleId= $("#Field_Style_ID").val();
+                            if(!styleId){
+                            styleId="1";
+                            }
+                            if($("#Cst_Plugin_PrizeImg"+styleId).length>0)
+                            {
+                                $("#Cst_Plugin_PrizeImg"+styleId).val(data.msg);
+                            }
+                            else{
+                                $("#Hidden_PrizeImg").append('<input type="hidden" id="Cst_Plugin_PrizeImg'+styleId+'" name="Cst_Plugin_PrizeImg'+styleId+'" value="'+data.msg+'" />')
+                                $("#Cst_Plugin_PrizeImg"+styleId).val(data.msg);
+                            }
+                            $("#Prize_img").show();
+                             $("#Prize_img_delbtn").show();
+                            $("#Prize_img").attr("src","/images"+data.msg).show();
+                            return true;
+		                } else {
+		                    alert(data.msg.replace("&lt;li&gt;","").replace("&lt;/li&gt;","")+",大小不超过2M");
+                            return false;
+		                }
+		            },
+		            error: function (data, status, e) {
+		                alert("上传不成功...");
+                        return false;
+		            }
+		        }); 
+                }
+            
+            function sendGift(pluginId,id,page)
+            {
+                $.ajax({
+                    type: 'post',
+                    url: "/plugins/ResultEdit",
+                    cache: false,
+                    //datatype: "json",
+                    data: {IsUse:1,pluginid:pluginId,Id:id,page:page},
+                    success: function (result) {
+                        if(result.message)
+                        {
+                            $("#resultList").html(result.message);
+                        }
+                        else{
+                            $("#resultList").html(result);
+                            $("#resultList").attr("isLoad","1");
+                        }
+                    }
+                });
+            }
+            function resultGrid(queryData) {
+            $('#resultGrid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/plugins/ResultList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: false,
+                rownumbers: true,
+                singleSelect: true,
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { title: '奖项', field: 'Summary', width: 100, hidden: false ,formatter:function(value){
+                        return value.split('得')[1];
+                     }},
+                     { title: '名称', field: 'Name', width: 100, hidden: false },
+                     { title: '联系方式', field: 'Phone', width: 100, hidden: false ,formatter:function(value){
+                        if(value)
+                        {
+                            return value;
+                        }
+                        else{
+                            return "暂未提交";
+                        }
+                     }},
+                     { title: '奖品状态', field: 'ApplyRates', width: 100, hidden: false ,formatter:function(value,row){
+                        if(value==0)
+                        {
+                            return '<a class="in_edit" href="javascript:void(0);" style="color:Blue;" onclick="sendGift(row.PluginId,row.Id,@WebHelper.GetInt("page",1))">发放</a>';
+                        }
+                        else{
+                            return '<a class="in_edit">已发放</a>'
+                        }
+                     }}
+                ]]
+//                ,
+//                onLoadSuccess:function(data){
+//                    alert(data.message);
+//                    if(data.success)
+//                    {
+//                        alert(data.message);
+//                    }
+//                },
+//                onLoadError: function (data) { 
+//                    $('#View').window('close');
+//                    alert(data.message);
+//                 }
+            });
+        }
+            
+            
+         function preSubmit() {
+            var isSub=true;
+            $(".PrizeNumCss").each(function(){
+                var numReg=/^\d+$/;
+                if(!numReg.test($(this).val()))
+                {
+                    isSub=false;
+                    alert('请输入整数');
+                    $(this).focus();
+                    $(this).select();
+                    return false;
+                }
+            });
+            $(".PrizePercentCss").each(function(){
+                var percentReg=/^[\d\.]+$/;
+                if(!percentReg.test($(this).val()))
+                {
+                    isSub=false;
+                    alert('请输入数字');
+                    $(this).focus();
+                    $(this).select();
+                    return false;
+                }
+            });
+            if($("#Field_Style_Folder").val()=="1_2")//大转盘角度
+            {
+                $(".PrizeAngleCss").each(function(){
+                    var angleReg=/^\d+$/;
+                    if(!angleReg.test($(this).val()))
+                    {
+                        isSub=false;
+                        alert('请输入整数');
+                        $(this).focus();
+                        $(this).select();
+                        return false;
+                    }
+                });
+            }
+
+            if(isSub){
+            $("#Cst_Plugin_Items_Count").val(prizeCount + 1);
+            var newUseCount=parseInt($("#Cst_Plugin_UseCount").val(),10);
+            if(newUseCount!=Cst_Plugin_UseCount)
+            {
+                var subtractUseCount=newUseCount-Cst_Plugin_UseCount;
+                $.ajax({
+                    type: 'post',
+                    url: "/plugins/PluginUseCount",
+                    cache: false,
+                    data: {pluginid:'@(WebHelper.GetString("id"))',subtractUseCount:subtractUseCount},
+                    success: function (result) {
+                        if(!result.success)
+                        {
+                            alert('更新用户可用次数失败，'+result.message);
+                        }
+                    }
+                });
+            }
+            $('#pluginForm').submit();
+            }
+            else
+            {
+            return false;
+            }
+        };
+        function delPrizeImg(obj){
+            $("#Prize_img").hide();
+            var styleId= $("#Field_Style_ID").val();
+            if(!styleId){
+                styleId="1";
+            }
+            $("#Cst_Plugin_PrizeImg"+styleId).val('');
+            $(obj).hide();
+        }
+        function prizeImgDemo(obj)
+        {
+            alert('请设计规格与效果图一致的图片,奖项个数为图片项数!');
+        }
+        $("#tab").tabs({
+            onSelect:function(title){
+                
+            }
+        });
+//        function useFormater(value,row)
+//        {
+//            if(value==1)
+//            {
+//                <a class="in_edit">已发放</a>
+//            }
+//            else{
+//            <a class="in_edit" href="javascript:void(0);" style="color:Blue;" onclick="sendGift(row.PluginId,row.Id,@WebHelper.GetInt("page",1))">发放</a>
+//            }
+//        }
+    </script>
+ }
+ }
+@if(ViewBag.IsPost==false)
+ {
+ <form id="pluginForm" method="post" action="editplugin?id=@WebHelper.GetString("Id")">
+    <div id="tab" class="easyui-tabs" style="width: auto; height:380px;">
+        <div title="显示设置" style="padding:10px">
+                 <div class="easyui-panel" style="width:660px;margin:0 auto;text-align: center;" title="抽奖方式选择" >
+                    <img id="display_img" alt="抽奖图" src="@Url.PluginUrl("lottery/design/images/preview_" + ViewData.GetString("Field_Style_Folder") + ".png", false)" style="width:90%;max-width:320px;" />
+                    @Html.Hidden("Field_Style_Folder", ViewData.GetString("Field_Style_Folder"))
+                    @Html.Hidden("Field_Style_ID", ViewData.GetString("Field_Style_ID"))
+                    @Html.Hidden("Cst_Plugin_Prize_Multi", ViewData.GetString("Cst_Plugin_Prize_Multi"))
+                    <div style="height:36px;padding-left:15px;">
+                        <div class="list_num">
+                            @if (ViewBag.PluginStyleList != null)
+                            {
+                                foreach (var style in ViewBag.PluginStyleList)
+                                {
+                                    string styleid = style.Id.ToString();
+                                    string tempPrizeImg = ViewData.GetString("Cst_Plugin_PrizeImg" + styleid);
+                                    if (!string.IsNullOrEmpty(tempPrizeImg) && !prizeImg.StartsWith("http://"))
+                                    {
+                                        tempPrizeImg = Url.ImagesCdnRoot(tempPrizeImg);
+                                    }
+                                    if (styleId == styleid && !string.IsNullOrEmpty(style.Pic))
+                                    {
+                                        curDemo = style.Pic;
+                                    }
+                                <a id="a_lay_@(style.Folder)" @Html.Raw(ViewData.GetString("Field_Style_Folder") == style.Folder ? "data-options=\"toggle:true,selected:true\"" : "") class="easyui-linkbutton l-btn l-btn-small" title="@style.Name" href="javascript:void(0);" multi="@style.IsMulti" prizeImg="@tempPrizeImg" pic="@style.Pic" onclick="change_style('@style.Folder','@style.Id',this);">@style.Name</a>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div id="imgPannel">
+                <div class="easyui-panel" style="width:660px;margin:0 auto;text-align: center;" title="摇奖背景图片上传[请参考以上所选择的效果、建议尺寸480x480px]" >
+                    <div class="text_middle_yl">
+                        <img id="Prize_img" style="max-width:100%;max-height:150px; " src="@((!string.IsNullOrEmpty(prizeImg) && prizeImg.StartsWith("http://")) ? prizeImg : Url.ImagesCdnRoot(prizeImg))" />
+                        <a href="javascript:void(0);"@Html.Raw(!string.IsNullOrEmpty(prizeImg) ? "" : " style=\"display:none;\"") id="Prize_img_delbtn" onclick="delPrizeImg(this);" >删除图片</a>
+                    </div>
+                    <div class="text_middle_img">
+                        <ul>
+                            <li><span class="text_middle_input" id="Hidden_PrizeImg">
+                                @Html.Hidden("Cst_Plugin_PrizeImg" + styleId)</span>
+                                <span class="text_middle_size">
+                                    <input type="file" id="Plugin_PrizeImg" name="Plugin_PrizeImg" onchange="autoUpload()" />
+                                </span></li>
+                        </ul>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $("#imgPannel .panel-title").append('<a href="@curDemo"@Html.Raw(!string.IsNullOrEmpty(curDemo) ? "style=\"color:red;\"" : " style=\"display:none;\"") id="Prize_img_demo" onclick="prizeImgDemo(this);" target="_blank">查看效果图</a>');
+                    });
+                </script>
+                </div>
+        </div>
+        <div title="活动设置" class="contenSet" style="padding:10px;">
+            <table cellpadding="0" cellspacing="0" width="660px;" style="margin:0 auto;">
+                <tr>
+                    <td style="width:20%;">名称：</td>
+                    <td><input type="text" name="Cst_Plugin_Title" id="Cst_Plugin_Title" value="@ViewBag.Cst_Plugin_Title" maxlength="50"  class="easyui-validatebox" data-options="required:true" /></td>
+                </tr>
+                <tr>
+                    <td>摘要：</td>
+                    <td>
+                        <textarea maxlength="1000" style="width: 96%; height: 90px;" name="Cst_Plugin_Summary" id="Cst_Plugin_Summary">@StringHelper.ToTextCode(ViewBag.Cst_Plugin_Summary ?? "")</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>活动时间：</td>
+                    <td>
+                        <input type="hidden" class="easyui-datetimebox" name="Cst_Plugin_StartDate" id="Cst_Plugin_StartDate" value="@ViewBag.Cst_Plugin_StartDate" maxlength="50" />
+                    到
+                    <input type="hidden" class="easyui-datetimebox" name="Cst_Plugin_EndDate" id="Cst_Plugin_EndDate" value="@ViewBag.Cst_Plugin_EndDate" maxlength="50" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>奖品抽完后是否设置为不再中奖：</td>
+                    <td>
+                        <input type="radio" name="Cst_Plugin_ZeroPrize" id="Cst_Plugin_ZeroPrize1"@Html.Raw((!string.IsNullOrEmpty(ViewBag.Cst_Plugin_ZeroPrize) && ViewBag.Cst_Plugin_ZeroPrize == "1") ? " checked=\"checked\"" : "") value="1" /><label for="Cst_Plugin_ZeroPrize1">是</label><input type="radio" name="Cst_Plugin_ZeroPrize"@Html.Raw((string.IsNullOrEmpty(ViewBag.Cst_Plugin_ZeroPrize) || ViewBag.Cst_Plugin_ZeroPrize == "0") ? " checked=\"checked\"" : "") id="Cst_Plugin_ZeroPrize2" value="0" /><label for="Cst_Plugin_ZeroPrize2">否</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>每人最多抽奖次数：</td>
+                    <td>
+                        <input type="text" name="Cst_Plugin_UseCount" id="Cst_Plugin_UseCount" value="@ViewBag.Cst_Plugin_UseCount" maxlength="50" class="float:left;ui-input-text ui-body-c ui-corner-all ui-shadow-inset" style="width:46%;float:left;height:27px;line-height:27px;margin-top:7px;border:1px solid #bdbdbd; font-size:14px;padding:0;" />
+                    <div style="float:left;height:27px;line-height:30px;margin-top:10px;font-size:14px;padding:0;" >
+                    <input type="checkbox" name="UseEveryDay" id="UseEveryDay" value="1"@((!string.IsNullOrEmpty(ViewBag.Cst_Plugin_UseEveryDay) && ViewBag.Cst_Plugin_UseEveryDay == "1") ? " checked=\"checked\"" : "") /><label for="UseEveryDay">每天</label></div>
+                    <input type="hidden" name="Cst_Plugin_UseEveryDay" id="Cst_Plugin_UseEveryDay" value="@ViewBag.Cst_Plugin_UseEveryDay" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>抽奖范围：</td>
+                    <td>
+                        <input type="radio" name="Cst_Plugin_UseRange" id="Cst_Plugin_UseRange1"@Html.Raw((!string.IsNullOrEmpty(ViewBag.Cst_Plugin_UseRange) && ViewBag.Cst_Plugin_UseRange == "1") ? " checked=\"checked\"" : "") value="1" /><label for="Cst_Plugin_UseRange1">福农宝客户</label>
+                        <input type="radio" name="Cst_Plugin_UseRange"@Html.Raw((string.IsNullOrEmpty(ViewBag.Cst_Plugin_UseRange) || ViewBag.Cst_Plugin_UseRange == "0") ? " checked=\"checked\"" : "") id="Cst_Plugin_UseRange2" value="0" /><label for="Cst_Plugin_UseRange2">本站关注会员</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>兑奖信息说明：</td>
+                    <td>
+                        <textarea style="width: 100%; height: 200px;display:none;" name="Cst_Plugin_PrizeInfo" id="Cst_Plugin_PrizeInfo" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset;">@ViewBag.Cst_Plugin_PrizeInfo</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>活动说明：</td>
+                    <td>
+                        <textarea style="width: 100%; height: 200px;display:none;" name="Cst_Plugin_Info" id="Cst_Plugin_Info" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset;">@ViewBag.Cst_Plugin_Info</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>重复抽奖回复：</td>
+                    <td>
+                        <textarea maxlength="1000" style="width: 96%; height: 90px;" name="Cst_Plugin_MultiLottery" id="Cst_Plugin_MultiLottery" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">@StringHelper.ToTextCode(ViewBag.Cst_Plugin_MultiLottery ?? "")</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>结束主题名称：</td>
+                    <td>
+                        <input type="text" name="Cst_Plugin_OverTitle" id="Cst_Plugin_OverTitle" value="@ViewBag.Cst_Plugin_OverTitle" maxlength="50" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" style="width:96%;float:left;height:27px;line-height:27px;margin-top:7px;border:1px solid #bdbdbd; font-size:14px;padding:0;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>结束说明：</td>
+                    <td>
+                        <textarea style="width: 100%; height: 200px;display:none;" name="Cst_Plugin_OverInfo" id="Cst_Plugin_OverInfo" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset;">@ViewBag.Cst_Plugin_OverInfo</textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div title="奖项设置" style="padding:10px">
+            <div class="easyui-panel" style="width:660px;" title="注意事项" >
+                <div class="text_middle_yl" style="padding:6px;font-size:12px;color:Red;line-height:16px;">
+                    @*1.奖项中角度填写，请参照“显示设置”选择卡中的效果图，每个奖标注的角度为对应的中奖角度<br />
+                    2.其中，奖项总数，为你所设计摇奖图片的奖项数[包括未中奖项]，所设置数量必须为360的倍数。奖项设置只需设置有奖的项即可，注意角度设置，
+                    如果不懂得设计，直接使用默认，总数12项，6个中奖奖项，其余6项不中奖项系统会自动平切分配机率<br />*@
+                    概率值和不能超过100%，概率值越小，则抽奖的范围越大，抽奖范围为设置的最小概率值，如0.02%的抽奖范为为：[1/0.01%=10000，即从1-10000中随机取值]，中奖机率值[10000*0.02%=2,即随机取值为<=2则为中该奖]
+                </div>
+            </div>
+            <div class="easyui-panel" style="width:660px;" title="奖项详细" >
+                <table style="width:100%;" cellpadding="0" cellspacing="0" class="js_list">
+                        <tr>
+                            <td style="width:15%;">奖项总数：</td>
+                            <td style="width:35%;"><input type="text" name="Cst_Plugin_PrizeCount" id="Cst_Plugin_PrizeCount" value="@(ViewBag.Cst_Plugin_PrizeCount ?? "12")"  /></td>
+                            <td style="width:15%;"></td>
+                            <td style="width:35%;"></td>
+                        </tr>
+                </table>
+               <div class="js_set" id="prize_items" style="clear:both;">
+               <input type="hidden" name="Cst_Plugin_Items_Count" id="Cst_Plugin_Items_Count" value="@(ViewBag.Cst_Plugin_Items_Count ?? "1")" />
+               <div class="easyui-window" closed="true" title="插件设置" id="uwin" data-options="iconCls:'icon-save'" style="width: 400px; height:400px;overflow-y:auto;">
+			        <div class="tc_box" id="UserBox" ></div>
+		        </div>
+                   <table style="width:100%; border:solid 1px #ccc;" cellpadding="0" cellspacing="0" id="PrizeName0" class="js_list">
+                        <tr>
+                            <td style="width:20%;"><label>一等奖奖品：</label></td>
+                            <td style="width:30%;"><input type="text" name="Cst_Plugin_Items_PrizeName0" id="Cst_Plugin_Items_PrizeName0" value="@ViewBag.Cst_Plugin_Items_PrizeName0" /></td>
+                            <td style="width:10%;"><label>一等奖别名：</label></td>
+                            <td style="width:30%;"><input type="text" name="Cst_Plugin_Items_PrizeAliasName0" id="Cst_Plugin_Items_PrizeAliasName0" value="@ViewBag.Cst_Plugin_Items_PrizeAliasName0" /></td>
+                            <td style="width:10%;"><div><input type="checkbox" name="Cst_Plugin_Items_Has_Gift0" id="Cst_Plugin_Items_Has_Gift0" value="1"@((!string.IsNullOrEmpty(ViewBag.Cst_Plugin_Items_Has_Gift0) && ViewBag.Cst_Plugin_Items_Has_Gift0 == "1") ? " checked=\"checked\"" : "") /><label for="Cst_Plugin_Items_Has_Gift0">是否奖品</label></div></td>
+                        </tr>
+                        <tr>
+                            <td><label>一等奖奖品数量：</label></td>
+                            <td><input type="text" class="PrizeNumCss" name="Cst_Plugin_Items_PrizeNum0" id="Cst_Plugin_Items_PrizeNum0" value="@ViewBag.Cst_Plugin_Items_PrizeNum0" onblur="PrizeUsedNum(this);" /></td>
+                            <td><label>一等奖中奖概率：</label></td>
+                            <td><input type="text" class="PrizePercentCss" name="Cst_Plugin_Items_PrizePercent0" id="Cst_Plugin_Items_PrizePercent0" value="@ViewBag.Cst_Plugin_Items_PrizePercent0" />%</td>
+                        </tr>
+                        <tr>
+                            <td><label>一等奖中奖角度：</label></td>
+                            <td><input type="text" class="PrizeAngleCss" name="Cst_Plugin_Items_PrizeAngle0" id="Cst_Plugin_Items_PrizeAngle0" value="@ViewBag.Cst_Plugin_Items_PrizeAngle0" /></td>
+                            <td><label>设置中奖者：</label></td>
+                            <td><input type="text" readonly="readonly" name="Cst_Plugin_Items_SiteUsersName0" id="Cst_Plugin_Items_SiteUsersName0" value="@ViewBag.Cst_Plugin_Items_SiteUsersName0" /><span class="sel_btn" onclick="getSiteUser('',0);"><a href="javascript:void(0);">选择</a></span>
+                            <input type="hidden" name="Cst_Plugin_Items_SiteUsers0" id="Cst_Plugin_Items_SiteUsers0" value="@(ViewBag.Cst_Plugin_Items_SiteUsers0)" />
+                            </td>
+                        </tr>
+                   </table>
+               @if (ViewBag.Cst_Plugin_Items_PrizeUsedNum0 != null)
+               {
+                <input type="hidden" name="Cst_Plugin_Items_PrizeUsedNum0" id="Cst_Plugin_Items_PrizeUsedNum0" value="@(ViewBag.Cst_Plugin_Items_PrizeUsedNum0)" />
+               }
+               @if (itemCount > 1)
+               {
+                   for (int i = 1; i < itemCount; i++)
+                   {
+                       <table style="width:100%; border:solid 1px #ccc;margin-top:6px;" cellpadding="0" cellspacing="0" onclick="checkedPrize(this);" prizeIndex="@(i.ToString())" id="PrizeName@(i.ToString())" class="js_list">
+                        <tr>
+                            <td style="width:20%;"><label>@(prizeItems[i])等奖奖品：</label></td>
+                            <td style="width:30%;"><input type="text" name="Cst_Plugin_Items_PrizeName@(i)" id="Cst_Plugin_Items_PrizeName@(i)" value="@ViewData.GetString("Cst_Plugin_Items_PrizeName" + (i))" /></td>
+                            <td style="width:10%;"><label>@(prizeItems[i])等奖别名：</label></td>
+                            <td style="width:30%;"><input type="text" name="Cst_Plugin_Items_PrizeAliasName@(i)" id="Cst_Plugin_Items_PrizeAliasName@(i)" value="@ViewData.GetString("Cst_Plugin_Items_PrizeAliasName" + (i))" /></td>
+                            <td style="width:10%;"><div style="float:left;height:27px;line-height:30px;margin-top:10px;font-size:14px;padding:0;" ><input type="checkbox" name="Cst_Plugin_Items_Has_Gift@(i)" id="Cst_Plugin_Items_Has_Gift@(i)" value="1"@((!string.IsNullOrEmpty(ViewData.GetString("Cst_Plugin_Items_Has_Gift" + (i))) && ViewData.GetString("Cst_Plugin_Items_Has_Gift" + (i)) == "1") ? " checked=\"checked\"" : "")/><label for="Cst_Plugin_Items_Has_Gift@(i)">是否奖品</label></div></td>
+                        </tr>
+                        <tr>
+                            <td><label>@(prizeItems[i])等奖奖品数量：</label></td>
+                            <td><input type="text" class="PrizeNumCss" name="Cst_Plugin_Items_PrizeNum@(i)" id="Cst_Plugin_Items_PrizeNum@(i)" value="@ViewData.GetString("Cst_Plugin_Items_PrizeNum" + (i))" onblur="PrizeUsedNum(this);" /></td>
+                            <td><label>@(prizeItems[i])等奖中奖概率：</label></td>
+                            <td><input type="text" class="PrizePercentCss" name="Cst_Plugin_Items_PrizePercent@(i)" id="Cst_Plugin_Items_PrizePercent@(i)" value="@ViewData.GetString("Cst_Plugin_Items_PrizePercent" + (i))" />%</td>
+                        </tr>
+                        <tr>
+                            <td><label>@(prizeItems[i])等奖中奖角度：</label></td>
+                            <td><input type="text" class="PrizeAngleCss" name="Cst_Plugin_Items_PrizeAngle@(i)" id="Cst_Plugin_Items_PrizeAngle@(i)" value="@ViewData.GetString("Cst_Plugin_Items_PrizeAngle" + (i))" /></td>
+                            <td><label>设置中奖者：</label></td>
+                            <td><input type="text" readonly="readonly" name="Cst_Plugin_Items_SiteUsersName@(i)" id="Cst_Plugin_Items_SiteUsersName@(i)" value="@ViewData.GetString("Cst_Plugin_Items_SiteUsersName" + (i))" /><span class="sel_btn" onclick="getSiteUser('',@(i));"><a href="javascript:void(0);">选择</a>
+                            <input type="hidden" name="Cst_Plugin_Items_SiteUsers@(i)" id="Cst_Plugin_Items_SiteUsers@(i)" value="@ViewData.GetString("Cst_Plugin_Items_SiteUsers" + (i))" />
+                            @if (ViewData["Cst_Plugin_Items_PrizeUsedNum" + (i)] != null)
+                           {
+                            <input type="hidden" name="Cst_Plugin_Items_PrizeUsedNum@(i)" id="Cst_Plugin_Items_PrizeUsedNum@(i)" value="@ViewData.GetString("Cst_Plugin_Items_PrizeUsedNum" + (i))" />
+                           }
+                            </td>
+                        </tr>
+                   </table>
+                   }
+               }
+            </div>
+                <div class="add_btn"><a href="javascript:void(0);" onclick="addPrize();">+ 增加奖项</a>&nbsp;<a href="javascript:void(0);" onclick="delPrize();">- 删除奖项</a></div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="messager-button"><a href="javascript:void(0)" class="l-btn" group="" id="" style="margin-left: 10px;"><span class="l-btn-left"><span class="l-btn-text" onclick="return preSubmit();">确定</span></span></a></div>
+ </form>
+}

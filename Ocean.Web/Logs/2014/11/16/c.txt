@@ -1,0 +1,114 @@
+2014-11-16 16:34:10,257 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-16 16:34:10,257 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-16 16:36:39,038 [17] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-16 16:36:39,038 [17] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-16 16:37:32,600 [8] DEBUG 对象名 'PluginSceneResult' 无效。===detail===> [(null)] - System.Data.SqlClient.SqlException (0x80131904): 对象名 'PluginSceneResult' 无效。
+
+Server stack trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__23()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass24`1.<ExecuteStoreQueryReliably>b__22()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<ExecuteSqlQuery>b__d()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Ocean.Services.ServiceBase`1.GetList(String sql, Dictionary`2 parms) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 523
+   at Ocean.Services.ServiceBase`1.GetList(String sql) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 516
+   at Ocean.Web.Controllers.PluginsSceneController.PluginsLottery(Guid Id) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsSceneController.cs:line 258
+2014-11-16 16:38:42,897 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-16 16:38:42,897 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-16 16:39:09,257 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-16 16:39:09,257 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-16 16:43:35,678 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-16 16:43:35,678 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-16 16:43:57,850 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-16 16:43:57,850 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/PluginsScene/SceneLottery.cshtml' was not found.
+2014-11-16 16:44:44,116 [17] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-16 16:44:44,116 [17] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-16 16:44:44,741 [17] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-16 16:44:44,741 [17] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-16 16:44:51,616 [8] ERROR OceanLog [(null)] - A public action method 'PluginScratch' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-16 16:44:51,616 [8] ERROR OceanLog [(null)] - A public action method 'PluginScratch' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-16 16:44:53,288 [4] ERROR OceanLog [(null)] - A public action method 'PluginScratch' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-16 16:44:53,288 [4] ERROR OceanLog [(null)] - A public action method 'PluginScratch' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-16 16:44:54,585 [17] ERROR OceanLog [(null)] - A public action method 'PluginScratch' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-16 16:44:54,585 [17] ERROR OceanLog [(null)] - A public action method 'PluginScratch' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-16 16:44:55,616 [9] ERROR OceanLog [(null)] - A public action method 'PluginScratch' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-16 16:44:55,616 [9] ERROR OceanLog [(null)] - A public action method 'PluginScratch' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-16 16:45:12,569 [17] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-16 16:45:12,569 [17] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-16 16:45:15,397 [13] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-16 16:45:15,397 [13] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-16 16:45:52,632 [17] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-16 16:45:52,632 [17] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-16 16:47:48,428 [9] DEBUG OceanLog [(null)] - OPenid:
+2014-11-16 16:47:48,428 [9] DEBUG OceanLog [(null)] - OPenid:
+2014-11-16 16:47:48,788 [17] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-11-16 16:47:48,788 [17] DEBUG OceanLog [(null)] - oAuth:oy4Pvjlwhr45GPU8M-gMfniSBZOw
+2014-11-16 17:01:54,397 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-16 17:01:54,397 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-17 01:05:09,022 [4] DEBUG OceanLog [(null)] - 执行任务！2014-11-17 1:05:09
+2014-11-17 01:05:09,022 [4] DEBUG OceanLog [(null)] - 执行任务！2014-11-17 1:05:09
+2014-11-17 01:05:09,085 [4] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141117ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141117ocean.bak' with INIT
+2014-11-17 01:05:09,085 [4] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141117ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141117ocean.bak' with INIT
+2014-11-17 08:22:20,725 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-17 08:22:20,725 [9] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

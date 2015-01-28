@@ -1,0 +1,143 @@
+﻿@{
+    Layout = "../Shared/_MenuLayout.cshtml";
+}
+
+<script type="text/javascript" src="@Url.Content("~/Content/javascripts/jquery/jquery.pagination.js")"></script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bank/css/pagination.css")" />
+<script type="text/javascript">
+    function viewDetail(id) {
+        window.location = '/BaoXian/viewDetail?Id=' + id + "&isedit=1";
+    }
+    function pageselectCallback(page_index, jq) {
+        // Get number of elements per pagionation page from form
+        var items_per_page = $('#items_per_page').val();
+        var max_elem = Math.min((page_index + 1) * items_per_page, members.length);
+        var newcontent = '';
+        var newcontent = '<table cellspacing="1" class="table-striped" ID="DataGrid1"><tr><td>序号</td><td>车牌号码</td><td>所有者</td></tr>';
+        // Iterate through a selection of the content and build an HTML string
+        for (var i = page_index * items_per_page; i < max_elem; i++) {
+            newcontent += '<tr onClick="viewDetail(' + "'"+ members[i]['Id'] + "'"+ ')">';
+            newcontent += '<td>' + i + '</td>';
+            newcontent += '<td>' + members[i]['PlateNo'] + '</td>';
+            newcontent += '<td>'+ members[i]['Owner'] + '</td></tr>';
+        }
+        newcontent += '</table>';
+        // Replace old content with new content
+        $('#Searchresult').html(newcontent);
+
+        // Prevent click eventpropagation
+        return false;
+    }
+    var members;
+    function getOptionsFromForm() {
+        var opt = { callback: pageselectCallback };
+        // Collect options from the text fields - the fields are named like their option counterparts
+        $("input:text").each(function () {
+            opt[this.name] = this.className.match(/numeric/) ? parseInt(this.value) : this.value;
+        });
+        // Avoid html injections in this demo
+        var htmlspecialchars = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }
+        $.each(htmlspecialchars, function (k, v) {
+            opt.prev_text = opt.prev_text.replace(k, v);
+            opt.next_text = opt.next_text.replace(k, v);
+        })
+        return opt;
+    }
+// When document has loaded, initialize pagination and form
+    $(document).ready(function () {
+        // Create pagination element with options from form
+        members = @Html.Raw(Json.Encode(Model));// '@ViewBag.VehicleList';
+//        alert(members.length);
+//        alert(members[0]['PlateNo']);
+        var optInit = getOptionsFromForm();
+        $("#Pagination").pagination(members.length, optInit);
+
+        // Event Handler for for button
+        $("#setoptions").click(function () {
+            var opt = getOptionsFromForm();
+            // Re-create pagination content with new parameters
+            $("#Pagination").pagination(members.length, opt);
+        });
+
+    });
+
+    function submitForm() {
+            $.ajax({
+                type: 'post',
+                url: '/VehicleLicense/_VehicleLicenseList?t=' + Math.random(),
+                data: $("#searchVehicle").serialize(),
+                cache: false,
+	                            dataType: "json",
+                success: function (json) {
+                    members = json.rows;
+                    var optInit = getOptionsFromForm();
+                    $("#Pagination").pagination(members.length, optInit);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+	                                lotterying = false;
+	                                alert(XMLHttpRequest.status);
+	                                alert(XMLHttpRequest.readyState);
+	                                alert(textStatus);
+	                                alert(errorThrown);
+	                            }
+            });
+    }
+</script>
+<style type="text/css">
+            #Searchresult { margin-top:25px; margin-bottom:0px; border:solid 1px #eef;  padding-top:10px; width:100%; }
+            .table-striped{font-size:20px; width:100%;margin-left:auto;margin-right:10px;}
+            .table-striped td:nth-child(2){width:45%;}
+            .table-striped td:nth-child(3){width:45%;}
+            .table-striped tbody tr:nth-child(odd) td,
+                .table-striped tbody tr:nth-child(odd) th {
+                background-color: #d4e3e5;
+            }
+            .table-striped tbody tr:nth-child(even) td,
+            .table-striped tbody tr:nth-child(even) th {
+                background-color: #c3dde0;
+            }
+            .table-striped tbody tr:nth-child(1) td,
+            .table-striped tbody tr:nth-child(1) th {
+                background-color: grey;
+            }
+</style>
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">产品介绍</span>
+      </div>
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+            <form action="" id="searchVehicle" method="post" style="margin: 0px; padding: 0px; display: block;">
+              <div class="jjtxt" style = "TEXT-ALIGN: center;">
+                <div id="Pagination" class="pagination">
+                </div>
+                <dl id="Searchresult" clss = "Detail">
+                    <dt>Search Results will be inserted here ...</dt>
+                </dl>
+                <ul class="fnb_list">
+                    <li class="line">
+                    <b>车牌号码：</b>
+                    <p class="je"><input class="txtinput" id="PlateNo" name="PlateNo" type="text" placeholder="请输入车牌号码" autocomplete="on" style="width:120px;" /></p>
+                    </li>
+                    <li class="line">
+                    <b>所有者：</b>
+                    <p class="je"><input class="txtinput" id="Owner" name="Owner" type="text" placeholder="请输入车牌所有者" autocomplete="on" style="width:120px;" /></p>
+                    </li>
+                </ul>
+                <div class="btnLoginBox">
+                    <a class="modBtnColor coloryellow"  onclick="submitForm();">查找行驶证</a>
+                    <a class="modBtnColor coloryellow" href="/VehicleLicense/ViewDetail">新增行驶证</a>
+                 </div>
+              </div> 
+             </form> 
+          </section>
+      </div>
+      <form name="paginationoptions" style="display:none;">
+            <p><label for="items_per_page">Number of items per page</label><input type="text" value="5" name="items_per_page" id="items_per_page" class="numeric"/></p>
+            <p><label for="num_display_entries">Number of pagination links shown</label><input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/></p>
+            <p><label for="num">Number of start and end points</label><input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/></p>
+            <p><label for="prev_text">"Previous" label</label><input type="text" value="Prev" name="prev_text" id="prev_text"/></p>
+            <p><label for="next_text">"Next" label</label><input type="text" value="Next" name="next_text" id="next_text"/></p>
+            <input type="button" id="setoptions" value="Set options" />
+       </form>
+</div>

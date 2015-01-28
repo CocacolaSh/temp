@@ -1,0 +1,32 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_PosLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"];
+}
+@model Pos
+@section Head{
+    <script type="text/javascript">
+        
+    </script>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">POS查询</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+            <section class="modBaseBox">
+                 <div class="modBd">
+                     <div class="bteBox" style="padding-top:10px;">
+                		 <span class="btebxo">
+                                 <p style="text-indent:24px;">尊敬的<span style="color:Red;float:none;">@(ViewBag.Name)</span>客户，暂时没有查询到您的POS业务信息。请您再次核对相关信息，或者通过“POS申请”、客服热线4000896336或我行网点申请办理。</p>
+                         </span>
+                	  </div>           
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="POS申请" onclick="location.href='posapply';" id="posBtn" />
+                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />
+                      </div>
+                 </div>
+             </section>
+        </div>
+</div>

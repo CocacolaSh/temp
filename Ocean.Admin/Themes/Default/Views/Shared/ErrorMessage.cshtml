@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_ErrorLayout.cshtml";
+    ViewBag.Title = "错误信息";
+}
+@model HandleErrorInfo
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">错误提示</span>
+      </div>
+
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+              <form action="" id="mobileRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <input type="hidden" name="sendURL" id="sendURL" value="">
+                  <div class="modBd">
+                      <div class="bteBox">
+                		 <span class="tbpic"><img src="@Url.Content("~/Content/bank/images/error_ico.png")" /></span>
+                         <span class="txt">@ViewBag.Description</span>
+                	  </div>                      
+                      <div class="btnLoginBox">
+                          <input type="submit" class="modBtnColor coloryellow" value="返回">
+                      </div>
+                  </div>
+              </form> 
+          </section>
+      </div>
+</div>

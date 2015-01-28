@@ -1,0 +1,62 @@
+2014-11-30 14:36:34,640 [11] ERROR OceanLog [(null)] - The path is not of a legal form.
+2014-11-30 14:36:34,640 [11] ERROR OceanLog [(null)] - The path is not of a legal form.
+by Ocean2014-11-30 16:20:43,640 [5] DEBUG OceanLog [(null)] - 对不起，不存在该插件或未开通，请检查！=========end
+2014-11-30 16:20:43,640 [5] DEBUG OceanLog [(null)] - 对不起，不存在该插件或未开通，请检查！=========end
+2014-11-30 16:20:43,734 [5] DEBUG 对不起，不存在该插件或未开通，请检查！===detail===> [(null)] - Ocean.Core.OceanException: 对不起，不存在该插件或未开通，请检查！
+   at Ocean.Web.Controllers.ScoreSysController.Index() in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 71
+2014-11-30 16:20:46,093 [8] DEBUG OceanLog [(null)] - 对不起，不存在该插件或未开通，请检查！=========end
+2014-11-30 16:20:46,093 [8] DEBUG OceanLog [(null)] - 对不起，不存在该插件或未开通，请检查！=========end
+2014-11-30 16:20:46,093 [8] DEBUG 对不起，不存在该插件或未开通，请检查！===detail===> [(null)] - Ocean.Core.OceanException: 对不起，不存在该插件或未开通，请检查！
+   at Ocean.Web.Controllers.ScoreSysController.Index() in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 71
+2014-11-30 16:20:50,640 [12] DEBUG OceanLog [(null)] - 对不起，不存在该插件或未开通，请检查！=========end
+2014-11-30 16:20:50,640 [12] DEBUG OceanLog [(null)] - 对不起，不存在该插件或未开通，请检查！=========end
+2014-11-30 16:20:50,640 [12] DEBUG 对不起，不存在该插件或未开通，请检查！===detail===> [(null)] - Ocean.Core.OceanException: 对不起，不存在该插件或未开通，请检查！
+   at Ocean.Web.Controllers.ScoreSysController.Index() in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 71
+2014-11-30 16:21:48,687 [15] DEBUG OceanLog [(null)] - 对不起，不存在该插件或未开通，请检查！=========end
+2014-11-30 16:21:48,687 [15] DEBUG OceanLog [(null)] - 对不起，不存在该插件或未开通，请检查！=========end
+2014-11-30 16:21:48,765 [15] DEBUG 对不起，不存在该插件或未开通，请检查！===detail===> [(null)] - Ocean.Core.OceanException: 对不起，不存在该插件或未开通，请检查！
+   at Ocean.Web.Controllers.ScoreSysController.Index() in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 71
+2014-11-30 16:21:49,531 [17] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-30 16:21:49,531 [17] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-30 16:23:30,312 [10] DEBUG Root element is missing.===detail===> [(null)] - System.Xml.XmlException: Root element is missing.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlLoader.Load(XmlDocument doc, XmlReader reader, Boolean preserveWhitespace)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at Ocean.Web.Controllers.ScoreSysController.Index() in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 75
+2014-11-30 16:29:23,859 [10] DEBUG Cannot implicitly convert type 'string' to 'int'===detail===> [(null)] - Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot implicitly convert type 'string' to 'int'
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at Ocean.Web.Controllers.ScoreSysController.Index() in E:\微信\ocean7.18\Ocean.Web\Controllers\ScoreSysController.cs:line 96
+2014-11-30 16:32:37,218 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-30 16:32:37,218 [12] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-30 16:32:57,546 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-30 16:32:57,546 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-30 16:46:59,218 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-30 16:46:59,218 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-30 17:04:57,265 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-30 17:04:57,265 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-30 17:06:11,359 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-30 17:06:11,359 [11] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-11-30 17:08:32,906 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-30 17:08:32,906 [13] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-01 01:08:30,765 [13] DEBUG OceanLog [(null)] - 执行任务！2014-12-1 1:08:30
+2014-12-01 01:08:30,765 [13] DEBUG OceanLog [(null)] - 执行任务！2014-12-1 1:08:30
+2014-12-01 01:08:30,859 [13] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141201ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141201ocean.bak' with INIT
+2014-12-01 01:08:30,859 [13] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141201ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141201ocean.bak' with INIT
+2014-12-02 01:08:31,531 [5] DEBUG OceanLog [(null)] - 执行任务！2014-12-2 1:08:31
+2014-12-02 01:08:31,531 [5] DEBUG OceanLog [(null)] - 执行任务！2014-12-2 1:08:31
+2014-12-02 01:08:31,765 [5] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141202ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141202ocean.bak' with INIT
+2014-12-02 01:08:31,765 [5] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141202ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141202ocean.bak' with INIT
+by Ocean

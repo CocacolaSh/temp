@@ -1,0 +1,314 @@
+﻿/*
+body
+{
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	background-color: Window;
+	font-family: sans-serif, Verdana,arial,微软雅黑, 宋体, SimSun;
+	font-size: 12px;
+}
+
+a:link
+{
+	color: #0000FF;
+	text-decoration: none;
+}
+a:visited
+{
+	color: #0000FF;
+	text-decoration: none;
+}
+a:active
+{
+	color: #0000FF;
+}
+*/
+img
+{
+	border: none;
+}
+
+.tb td
+{
+	padding: 3px;
+}
+h3
+{
+	font-weight: bold;
+	font-size: 14px;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.main
+{
+	background-color: #FFFFFF;
+	margin: 1px;
+	padding: 1px;
+}
+
+/*提示*/
+.tip
+{
+	background-color: #FFF;
+	text-align: left;
+	padding: 3px;
+	line-height: 21px;
+}
+
+/*通用表格样式*/
+.tb
+{
+	border: 0px;
+	width: 99%;
+	margin-top: 3px;
+	margin-right: auto;
+	margin-bottom: 3px;
+	margin-left: auto;
+	background-color: #81B3EC;
+	border-collapse: separate;
+	border-spacing: 1px;
+}
+/*数据分组标题*/
+.data-caption
+{
+	background-color: #DFE8F6;
+	text-align: left;
+	line-height: 23px;
+	padding-left: 8px;
+	font-size: 12px;
+}
+/*查看页、编辑页按钮区*/
+.data-buttons
+{
+	background-color: #DFE8F6;
+	text-align: center;
+	padding-left: 3px;
+	line-height: 25px;
+}
+/*数据标签*/
+.data-label
+{
+	background-color: White;
+	text-align: right;
+	line-height: 16px;
+}
+/*数据内容*/
+.data-field
+{
+	background-color: White;
+	text-align: left;
+	line-height: 16px;
+}
+
+/*按钮*/
+.btn
+{
+	cursor: hand;
+	line-height: 23px;
+	height: 23px;
+	width: 77px;
+	color: #234f8d;
+	background:url(button77.gif);
+	text-decoration: none;
+	border: 0px;
+	margin-top: 3px;
+	margin-bottom:3px;
+}
+
+/*编辑表单样式*/
+.edit-view
+{
+	border: 0px;
+	width: 99%;
+	margin-top: 3px;
+	margin-right: auto;
+	margin-bottom: 3px;
+	margin-left: auto;
+	background-color: #81B3EC;
+	border-collapse: separate;
+	border-spacing: 1px;
+}
+/*查看表单样式*/
+.detail-view
+{
+	border: 0px;
+	width: 99%;
+	margin-top: 3px;
+	margin-right: auto;
+	margin-bottom: 3px;
+	margin-left: auto;
+	background-color: #81B3EC;
+	border-collapse: separate;
+	border-spacing: 1px;
+}
+/*搜索表单样式*/
+.search-view
+{
+	border: 0px;
+	width: 99%;
+	margin-top: 3px;
+	margin-right: auto;
+	margin-bottom: 3px;
+	margin-left: auto;
+	background-color: #81B3EC;
+	border-collapse: separate;
+	border-spacing: 1px;
+}
+
+/*列表视图*/
+.list-view
+{
+	border: 0px;
+	width: 99%;
+	margin-top: 3px;
+	margin-right: auto;
+	margin-bottom: 3px;
+	margin-left: auto;
+	background-color: #81B3EC;
+}
+
+.list-title
+{
+	background-color: #DFE8F6;
+	height: 25px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+/*关联对象子列表*/
+.list-view-sub
+{
+	border: 0px;
+	width: 99%;
+	margin-top: 3px;
+	margin-right: auto;
+    margin-bottom : 3px;
+	margin-left: auto;
+	background-color: #81B3EC;
+}
+
+/*通用修饰样式*/
+/*宽度*/
+.w200px
+{
+	width: 200px;
+}
+.w150px
+{
+	width: 150px;
+}
+.w100px
+{
+	width: 100px;
+}
+.w80px
+{
+	width: 80px;
+}
+.w90p
+{
+	width: 90%;
+}
+.w50p
+{
+	width: 50%;
+}
+.w100p
+{
+	width: 100%;
+}
+/*高度*/
+.h130px
+{
+	height: 130px;
+}
+/*外补丁*/
+.margin5px
+{
+	margin: 5px;
+}
+/*内补丁*/
+.padding5px
+{
+	padding: 5px;
+}
+/*颜色*/
+.c-red
+{
+	color: Red;
+}
+/*文字偏移*/
+/*居中*/
+.algin-center
+{
+	text-align: center;
+}
+/*居左*/
+.algin-left
+{
+	text-align: left;
+}
+/*居右*/
+.algin-right
+{
+	text-align: right;
+}
+/*列表页按钮栏*/
+.buttons-bar
+{
+	border: 1px solid #81B3EC;
+	background-color: #DFE8F6;
+	width: 99%;
+	margin-top: 3px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	text-indent: 6px;
+	line-height: 25px;
+	text-align: left;
+}
+
+/*分页控件区域样式*/
+.pager-bar
+{
+	border: 1px solid #81B3EC;
+	background-color: #DFE8F6;
+	width: 99%;
+	margin-top: 3px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	text-indent: 6px;
+	line-height: 25px;
+	text-align: left;
+}
+/*分页控件样式*/
+.anpager
+{
+	text-indent: 3px;
+}
+.anpager .cpb
+{
+	background: #1F3A87 none repeat scroll 0 0;
+	border: solid 1px #CCCCCC;
+	color: #FFFFFF;
+	font-size: 12px;
+}
+.anpager a
+{
+	background: #FFFFFF none repeat scroll 0 0;
+	border: solid 1px #CCCCCC;
+	color: #1F3A87;
+	margin: 3px;
+	padding: 3px;
+	text-decoration: none;
+}
+.anpager a:hover
+{
+	background: #1F3A87 none repeat scroll 0 0;
+	border: solid 1px #1F3A87;
+	color: #FFFFFF;
+}

@@ -1,0 +1,176 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    Layout = "../Shared/_MyBusinessLayout.cshtml";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["ResourceDomain"];
+}
+@model OceanDynamicList<object>
+@section Head{
+    <style type="text/css">
+        .fnb_list li b{width:140px;margin-left:32px;}
+        .fnb_list li{padding:0px;line-height:20px;}
+        /*--------------------表格样式------------------------*/
+        .mappContainer1 dl{border:solid 1px #ccc;  overflow:hidden; margin: 0 10px; background: #fff;}
+        .mappContainer1 dl dt{width:30%; text-align:center; line-height:30px;}
+        .mappContainer1 dl dd{width: 70%; line-height:30px;}
+        .mappContainer1 dl dt {float:left; line-height:40px; border-bottom:solid 1px #ccc; -webkit-box-sizing: border-box;}
+        .mappContainer1 dl dt:last-child {border: none;}
+        .mappContainer1 dl dd {float:left; line-height:40px; text-align: left; padding-right: 10px; color: #666; border-bottom:solid 1px #ccc; -webkit-box-sizing: border-box;}
+        .mappContainer1 .bz {line-height:60px;}
+        .mappContainer1 .btn_box{ width: 100%; display: block;height:auto;border-bottom:solid 1px #999; }
+        .mappContainer1 .btn_box .btn{line-height: 40px; color:#FFF; margin: 10px; display: block; -webkit-box-shadow: 0px 1px 3px #BABABA; box-shadow: 0px 1px 3px #BABABA; background:-moz-linear-gradient(#00c3cf,#00b1bb); background: -webkit-gradient(linear,0 0,0 100%,from(#00c3cf),to(#00b1bb));}
+        .mappContainer1 .btn_box .btn:hover{background:-moz-linear-gradient(#00b1bb,#00c3cf); background: -webkit-gradient(linear,0 0,0 100%,from(#00b1bb),to(#00c3cf));}
+        .mappContainer1 input{ width:100%; font-size:14px;height:30px; margin: 4px 0; vertical-align:middle; border: 1px solid #999;}
+        .mappContainer1 select{width:100%; height:32px; margin: 4px 0; border: 1px solid #999;}
+        .mappContainer1 textarea{width:100%;height:50px; margin: 4px 0; border: 1px solid #999; resize: none; vertical-align:middle;}
+        .mappContainer1 p{ font-size:16px; color:#666; padding:10px; text-indent: 10px; text-align:left;}
+        .mappContainer1 .table-c {margin: 0 6px;}
+        .mappContainer1 .table-c table{border-right:1px solid #ccc;border-bottom:1px solid #ccc; background:#FFF;}
+        .mappContainer1 .table-c table td{border-left:1px solid #ccc;border-top:1px solid #ccc; height:30px;text-align:center;cursor:pointer;}
+        .mappContainer1 .table-c table a{ color:#000;}
+    </style>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">业务列表</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+                  <div class="modBd">
+                      <ul class="btts" style="padding-bottom:0px;">
+                          <span>您在我行办理的业务情况如下:@*尊敬的<em>@(ViewBag.Name)</em>@(ViewBag.Sex)，您好！*@</span>
+                          <li>
+                          </li>
+                       </ul>   
+                           
+    @if (Model != null && Model.Count > 0)
+    {
+                      <div class="mappContainer1" style="padding-top: 6px;">
+@*                        <p>按日期排序</p>*@
+                        <div class="table-c">    
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td>
+                                日期
+                              </td>
+                              <td>
+                                业务
+                              </td>
+                              <td>
+                                状态
+                              </td>
+                            </tr>
+                          @foreach (dynamic biz in Model)
+                          {
+                            <tr onclick="business(@biz.ApplyType,'@biz.Id');">
+                              <td>
+                                @(Ocean.Core.Utility.TypeConverter.StrToDateTime(biz.CreateDate.ToString()).ToString("yyMMdd"))
+                              </td>
+                              <td>
+                                @{
+                              if (biz.ApplyType == 1)
+                              { 
+                                  <text>
+                                  福农宝调额<br />
+                                  申请额度：@biz.ApplyLimit ,费率：@biz.ApplyRates
+                                  </text>
+                              }
+                              else if (biz.ApplyType == 2)
+                              {
+                                  <text>
+                                  贷款申请<br />
+                                  申请金额：@biz.ApplyLimit 万
+                                  </text>
+                              }
+                              else
+                              {
+                                  <text>
+                                  POS申请<br />
+                                  商户名称：@biz.VendorName
+                                  </text>
+                              }  
+                                  }
+                              </td>
+                              <td>
+                                @if (biz.ApplyType == 1)
+                                {
+                                    if (biz.ProcessStatus == 0)
+                                    {
+                                        @:未审核
+                                    }
+                                    else if (biz.ProcessStatus == 1)
+                                    {
+                                      @:通过
+                                  }
+                                    else if (biz.ProcessStatus == 2)
+                                    {
+                                      @:未通过
+                                  }
+                                    else
+                                    {
+                                      @:建议额度
+                                  }
+                                }
+                                else if (biz.ApplyType == 2)
+                                {
+                                    if (biz.ProcessStatus == 0)
+                                    {
+                                    @:未审核
+                                  }
+                                    else if (biz.ProcessStatus == 1)
+                                    {
+                                      @:通过
+                                  }
+                                    else if (biz.ProcessStatus == 2)
+                                    {
+                                      @:未通过
+                                  }
+                                    else
+                                    {
+                                      @:受理中
+                                  }
+                                }
+                                else
+                                {
+                                    if (biz.ProcessStatus == 0)
+                                    {
+                                    @:未审核
+                                  }
+                                    else if (biz.ProcessStatus == 1)
+                                    {
+                                      @:已装机
+                                  }
+                                    else if (biz.ProcessStatus == 2)
+                                    {
+                                      @:未通过
+                                  }
+                                    else
+                                    {
+                                      @:建议额度
+                                  }
+                                }
+                              </td>
+                            </tr>
+                          }
+                          </table>
+                        </div>
+                      </div><br />
+                      <div class="bteBox">
+                		 <span class="btebxo">
+                            <p>温馨提示：点击记录可以查看详情。</p>
+                         </span>
+                	  </div>
+    }
+    else
+    {
+        <div style="padding-top: 6px;padding-left:34px;">暂无业务</div> 
+    }
+                      <br />
+                  </div>
+          </section>
+    </div>
+</div>
+<script type="text/javascript">
+    function business(type, id) {
+        location.href = "business?applyType=" + type + "&id=" + id;
+    }
+</script>

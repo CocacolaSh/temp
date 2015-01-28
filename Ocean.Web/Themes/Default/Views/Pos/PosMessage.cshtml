@@ -1,0 +1,89 @@
+﻿@using Ocean.Entity.Enums;
+@using Ocean.Entity;
+@{
+    Layout = "../Shared/_PosLayout.cshtml";
+    PosApply pos = ViewBag.PosApply;
+}
+@model MpUser
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        function CancelApply() {
+            $.messager.confirm('提示', '确定要撤销吗?', function (r) {
+                if (r) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Pos/_CancelApply",
+                        dataType: "json",
+                        data: "Id=@(pos.Id)",
+                        success: function (msg) {
+                            if (msg.success) {
+                                $.messager.alert('提示', msg.message, "", function () {
+                                    window.location.href = "/pos/posapply";
+                                });
+                            } else {
+                                $.messager.alert('提示', msg.message);
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        function Edit(){
+            $.ajax({
+                type: "POST",
+                url: "/Pos/_CanEditApply",
+                dataType: "json",
+                data: "Id=@(pos.Id)",
+                success: function (msg) {
+                    if (msg.success) {
+                        window.location.href = "/pos/PosApply?isEdit=1&id=@(pos.Id)";
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+    </script>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">POS申请</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox2">
+              <form action="" id="mobileRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      <ul class="btts2">
+                          <li style=" border-bottom:dashed 1px #e1e1e1;">
+                          @if(Model.Sex == 1)
+                            {
+@:尊敬的<span style="color:Red;float:none;">@(Model.Name)</span>先生，您好！
+                            }
+                            else if(Model.Sex == 2)
+                            {
+@:尊敬的<span style="color:Red;float:none;">@(Model.Name)</span>女士，您好！
+                            }
+                            else
+                            {
+@:尊敬的<span style="color:Red;float:none;">@(Model.Name)</span>，您好！
+                            }
+                          </li>
+                          <li>
+                         您于@(pos.CreateDate.ToString("yyyy年MM月dd日"))申请的POS正在受理中，<span style="color:Red;float:none;">我行将于三个工作日内与您联系</span>，谢谢！
+                          </li>
+                      </ul>                                         
+                      <div class="btnLoginBox">
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);">*@
+                          <input type="button" class="modBtnColor coloryellow" value="修改信息" onclick="Edit();">
+                          <input type="button" class="modBtnColor coloryellow" value="撤销申请" onclick="CancelApply();">
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

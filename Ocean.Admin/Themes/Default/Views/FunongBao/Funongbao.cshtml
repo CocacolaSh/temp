@@ -1,0 +1,259 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "福农宝列表";
+}
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid({ isAll: 1 });
+            $('#w').window('close');
+            $('#dlg1').dialog('close');
+        });
+        
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/FunongBao/_FunongBaoAllList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                //                     { field: 'ck', checkbox: true }, 
+                     {title: '导入时间', field: 'FinishDate', width: 80,
+                     formatter: function (value) {
+                         value = value.replace("T", " ");
+                         return value.split(' ')[0].replace(/-/g, "");
+                     }
+                 },
+                     { title: '组编号', field: 'GroupNO', width: 180 },
+                     { title: '姓名', field: 'Name', width: 50 },
+                     { title: '证件号', field: 'PassportNO', width: 160 },
+                     { title: '手机号码', field: 'MobilePhone', width: 100 },
+                     { title: '福农宝卡号', field: 'FunongbaoNO', width: 140 },
+                     { title: '组额度', field: 'GroupLimit', width: 60 },
+                     { title: '当前额度', field: 'CurrentLimit', width: 60 },
+                     { title: '当前费率', field: 'CurrentRates', width: 60,
+                         formatter: function (value) {
+                             return value + "‰";
+                         }
+                     },
+                     { title: '身份认证', field: 'IsAuth', width: 60,
+                         formatter: function (value, row, index) {
+                             if (value == 0) {
+                                 return "否";
+                             } else if (value == 1) {
+                                 return "是";
+                             }
+                         }
+                     },
+                     { title: '签订协议', field: 'IsSignAgreement', width: 60,
+                         formatter: function (value, row, index) {
+                             if (value == 0) {
+                                 return "否";
+                             } else if (value == 1) {
+                                 return "是";
+                             }
+                         }
+                     },
+                     { title: '营销机构', field: 'Subbranch', width: 80 },
+                     { title: '营销人', field: 'Marketer', width: 50 }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ViewApply() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                parent.addTab('ViewAplly', '查看调额申请', '/funongbao/apply?fnbno=' + selectedRows[0].FunongbaoNO, '');
+            }
+            else {
+                $.messager.alert('提示', '请选择要查看的数据');
+            }
+        }
+
+        function ViewClose() {
+            $('#View').window('close');
+        }
+
+        function Accept() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].ProcessStatus != 0) {
+                    $.messager.alert('提示', '当前数据已被受理');
+                    return void (0);
+                }
+                $('#dlg1').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要受理的数据');
+            }
+        }
+
+        function AcceptEdit() {
+            $.ajax({
+                type: "POST",
+                url: "/FunongBao/_AcceptEdit",
+                dataType: "json",
+                data: "id=" + currentCheckedId + "&ProcessStatus=" + $("#ProcessStatus").val(),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+        function ImportFnbExcel() {
+            $('#importExcel').attr("src", "/funongbao/_ImportFnbExcel?d=" + (new Date()).getTime());
+            $("#w").window("open");
+        }
+        function closeImport(message) {
+            $("#w").window("close");
+            $.messager.alert("提示", message);
+        }
+
+        function Search() {
+            var searchObject = {isAll:1};
+            if ($("#Name").val()) {
+                searchObject["Name"] = $("#Name").val();
+            }
+            if ($("#FunongbaoNO").val()) {
+                searchObject["FunongbaoNO"] = $("#FunongbaoNO").val();
+            }
+            if ($("#GroupNO").val()) {
+                searchObject["GroupNO"] = $("#GroupNO").val();
+            }
+            if ($("#IsAuth").combobox("getValue")) {
+                searchObject["IsAuth"] = $("#IsAuth").combobox("getValue");
+            }
+            if ($("#IsSignAgreement").combobox("getValue")) {
+                searchObject["IsSignAgreement"] = $("#IsSignAgreement").combobox("getValue");
+            }
+            $('#grid').datagrid("options").pageNumber = 1;
+            InitGrid(searchObject);
+        }
+
+        //测试
+        function CancelAuth() {
+            $.messager.confirm('Confirm', '确定取消身份认证吗？', function (r) {
+                if (r) {
+                    var selectedRows = $('#grid').datagrid('getSelections');
+                    if (selectedRows.length > 0) {
+                        currentCheckedId = selectedRows[0].Id;
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url: "/FunongBao/CancelAuth",
+                        dataType: "json",
+                        data: "id=" + currentCheckedId,
+                        success: function (msg) {
+                            if (msg.success) {
+                                $.messager.alert('提示', msg.message, "", function () {
+                                    $("#grid").datagrid('reload');
+                                });
+                            } else {
+                                $.messager.alert('提示', msg.message);
+                            }
+                        }
+                    });
+                }
+            });
+        }
+        function AuthUser() {
+            parent.addTab('AuthUser', '查看认证福农宝客户', '/funongbao/AuthUser', '');
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @if ((bool)ViewData["FunongBaoDetail_" + PermissionOperate.view])
+        { 
+            @Html.ActionLink("查看认证福农宝客户", null, null, new { onclick = "AuthUser();", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @if ((bool)ViewData["FunongBaoDetail_" + PermissionOperate.import])
+        { 
+            @Html.ActionLink("导入存量福农宝客户", null, null, new { onclick = "ImportFnbExcel()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @if ((bool)ViewData["FunongBaoDetail_" + PermissionOperate.delete])
+        {
+            @Html.ActionLink("取消身份认证", null, null, new { onclick = "CancelAuth()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 10px;">
+        姓名:
+        <input class="easyui-validatebox" style="width: 60px" id="Name" />
+        福农宝号：
+        <input class="easyui-validatebox" style="width: 140px" id="FunongbaoNO" />
+        组编号：
+        <input class="easyui-validatebox" style="width: 140px" id="GroupNO" />
+        是否身份认证：
+        <select class="easyui-combobox" id="IsAuth" style="width: 80px;">
+            <option value="-1">请选择...</option>
+            <option value="0">未认证</option>
+            <option value="1">已认证</option>
+        </select>
+        是否签订协议：
+        <select class="easyui-combobox" id="IsSignAgreement" style="width: 80px;">
+            <option value="-1">请选择...</option>
+            <option value="0">未签</option>
+            <option value="1">已签</option>
+        </select>
+        @if ((bool)ViewData["FunongBaoDetail_" + PermissionOperate.search])
+        { 
+            <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search" onclick="Search()">搜 索 </a></span>
+        }
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="dlg1" class="easyui-dialog" title="受理情况登记" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 250px; padding: 10px">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                受理状态:
+            </td>
+            <td style="width: 70%;">
+                <select class="easyui-combobox" name="state" style="width: 70px;" name="ProcessStatus"
+                    id="ProcessStatus">
+                    <option value="1">通过</option>
+                    <option value="2">不通过</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="AcceptEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg1').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+</div>
+<div id="w" class="easyui-window" title="导入存量福农宝客户" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 300px; padding: 5px;" close="true" modal="true">
+    <iframe id="importExcel" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>

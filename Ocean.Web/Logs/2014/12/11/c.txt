@@ -1,0 +1,84 @@
+2014-12-11 08:42:43,640 [4] ERROR OceanLog [(null)] - The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.
+2014-12-11 08:42:43,640 [4] ERROR OceanLog [(null)] - The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.
+2014-12-11 08:42:44,343 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-11 08:42:44,343 [10] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-11 08:42:57,687 [4] DEBUG The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.===detail===> [(null)] - System.InvalidOperationException: The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.UpdateColumnNamesForTableSharing(DbDatabaseMapping databaseMapping, EntityType entityType, EntityType toTable, StorageMappingFragment fragment)
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.FindOrCreateTargetTable(DbDatabaseMapping databaseMapping, StorageMappingFragment fragment, EntityType entityType, EntityType fromTable, Boolean& isTableSharing)
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.Configure(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest, EntityType entityType, StorageEntityTypeMapping& entityTypeMapping, Boolean isMappingAnyInheritedProperty, Int32 configurationIndex, Int32 configurationCount)
+   at System.Data.Entity.ModelConfiguration.Configuration.Types.EntityTypeConfiguration.ConfigureTablesAndConditions(StorageEntityTypeMapping entityTypeMapping, DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.ConfigureEntityTypes(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.Configure(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)
+   at System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.AsNoTracking()
+   at System.Data.Entity.Infrastructure.DbQuery`1.AsNoTracking()
+   at System.Data.Entity.QueryableExtensions.AsNoTracking[T](IQueryable`1 source)
+   at Ocean.Data.EfRepository`1.get_Table() in E:\微信\ocean7.18\Ocean.Data\EfRepository.cs:line 130
+   at Ocean.Services.ServiceBase`1.GetALL() in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 86
+   at Ocean.Web.Controllers.XYPluginsController.PluginsLottery(Guid Id) in E:\微信\ocean7.18\Ocean.Web\Controllers\XYPluginsController.cs:line 382
+2014-12-11 08:45:15,046 [4] DEBUG The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.===detail===> [(null)] - System.InvalidOperationException: The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.UpdateColumnNamesForTableSharing(DbDatabaseMapping databaseMapping, EntityType entityType, EntityType toTable, StorageMappingFragment fragment)
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.FindOrCreateTargetTable(DbDatabaseMapping databaseMapping, StorageMappingFragment fragment, EntityType entityType, EntityType fromTable, Boolean& isTableSharing)
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.Configure(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest, EntityType entityType, StorageEntityTypeMapping& entityTypeMapping, Boolean isMappingAnyInheritedProperty, Int32 configurationIndex, Int32 configurationCount)
+   at System.Data.Entity.ModelConfiguration.Configuration.Types.EntityTypeConfiguration.ConfigureTablesAndConditions(StorageEntityTypeMapping entityTypeMapping, DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.ConfigureEntityTypes(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.Configure(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)
+   at System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.AsNoTracking()
+   at System.Data.Entity.Infrastructure.DbQuery`1.AsNoTracking()
+   at System.Data.Entity.QueryableExtensions.AsNoTracking[T](IQueryable`1 source)
+   at Ocean.Data.EfRepository`1.get_Table() in E:\微信\ocean7.18\Ocean.Data\EfRepository.cs:line 130
+   at Ocean.Services.ServiceBase`1.GetALL() in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 86
+   at Ocean.Web.Controllers.XYPluginsController.PluginsLottery(Guid Id) in E:\微信\ocean7.18\Ocean.Web\Controllers\XYPluginsController.cs:line 382
+2014-12-11 08:55:10,812 [14] DEBUG The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.===detail===> [(null)] - System.InvalidOperationException: The entity types 'XYPluginUser' and 'PluginSceneResult' cannot share table 'SceneResult' because they are not in the same type hierarchy or do not have a valid one to one foreign key relationship with matching primary keys between them.
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.UpdateColumnNamesForTableSharing(DbDatabaseMapping databaseMapping, EntityType entityType, EntityType toTable, StorageMappingFragment fragment)
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.FindOrCreateTargetTable(DbDatabaseMapping databaseMapping, StorageMappingFragment fragment, EntityType entityType, EntityType fromTable, Boolean& isTableSharing)
+   at System.Data.Entity.ModelConfiguration.Configuration.Mapping.EntityMappingConfiguration.Configure(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest, EntityType entityType, StorageEntityTypeMapping& entityTypeMapping, Boolean isMappingAnyInheritedProperty, Int32 configurationIndex, Int32 configurationCount)
+   at System.Data.Entity.ModelConfiguration.Configuration.Types.EntityTypeConfiguration.ConfigureTablesAndConditions(StorageEntityTypeMapping entityTypeMapping, DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.ConfigureEntityTypes(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.Configure(DbDatabaseMapping databaseMapping, DbProviderManifest providerManifest)
+   at System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)
+   at System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.AsNoTracking()
+   at System.Data.Entity.Infrastructure.DbQuery`1.AsNoTracking()
+   at System.Data.Entity.QueryableExtensions.AsNoTracking[T](IQueryable`1 source)
+   at Ocean.Data.EfRepository`1.get_Table() in E:\微信\ocean7.18\Ocean.Data\EfRepository.cs:line 130
+   at Ocean.Services.ServiceBase`1.GetALL() in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 86
+   at Ocean.Web.Controllers.XYPluginsController.PluginsLottery(Guid Id) in E:\微信\ocean7.18\Ocean.Web\Controllers\XYPluginsController.cs:line 382
+2014-12-11 08:56:02,406 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-11 08:56:02,406 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-11 09:01:16,265 [11] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-11 09:01:16,265 [11] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-11 09:04:32,125 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-11 09:04:32,125 [13] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-11 09:33:46,390 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-11 09:33:46,390 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-11 09:34:18,437 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-11 09:34:18,437 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-11 10:14:28,593 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-11 10:14:28,593 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-12-11 10:14:59,796 [9] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-11 10:14:59,796 [9] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-11 17:04:12,218 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-11 17:04:12,218 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

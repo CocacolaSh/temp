@@ -1,0 +1,110 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "部门列表";
+}
+@section Head{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#w').window('close');
+        });
+
+        function ShowAddDialog() {
+            $('#iframe').attr("src", "/Permission/PermissionOrganizationEdit");
+            $('#w').window('open');
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].id;
+                $('#iframe').attr("src", "/Permission/PermissionOrganizationEdit?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要修改的数据');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').treegrid('reload');
+        }
+
+        function Delete() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '确定要删除吗?', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/Permission/_PermissionOrganizationDelete",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的数据');
+            }
+        }
+
+        function ReloadPage() {
+            //window.location.href = window.location.href;
+            $('#grid').treegrid('reload');
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @if ((bool)ViewData["Organization_" + PermissionOperate.add])
+        { 
+            @Html.ActionLink("添加", null, null, new { onclick = "ShowAddDialog()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @if ((bool)ViewData["Organization_" + PermissionOperate.edit])
+        { 
+            @Html.ActionLink("修改", null, null, new { onclick = "ShowEditOrViewDialog()", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @if ((bool)ViewData["Organization_" + PermissionOperate.delete])
+        { 
+            @Html.ActionLink("删除", null, null, new { onclick = "Delete()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }     
+        @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').treegrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+</div>
+<table id="grid" title="" class="easyui-treegrid" data-options="
+                url: '/Permission/_PermissionOrganizationList',
+                fit:true,
+                method: 'post',
+                rownumbers: true,
+                idField: 'id',
+                treeField: 'name',
+                toolbar: '#gridtoolbar'
+            ">
+    <thead>
+        <tr>
+            <th data-options="field:'name'" width="250">
+                部门名称
+            </th>
+            <th data-options="field:'sort'" width="50">
+                显示顺序
+            </th>
+        </tr>
+    </thead>
+</table>
+<div id="w" class="easyui-window" title="部门管理" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 300px; padding: 5px;" modal="true">
+    <iframe id="iframe" src="" frameborder="0"
+        scrolling="no" style="width: 100%; height: 100%;"></iframe>
+</div>

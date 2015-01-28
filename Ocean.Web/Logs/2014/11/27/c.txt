@@ -1,0 +1,31 @@
+2014-11-27 08:40:21,562 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-27 08:40:21,562 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-27 08:40:22,078 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-27 08:40:22,078 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-27 08:40:57,234 [11] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:40:57,234 [11] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:41:11,234 [12] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:41:11,234 [12] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:48:54,859 [5] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:48:54,859 [5] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:51:07,750 [10] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:51:07,750 [10] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:51:28,312 [23] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:51:28,312 [23] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-27 08:52:44,375 [23] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-11-27 08:52:44,375 [23] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Oceanby Ocean2014-11-27 21:34:01,515 [5] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote2.cshtml' was not found.
+2014-11-27 21:34:01,515 [5] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Vote/vote2.cshtml' was not found.
+2014-11-27 21:34:05,531 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-27 21:34:05,531 [4] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-27 21:35:28,125 [11] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-27 21:35:28,125 [11] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-28 01:34:00,593 [5] DEBUG OceanLog [(null)] - 执行任务！2014-11-28 1:34:00
+2014-11-28 01:34:00,593 [5] DEBUG OceanLog [(null)] - 执行任务！2014-11-28 1:34:00
+2014-11-28 01:34:01,734 [5] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141128ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141128ocean.bak' with INIT
+2014-11-28 01:34:01,734 [5] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141128ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141128ocean.bak' with INIT
+by Ocean

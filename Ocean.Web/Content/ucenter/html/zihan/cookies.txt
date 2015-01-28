@@ -1,0 +1,7 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.zi-han.net	TRUE	/wp-content/plugins	FALSE	1999999999	wordpress_f51f98d5d4acbbd5f6990863032b4280	%7C1388647935%7C0d968c79277fbe5346cd871008a0a46d
+www.zi-han.net	TRUE	/wp-admin	FALSE	1999999999	wordpress_f51f98d5d4acbbd5f6990863032b4280	%7C1388647935%7C0d968c79277fbe5346cd871008a0a46d
+www.zi-han.net	TRUE	/	FALSE	1999999999	PHPSESSID	sa5c97c7em4vo391p42vdgpfi7
+www.zi-han.net	TRUE	/	FALSE	1999999999	wordpress_logged_in_f51f98d5d4acbbd5f6990863032b4280	%7C1388647935%7Cb6c4763193f1d965a0ca8c96ba7151a0
+

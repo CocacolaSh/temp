@@ -1,0 +1,123 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE HTML >
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>在线地图</title>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.min.js")"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+</head>
+<body>
+    <div style="width: 100%; display: table; font-size: 12px; text-align: center;">
+        <div id="container_map" style="width: 600px; height: 300px; border: 1px solid gray;"></div>
+         <script type="text/javascript">
+            var map = null;
+            var title = "";//cst_market_title
+            var content = "";//cst_market_con
+            var lng = @(ViewBag.Longitude);
+            var lat = @(ViewBag.Latitude); 
+            if(lng == 0){
+                lng = 118.656141;
+            }
+            if(lat == 0)
+            {
+                lat = 24.737727;
+            }
+            if(lng == 0 || lat == 0)
+            {
+                getCurMap();
+            }
+            else
+            {
+                updatelbs(title, content, lng, lat);
+            }
+             function getCurMap() {
+                 if (navigator.geolocation) {
+                     navigator.geolocation.getCurrentPosition(displayLocation, handleError, { enableHighAccuracy: true, maximumAge: 1000 });
+                 }
+                 else {
+                     alert("该浏览器不支持在线地图功能.");
+                 }
+             }
+             //默认定位
+             function displayLocation(position) {
+                 var markerName = '';
+                 var markerContent = '';
+                 updatelbs(markerName, markerContent, position.coords.longitude, position.coords.latitude);
+
+             }
+             //加载地图
+             function updatelbs(markerName, markerContent, longitude, latitude) {
+                 var mapMarkerName = markerName.replace(/¶/g, "</br>");
+                 var mapMarkerContent = markerContent.replace(/¶/g, "</br>");
+                 if (!latitude || !longitude) {
+                     alert("当前浏览器定位不到您的具体坐标位置.");
+                     return;
+                 }
+                 var point = null;
+                 if (map == null) {
+                     map = new BMap.Map("container_map");
+                     point = new BMap.Point(longitude, latitude);
+                     map.centerAndZoom(point, 15);
+
+                     //$("#cst_j_point").val(longitude);
+                     //$("#cst_w_point").val(latitude);
+                 }
+                 else {
+                     point = new BMap.Point(longitude, latitude);
+                     map.panTo(point);
+                     SetCtrl(map, false);
+                 }
+                 var marker = new BMap.Marker(point);
+                 map.clearOverlays();
+                 map.closeInfoWindow();
+                 map.addOverlay(marker);
+                 if (markerName != '' || markerContent != '') {
+                     var opts = {
+                         width: '0',     // 信息窗口宽度
+                         height: '0',     // 信息窗口高度
+                         title: mapMarkerName  // 信息窗口标题
+                     }
+                     var infoWindow = new BMap.InfoWindow(mapMarkerContent, opts);
+                     marker.openInfoWindow(infoWindow);
+                     marker.addEventListener("click", function () {
+                         this.openInfoWindow(infoWindow);
+                         infoWindow.redraw();
+                     });
+                 }
+                 map.enableScrollWheelZoom();
+                 map.addEventListener("click", function (e) {
+                     map.clearOverlays();
+                     var cur_point = new BMap.Point(e.point.lng, e.point.lat);
+                     window.parent.document.getElementById('Longitude').value = e.point.lng;
+                     window.parent.document.getElementById('Latitude').value = e.point.lat;
+                     //$("#Cst_j_point").val();
+                     //$("#Cst_w_point").val(e.point.lat);
+                     map.centerAndZoom(cur_point, 15);
+                     var cur_marker = new BMap.Marker(cur_point);
+                     map.addOverlay(cur_marker);
+                 });
+             };
+             function handleError(value) {
+                 switch (value.code) {
+                     case 1:
+                         alert("位置服务被拒绝");
+                         break;
+                     case 2:
+                         alert("暂时获取不到位置信息");
+                         break;
+                     case 3:
+                         alert("获取信息超时");
+                         break;
+                     case 4:
+                         alert("未知错误");
+                         break;
+                 }
+             }
+        </script>
+    </div>
+</body>
+</html>

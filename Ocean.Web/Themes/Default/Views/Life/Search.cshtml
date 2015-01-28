@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "../Shared/_LifeLayout.cshtml";
+}
+@section head{
+<style type="text/css">
+.mainbox{ margin:0 auto; width:100%; max-width:1000px; text-align:left; overflow:hidden;}
+.mainbox a {text-decoration:none;}
+.mainbox img{ border:none;}
+.mainbox .head{width:100%; display:block;  background:url(images/headbg.jpg) repeat-x; height:60px; }
+.mainbox .head .hleft{ float:left; text-align:center; padding:10px; padding-right:0;}
+.mainbox .head .hleft .name{ font-size:12px; color:#FFF; padding-top:5px;background:none;}
+.mainbox .head .hright{ float:right;  text-align:center; padding:10px; padding-left:0;}
+.mainbox .head .hright .name{ font-size:12px; color:#FFF; padding-top:5px;background:none;}
+.mainbox .head .hright .zh{ float:left; margin:0;}
+.mainbox .head .hright .jy{ float:left; padding:0 20px;}
+.mainbox .head .hright .gd{ float:left;margin:0;}
+.mainbox .content{ margin:3px; position:relative; display:inline-block; width:100%; }
+.mainbox .content .mibox{ width:31%; height:120px; display:inline-block; float:left; padding:1%; background:inherit; border:none; position:relative;}
+.mainbox .content .mibox1{ width:64%; height:120px; display:inline-block; float:left; padding:1%; background:inherit; border:none; position:relative;}
+.mainbox .content .mibox_bg{ min-height:100%; }
+.mainbox .content .mibox_imges{ position:relative; margin:0 auto; top:5px; width:76px; height:76px; background-size:contain; text-align:center;}
+.mainbox .content .hfbg{background:url(@Url.Content("~/content/life/hf.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .yxbg{background:url(@Url.Content("~/content/life/yx.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .qbbg{background:url(@Url.Content("~/content/life/qb.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .jpbg{background:url(@Url.Content("~/content/life/jp.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .jdbg{background:url(@Url.Content("~/content/life/jd.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .cpbg{background:url(@Url.Content("~/content/life/cp.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .sdbg{background:url(@Url.Content("~/content/life/sd.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .rqbg{background:url(@Url.Content("~/content/life/rq.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .cdbg{background:url(@Url.Content("~/content/life/cd.png")) no-repeat center; background-size:66px 66px;}
+.mainbox .content .fdbg{background:url(@Url.Content("~/content/life/fd.png")) no-repeat center; background-size:66px 66px;}
+
+.mainbox .content .hf{ background:#E8443A;}
+.mainbox .content .yx{ background:#AA5096;}
+.mainbox .content .qb{ background:#1CA1E2;}
+.mainbox .content .jd{ background:#8DC027;}
+.mainbox .content .jp{ background:#FF0198;}
+.mainbox .content .cp{ background:#FFD302;}
+.mainbox .content .sd{ background:#0A4FB7;}
+.mainbox .content .rq{ background:#DB562D;}
+.mainbox .content .cd{ background:#20C8A6;}
+.mainbox .content .fd{ background:#33AC5B;}
+.mainbox .content .mibox_title{top:5px; position:relative; margin:auto; display:table; color:#fff;font-size:16px;  }
+</style>
+}
+
+  <div class="mainbox">
+    <div class="content">
+          <a href="http://hft.3g.qq.com/charge-calls.jsp?sid=ATnsW1r2r2zF1Yk1FRjKIp1X&g_f=20000" class="mibox">
+            <div class="mibox_bg hf">
+              <div class="mibox_imges hfbg">
+              </div>
+              <div class="mibox_title">
+                话费充值
+              </div>
+            </div>
+          </a>
+          <a href="http://hft.3g.qq.com/game-service.jsp?sid=AbgGkTrszVK0b9E-pm6Tx2kF&g_f=20000" class="mibox">
+            <div class="mibox_bg  yx">
+              <div class="mibox_imges yxbg">
+              </div>
+              <div class="mibox_title">
+                游戏直冲
+              </div>
+            </div>
+          </a>
+          <a href="http://hft.3g.qq.com/charge-coins.jsp?sid=AbgGkTrszVK0b9E-pm6Tx2kF&g_f=20000#pt=2&pid=1" class="mibox">
+            <div class="mibox_bg qb">
+              <div class="mibox_imges qbbg">
+              </div>
+              <div class="mibox_title">
+                Q币充值
+              </div>
+            </div>
+          </a>
+          <a href="http://touch.qunar.com/h5/flight/" class="mibox1">
+            <div class="mibox_bg jp">
+              <div class="mibox_imges jpbg">
+              </div>
+              <div class="mibox_title">
+                机票火车票预订
+              </div>
+            </div>
+          </a>
+          <a href="http://go.qq.com/touch/?attach=qqlvyou_122_13_4&sid=AesEONsm6beqjMlynAdaslDl&g_f=20000" class="mibox">
+            <div class="mibox_bg jd">
+              <div class="mibox_imges jdbg">
+              </div>
+              <div class="mibox_title">
+                酒店预定
+              </div>
+            </div>
+          </a>
+          <a href="http://m.888.qq.com/m/?bc_tag=&sid=67f4f6ae4ac22e1561410a91aa40fddd&bc_tag=40094.1.1#type=home" class="mibox">
+            <div class="mibox_bg cp">
+              <div class="mibox_imges cpbg">
+              </div>
+              <div class="mibox_title">
+                彩票
+              </div>
+            </div>
+          </a>
+          <a href="https://jiaofei.alipay.com/fare/ebppChargeEntering.htm?chargeType=water&province=%25B8%25A3%25BD%25A8&city=%25C8%25AA%25D6%25DD" class="mibox">
+            <div class="mibox_bg sd">
+              <div class="mibox_imges sdbg">
+              </div>
+              <div class="mibox_title">
+                水电费
+              </div>
+            </div>
+          </a>
+          <a href="https://jiaofei.alipay.com/fare/ebppChargeEntering.htm?chargeType=gas&province=%25D5%25E3%25BD%25AD&city=%25BA%25BC%25D6%25DD" class="mibox">
+            <div class="mibox_bg rq">
+              <div class="mibox_imges rqbg">
+              </div>
+              <div class="mibox_title">
+                燃气费
+              </div>
+            </div>
+          </a>
+          <a href="http://car.m.yiche.com/qichedaikuanjisuanqi/" class="mibox">
+            <div class="mibox_bg cd">
+              <div class="mibox_imges cdbg">
+              </div>
+              <div class="mibox_title">
+                车贷计算
+              </div>
+            </div>
+          </a>
+          <a href="http://m.soufun.com/tools/" class="mibox1">
+            <div class="mibox_bg fd">
+              <div class="mibox_imges fdbg">
+              </div>
+              <div class="mibox_title">
+                房贷计算
+              </div>
+            </div>
+          </a>
+    </div>
+  </div>

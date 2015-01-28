@@ -1,0 +1,79 @@
+﻿@{
+    
+    string typeid = string.IsNullOrEmpty(WebHelper.GetString("cf")) ? "Config_CompanyInfo" : WebHelper.GetString("cf");
+    string description = "";
+    switch (typeid)
+    {
+        case "Config_CompanyInfo":
+            description = "公司介绍";
+            break;
+        case "Config_BuyCar":
+            description = "介绍买车规则";
+            break;
+        case "Config_MtCar":
+            description = "介绍修车规则";
+            break;
+        case "Config_AccCar":
+            description = "介绍偶遇事故规则";
+            break;
+        case "Config_ServiceOnline":
+            description = "服务热线";
+            break;
+        default:
+            break;
+    }
+    Layout = "../Shared/_LayoutEmpty.cshtml";
+}
+@model Ocean.Entity.Configuration       
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/default/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/MpMaterial/javascript/jquery.all.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/xheditor/xheditor-1.2.1.min.js")"></script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="form-add" action="/Info/_CompanyInfoEdit" method="post">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 120px; vertical-align:top;">
+                    @description
+                </td>
+                @Html.Hidden("cf",typeid)
+                <td>
+                    <div type="text/plain" class="editor edui-default" id="editor">
+                        <textarea id="Textarea1" name="CompanyInfo" data-bind="value: Description, event: { change: refreshItem }"
+                            rows="20" cols="68" style="display: none; width: 100%; height: 300px;">@(Html.Raw(ViewBag.CompanyInfo))</textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" class="btn" value=" 提 交 " />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#form-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('提示', "保存成功");
+                    } else {
+                        $.messager.alert('提示', "保存失败");
+                    }
+                }
+            });
+        });
+    </script>
+</div>
+<script type="text/javascript">   
+    $(function () {
+        Editor('Textarea1');
+    });
+</script>

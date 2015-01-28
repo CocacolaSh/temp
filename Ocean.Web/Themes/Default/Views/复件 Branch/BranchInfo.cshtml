@@ -1,0 +1,47 @@
+﻿@using Ocean.Entity.Enums;
+@using Ocean.Entity;
+@{
+    Layout = "../Shared/_BranchLayout.cshtml";
+}
+@model Ocean.Entity.Branch
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+    </script>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">周边网点查询</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="" id="" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <div class="modBd">
+                      <div class="bteBox">
+                		 <span class="btebxo">
+@*                           <p><a href="/Branch/BranchMap2?id=@(Model.Id)&longitude=@(ViewBag.longitude)&latitude=@(ViewBag.latitude)">切换到地图导航</p>*@
+                             <p><a href="http://api.map.baidu.com/marker?location=@(Model.Latitude),@(Model.Longitude)&title=@(Model.Name)&content=&output=html&src=地图导航|石狮农商行">切换到地图导航</p>
+                         </span>
+                	  </div>     
+                      <ul class="fnb_list">
+                         <li class="line">
+                            <b>网点名称：</b>
+                            <p style="margin: 11px 0 0 80px;">@(Model.Name)</p>
+                         </li>
+                         <li class="line">
+                            <b>网点地址：</b>
+                            <p style="margin: 11px 0 0 80px;">@(Model.Address)</p>
+                         </li>
+                         <li class="line">
+                            <b>联系电话：</b>
+                            <p style="margin: 11px 0 0 80px;">@(Model.Phone)</p>
+                         </li> 
+                      </ul>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

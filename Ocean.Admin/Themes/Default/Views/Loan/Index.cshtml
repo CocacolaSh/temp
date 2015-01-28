@@ -1,0 +1,750 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "贷款列表";
+    int status = string.IsNullOrWhiteSpace(ViewBag.Status) ? -1 : int.Parse(ViewBag.Status);
+    int processStatus = string.IsNullOrWhiteSpace(ViewBag.ProcessStatus) ? -1 : int.Parse(ViewBag.ProcessStatus);
+    Guid mpUserId = string.IsNullOrWhiteSpace(ViewBag.MpUserId) ? Guid.Empty : new Guid(ViewBag.MpUserId);
+}
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var status = @(status);
+        var processStatus = @(processStatus);
+        var mpUserId = "@(mpUserId)";
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            if(status >= 0){
+               InitGrid({ "Status": status, "MpUserId": mpUserId });
+            }else if(processStatus >= 0){
+               InitGrid({ "ProcessStatus": processStatus, "MpUserId": mpUserId });
+            }
+            else{
+               InitGrid({ "MpUserId": mpUserId });
+            }
+            $('#w').window('close');
+            $('#dlg1').dialog('close');
+            $('#dlg2').dialog('close');
+            $('#dlg3').dialog('close');
+            $('#dlg4').dialog('close');
+
+            if(mpUserId != "00000000-0000-0000-0000-000000000000"){
+                $("#gridtoolbar").hide();
+            }
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/Loan/_LoanList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                //                     { field: 'ck', checkbox: true }, //选择
+//                     { title: '申请状态', field: 'Status', width: 80,
+//                         formatter: function (value, row, index) {
+//                             if (value == 0) {
+//                                 return "正常";
+//                             } else if (value == 1) {
+//                                 return "已撤销";
+//                             } else {
+//                                 return value;
+//                             }
+//                         }
+//                     },
+                     { title: '申请日期', field: 'CreateDate', width: 100,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     },
+                     { title: '撤销日期', field: 'RepealDate', width: 100,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     },
+                     { title: '贷款人', field: 'LoanName', width: 120 },
+                     { title: '手机', field: 'Phone', width: 120 },
+                     { title: '申请金额(万元)', field: 'ApplyMoney', width: 100 },
+                     { title: '贷款种类', field: 'LoanCategory', width: 80 },
+                     { title: '期限', field: 'Deadline', width: 80 },
+                     { title: '单位', field: 'Company', width: 80 },
+                     { title: '职位', field: 'Position', width: 80 },
+                     { title: '单位类型', field: 'LoanCompanyMode', width: 80 },
+                     { title: '编制', field: 'LoanFormalMode', width: 80 },
+                     { title: '房产情况', field: 'LoanAssetHourseMode', width: 80 },
+                     { title: '还款方式', field: 'RepaymentMode', width: 80 },
+                     { title: '担保方式', field: 'GuaranteeWay', width: 80 },
+                     { title: '资产情况', field: 'AssetSituation', width: 80 },
+                     { title: '联系地址', field: 'Address', width: 120 },
+                     { title: '分配支行', field: 'AssignSubbranch', width: 120 },
+                     { title: '分配客户经理', field: 'AssignCustomerManager', width: 80 },
+                     { title: '客户经理手机号', field: 'CustomerManagerPhone', width: 100 },
+                     { title: '分配状态', field: 'AssignStatus', width: 80,
+                         formatter: function (value, row, index) {
+                             if (value == 0) {
+                                 return "未分配";
+                             } else if (value == 1) {
+                                 return "已分配";
+                             } else {
+                                 return value;
+                             }
+                         }
+                     },
+                     { title: '受理状态', field: 'ProcessStatus', width: 80,
+                         formatter: function (value, row, index) {
+                             if (value == 0) {
+                                 return "未受理";
+                             } else if (value == 1) {
+                                 return "已通过";
+                             } else if (value == 2) {
+                                 return "未通过";
+                             } else if (value == 3) {
+                                 return "受理中";
+                             } else {
+                                 return value;
+                             }
+                         }
+                     },
+                     { title: '受理日期', field: 'ProcessDate', width: 120,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     },
+                     { title: '客服回访日期', field: 'ReturnVisitDate', width: 120,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     },
+                     { title: '回访满意度', field: 'ReturnStatus', width: 80,
+                         formatter: function (value, row, index) {
+                             if (value == 0) {
+                                 return "";
+                             } else if (value == 1) {
+                                 return "满意";
+                             } else if (value == 2) {
+                                 return "一般";
+                             } else if (value == 3) {
+                                 return "不满意";
+                             } 
+                             else {
+                                 return value;
+                             }
+                         }
+                     },
+                     { title: '是否过期', field: 'PastDue', width: 70 },
+                     { title: '回访结果', field: 'ReturnVisitResult', width: 250 }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/Loan/LoanView?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要查看的数据');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+        function Allot() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].Status == 1) {
+                    $.messager.alert('提示', '当前数据已被撤销,不能继续操作！');
+                    return void (0);
+                }
+                if (selectedRows[0].ProcessStatus != 0 && selectedRows[0].ProcessStatus != 3) {
+                    $.messager.alert('提示', '当前数据已被受理,不能继续操作！');
+                    return void (0);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/Loan/_GetLoanDetail",
+                    dataType: "json",
+                    data: "id=" + currentCheckedId,
+                    success: function (data) {
+                        $("#AssignSubbranch").val(data.AssignSubbranch);
+                        $("#AssignCustomerManager").val(data.AssignCustomerManager);
+                        $("#CustomerManagerPhone").val(data.CustomerManagerPhone);
+                    }
+                });
+                $('#dlg1').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要分配的数据!');
+            }
+        }
+
+        function AllotEdit() {
+            if (!$("#AssignSubbranch").val()) {
+                $.messager.alert('提示', '分配支行不能为空!');
+                return void (0);
+            }
+            if (!$("#AssignCustomerManager").val()) {
+                $.messager.alert('提示', '客户经理不能为空!');
+                return void (0);
+            }
+            if (!$("#CustomerManagerPhone").val()) {
+                $.messager.alert('提示', '手机不能为空!');
+                return void (0);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Loan/_AllotEdit",
+                dataType: "json",
+                data: "id=" + currentCheckedId + "&AssignSubbranch=" + $("#AssignSubbranch").val() + "&AssignCustomerManager=" + $("#AssignCustomerManager").val() + "&CustomerManagerPhone=" + $("#CustomerManagerPhone").val(),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+
+        function Address() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                $.ajax({
+                    type: "POST",
+                    url: "/Loan/_GetLoanDetail",
+                    dataType: "json",
+                    data: "id=" + currentCheckedId,
+                    success: function (data) {
+                        $("#Address").val(data.Address);
+                    }
+                });
+                $('#dlg4').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要修改的数据!');
+            }
+        }
+
+        function AddressEdit() {
+            if (!$("#Address").val()) {
+                $.messager.alert('提示', '联系地址不能为空!');
+                return void (0);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Loan/_AddressEdit",
+                dataType: "json",
+                data: "id=" + currentCheckedId + "&Address=" + $("#Address").val(),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+
+        function Accept() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].Status == 1) {
+                    $.messager.alert('提示', '当前数据已被撤销,不能继续操作！');
+                    return void (0);
+                }
+                if (selectedRows[0].ProcessStatus != 0 && selectedRows[0].ProcessStatus != 3) {
+                    $.messager.alert('提示', '当前数据已被受理,不能继续操作！');
+                    return void (0);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/Loan/_GetLoanDetail",
+                    dataType: "json",
+                    data: "id=" + currentCheckedId,
+                    success: function (data) {
+                        $("#ProcessDate").datebox("setValue", formatDate2(data.ProcessDate));  
+                        $('#ProcessStatus').combobox('setValue',data.ProcessStatus);
+                        $("#ProcessResult").val(data.ProcessResult)
+                    }
+                });
+                $('#dlg2').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要受理的数据');
+            }
+        }
+
+        function formatDate2(date){
+            if(date.indexOf("T")){
+               return date.substring(0,date.indexOf("T"));
+            }else{
+               return date;
+            }
+        }
+
+        function AcceptEdit() {
+            if (!$("input[name = 'ProcessDate']").val()) {
+                $.messager.alert('提示', '受理日期不能为空!');
+                return void (0);
+            }
+            if (!$("#ProcessResult").val()) {
+                $.messager.alert('提示', '受理结果不能为空');
+                return void (0);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Loan/_AcceptEdit",
+                dataType: "json",
+                data: "id=" + currentCheckedId + "&ProcessDate=" + $("input[name = 'ProcessDate']").val() + "&ProcessStatus=" + $("#ProcessStatus").combobox("getValue") + "&ProcessResult=" + $("#ProcessResult").val(),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+
+        function ReturnVisit() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].Status == 1) {
+                    $.messager.alert('提示', '当前数据已被撤销,不能继续操作！');
+                    return void (0);
+                }
+                if (selectedRows[0].ReturnVisitDate) {
+                    $.messager.alert('提示', '当前数据已被回访,不能继续操作！');
+                    return void (0);
+                }
+                $('#dlg3').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要回访的数据');
+            }
+        }
+
+        function ReturnVisitEdit() {
+            if (!$("#ReturnStatus").combobox("getValue")) {
+                $.messager.alert('提示', '请选择回访满意度!');
+                return void (0);
+            }
+            if (!$("input[name = 'ReturnVisitDate']").val()) {
+                $.messager.alert('提示', '回访日期不能为空!');
+                return void (0);
+            }
+            if (!$("#ReturnVisitResult").val()) {
+                $.messager.alert('提示', '回访结果不能为空!');
+                return void (0);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Loan/_ReturnVisitEdit",
+                dataType: "json",
+                data: "id=" + currentCheckedId + "&ReturnVisitDate=" + $("input[name = 'ReturnVisitDate']").val() + "&ReturnVisitResult=" + $("#ReturnVisitResult").val() + "&ReturnStatus=" + $("#ReturnStatus").combobox("getValue"),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+
+        function ExportExcel(){
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                window.location.href = "/Loan/ExportExcel?id=" + currentCheckedId;
+            } else {
+                $.messager.alert('提示', '请选择要导出的数据');
+            }
+        }
+
+        function Cancel() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '确定要取消申请吗?', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].Id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/Loan/_Cancel",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        //$('#grid').datagrid('reload');
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的数据');
+            }
+        }
+
+        function Search() {
+            var searchObject = {};
+            if(status == -1 && processStatus == -1){
+                if ($("#status").combobox("getValue")) {
+                    searchObject["Status"] = $("#status").combobox("getValue");
+                }
+                if ($("#loanCategory").combobox("getValue")) {
+                    searchObject["LoanCategoryId"] = $("#loanCategory").combobox("getValue");
+                }
+                if ($("#loanDeadline").combobox("getValue")) {
+                    searchObject["DeadlineId"] = $("#loanDeadline").combobox("getValue");
+                }
+                if ($("#guaranteeWay").combobox("getValue")) {
+                    searchObject["GuaranteeWayId"] = $("#guaranteeWay").combobox("getValue");
+                }
+                if ($("#processStatus").combobox("getValue")) {
+                    searchObject["ProcessStatus"] = $("#processStatus").combobox("getValue");
+                }
+                if ($("#assignStatus").combobox("getValue")) {
+                    searchObject["AssignStatus"] = $("#assignStatus").combobox("getValue");
+                }
+                if ($("#pastDueId").combobox("getValue")) {
+                    searchObject["PastDueId"] = $("#pastDueId").combobox("getValue");
+                }
+                if ($("#startDate").datebox("getValue")) {
+                    searchObject["StartDate"] = $("#startDate").datebox("getValue");
+                }
+                if ($("#endDate").datebox("getValue")) {
+                    searchObject["EndDate"] = $("#endDate").datebox("getValue");
+                }
+                if ($("#loanName").val()) {
+                    searchObject["LoanName"] = $("#loanName").val();
+                }
+                if ($("#assignCustomerManager").val()) {
+                    searchObject["AssignCustomerManager"] = $("#assignCustomerManager").val();
+                }
+            }
+            else{
+                if(processStatus == 1){
+                    searchObject["ProcessStatus"] = "99";
+                }
+                if(status == 1){
+                    searchObject["Status"] = "1";
+                }
+                if ($("#loanCategory").combobox("getValue")) {
+                    searchObject["LoanCategoryId"] = $("#loanCategory").combobox("getValue");
+                }
+                if ($("#loanDeadline").combobox("getValue")) {
+                    searchObject["DeadlineId"] = $("#loanDeadline").combobox("getValue");
+                }
+                if ($("#guaranteeWay").combobox("getValue")) {
+                    searchObject["GuaranteeWayId"] = $("#guaranteeWay").combobox("getValue");
+                }
+                if ($("#pastDueId").combobox("getValue")) {
+                    searchObject["PastDueId"] = $("#pastDueId").combobox("getValue");
+                }
+                if ($("#startDate").datebox("getValue")) {
+                    searchObject["StartDate"] = $("#startDate").datebox("getValue");
+                }
+                if ($("#endDate").datebox("getValue")) {
+                    searchObject["EndDate"] = $("#endDate").datebox("getValue");
+                }
+                if ($("#loanName").val()) {
+                    searchObject["LoanName"] = $("#loanName").val();
+                }
+            }
+            
+            InitGrid(searchObject);
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @if ((bool)ViewData["Loan_" + PermissionOperate.view])
+        {
+            @Html.ActionLink("查看", null, null, new { onclick = "ShowEditOrViewDialog('view')", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        @if (status == -1 && processStatus == -1)
+        {
+            if ((bool)ViewData["Loan_" + PermissionOperate.track])
+            { 
+            @Html.ActionLink("分配客户经理", null, null, new { onclick = "Allot()", data_options = "iconCls:'icon-phone_add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+            }
+            if ((bool)ViewData["Loan_" + PermissionOperate.process])
+            { 
+            @Html.ActionLink("受理情况登记", null, null, new { onclick = "Accept()", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+            }
+            if ((bool)ViewData["Loan_" + PermissionOperate.visit])
+            { 
+            @Html.ActionLink("回访结果登记", null, null, new { onclick = "ReturnVisit()", data_options = "iconCls:'icon-pencil_go', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+            }
+            if ((bool)ViewData["Loan_" + PermissionOperate.export])
+            { 
+            @Html.ActionLink("导出工单", null, null, new { onclick = "ExportExcel()", data_options = "iconCls:'icon-print', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+            }
+            if ((bool)ViewData["Loan_" + PermissionOperate.freeze])
+            { 
+            @Html.ActionLink("取消申请", null, null, new { onclick = "Cancel()", data_options = "iconCls:'icon-flag_blue', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })            
+            }
+            @Html.ActionLink("修改地址", null, null, new { onclick = "Address()", data_options = "iconCls:'icon-flag_blue', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" }) 
+        }
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 10px;">
+        @if (status == -1 && processStatus == -1)
+        {
+            @:是否撤销:
+            <select class="easyui-combobox" id="status" style="width: 80px;">
+                <option value="">--请选择--</option>
+                <option value="0">未撤销</option>
+                <option value="1">已撤销</option>
+            </select>
+            @:申请时间:
+            <input class="easyui-datebox" style="width: 100px" id="startDate" />
+            @:~
+            <input class="easyui-datebox" style="width: 100px" id="endDate" />
+            @:贷款种类:
+            @Html.DropDownList("LoanCategory", (IEnumerable<SelectListItem>)ViewBag.ListLoanCategory, new { @id = "loanCategory", @class = "easyui-combobox" })
+            @:贷款期限:
+            @Html.DropDownList("LoanDeadline", (IEnumerable<SelectListItem>)ViewBag.ListLoanDeadline, new { @id = "loanDeadline", @class = "easyui-combobox" })
+            @:担保方式:
+            @Html.DropDownList("GuaranteeWay", (IEnumerable<SelectListItem>)ViewBag.ListGuaranteeWay, new { @id = "guaranteeWay", @class = "easyui-combobox" })
+            <br />
+            <br />
+            @:管理人员分配情况:
+            <select class="easyui-combobox" id="assignStatus" style="width: 80px;">
+                <option value="">--请选择--</option>
+                <option value="0">未处理</option>
+                <option value="1">已分配</option>
+            </select>
+            @:客户经理受理情况:
+            <select class="easyui-combobox" id="processStatus" style="width: 80px;">
+                <option value="">--请选择--</option>
+                <option value="0">未受理</option>
+                <option value="1">已通过</option>
+                <option value="2">未通过</option>
+                <option value="3">受理中</option>
+            </select>
+            @:过期情况:
+            <select class="easyui-combobox" id="pastDueId" style="width: 80px;">
+                <option value="">--请选择--</option>
+                <option value="0">未过期</option>
+                <option value="1">已过期</option>
+            </select>
+            @:贷款人：
+            <input class="easyui-validatebox" style="width: 100px" id="loanName" />
+            @:分配客户经理:
+            <input class="easyui-validatebox" style="width: 100px" id="assignCustomerManager" />
+       if ((bool)ViewData["Loan_" + PermissionOperate.search])
+       { 
+            <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search"
+                onclick="Search()">搜 索 </a></span>
+       }
+        }
+        else
+        { 
+            @:申请时间:
+            <input class="easyui-datebox" style="width: 100px" id="startDate" />
+            @:~
+            <input class="easyui-datebox" style="width: 100px" id="endDate" />
+            @:贷款种类:
+            @Html.DropDownList("LoanCategory", (IEnumerable<SelectListItem>)ViewBag.ListLoanCategory, new { @id = "loanCategory", @class = "easyui-combobox" })
+            @:贷款期限:
+            @Html.DropDownList("LoanDeadline", (IEnumerable<SelectListItem>)ViewBag.ListLoanDeadline, new { @id = "loanDeadline", @class = "easyui-combobox" })
+            @:担保方式:
+            @Html.DropDownList("GuaranteeWay", (IEnumerable<SelectListItem>)ViewBag.ListGuaranteeWay, new { @id = "guaranteeWay", @class = "easyui-combobox" })
+            @:过期情况:
+            <select class="easyui-combobox" id="pastDueId" style="width: 80px;">
+                <option value="">--请选择--</option>
+                <option value="0">未过期</option>
+                <option value="1">已过期</option>
+            </select>
+            @:贷款人：
+            <input class="easyui-validatebox" style="width: 100px" id="loanName" />
+       if ((bool)ViewData["Loan_" + PermissionOperate.search])
+       { 
+            <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search"
+                onclick="Search()">搜 索 </a></span>
+       }
+        }
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="贷款明细" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 400px; padding: 5px;" modal="true">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>
+<div id="dlg1" class="easyui-dialog" title="分配客户经理" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 200px; padding: 10px">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                分配支行:
+            </td>
+            <td style="width: 70%;">
+                <input class="easyui-validatebox" data-options="validType:'length[2,250]'" name="AssignSubbranch"
+                    id="AssignSubbranch" style="width: 150px;" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                客户经理:
+            </td>
+            <td>
+                <input class="easyui-validatebox" data-options="validType:'length[2,50]'" name="AssignCustomerManager"
+                    id="AssignCustomerManager" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                手机号:
+            </td>
+            <td>
+                <input class="easyui-validatebox" data-options="validType:'length[7,20]'" name="CustomerManagerPhone"
+                    id="CustomerManagerPhone" />
+            </td>
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="AllotEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg1').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+</div>
+<div id="dlg2" class="easyui-dialog" title="受理情况登记" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 250px; padding: 10px">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                受理日期:
+            </td>
+            <td style="width: 70%;">
+                <input class="easyui-datebox" name="ProcessDate" id="ProcessDate" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                受理状态:
+            </td>
+            <td style="width: 70%;">
+                <select class="easyui-combobox" style="width: 70px;" name="ProcessStatus"
+                    id="ProcessStatus">
+                    <option value="1">通过</option>
+                    <option value="2">不通过</option>
+                    <option value="3">受理中</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right; vertical-align: top;">
+                受理结果:
+            </td>
+            <td>
+                <textarea class="easyui-validatebox" data-options="required:true,validType:'length[2,500]'"
+                    name="ProcessResult" id="ProcessResult" style="width: 200px; height: 100px;"></textarea>
+            </td>
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="AcceptEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg2').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+</div>
+<div id="dlg3" class="easyui-dialog" title="回访结果登记" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 250px; padding: 10px">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                回访满意度:
+            </td>
+            <td style="width: 70%;">
+                <select class="easyui-combobox" id="ReturnStatus" style="width: 80px;">
+                    <option value="">--请选择--</option>
+                    <option value="1">满意</option>
+                    <option value="2">一般</option>
+                    <option value="3">不满意</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                回访日期:
+            </td>
+            <td style="width: 70%;">
+                <input class="easyui-datebox" name="ReturnVisitDate" id="ReturnVisitDate" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right; vertical-align: top;">
+                回访结果:
+            </td>
+            <td>
+                <textarea class="easyui-validatebox" data-options="required:true,validType:'length[2,500]'"
+                    name="ReturnVisitResult" id="ReturnVisitResult" style="width: 200px; height: 100px;"></textarea>
+            </td>
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="ReturnVisitEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg3').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+</div>
+<div id="dlg4" class="easyui-dialog" title="修改地址" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 150px; padding: 10px">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                联系地址:
+            </td>
+            <td style="width: 70%;">
+                <input class="easyui-validatebox" data-options="validType:'length[2,250]'" name="Address"
+                    id="Address" style="width: 150px;" />
+            </td>
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="AddressEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg4').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿<#@ template language="C#" debug="True" hostspecific="true" #>
+<#@ output extension="cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="$(SolutionDir)\Ocean.Core\bin\Debug\Ocean.Core.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ assembly name="System.Data.dll" #>
+<#@ assembly name="System.Data.DataSetExtensions.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ Import Namespace="System.Text" #>
+<#@ import namespace="System.Reflection" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="Ocean.Core" #>
+<#@ Import Namespace="Ocean.Core.T4" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="$(SolutionDir)\Ocean.Core\T4\DbHelper.ttinclude" #>
+<#@ include file="Include\EntityTemplate.ttinclude" #>
+<#@ include file="Include\EntityMapTemplate.ttinclude" #>
+<#
+    string currentPath = Path.GetDirectoryName(Host.TemplateFile);
+    string projectPath =currentPath.Substring(0, currentPath.IndexOf(@"\T4"));
+    string solutionPath = currentPath.Substring(0, currentPath.IndexOf(@"\Ocean.Entity"));
+	/*
+		根据自己需要生成的项，不需要的进行注释
+		*******************************注意事项******************************
+			1.记得对自己需要生成的表进行配置DbHelper.ttinclude的DBConfig=》TableName表名进行配置(如：表1，表2)
+			否则将会覆盖原来的
+			2.T4ModelInfo 用来配置生成的信息:new T4ModelInfo(null,这里这个参数用来设置是否生成中间目录,配合属性=》ModuleName="xxxx"，及目录名)
+		*********************************************************************
+	*/
+	T4ModelInfo model = DBConfig.GetModel();
+	foreach(DbTable table in DbHelper.GetDbTables(DBConfig.ConnectionString, DBConfig.DbDatabase, DBConfig.TableName))
+    {
+		IList<DbColumn> columns=DbHelper.GetDbColumns(DBConfig.ConnectionString, DBConfig.DbDatabase, table.TableName);
+		
+			//实体类生成
+			EntityTemplate entityConfig = new EntityTemplate(table,columns,model);
+			var path = model.UseModuleDir 
+            ? string.Format(@"{0}\T4\{1}", projectPath, "Temp")
+            : string.Format(@"{0}\T4\Temp", projectPath);
+			entityConfig.Output.Encoding = Encoding.UTF8;
+			entityConfig.RenderToFile(Path.Combine(path, entityConfig.FileName));
+			
+			//实体映射生成//Mapping
+			EntityMapTemplate entityMapConfig = new EntityMapTemplate(table,columns,model);
+			var pathMap = model.UseModuleDir 
+            ? string.Format(@"{0}\T4\{1}", projectPath, "Temp")
+            : string.Format(@"{0}\T4\Temp", projectPath);
+			entityMapConfig.Output.Encoding = Encoding.UTF8;
+			entityMapConfig.RenderToFile(Path.Combine(pathMap, entityMapConfig.FileName));
+    }
+#>

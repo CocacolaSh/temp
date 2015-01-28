@@ -1,0 +1,121 @@
+2014-12-06 09:38:46,218 [19] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 09:38:46,218 [19] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 09:38:47,515 [31] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 09:38:47,515 [31] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+by Oceanby Oceanby Oceanby Ocean2014-12-06 10:37:01,265 [19] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 10:37:01,265 [19] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 10:40:19,671 [13] ERROR OceanLog [(null)] - Constructor on type 'Ocean.Entity.ScoreUser' not found.
+2014-12-06 10:40:19,671 [13] ERROR OceanLog [(null)] - Constructor on type 'Ocean.Entity.ScoreUser' not found.
+2014-12-06 10:43:32,578 [13] ERROR OceanLog [(null)] - Constructor on type 'Ocean.Entity.ScoreUser' not found.
+2014-12-06 10:43:32,578 [13] ERROR OceanLog [(null)] - Constructor on type 'Ocean.Entity.ScoreUser' not found.
+2014-12-06 11:08:55,859 [7] ERROR OceanLog [(null)] - Constructor on type 'Ocean.Entity.ScoreUser' not found.
+2014-12-06 11:08:55,859 [7] ERROR OceanLog [(null)] - Constructor on type 'Ocean.Entity.ScoreUser' not found.
+2014-12-06 11:09:01,343 [5] ERROR OceanLog [(null)] - A public action method 'images' was not found on controller 'Ocean.Admin.Controllers.MpReplyController'.
+2014-12-06 11:09:01,343 [5] ERROR OceanLog [(null)] - A public action method 'images' was not found on controller 'Ocean.Admin.Controllers.MpReplyController'.
+2014-12-06 11:09:03,031 [48] ERROR OceanLog [(null)] - A public action method 'images' was not found on controller 'Ocean.Admin.Controllers.MpReplyController'.
+2014-12-06 11:09:03,031 [48] ERROR OceanLog [(null)] - A public action method 'images' was not found on controller 'Ocean.Admin.Controllers.MpReplyController'.
+2014-12-06 11:09:06,078 [7] ERROR OceanLog [(null)] - A public action method 'images' was not found on controller 'Ocean.Admin.Controllers.MpReplyController'.
+2014-12-06 11:09:06,078 [7] ERROR OceanLog [(null)] - A public action method 'images' was not found on controller 'Ocean.Admin.Controllers.MpReplyController'.
+2014-12-06 11:09:08,390 [48] ERROR OceanLog [(null)] - Constructor on type 'Ocean.Entity.ScoreUser' not found.
+2014-12-06 11:09:08,390 [48] ERROR OceanLog [(null)] - Constructor on type 'Ocean.Entity.ScoreUser' not found.
+by Ocean2014-12-06 11:12:24,375 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 11:12:24,375 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+by Ocean2014-12-06 11:38:16,609 [40] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/ScoreSysUserConsumeList.cshtml' was not found.
+2014-12-06 11:38:16,609 [40] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/ScoreSysUserConsumeList.cshtml' was not found.
+2014-12-06 11:38:38,296 [56] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:38:38,296 [56] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:40:01,328 [5] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:40:01,328 [5] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:40:23,156 [5] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:40:23,156 [5] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:40:29,531 [57] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:40:29,531 [57] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:41:34,218 [40] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 11:41:34,218 [40] ERROR OceanLog [(null)] - A public action method 'ScoreSysUserConsumeList' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+by Ocean2014-12-06 13:54:43,250 [57] ERROR OceanLog [(null)] - The parameters dictionary contains a null entry for parameter 'pluginId' of non-nullable type 'System.Guid' for method 'System.Web.Mvc.ActionResult ResultList(System.Guid, System.String)' in 'Ocean.Admin.Controllers.PluginsController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+2014-12-06 13:54:43,250 [57] ERROR OceanLog [(null)] - The parameters dictionary contains a null entry for parameter 'pluginId' of non-nullable type 'System.Guid' for method 'System.Web.Mvc.ActionResult ResultList(System.Guid, System.String)' in 'Ocean.Admin.Controllers.PluginsController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+by Ocean2014-12-06 13:59:06,593 [46] ERROR OceanLog [(null)] - Object reference not set to an instance of an object.
+2014-12-06 13:59:06,593 [46] ERROR OceanLog [(null)] - Object reference not set to an instance of an object.
+2014-12-06 13:59:07,859 [57] ERROR OceanLog [(null)] - Object reference not set to an instance of an object.
+2014-12-06 13:59:07,859 [57] ERROR OceanLog [(null)] - Object reference not set to an instance of an object.
+2014-12-06 13:59:10,093 [14] ERROR OceanLog [(null)] - Object reference not set to an instance of an object.
+2014-12-06 13:59:10,093 [14] ERROR OceanLog [(null)] - Object reference not set to an instance of an object.
+2014-12-06 13:59:37,734 [14] ERROR OceanLog [(null)] - Object reference not set to an instance of an object.
+2014-12-06 13:59:37,734 [14] ERROR OceanLog [(null)] - Object reference not set to an instance of an object.
+by Ocean2014-12-06 14:01:30,812 [57] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:01:30,812 [57] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:02:15,718 [51] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:02:15,718 [51] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:02:57,812 [57] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:02:57,812 [57] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:03:32,015 [19] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:03:32,015 [19] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:03:42,531 [14] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:03:42,531 [14] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:05:30,781 [51] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:05:30,781 [51] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+by Ocean2014-12-06 14:11:13,906 [57] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:11:13,906 [57] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:13:18,828 [19] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:13:18,828 [19] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:14:22,359 [57] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+2014-12-06 14:14:22,359 [57] ERROR OceanLog [(null)] - The layout page "../../shared/_SubmitLayout.cshtml" could not be found at the following path: "~/Themes/Default/shared/_SubmitLayout.cshtml".
+by Ocean2014-12-06 14:25:28,703 [19] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 14:25:28,703 [19] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 14:25:45,046 [92] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:25:45,046 [92] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:26:06,953 [19] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:26:06,953 [19] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+by Ocean2014-12-06 14:31:18,406 [92] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:31:18,406 [92] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:31:27,250 [57] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:31:27,250 [57] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:31:28,328 [57] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:31:28,328 [57] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:32:04,406 [5] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:32:04,406 [5] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+by Ocean2014-12-06 14:35:42,046 [98] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:35:42,046 [98] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:36:53,375 [96] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:36:53,375 [96] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:38:10,531 [80] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:38:10,531 [80] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:39:18,265 [98] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:39:18,265 [98] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:40:11,000 [80] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:40:11,000 [80] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:40:49,812 [80] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:40:49,812 [80] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:41:09,953 [80] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:41:09,953 [80] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:42:30,281 [80] ERROR OceanLog [(null)] - 'System.Data.Entity.DynamicProxies.Plugin_2C32ABCC9EEF9F4C20B5E4B31D9AD48A5CE3D513E1B3F77AAB953311AE1D47FF' does not contain a definition for 'id'
+2014-12-06 14:42:30,281 [80] ERROR OceanLog [(null)] - 'System.Data.Entity.DynamicProxies.Plugin_2C32ABCC9EEF9F4C20B5E4B31D9AD48A5CE3D513E1B3F77AAB953311AE1D47FF' does not contain a definition for 'id'
+by Ocean2014-12-06 14:50:43,781 [122] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+2014-12-06 14:50:43,781 [122] ERROR OceanLog [(null)] - The best overloaded method match for 'string.IsNullOrWhiteSpace(string)' has some invalid arguments
+by Ocean2014-12-06 15:22:46,890 [116] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/SubmitEdit.cshtml' was not found.
+2014-12-06 15:22:46,890 [116] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/SubmitEdit.cshtml' was not found.
+2014-12-06 15:22:47,687 [111] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 15:22:47,687 [111] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 15:44:26,031 [133] ERROR OceanLog [(null)] - Section not defined: "head".
+2014-12-06 15:44:26,031 [133] ERROR OceanLog [(null)] - Section not defined: "head".
+2014-12-06 15:44:45,750 [131] ERROR OceanLog [(null)] - e:\微信\ocean7.18\Ocean.Admin\Themes\Default\Views\ScoreSys\SubmitEdit.cshtml(24): error CS0103: The name 'pluginId' does not exist in the current context
+2014-12-06 15:44:45,750 [131] ERROR OceanLog [(null)] - e:\微信\ocean7.18\Ocean.Admin\Themes\Default\Views\ScoreSys\SubmitEdit.cshtml(24): error CS0103: The name 'pluginId' does not exist in the current context
+2014-12-06 15:44:49,046 [135] ERROR OceanLog [(null)] - e:\微信\ocean7.18\Ocean.Admin\Themes\Default\Views\ScoreSys\SubmitEdit.cshtml(24): error CS0103: The name 'pluginId' does not exist in the current context
+2014-12-06 15:44:49,046 [135] ERROR OceanLog [(null)] - e:\微信\ocean7.18\Ocean.Admin\Themes\Default\Views\ScoreSys\SubmitEdit.cshtml(24): error CS0103: The name 'pluginId' does not exist in the current context
+2014-12-06 15:45:23,000 [135] ERROR OceanLog [(null)] - Section not defined: "head".
+2014-12-06 15:45:23,000 [135] ERROR OceanLog [(null)] - Section not defined: "head".
+2014-12-06 16:08:45,468 [128] ERROR OceanLog [(null)] - The data reader is incompatible with the specified 'Ocean.Data.ScorePluginResult'. A member of the type, 'Type', does not have a corresponding column in the data reader with the same name.
+2014-12-06 16:08:45,468 [128] ERROR OceanLog [(null)] - The data reader is incompatible with the specified 'Ocean.Data.ScorePluginResult'. A member of the type, 'Type', does not have a corresponding column in the data reader with the same name.
+by Ocean2014-12-06 16:17:45,046 [132] ERROR OceanLog [(null)] - A public action method '_ImportPosExcel' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 16:17:45,046 [132] ERROR OceanLog [(null)] - A public action method '_ImportPosExcel' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 16:19:30,750 [135] ERROR OceanLog [(null)] - A public action method '_ImportPosExcel' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 16:19:30,750 [135] ERROR OceanLog [(null)] - A public action method '_ImportPosExcel' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+by Ocean2014-12-06 16:24:31,546 [130] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-06 16:24:31,546 [130] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/ScoreSys/index.cshtml' was not found.
+2014-12-06 16:24:32,750 [130] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 16:24:32,750 [130] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-12-06 16:26:04,500 [111] ERROR OceanLog [(null)] - A public action method '_ImportPosExcel' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+2014-12-06 16:26:04,500 [111] ERROR OceanLog [(null)] - A public action method '_ImportPosExcel' was not found on controller 'Ocean.Admin.Controllers.ScoreSysController'.
+by Oceanby Ocean

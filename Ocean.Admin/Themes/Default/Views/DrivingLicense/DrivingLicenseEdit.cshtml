@@ -1,0 +1,218 @@
+﻿@{
+    ViewBag.Title = "驾驶证编辑";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["Domain"] + "/images";
+}
+@model Ocean.Entity.DrivingLicense
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+        .oh {
+	        overflow:hidden
+        }
+        .z {
+        *zoom:1
+        }
+        .icon28C {
+	        background:url('@Url.Content("~/content/images/icon28.png")') no-repeat scroll 0 0 transparent;
+	        padding-left:28px
+        }
+        .cover-hd {
+	        padding:2px 8px 3px;
+	        position:relative
+        }
+        .cover-hd .upload-btn {
+	        background-position:0 -251px;
+	        color:#666;
+	        display:inline-block;
+	        font-size:14;
+	        line-height:28px;
+	        margin-right:12px
+        }
+        .upload-tip {
+	        color:#666;
+	        font-size:12px;
+	        margin-top:2px
+        }
+        .upload-btn {
+	        display:inline-block;
+	        line-height:28px;
+	        font-size:14px;
+	        color:#666;
+	        background-position:0 -251px
+        }
+    </style>
+    
+    <script type="text/javascript" src="@Url.Content("~/Content/javascripts/ajaxfileupload.js")"></script>
+    <script type="text/javascript">
+        function ImgUpload() {
+            $.messager.progress({ title: "驾驶证照片上传", msg: "照片上传中..." });
+            $.ajaxFileUpload
+		    ({
+		        url: "/DrivingLicense/UploadPhoto?t=" + Math.random(),
+		        secureuri: false,
+		        fileElementId: 'picUpload',
+		        dataType: 'json',
+		        success: function (data, status) {
+		            if (data.success) {
+		                $("#VendorPic").val(data.message);
+		                $("#showpic").attr("src", '@ImrUrl' + data.message);
+		            } else {
+		                $.messager.progress("close");
+		                $.messager.alert('错误提示', '上传不成功：' + data.message.replace('<li>', '').replace("</li>", ""));
+		                return false;
+		            }
+		            $.messager.progress("close");
+		        },
+		        error: function (data, status, e) {
+		            $.messager.progress("close");
+		            $.messager.alert('提示', '上传不成功');
+		            return false;
+		        }
+		    });
+        }
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="DrivingLicense-add" action="/DrivingLicense/_DrivingLicenseEdit" method="post">
+        <input type="hidden" name="DrivingLicenseId" value="@(Model == null ? "" : Model.Id.ToString())" />
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    证件号码：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,20]'" name="CertNo" value="@(Model == null ? "" : Model.CertNo)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    姓名：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,20]'" name="Name" value="@(Model == null ? "" : Model.Name)"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="text-align: right;">
+                    性别：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-combobox" data-options="required:true,validType:'length[1,5]',valueField:'id',textField:'text',url:'/DrivingLicense/_SexType'" name="Sex" value="@(Model == null ? "" : Model.Sex.ToString())"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    国籍：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,20]'" name="Nationality" value="@(Model == null ? "" : Model.Nationality)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    地址：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,50]'" name="Address" value="@(Model == null ? "" : Model.Address)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    生日：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-datebox" name="Birthday" id="Birthday" value="@(Model == null ? DateTime.Now : Model.Birthday)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    发证日期：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-datebox" name="IssueDate" id="IssueDate" value="@(Model == null ? DateTime.Now : Model.IssueDate)"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: right;">
+                    驾照类型：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-combobox" data-options="required:true,validType:'length[1,10]',valueField:'id',textField:'text',url:'/DrivingLicense/_ClassType'" name="Class" value="@(Model == null ? "" : Model.Class.ToString())"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="text-align: right;">
+                    有效日期：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-datebox" data-options="required:true" name="ValidFrom" id="ValidFrom" value="@(Model == null ? DateTime.Now : Model.ValidFrom)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    有效期限：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-numberbox" data-options="required:true" name="ValidFor" id="ValidFor" value="@(Model == null ? 0 : Model.ValidFor)"/>
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td style="text-align: right;">
+                    照片：
+                </td>
+                <td style="width: 80%;">
+                    @*<input class="easyui-validatebox" name="VendorPic" id="VendorPic" value="@(Model == null ? "" : Model.VendorPic)"/>*@
+                    
+                            <p style="margin:11px 0 0 100px; position:relative;" class="oh z cover-hd">
+                                    <a href="javascript:$('#picUpload').click();" class="icon28C upload-btn" style="width: 30px;height:24px;">
+                                        <input type="file" id="picUpload" name="picUpload" onchange="ImgUpload();" style="opacity: 0; width: 0px; cursor: pointer;" />
+                                    </a>
+                                <input type="hidden" value="@((Model == null || string.IsNullOrEmpty(Model.VendorPic)) ? "" : Model.VendorPic.ToString())" id="VendorPic" name="VendorPic" />
+                            </p>
+                            <p style="margin: 6px 0 0 0;">
+                                <img id="showpic" src="@((Model != null &&!string.IsNullOrEmpty(Model.VendorPic)) ? (ImrUrl+Model.VendorPic) : Url.Content("~/content/images/vendorpic.jpg"))" style="max-width:100%;" />
+                            </p>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" class="btn" value=" 提 交 " />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#DrivingLicense-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#DrivingLicense-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

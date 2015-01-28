@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "周边网点编辑";
+}
+@model Ocean.Entity.Branch
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="branch-add" action="/Branch/_BranchEdit" method="post">
+        <input type="hidden" name="BranchId" value="@(Model == null ? "" : Model.Id.ToString())" />
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    网点名称：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,100]'" name="Name" value="@(Model == null ? "" : Model.Name)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    地址：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,200]'" style="width:250px" name="Address" value="@(Model == null ? "" : Model.Address)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    联系电话：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[6,20]'" name="Phone" value="@(Model == null ? "" : Model.Phone)"/>
+                </td>
+            </tr>
+@*            <tr>
+                <td style="text-align: right;">
+                    联系人：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,50]'" name="ContactName" value="@(Model == null ? "" : Model.ContactName)"/>
+                </td>
+            </tr>*@
+            <tr>
+                <td style="text-align: right;">
+                    类型：
+                </td>
+                <td style="width: 80%;">
+                    <input id="type" class="easyui-combobox" name="Type" data-options="required:true,valueField:'id',textField:'text',url:'/Branch/_BranchType'" value="@(Model == null ? "" : Model.Type.ToString())">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    地图经度：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true" name="Longitude" id="Longitude" value="@(Model == null ? "" : Model.Longitude)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    地图纬度：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true" name="Latitude" id="Latitude" value="@(Model == null ? "" : Model.Latitude)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    地图地址：
+                </td>
+                <td style="width: 80%;">
+                    <iframe id="map_prop" style="width:600px;height:300px;" src="/Branch/MapPage?Longitude=@(Model == null ? "" : Model.Longitude)&Latitude=@(Model == null ? "" : Model.Latitude)" frameborder="0" marginwidth="0" allowTransparency="true" marginheight="0" scrolling="no"  >
+                    </iframe>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" class="btn" value=" 提 交 " />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#branch-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#branch-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

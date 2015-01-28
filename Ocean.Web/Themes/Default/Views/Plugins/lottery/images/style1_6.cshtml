@@ -1,0 +1,837 @@
+﻿@{
+    Layout = "../../Shared/_PluginLayout.cshtml";
+}
+<script src="@Url.Content("~/Content/bank/countdown2/jquery/jquery-1.8.2.min.js")"></script>
+<link href="@Url.Content("~/Content/bank/countdown2/jquery/jquery-ui-1.9.1.custom.min.css")" rel="stylesheet" type="text/css">
+<script src="@Url.Content("~/Content/bank/countdown2/jquery/jquery-ui-1.9.1.custom.min.js")"></script>
+<link href="@Url.Content("~/Content/bank/countdown2/jcountdown/jcountdown.css")" rel="stylesheet" type="text/css">
+<script src="@Url.Content("~/Content/bank/countdown2/jcountdown/jquery.jcountdown.min.js")"></script>
+<link href="@Url.Content("~/Content/bank/countdown2/index.css")" rel="stylesheet" type="text/css">
+<script src="@Url.Content("~/Content/bank/countdown2/index.min.js")"></script>
+
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jQueryRotate.2.2.js")?v=2"></script>
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jquery.easing.min.js")?v=2"></script>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.wap {background: url(@Url.PluginUrl("lottery/images/bj.jpg"));}
+
+.pie {float: left; width: 234px; height: 234px; border-radius: 117px; position: absolute; clip: rect(0px,117px,234px,0px); -moz-transform: rotate(60deg); -webkit-transform: rotate(60deg);} /*---   90-(360/12)   ---*/
+.pie img {border-radius:117px;}
+.pie span {z-index: 999; position: absolute; left: 35%; bottom: 8%; color: #fff; font-size: 14px; transform: rotate(195deg); font-weight: bold;} /*--12个--*/
+/*.pie span {z-index: 999; position: absolute; left: 90px; bottom: 10%; color: #fff; transform: rotate(208deg); font-weight: bold;} 6个*/
+.pie1 {background: #f03442;}
+.pie2 {background: #fe620d;}
+.pie3 {background: #fda537;}
+.pie4 {background: #7eba0d;}
+.pie5 {background: #3aced8;}
+.pie6 {background: #0e6ac1;}
+.pie7 {background: #aa56c5;}
+.pie8 {background: #1da9e7;}
+.pie9 {background: #aae501;}
+.pie10 {background: #fff218;}
+.pie11 {background: #ff9f2c;}
+.pie12 {background: #59ae6b;}
+
+.hold {width:234px; height: 234px; position: absolute; clip:rect(117px,234px,234px,0px); }
+.hold1 {-moz-transform:rotate(105deg); -webkit-transform:rotate(105deg);}  /*---   90+(360/12/2)   --*/
+.hold2 {-moz-transform:rotate(135deg); -webkit-transform:rotate(135deg);}  /*---   90+(360/12/2)+(360/12)   --*/
+.hold3 {-moz-transform:rotate(165deg); -webkit-transform:rotate(165deg);}
+.hold4 {-moz-transform:rotate(195deg); -webkit-transform:rotate(195deg);}
+.hold5 {-moz-transform:rotate(225deg); -webkit-transform:rotate(225deg);}
+.hold6 {-moz-transform:rotate(255deg); -webkit-transform:rotate(255deg);}
+.hold7 {-moz-transform:rotate(285deg); -webkit-transform:rotate(285deg);}
+.hold8 {-moz-transform:rotate(315deg); -webkit-transform:rotate(315deg);}
+.hold9 {-moz-transform:rotate(345deg); -webkit-transform:rotate(345deg);}
+.hold10 {-moz-transform:rotate(15deg); -webkit-transform:rotate(15deg);}
+.hold11 {-moz-transform:rotate(45deg); -webkit-transform:rotate(45deg);}
+.hold12 {-moz-transform:rotate(75deg); -webkit-transform:rotate(75deg);}
+.bg {position: absolute; left: 34px; top: 32px; width: 234px; height: 234px;}
+
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 100%; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 2px; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;position:relative;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px; overflow: hidden;}
+.cat_list {float: left; width: 100%; overflow: hidden; clear: both;}
+.ctit {float: left; height: 50px; font-size: 16px; line-height: 50px;}
+.cinput {float: left; width: 85%; height: 50px;overflow: hidden;}
+.box .title_brown{background: url("@Url.PluginUrl("lottery/images/title-bg-green.png")") no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+/*---- new ----------*/
+.out {
+	position: relative;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.in {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+}
+.out1 {
+	height: 100%;
+    margin: 0 auto;
+    max-width: 300px;
+	max-height: 300px;
+    width: 100%;
+}
+.in1 {
+	cursor: pointer;
+    height: 110px;
+    margin: -55px auto 0;
+    max-width: 90px;
+    width: 90px;
+}
+.out1 img, .in1 img {
+	display: block;
+	margin: 0 auto;
+	max-width:100%;
+}
+</style>
+
+
+<div id="mbMain">
+@*    <div class="frameChang">
+        <span class="stitle">@ViewBag.Title</span>
+    </div>*@
+<div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+<section class="modBaseBox">
+<div class="jjtxt">
+    	<ul style="margin-top: 0px;">
+        <p id = "tipsinfo" style="text-align:center;" class="scrollDiv">
+@*            @if (ViewBag.PluginResultList != null)
+            {
+                foreach (PluginResult submit in ViewBag.PluginResultList)
+                {
+                     <li>@submit.Summary</li>
+                }
+            }*@
+            @if (ViewBag.MpUserID == Guid.Empty)
+            {
+                <span>亲，请先点击抽奖进行身份验证！</span>
+            }
+            else
+            {
+                IEnumerable<PluginResult> mysubmits = ViewBag.MyPlugin_SubmitList as IEnumerable<PluginResult>;
+
+                if (mysubmits != null && mysubmits.Count() != 0)
+                {
+                    foreach (PluginResult submit in ViewBag.MyPlugin_SubmitList)
+                    {
+                         <span>@(submit.Summary)</span>
+			 @:</br>
+		         <span>请关注我行16号之后的兑奖公告</span>
+                    }
+                }
+                else
+                {
+                    if (ViewBag.Has_Use_Count == 0)
+                    {
+                        @:<span>您已经参与本月抽奖活动！下月再接再厉！<span>
+                    }
+                    @*else
+                    {
+                        @:<span>亲！您还有@(ViewBag.Has_Use_Count)次机会！<span>
+                    }*@
+                }
+            }
+
+        </p></ul>
+    </div>
+	<script type="text/javascript">
+
+	    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	        window.shareData = {
+	            "timeLineLink": "http://wx.ssrcb.com/plugins/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "sendFriendLink": "http://wx.ssrcb.com/plugins/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "weiboLink": "http://wx.ssrcb.com/plugins/lottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	            "ImgPath": "http://wximg.ssrcb.com/mpimages/2014/09/11/5fcc7619602-128113_jpg!431x462.jpg",
+	            "tTitle": "超高中奖率！小伙伴们，到石狮农商行抽取iphone6吧！",
+	            "tContent": "小伙伴们，到石狮农商行来抽取iphone6吧！",
+	            "fTitle": "超高中奖率！小伙伴们，到石狮农商行抽取iphone6吧！",
+	            "fContent": "手快有手慢无，小伙伴们，到石狮农商行抽取iphone6吧！",
+	            "wContent": "手快有手慢无，小伙伴们，到石狮农商行抽取iphone6吧！"
+	        };
+
+	        // 发送给好友
+	        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+	            WeixinJSBridge.invoke('sendAppMessage', {
+	                "img_url": window.shareData.ImgPath,
+	                "img_width": "431",
+	                "img_height": "462",
+	                "link": window.shareData.sendFriendLink,
+	                "desc": window.shareData.fContent,
+	                "title": window.shareData.fTitle
+	            }, function (res) {
+	                _report('send_msg', res.err_msg);
+	            })
+	        });
+	        // 分享到朋友圈
+	        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+	            WeixinJSBridge.invoke('shareTimeline', {
+	                "img_url": window.shareData.ImgPath,
+	                "img_width": "431",
+	                "img_height": "462",
+	                "link": window.shareData.timeLineLink,
+	                "desc": window.shareData.tContent,
+	                "title": window.shareData.tTitle
+	            }, function (res) {
+	                _report('timeline', res.err_msg);
+	            });
+	        });
+	        // 分享到微博
+
+	    }, false);
+
+	    AutoScroll = (function (obj) {
+	        $(obj).find("ul:first").animate({
+	            marginTop: "-25px"
+	        }, 500, function () {
+	            $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	        });
+	    });
+	    $(function () {
+	        if ($('.scrollbox li').length > 1) {
+	            setInterval('AutoScroll(".scrollbox")', 4000);
+	        }
+	    });
+	    var lotterying = false;
+	    $(function () {
+	        var rotateFunc = function (json) {
+	            $('#lotteryBtn').stopRotate();
+	            $("#lotteryBtn").rotate({
+	                angle: 0,
+	                duration: 5000,
+	                animateTo: (json.Angle >= 180 ? (json.Angle + 30) : json.Angle) + 1440,
+	                callback: function () {
+	                    lotterying = false;
+
+	                    if (json.ID >= 0) {
+	                        if (json.Has_Gift) {
+	                            if (json.Leavings_Quantity > 0) {
+	                                //alert("恭喜您，中了" + json.Name + "！");
+	                                alert("恭喜您，中了" + json.Name + "！");
+	                                $("#tipsinfo").html("请关注本微信16号后的公告，以便及时兑奖");
+	                                //                                    $("#resultId").val(json.ResultID);
+	                                //                                    $("#boxcontent").show();
+	                            }
+	                            else {
+	                                //alert("恭喜您，中了" + json.Name + ",但是您的运气来得太晚了些，奖品已被拿光！");
+	                                $("#tipsinfo").html("您的运气来的晚了那么些，请再接再厉哦！");
+	                            }
+	                        }
+	                        else {
+	                            //alert(json.Name + ",继续加油!");
+	                            var oppTimes = parseInt($("#Has_Use_Count").html(), 10);
+	                            if (oppTimes > 1) {
+	                                alert(json.Name + "，不要灰心，再接再厉!");
+	                            }
+	                            else {
+	                                alert( json.Name + "，感谢您的参与，请下个月继续努力!");
+	                            }
+	                            $("#tipsinfo").html("亲！您还有" + (parseInt($("#Has_Use_Count").html(), 10) - 1) + "次机会！");
+	                        }
+	                        $("#Has_Use_Count").html(parseInt($("#Has_Use_Count").html(), 10) - 1);
+	                    }
+	                    else {
+	                        //alert('对不起，您未中奖，根据系统转盘奖项设计，只有当抽中指针才能正常！');
+	                        //	                        $.messager.alert('提示', '对不起，您未中奖，根据系统转盘奖项设计，只有当抽中指针才能正常！', "warning", function () { });
+	                        //	                        $.messager.alert('提示', json.Name + ",继续加油!", "warning", function () { });
+	                        var oppTimes = parseInt($("#Has_Use_Count").html(), 10);
+	                        if (oppTimes > 1) {
+	                            alert(json.Name + "，不要灰心，再接再厉!");
+	                        }
+	                        else {
+	                            alert(json.Name + "，感谢您的参与，请下个月继续努力!");
+	                        }
+	                        $("#tipsinfo").html("亲！您还有" + (parseInt($("#Has_Use_Count").html(), 10) - 1) + "次机会！");
+	                        $("#Has_Use_Count").html(parseInt($("#Has_Use_Count").html(), 10) - 1);
+	                    }
+	                }
+	            });
+	        };
+	        $("#btnstart").rotate({
+	            bind: {
+	                click: function () {
+	                    var url = location.href;
+	                    if (!lotterying) {
+	                        lotterying = true;
+	                        $.ajax({
+	                            type: 'post',
+	                            url: '/plugins/lottery2?t=' + Math.random(),
+	                            data: { Id: '@(WebHelper.GetGuid("Id", Guid.Empty))' },
+	                            cache: false,
+	                            dataType: "json",
+	                            success: function (json) {
+	                                if (json.message) {
+	                                    lotterying = false;
+	                                    if (json.isLogin) {
+	                                        //	                                        location.href = '/login?refUrl=' + url;
+	                                        window.location = json.message;
+	                                    }
+	                                    else {
+	                                        if (json.isVertfy) {
+	                                            $("#boxcontent2").show();
+	                                        }
+	                                        else {
+	                                            //alert(json.message);
+	                                            alert(json.message);
+	                                        }
+	                                    }
+	                                }
+	                                else {
+	                                    if (json.ID < 0) {
+	                                        var index = Math.floor(Math.random() * 3);
+	                                        json.Angle = 30 + 60 * index;
+	                                    }
+	                                    rotateFunc(json);
+	                                }
+	                            },
+	                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+	                                lotterying = false;
+	                                alert(XMLHttpRequest.status);
+	                                alert(XMLHttpRequest.readyState);
+	                                alert(textStatus);
+	                                alert(errorThrown);
+	                            }
+	                            //	                            error: function () {
+	                            //	                                alert(1);
+	                            //	                            }
+	                        });
+	                    }
+	                    else {
+	                        //alert('正在摇奖中...');
+	                        alert('你的网速有点忙，正在摇奖中...');
+	                    }
+	                }
+	            }
+	        });
+	    });
+
+	    function certfySubmit() {
+	        $.ajax({
+	            type: 'post',
+	            url: '/plugins/CertSubmit2?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+	            data: $("#CertSubmitForm2").serialize(),
+	            cache: false,
+	            async: false,
+	            success: function (json) {
+	                alert(json.message);
+	                //$('#boxcontent').hide(); $('#re_again').hide();
+	                if (json.success) {
+	                    location.reload();
+	                }
+	            },
+	            error: function (XMLHttpRequest, textStatus, errorThrown) {
+	                lotterying = false;
+	                alert(XMLHttpRequest.status);
+	                alert(XMLHttpRequest.readyState);
+	                alert(textStatus);
+	                alert(errorThrown);
+	            }
+
+	        });
+	    }
+	    function modifySubmit(id) {
+	        $('#resultId').val(id);
+	        $.ajax({
+	            type: 'post',
+	            url: '/plugins/getresult?pluginId=@(WebHelper.GetString("Id"))&resultId=' + id + '&t=' + Math.random(),
+	            data: {},
+	            cache: false,
+	            success: function (json) {
+	                $('#Name').val(json.Name);
+	                $('#Phone').val(json.Phone);
+	                $('#Address').val(json.Address);
+	            }
+	        });
+	        $('#boxcontent').show();
+	    }
+	    var mobileCodeEnable = false;
+	    var countdown;
+	    var total = 120;
+	    var count = total;
+	    $.ajax({
+	        type: 'post',
+	        url: "GetMobileCodeSeconds",
+	        async: true,
+	        cache: false,
+	        datatype: "json",
+	        data: { operateType: 2 },
+	        success: function (result) {
+	            if (result.count > 0 && result.count < total) {
+	                mobileCodeEnable = false;
+	                count = result.count;
+	                countdown = setInterval(CountDown, 1000);
+	            }
+	            else {
+	                mobileCodeEnable = true;
+	            }
+	        }
+	    });
+	    function GetMobileCode() {
+	        if (mobileCodeEnable) {
+	            if (!$.trim($("#MobilePhone").val()) || !(/^(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$|^[\d]{7,8}$/).test($("#MobilePhone").val())) {
+	                alert('请正确的手机号码');
+	                return false;
+	            }
+	            mobileCodeEnable = false;
+	            $.ajax({
+	                type: 'post',
+	                url: '/plugins/CertAndGetMobileCode?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+	                async: true,
+	                cache: false,
+	                datatype: "json",
+	                data: { mobile: $('#MobilePhone').val(), OperateType: 4 },
+	                success: function (result) {
+	                    if (result.success) {
+	                        $("#MobileCodeBtn").html(count + "秒后重新发送");
+	                        count = count - 1;
+	                        countdown = setInterval(CountDown, 1000);
+	                        if (result.message) {
+	                            $("#Code").val(result.message);
+	                        }
+	                    } else {
+	                        mobileCodeEnable = true;
+	                        alert(result.message);
+	                    }
+	                }
+	            });
+	        }
+	        else {
+	            alert('请稍等，验证码已发送');
+	        }
+	    }
+	    function CountDown() {
+	        $("#MobileCodeBtn").attr("disabled", true);
+	        $("#MobileCodeBtn").html(count + "秒后重新发送");
+	        if (count == 0) {
+	            $("#MobileCodeBtn").html("发送验证码").removeAttr("disabled");
+	            mobileCodeEnable = true;
+	            clearInterval(countdown);
+	            count = total;
+	        }
+	        count--;
+	    }
+    </script>
+@*<div class="contentCount">
+	<div class="page">
+		<div class= "pagetitle">
+			<p style = "position:relative;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:100%; color:#FFF; font-weight: bold; margin:-45px;z-index:1;padding: -45px; ">石狮农商银行，摇奖倒计时！</p>
+		</div>
+		<div class="countdown">
+		</div>
+		<div class="backgroundPicker" tip="check how it looks in different background color">
+			<div class="button black">
+			</div>
+		</div>
+
+	</div>
+</div>
+<div style="width: 300px; height: 300px; margin: auto; margin-top: 10px; position: relative;">
+       <div class="out">
+        <div class="out1">
+            @if (!string.IsNullOrEmpty(ViewData.GetString("Cst_Plugin_PrizeImg" + 1)))
+            {
+                string prizeImg = ViewData.GetString("Cst_Plugin_PrizeImg" + 1);
+                if (prizeImg.StartsWith("http://"))
+                {
+                 <img id="lotteryBtn" src="@prizeImg" style="width:100%;" />
+                }
+                else
+                {
+                    <img id="lotteryBtn" src="@(Url.ImagesCdnRoot("", false) + prizeImg)" style="width:100%;" />
+                }
+            }
+            else
+            {
+                 <img id="lotteryBtn" src="@Url.PluginUrl("lottery/images/disc.png", false)" style="width:100%;" />
+            }
+            
+        </div>
+        </div>
+       <div class="in">
+        <div class="in1"><img id="btnstart" src="@Url.PluginUrl("lottery/images/in.png")" /></div>
+        </div>
+</div>*@
+
+    <div class="content">
+
+    	<div class="boxcontent" id="boxcontent" style="display:none;">
+        <form id="CertSubmitForm" action ="/plugin/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	<div class="box">
+            	<div class="title_orange">
+                	<span>输入验证码信息</span>
+                    <a href="#" onclick="$('#boxcontent').hide();" class="inclose">
+                    	<img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                    </a>
+                </div>
+                <div class="Detail">
+                	<p class="cat_list">
+					   <span class="ctit">姓名：</span>
+					   <span class="cinput"><input class="px" type="text" name="Name" id="Name" placeholder="请输入姓名" value=""></span>
+					</p>
+					<p class="cat_list">
+					   <span class="ctit">电话：</span>
+					   <span class="cinput"><input class="px" type="text" name="Phone" id="Phone" placeholder="请输入签约手机号码" value=""></span>
+					</p>
+					<p class="cat_list">
+					   <span class="ctit">证件：</span>
+					   <span class="cinput"><input class="px" type="text" name="CertNo2" id="CertNo2" placeholder="请输入证件后四位" value=""></span>
+					</p>
+                    <p class="cat_list"><input class="pxbtn" type="button" onclick="certfySubmit();" value="提交"></p>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="boxcontent" id="boxcontent2" style="display:none;">
+        <form id="CertSubmitForm2" action ="/plugin/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	<div class="box">
+            	<div class="title_orange">
+                	<span>输入验证码信息</span>
+                    <a href="#" onclick="$('#boxcontent2').hide();" class="inclose">
+                    	<img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                    </a>
+                </div>
+                <ul class="fnb_list">
+                    <li>
+                        <p><input class="txtinput" name="Phone" id="MobilePhone" type="text" placeholder="请输入签约手机号码" autocomplete="on" /></p>
+                        <em style="width:110px;"><a href="javascript:void(0);" id="MobileCodeBtn" onclick="GetMobileCode();">获取验证码</a></em>
+                        <span class="tel"></span>
+                    </li>
+                    <li>
+                        <p><input class="txtinput" name="Code" id="Code" type="text" placeholder="验证码" autocomplete="on" /></p>
+                        <span class="yzm"></span>
+                    </li>
+                    <li>
+                        <p class="cat_list"><input class="modBtnColor coloryellow" type="button" onclick="certfySubmit();" value="提交"></p>
+                    </li>
+                    </ul>
+            </div>
+            </form>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>11月份领奖提示：</span>
+                </div>
+                <div class="Detail">
+                   <p>1．请幸运中奖客户持个人身份证至我行指定网点领取奖品，具体网点详见下栏中奖名单或短信通知；</p>
+                   <p>2．领奖期限：即日起至2014年11月30日（石狮、漳州客户）；2014年11月24日至2014年11月30日（福州客户），愈期无效哦！</p>
+                   <p>3．感谢广大客户的热情参与，下月抽奖时间：12月5日至12月15日，通过手机银行完成3笔交易/月即可继续参与！</p>
+                   <p>4．客服热线：40008-96336。</p>
+                </div>
+            </div>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>中奖名单：</span>
+                </div>
+
+		<div class="Detail">
+<p><font style="FONT-SIZE: 12pt; WIDTH: 100%; COLOR: #ff0000;">	一等奖1名&nbsp;&nbsp;&nbsp;&nbsp;奖品：IPHONE6</font></p>
+<p>	姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;领奖地址	</p>
+<p>	廖*龙	1355****0152	营业部	</p>
+<p><font style="FONT-SIZE: 12pt; WIDTH: 100%; COLOR: #ff0000;">	二等奖48名&nbsp;&nbsp;&nbsp;&nbsp;奖品：高档保温瓶</font></p>
+<p>	姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;领奖地址	</p>
+<p>	蔡*芬	1355****8768	营业部	</p>
+<p>	蔡*辉	1350****2622	石祥路支行	</p>
+<p>	蔡*鑫	1560****2508	濠江支行	</p>
+<p>	蔡*永	1360****9322	濠江支行	</p>
+<p>	蔡*泽	1590****3110	祥农分理处	</p>
+<p>	陈*榜	1595****2557	锦亭分理处	</p>
+<p>	陈*宝	1332****7127	人民路分理处	</p>
+<p>	陈*卿	1865****9910	鸿山支行	</p>
+<p>	陈*云	1815****2689	香江支行	</p>
+<p>	董*焕	1895****7741	洋厝分理处	</p>
+<p>	高*坚	1539****1087	杆头分理处	</p>
+<p>	龚*唇	1516****2192	沙堤分理处	</p>
+<p>	郭*钢	1590****1717	杆头分理处	</p>
+<p>	郭*坪	1385****0609	永宁支行	</p>
+<p>	胡*文	1355****4399	锦尚分理处	</p>
+<p>	黄*涛	1360****7666	漳州支行	</p>
+<p>	黄*颖	1588****3055	城北支行	</p>
+<p>	纪*迎	1585****9910	大仑支行	</p>
+<p>	江*文	1515****8291	鸿山支行	</p>
+<p>	李*瑜	1363****8801	沙堤分理处	</p>
+<p>	连*容	1885****7722	厝仔分理处	</p>
+<p>	林*发	1340****9899	漳州支行	</p>
+<p>	林*划	1385****4264	鸿山支行	</p>
+<p>	林*煌	1345****1587	漳州支行	</p>
+<p>	林*辉	1530****8666	漳州支行	</p>
+<p>	林*雅	1386****4966	湖光分理处	</p>
+<p>	刘*俊	1525****7226	八七路支行	</p>
+<p>	卢*煌	1865****5599	曾坑分理处	</p>
+<p>	彭*乾	1590****7528	彭田分理处	</p>
+<p>	邱*炳	1306****0933	锦尚分理处	</p>
+<p>	邱*坛	1359****2882	锦尚分理处	</p>
+<p>	施*明	1315****8686	钞坑分理处	</p>
+<p>	施*序	1590****1678	曾坑分理处	</p>
+<p>	唐*平	1835****6820	灵秀支行	</p>
+<p>	童*涛	1865****9083	营业部	</p>
+<p>	屠*巍	1865****8200	服装城支行	</p>
+<p>	汪*义	1365****4226	鸿山支行	</p>
+<p>	王*明	1360****0386	营业部	</p>
+<p>	王*品	1890****8688	湖边分理处	</p>
+<p>	王*伟	1525****0819	人民路分理处	</p>
+<p>	吴*煌	1885****3353	玉湖分理处	</p>
+<p>	吴*鹏	1359****8661	九二路支行	</p>
+<p>	詹*华	1359****5122	城北支行	</p>
+<p>	张*玉	1586****6520	营业部	</p>
+<p>	郑*杰	1588****8900	濠江支行	</p>
+<p>	周*平	1359****7907	福州支行	</p>
+<p>	朱*强	1528****3929	锦尚分理处	</p>
+<p>	庄*儿	1586****8919	彭田分理处	</p>
+
+<p><font style="FONT-SIZE: 12pt; WIDTH: 100%; COLOR: #ff0000;">	三等奖196名&nbsp;&nbsp;&nbsp;&nbsp;奖品：精美水杯</font></p>
+<p>	姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;领奖地址	</p>
+<p>	蔡*才	1379****8229	服装城支行	</p>
+<p>	蔡*达	1350****7613	大仑支行	</p>
+<p>	蔡*光	1390****2950	钞坑分理处	</p>
+<p>	蔡*辉	1390****2735	香江支行	</p>
+<p>	蔡*军	1380****2071	南洋路支行	</p>
+<p>	蔡*烙	1366****5777	服装城支行	</p>
+<p>	蔡*莉	1598****2343	灵秀支行	</p>
+<p>	蔡*玲	1385****5595	锦尚分理处	</p>
+<p>	蔡*绵	1359****7087	锦尚分理处	</p>
+<p>	蔡*绵	1377****8330	祥芝支行	</p>
+<p>	蔡*珊	1875****9330	钞坑分理处	</p>
+<p>	蔡*生	1385****8669	服装城支行	</p>
+<p>	蔡*伟	1365****9935	石祥路支行	</p>
+<p>	蔡*祥	1361****0012	玉湖分理处	</p>
+<p>	蔡*晓	1329****9888	彭田分理处	</p>
+<p>	蔡*心	1390****1638	营业部	</p>
+<p>	蔡*杖	1825****3999	仑峰分理处	</p>
+<p>	蔡*珍	1890****0977	石祥路支行	</p>
+<p>	蔡*志	1396****0222	厝仔分理处	</p>
+<p>	蔡*专	1525****4882	石祥路支行	</p>
+<p>	陈*安	1380****9389	人民路分理处	</p>
+<p>	陈*波	1505****6970	营业部	</p>
+<p>	陈*涵	1395****6492	彭田分理处	</p>
+<p>	陈*河	1310****1121	洋厝分理处	</p>
+<p>	陈*绵	1598****6228	锦亭分理处	</p>
+<p>	陈*松	1396****6009	漳州支行	</p>
+<p>	陈*文	1360****8968	漳州支行	</p>
+<p>	陈*勇	1360****9909	天宝分理处	</p>
+<p>	池*墙	1360****7737	蚶江支行	</p>
+<p>	丁*水	1595****7779	营业部	</p>
+<p>	董*汉	1350****8123	永宁支行	</p>
+<p>	董*明	1345****4891	洋厝分理处	</p>
+<p>	杜*东	1586****3046	厝仔分理处	</p>
+<p>	高*华	1885****7749	服装城支行	</p>
+<p>	高*生	1396****1800	沙堤分理处	</p>
+<p>	龚*娟	1505****5333	沙堤分理处	</p>
+<p>	龚*水	1865****3797	沙堤分理处	</p>
+<p>	郭*清	1571****0278	漳州支行	</p>
+<p>	郭*吟	1321****8567	长福分理处	</p>
+<p>	何*兰	1359****2716	永宁支行	</p>
+<p>	洪*顶	1590****5277	锦亭分理处	</p>
+<p>	洪*辉	1377****2722	漳州支行	</p>
+<p>	洪*娇	1525****0699	福州支行	</p>
+<p>	洪*玲	1505****8888	大仑支行	</p>
+<p>	洪*绵	1588****7325	蚶江支行	</p>
+<p>	洪*强	1355****2185	营业部	</p>
+<p>	洪*贤	1565****1889	台江分理处	</p>
+<p>	侯*美	1350****1125	锦尚分理处	</p>
+<p>	胡*强	1885****6520	九二路支行	</p>
+<p>	胡*灼	1515****9676	南洋路支行	</p>
+<p>	黄*城	1896****8648	彭田分理处	</p>
+<p>	黄*芳	1896****7781	彭田分理处	</p>
+<p>	黄*芬	1830****2327	石祥路支行	</p>
+<p>	黄*辉	1560****1660	石祥路支行	</p>
+<p>	黄*坚	1526****4757	石祥路支行	</p>
+<p>	黄*娟	1315****3285	天宝分理处	</p>
+<p>	黄*强	1396****2736	漳州支行	</p>
+<p>	黄*蓉	1590****8013	蚶江支行	</p>
+<p>	黄*升	1363****6898	华山支行	</p>
+<p>	黄*文	1331****7766	营业部	</p>
+<p>	黄*正	1865****3008	鸿山支行	</p>
+<p>	简*华	1345****7765	龟湖分理处	</p>
+<p>	康*民	1588****7999	八七路支行	</p>
+<p>	柯*灿	1396****8511	灵秀支行	</p>
+<p>	黎*静	1310****8538	服装城支行	</p>
+<p>	李*勃	1390****2125	沙堤分理处	</p>
+<p>	李*光	1360****4820	漳州支行	</p>
+<p>	李*华	1820****0590	石祥路支行	</p>
+<p>	李*钧	1359****5890	洋厝分理处	</p>
+<p>	李*梅	1340****1747	锦尚分理处	</p>
+<p>	李*培	1362****8110	钞坑分理处	</p>
+<p>	李*四	1350****0824	南洋路支行	</p>
+<p>	李*先	1860****1168	祥农分理处	</p>
+<p>	李*鑫	1377****0484	龟湖分理处	</p>
+<p>	李*莹	1595****5678	鸿山支行	</p>
+<p>	李*珍	1865****9849	鸿山支行	</p>
+<p>	廖*继	1860****6566	梅港分理处	</p>
+<p>	林*春	1595****1198	漳州支行	</p>
+<p>	林*辉	1348****1680	漳州支行	</p>
+<p>	林*积	1500****8775	营业部	</p>
+<p>	林*菊	1885****5171	漳州支行	</p>
+<p>	林*坤	1860****1098	漳州支行	</p>
+<p>	林*温	1586****2999	锦尚分理处	</p>
+<p>	林*英	1395****0687	南洋路支行	</p>
+<p>	林*永	1350****3509	服装城支行	</p>
+<p>	林*勇	1350****7201	永宁支行	</p>
+<p>	林*志	1386****6262	灵秀支行	</p>
+<p>	刘*斌	1338****9597	漳州支行	</p>
+<p>	刘*平	1586****1781	蚶江支行	</p>
+<p>	刘*万	1379****5999	祥芝支行	</p>
+<p>	卢*目	1896****3433	锦尚分理处	</p>
+<p>	卢*强	1596****1806	营业部	</p>
+<p>	卢*霞	1876****9078	玉湖分理处	</p>
+<p>	吕*生	1875****6999	湖光分理处	</p>
+<p>	毛*旺	1596****6896	彭田分理处	</p>
+<p>	潘*飞	1525****3282	港塘支行	</p>
+<p>	彭*海	1805****3983	厝仔分理处	</p>
+<p>	丘*斌	1539****3366	锦尚分理处	</p>
+<p>	邱*绵	1379****0923	锦尚分理处	</p>
+<p>	邱*婷	1598****8125	锦尚分理处	</p>
+<p>	邱*英	1345****5604	锦尚分理处	</p>
+<p>	邱*迎	1385****7073	鸿山支行	</p>
+<p>	邱*勇	1565****6502	城北支行	</p>
+<p>	邱*真	1555****7788	城北支行	</p>
+<p>	佘*平	1885****9219	南洋路支行	</p>
+<p>	施*辉	1875****6268	镇中路分理处	</p>
+<p>	施*科	1396****2848	曾坑分理处	</p>
+<p>	施*清	1590****6989	营业部	</p>
+<p>	史*红	1506****0669	营业部	</p>
+<p>	苏*辉	1385****9068	蚶江支行	</p>
+<p>	苏*杰	1850****5355	漳州支行	</p>
+<p>	苏*钦	1590****3159	营业部	</p>
+<p>	苏*盛	1350****5522	塔前分理处	</p>
+<p>	苏*玺	1505****0858	彭田分理处	</p>
+<p>	孙*斌	1328****1368	洋厝分理处	</p>
+<p>	唐*禄	1348****0223	彭田分理处	</p>
+<p>	唐*钟	1395****3616	漳州支行	</p>
+<p>	陶*林	1315****1171	湖光分理处	</p>
+<p>	田*华	1598****0988	永宁支行	</p>
+<p>	田*菊	1345****2243	蚶江支行	</p>
+<p>	涂*澎	1595****2080	塔前分理处	</p>
+<p>	万*伟	1890****9926	港塘支行	</p>
+<p>	王*波	1505****5811	蚶江支行	</p>
+<p>	王*芳	1390****2805	湖边分理处	</p>
+<p>	王*贵	1396****3737	锦亭分理处	</p>
+<p>	王*绞	1360****1989	容卿分理处	</p>
+<p>	王*林	1355****0000	福州支行	</p>
+<p>	王*谋	1380****9358	鸿山支行	</p>
+<p>	王*深	1360****6198	营业部	</p>
+<p>	王*仪	1360****9530	漳州支行	</p>
+<p>	温*茂	1355****9315	永宁支行	</p>
+<p>	翁*钦	1875****8789	香江支行	</p>
+<p>	吴*根	1385****9289	漳州支行	</p>
+<p>	吴*敏	1379****1135	宝盖支行	</p>
+<p>	吴*榕	1335****2533	漳州支行	</p>
+<p>	吴*宣	1895****0279	塔前分理处	</p>
+<p>	吴*雅	1516****3372	营业部	</p>
+<p>	吴*瑜	1350****6995	蚶江支行	</p>
+<p>	向*军	1569****5106	港塘支行	</p>
+<p>	肖*琴	1359****0738	厝仔分理处	</p>
+<p>	谢*免	1385****2468	濠江支行	</p>
+<p>	谢*云	1595****3633	永宁支行	</p>
+<p>	谢*栽	1386****3444	蚶江支行	</p>
+<p>	辛*明	1350****2432	锦亭分理处	</p>
+<p>	熊*国	1526****2826	锦尚分理处	</p>
+<p>	徐*林	1590****0751	祥芝支行	</p>
+<p>	徐*新	1896****3337	营业部	</p>
+<p>	徐*增	1825****7272	石祥路支行	</p>
+<p>	许*锋	1366****8255	洋厝分理处	</p>
+<p>	许*军	1550****8833	漳州支行	</p>
+<p>	许*荣	1865****3905	锦亭分理处	</p>
+<p>	许*荣	1865****7398	营业部	</p>
+<p>	许*婷	1825****8260	营业部	</p>
+<p>	许*欣	1379****9962	洋厝分理处	</p>
+<p>	许*旋	1595****1139	湖边分理处	</p>
+<p>	许*雅	1350****2999	人民路分理处	</p>
+<p>	许*业	1396****3788	塔前分理处	</p>
+<p>	许*育	1390****1320	仑峰分理处	</p>
+<p>	许*缘	1379****1008	香江支行	</p>
+<p>	颜*焕	1885****8555	钞坑分理处	</p>
+<p>	杨*敞	1390****9039	福州支行	</p>
+<p>	杨*富	1885****3337	宝盖支行	</p>
+<p>	杨*刚	1368****8550	鸿山支行	</p>
+<p>	杨*浩	1340****5055	营业部	</p>
+<p>	杨*伦	1586****2083	港塘支行	</p>
+<p>	杨*祝	1396****2220	服装城支行	</p>
+<p>	叶*凤	1377****0959	镇中路分理处	</p>
+<p>	叶*照	1515****1551	石祥路支行	</p>
+<p>	余*国	1835****8885	港塘支行	</p>
+<p>	余*茂	1825****0023	漳州支行	</p>
+<p>	余*青	1875****4617	锦亭分理处	</p>
+<p>	曾*萍	1575****8222	营业部	</p>
+<p>	曾*颜	1396****5897	大仑支行	</p>
+<p>	詹*帮	1595****3881	港塘支行	</p>
+<p>	詹*水	1598****9685	港塘支行	</p>
+<p>	张*方	1367****8508	灵秀支行	</p>
+<p>	张*芳	1575****1611	曾坑分理处	</p>
+<p>	张*福	1363****1339	福州支行	</p>
+<p>	张*茂	1865****2602	彭田分理处	</p>
+<p>	张*明	1348****2880	宝盖支行	</p>
+<p>	张*明	1348****8020	濠江支行	</p>
+<p>	张*平	1586****7631	灵秀支行	</p>
+<p>	张*平	1875****7250	钞坑分理处	</p>
+<p>	张*晓	1395****2999	八七路支行	</p>
+<p>	张*志	1510****7377	祥芝支行	</p>
+<p>	章*明	1585****3703	曾坑分理处	</p>
+<p>	郑*梅	1505****4187	福州支行	</p>
+<p>	郑*琼	1586****9646	金山分理处	</p>
+<p>	郑*树	1812****2250	营业部	</p>
+<p>	钟*菊	1362****9294	天宝分理处	</p>
+<p>	钟*伟	1895****3999	漳州支行	</p>
+<p>	朱*茸	1379****0977	漳州支行	</p>
+<p>	庄*岛	1390****5562	彭田分理处	</p>
+<p>	庄*辉	1598****3328	石祥路支行	</p>
+<p>	庄*昆	1378****1946	宝盖支行	</p>
+<p>	邹*飞	1839****5055	锦尚分理处	</p>
+
+                </div>
+            </div>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>奖项设置：</span>
+                </div>
+                <div class="Detail">
+                   <p>一等奖1名：Iphone6手机；</p>
+                   <p>二等奖50名：高档保温瓶；</p>
+                   <p>三等奖200名：精美水杯。</p>
+                </div>
+            </div>
+        </div>
+    	<div class="boxcontent">
+        	<div class="box">
+            	<div class="title_brown">
+                	<span>活动说明：</span>
+                </div>
+                <div class="Detail">
+                	<p style="display:none;">
+                    	 您还有
+                    	 <span class="red" id="Has_Use_Count">@ViewBag.Has_Use_Count</span>
+                    	 次参与机会
+                    </p>
+                	<p> 
+                        @Html.Raw(ViewBag.Cst_Plugin_Info ?? "")
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+              </section>
+      </div>
+</div>

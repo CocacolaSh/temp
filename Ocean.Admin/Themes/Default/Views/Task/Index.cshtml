@@ -1,0 +1,156 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "任务列表";
+}
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid();
+            $('#w').window('close');
+            $('#dlg1').dialog('close');
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/Task/_TaskList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                //                     { field: 'ck', checkbox: true }, //选择
+                     {title: '创建时间', field: 'CreateDate', width: 100,
+                     formatter: function (value) {
+                         return formatDate(value);
+                     }
+                 },
+                     { title: '任务名称', field: 'Name', width: 180 },
+                     { title: 'ITask类型', field: 'Type', width: 250 },
+                     { title: '间隔时间(秒)', field: 'Seconds', width: 80 },
+                     { title: '是否启用', field: 'Enabled', width: 80,
+                         formatter: function (value) {
+                             if (value) {
+                                 return "启用";
+                             } else {
+                                 return "禁用";
+                             }
+                         }
+                     },
+                     { title: '是否错误停止', field: 'StopOnError', width: 80,
+                         formatter: function (value) {
+                             if (value) {
+                                 return "停止";
+                             } else {
+                                 return "不停止";
+                             }
+                         }
+                     },
+                     { title: '最后开始时间', field: 'LastStartUtc', width: 150,
+                         formatter: function (value) {
+                             return formatDateTime(value);
+                         }
+                     },
+                     { title: '最后结束时间', field: 'LastEndUtc', width: 150,
+                         formatter: function (value) {
+                             return formatDateTime(value);
+                         }
+                     },
+                     { title: '最后成功时间', field: 'LastSuccessUtc', width: 150,
+                         formatter: function (value) {
+                             return formatDateTime(value);
+                         }
+                     }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ShowAddDialog() {
+            $('#iframe').attr("src", "/Task/TaskEdit");
+            $('#w').window('open');
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/Task/TaskEdit?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要修改的数据');
+            }
+        }
+
+        function Delete() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '确定要删除吗?', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].Id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/Task/_TaskDelete",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的数据');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @*@Html.ActionLink("查看", null, null, new { onclick = "javascript:void(0)", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })*@
+        @Html.ActionLink("添加", null, null, new { onclick = "ShowAddDialog()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("修改", null, null, new { onclick = "ShowEditOrViewDialog()", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })        
+        @Html.ActionLink("删除", null, null, new { onclick = "Delete()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })  
+        @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').datagrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="任务管理" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 350px; padding: 5px;" modal="true">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>
+

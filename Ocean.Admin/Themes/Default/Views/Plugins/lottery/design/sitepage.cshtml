@@ -1,0 +1,56 @@
+﻿@model PagedList<Site_Page>
+@{
+    Gitom3GCMS.Domain.OnlineSite siteContext = ViewBag.SiteContext as Gitom3GCMS.Domain.OnlineSite;
+    }
+<dl>
+	用户名：<input type="text" id="skey" value="@GitomCMSRequest.GetString("skey")" /><button onclick="getSitePage($('#skey').val(),$('.pd_btn').attr('pindex'));return false;">搜索</button><em onclick="$('#sitePageBox').html('').hide();">关闭</em>
+    @foreach (Site_Page page in Model)
+    {
+	<dd><span class="pagename">@(page.Name)</span><span style="width:10%;">
+        <input name="pageid" type="checkbox" value="@page.ID.ToString()" onclick="$(this).prop('checked',!$(this).prop('checked'));" /></span>
+        <span><span style="color:#fff;cursor:pointer;" onclick="UrlShow('http://@(siteContext.SiteHost)/@(page.Url)?pluginid=@(page.ID.ToString())',event);">前台链接</span></span>
+    </dd>
+    
+    }
+    <div class="pageNavigator right">
+                    @{
+                        if (Model != null && Model.Count > 0)
+                        {
+                            PagerOptions pageOpt = new PagerOptions()
+                            {
+                                AutoHide = true,
+                                /*跳转区*/
+                                PageIndexBoxType = PageIndexBoxType.DropDownList,/*跳转输入方式*/
+                                ShowGoButton = false,
+                                ShowInfo = true,
+                                PageIndexBoxWrapperFormatString = "到第{0}页",
+                                NumericPagerItemCount = 5,
+                                CssClass = "pager",
+                                ShowFirstLast = false,
+                                ShowPrevNext = false,
+                                FirstPageText = "第一页",
+                                PrevPageText = "前一页",
+                                NextPageText = "下一页",
+                                LastPageText = "最后页",
+                                PageIndexParameterName = "page",
+                                AlwaysShowFirstLastPageNumber = true,
+
+                                PrevItemWrapperCss = "page-pre",
+                                NextItemWrapperCss = "page-next",
+                                LastItemWrapperCss = "page-last",
+                                FirstItemWrapperCss = "page-fir",
+                                /*数字部分*/
+                                ShowNumericPagerItems = true,
+                                PageNumberCss = "page-num",
+                                SeparatorHtml = " ",
+                                CurrentPagerItemWrapperCss = "page-cur",
+                                DisabledCss = "page-disabled",
+                                MorePagerItemWrapperCss = "page-more",
+                                GoToPageSectionWrapperFormatString = ""
+                            };
+                    @Html.AjaxPager(Model.TotalPageCount, Model.CurrentPageIndex, "GetSitePages", "PluginOperate", "", pageOpt, new { skey = GitomCMSRequest.GetString("skey"), uindex = GitomCMSRequest.GetString("uindex") }, new AjaxOptions() { OnComplete = "function(){getSitePageInit(" + GitomCMSRequest.GetString("pindex") + ");}", UpdateTargetId = "sitePageBox" }, null)
+                        }
+                 }
+                </div>
+	<dd style="text-align:center; border:none;"><a class="pd_btn" href="javascript:void(0);" pindex="0" onclick="setSitePage($(this).attr('pindex'));">确定选择</a></dd>
+</dl>

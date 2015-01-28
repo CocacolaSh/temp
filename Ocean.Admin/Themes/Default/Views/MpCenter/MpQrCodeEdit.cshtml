@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "二维码生成";
+}
+@model Ocean.Entity.MpQrScene
+@section Head{
+    <style type="text/css">
+        td {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="MpCenter-add" action="/MpCenter/_MpQrCodeEdit" method="post">
+            <input type="hidden" name="Id" value="@(Model == null ? "" : Model.Id.ToString())" />
+            <table style="width: 100%;">
+                <tr>
+                    <td style="text-align: right;">主题名：
+                    </td>
+                    <td style="width: 80%;">
+                        @Html.TextBoxFor(model => model.Title, new Dictionary<string, object>() { { "class", "easyui-validatebox" }, { "data-options", "required:true,validType:'length[1,50]'" } })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">类型：
+                    </td>
+                    <td style="width: 80%;">
+                        <input id="type" class="easyui-combobox" name="ActionName" data-options="required:true,valueField:'id',textField:'text',url:'/MpCenter/_QrType'" value="@(Model == null ? "" : Model.ActionName.ToString())">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">备注信息：
+                    </td>
+                    <td style="width: 80%;">
+                        <textarea class="easyui-validatebox" data-options="required:true,validType:'length[2,500]'"
+                            name="Description" id="Description" style="width: 200px; height: 100px;"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" class="btn" value=" 生成 " />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#MpCenter-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#MpCenter-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

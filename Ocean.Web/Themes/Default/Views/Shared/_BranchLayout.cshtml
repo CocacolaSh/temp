@@ -1,0 +1,58 @@
+﻿@using Ocean.Framework.Configuration.global.config
+@{
+    string author = GlobalConfig.GetConfig()["Author"];
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@(ViewBag.Title??"石狮农商银行")</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scafle=1.0, user-scalable=no" />
+    <meta name="author" content="@(author)" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/bank/js/option.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bank/css/common.css")" />
+    @RenderSection("head", required: false)@*View页面自定义特定js/css使用*@
+@*    <script type="text/javascript">
+        $(function () {
+            $(".goback").click(function () {
+                var refer = document.referrer;
+                if (refer) {
+                    history.go(-1);
+                }
+                else {
+                    location.href = "/";
+                }
+            });
+        });
+    </script>*@
+</head>
+<body>
+    <div id="mbSubTitle">
+    <section class="subTitleBox">
+@*        <a href="javascript:void(0);" class="goback backBtn swap"></a>*@
+        <span>周边网点</span>
+@*        <a href="/" class="homeBtn"></a>*@
+    </section>
+</div>
+    @RenderBody()
+<footer class="footer">
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Telephone"])) 
+   {
+       <p>石狮农商银行客服热线：@(GlobalConfig.GetConfig()["Telephone"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Copyright"])) 
+   {
+       <p>&copy;@(GlobalConfig.GetConfig()["Copyright"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["ICP"]))
+   {
+       <p>@(GlobalConfig.GetConfig()["ICP"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Security"]))
+   { 
+       <p>@(GlobalConfig.GetConfig()["Security"])</p>
+   }
+</footer>
+</body>
+</html>

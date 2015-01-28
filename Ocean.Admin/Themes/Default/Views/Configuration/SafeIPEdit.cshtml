@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "配置管理";
+}
+@model Ocean.Entity.Configuration       
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+        *
+        {
+            font-size: 12px;
+        }
+        h2
+        {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 15px;
+        }
+        .configura-info
+        {
+            background: #FFFEE6;
+            color: #8F5700;
+            padding: 12px;
+        }
+        .configura-tip
+        {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            float: left;
+        }
+    </style>
+    <script type="text/javascript">
+        
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="configuration-add" action="/Configuration/_SafeIPEdit" method="post">
+        <div class="configura-info">
+            <div class="configura-tip icon-tip">
+            </div>
+            <div>
+                每个IP请用|隔开,不设置则表示允许全部IP登录</div>
+        </div>
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 80px;">
+                    IP列表：
+                </td>
+                <td>
+                    <textarea class="easyui-validatebox" data-options="" name="SafeIP" id="SafeIP" style="width: 500px;
+                        height: 100px;">@(ViewBag.SafeIP)</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" class="btn" value=" 提 交 " />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#configuration-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('提示', "保存成功");
+                    } else {
+                        $.messager.alert('提示', "保存失败");
+                    }
+                }
+            });
+        });
+    </script>
+</div>

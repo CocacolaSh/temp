@@ -1,0 +1,180 @@
+﻿@{
+    ViewBag.Title = "公众账号列表";
+}
+@section Head{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            InitGrid();
+            $('#w').window('close');
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/MpCenter/_MpList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+//                     { field: 'ck', checkbox: true }, //选择
+                     { title: '公众号名称', field: 'MpName', width: 150 },
+                     { title: '公众号原始id', field: 'OriginID', width: 150 },
+                     { title: 'AppID', field: 'AppID', width: 180 },
+                     { title: 'AppSecret', field: 'AppSecret', width: 250 },
+                     { title: 'Token', field: 'Token', width: 150 },
+                     { title: 'AccessToken', field: 'AccessToken', width: 200 }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ShowAddDialog() {
+            $('#iframe').attr("src", "/MpCenter/MpEdit");
+            $('#w').window('open');
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/MpCenter/MpEdit?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要修改的数据');
+            }
+        }
+
+        function Delete() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '确定要删除吗?', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].Id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/MpCenter/_MpDelete",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的数据');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+        function Freeze() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                if (selectedRows[0].State == 0) {
+                    $.messager.alert('提示', "当前数据未被审核，不能进行冻结操作");
+                    return void (0);
+                }
+                if (selectedRows[0].State == 2) {
+                    $.messager.alert('提示', "当前数据已被冻结");
+                    return void (0);
+                }
+                $.messager.confirm('提示', '确定要冻结吗?', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].Id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/Permission/_AdminFreeze",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要冻结的数据');
+            }
+        }
+
+        function UnFreeze() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                if (selectedRows[0].State == 0) {
+                    $.messager.alert('提示', "当前数据未被审核，不能进行解冻操作");
+                    return void (0);
+                }
+                if (selectedRows[0].State == 1) {
+                    $.messager.alert('提示', "当前数据未被冻结，不需要解冻");
+                    return void (0);
+                }
+                $.messager.confirm('提示', '确定要解冻吗?', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].Id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/Permission/_AdminUnFreeze",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要解冻的数据');
+            }
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @*@Html.ActionLink("添加", null, null, new { onclick = "ShowAddDialog()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })*@
+        @Html.ActionLink("修改", null, null, new { onclick = "ShowEditOrViewDialog()", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @*@Html.ActionLink("删除", null, null, new { onclick = "Delete()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })*@
+        @Html.ActionLink("刷新", null, null, new { onclick = "$('#grid').datagrid('reload');", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="公众账号管理" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 300px; padding: 5px;" modal="true">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+</div>

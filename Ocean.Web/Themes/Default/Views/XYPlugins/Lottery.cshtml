@@ -1,0 +1,486 @@
+﻿@{
+    Layout = "../Shared/_xyLayout.cshtml";
+}
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jQueryRotate.2.2.js", false)"></script>
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/jquery.easing.min.js", false)"></script>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.wap {background: url(@Url.PluginUrl("lottery/images/bj.jpg"));}
+
+.bg {position: absolute; left: 34px; top: 32px; width: 234px; height: 234px;}
+
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 25px; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;position:relative;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px; overflow: hidden;}
+.cat_list {float: left; width: 100%; overflow: hidden; clear: both;}
+.ctit {float: left; height: 50px; font-size: 16px; line-height: 50px;}
+.cinput {float: left; width: 85%; height: 50px;overflow: hidden;}
+.box .title_brown{background: url("@Url.PluginUrl("lottery/images/title-bg-green.png")") no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+.zj_result {z-index: 99999; position: absolute; width: 80%; top: 45%; left: 5%; text-align: center; color: #fff; padding: 5%; border-radius: 10px; line-height: 30px; font-size: 16px; background: rgba(0,0,0,.5);}
+.zj_result .result{color:#fff;}
+.zj_result span {color: #ff0; font-size: 20px; font-weight: bold;}
+.zj_result em {position: absolute; right: 10px; top: 10px; width: 32px; height: 32px; text-indent: -99999px; background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 0; cursor: pointer; display: block;}
+.zj_result em:hover {background: url(@Url.PluginUrl("lottery/images/close_btn.png")) no-repeat 0 -32px;}
+.zj_result i {padding: 0 15px; height: 32px; line-height: 32px; font-style: normal; margin: 0 10%; text-shadow: 1px 1px #b3874d; color: #fff; font-size: 14px; margin-top: 20px; border-radius: 5px; box-shadow: 0 2px #f8df8a inset; font-weight: bold; background: -moz-linear-gradient(top,#f3cd4f,#e79217); background: -webkit-gradient(linear,left top,left bottom,from(#f3cd4f),to(#e79217)); display: block;}
+.zj_result i a:link {color: #fff; text-decoration: none;}
+.zj_result i a:visited {color: #fff; text-decoration: none;}
+.zj_result i a:hover {color: #fff; text-decoration: none;}
+.zj_result i a:active {color: #fff; text-decoration: none;}
+/*---- new ----------*/
+.out {
+	position: relative;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.in {
+	position: absolute;
+	width: 100%;
+	top: 40%;
+}
+.out1 {
+	height: 100%;
+    margin: 0 auto;
+    max-width: 300px;
+	max-height: 300px;
+    width: 100%;
+}
+.in1 {
+	cursor: pointer;
+    height: 110px;
+    margin: -55px auto 0;
+    max-width: 90px;
+    width: 90px;
+}
+.out1 img, .in1 img {
+	display: block;
+	margin: 0 auto;
+	max-width:100%;
+}
+a:link {
+color:#FF0000; //这里设置超链接默认颜色为红色
+text-decoration:underline;
+}
+a:visited {
+color:#00FF00; //这里设置超链接访问后的颜色为绿色
+text-decoration:none;
+}
+a:hover {
+color:#000000; //这里设置超链接悬停的颜色为黑色
+text-decoration:none;
+}
+a:active {
+color:#FFFFFF; //这里设置超链接点击时的颜色为白色
+text-decoration:none;
+}
+</style>
+
+
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">仙游瑞狮村镇银行幸运大转盘</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+	        <script type="text/javascript">
+	            String.prototype.endWith = function (s) {
+	                if (s == null || s == "" || this.length == 0 || s.length > this.length)
+	                    return false;
+	                if (this.substring(this.length - s.length) == s)
+	                    return true;
+	                else
+	                    return false;
+	                return true;
+	            }
+
+	            String.prototype.startWith = function (s) {
+	                if (s == null || s == "" || this.length == 0 || s.length > this.length)
+	                    return false;
+	                if (this.substr(0, s.length) == s)
+	                    return true;
+	                else
+	                    return false;
+	                return true;
+	            }
+	            Date.prototype.dateAdd = function (interval, number) {
+	                var d = this;
+	                var k = { 'y': 'FullYear', 'q': 'Month', 'm': 'Month', 'w': 'Date', 'd': 'Date', 'h': 'Hours', 'n': 'Minutes', 's': 'Seconds', 'ms': 'MilliSeconds' };
+	                var n = { 'q': 3, 'w': 7 };
+	                eval('d.set' + k[interval] + '(d.get' + k[interval] + '()+' + ((n[interval] || 1) * number) + ')');
+	                return d;
+	            } 
+	            AutoScroll = (function (obj) {
+	                $(obj).find("ul:first").animate({
+	                    marginTop: "-25px"
+	                }, 500, function () {
+	                    $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	                });
+	            });
+	            $(function () {
+	                if ($('.scrollbox li').length > 1) {
+	                    setInterval('AutoScroll(".scrollbox")', 4000);
+	                }
+	            });
+	            var LotteryErrorInfo = [];
+	            LotteryErrorInfo['ERR_NotLogin'] = '未登录';
+	            LotteryErrorInfo['ERR_ArgNotExist'] = '参数有问题';
+	            LotteryErrorInfo['ERR_PluginNotExits'] = '对不起，不存在该插件或未开通，请检查！';
+	            LotteryErrorInfo['ERR_PluginNotStart'] = '对不起，抽奖还未开始！';
+	            LotteryErrorInfo['ERR_PluginIsEnd'] = '对不起，抽奖已经结束！';
+	            LotteryErrorInfo['ERR_UserNotVerify'] = '您还未验证，请提交您的银行卡号和交易流水号！';
+	            LotteryErrorInfo['ERR_UserUseOutChance'] = '您已经用完抽奖机会，请关注我行微信公众号，以便我行向您提供更优质的服务';
+	            LotteryErrorInfo['ERR_RunOutOfGift'] = '未中奖!';
+	            LotteryErrorInfo['ERR_OK'] = '恭喜您，摇奖了!';
+
+	            var unusedAngle = [30, 60, 90, 150, 210, 270, 300, 330];
+	            var unusedName = ['运气先攒着', '永不言败', '再来一次', '不要灰心', '要加油哦', '继续要加油', '下月再来', '再接再厉'];
+	            var lotterying = false;
+                function go_link(url) {
+                   var link = document.createElement("a");
+                   link.href = url;
+                   document.body.appendChild(link);
+                   link.click();
+                }
+                $(function () {
+                    var rotateFunc = function (json) {
+                        $('#btnstart').stopRotate();
+                        $("#btnstart").rotate({
+                            angle: 0,
+                            duration: 5000,
+                            animateTo: json.Angle + 1440,
+                            callback: function () {
+                                lotterying = false;
+
+                                if (json.ID >= 0) {
+                                    $("#Has_Use_Count").html(parseInt($("#Has_Use_Count").html(), 10) - 1);
+                                    if (json.Has_Gift) {
+                                        if (json.Leavings_Quantity > 0) {
+
+
+                                            $("#tipsinfo").html("请关注本微信之后的公告，以便及时兑奖");
+                                            if (json.Has_Gift == 2) {
+                                                var reUrl = 'http://wx.ssrcb.com/xyplugins/PluginScratch?id=' + '@(WebHelper.GetGuid("Id", Guid.Empty))';
+                                                window.location = reUrl;
+                                                //                                                    event.stopPropagation();
+                                                //                                                //$("#guaguale").click();
+                                                //                                                $("#Guaguale").show();
+                                                //                                                alert($("#Guaguale"));
+                                                //                                                document.getElementById("Guaguale").click(); 
+                                            }
+                                            else {
+                                                $.messager.alert('提示', "恭喜您，中了" + json.Name + "，请持个人身份证到我行营业网点领取奖品。", "warning", function () { });
+                                            }
+
+                                        }
+                                        else {
+                                            $("#tipsinfo").html("您的运气来的晚了那么些，请再接再厉哦！");
+                                        }
+                                    }
+                                    else {
+                                        var oppTimes = parseInt($("#Has_Use_Count").html(), 10);
+                                        if (oppTimes > 1) {
+                                            $.messager.alert('提示', "运气先攒着，感谢您的参与，欢迎光临我行办理其它业务!", "warning", function () { });
+                                        }
+                                        else {
+                                            $.messager.alert('提示', "运气先攒着，感谢您的参与，欢迎光临我行办理其它业务!", "warning", function () { });
+                                        }
+                                    }
+                                }
+                                else {
+                                    var oppTimes = parseInt($("#Has_Use_Count").html(), 10);
+                                    if (oppTimes > 1) {
+                                        $.messager.alert('提示', "运气先攒着，感谢您的参与，欢迎光临我行办理其它业务!", "warning", function () { });
+                                    }
+                                    else {
+                                        $.messager.alert('提示', "运气先攒着，感谢您的参与，欢迎光临我行办理其它业务!", "warning", function () { });
+                                    }
+                                    $("#Has_Use_Count").html(parseInt($("#Has_Use_Count").html(), 10) - 1);
+                                }
+                            }
+                        });
+                    };
+                    $("#btnstart").rotate({
+                        bind: {
+                            click: function () {
+                                var url = location.href;
+                                if (!lotterying) {
+                                    lotterying = true;
+                                    $.ajax({
+                                        type: 'post',
+                                        url: '/xyplugins/PluginsLottery?t=' + Math.random(),
+                                        data: { Id: '@(WebHelper.GetGuid("Id", Guid.Empty))', OpenID: $("#OpenID").val() },
+                                        cache: false,
+                                        dataType: "json",
+                                        success: function (json) {
+                                            if (json.isOK == false) {
+                                                lotterying = false;
+                                                if (json.isLogin) {
+                                                    window.location = json.message;
+                                                }
+                                                else {
+                                                    if (json.isVertfy) {
+                                                        $("#boxcontent").show();
+                                                    }
+                                                    alert(LotteryErrorInfo[json.error_code]);
+                                                }
+                                            }
+                                            else {
+                                                //	                                            alert(json.error_code + 'Angle:' + json.Angle);
+                                                if (typeof (json.error_code) == "undefined") {
+
+                                                }
+                                                else {
+                                                    if (json.error_code == 'ERR_RunOutOfGift') {
+                                                        var index = Math.floor(Math.random() * unusedAngle.length);
+                                                        json.ID = -1;
+                                                        json.Angle = unusedAngle[index];
+                                                        json.Name = unusedName[index];
+                                                    }
+                                                }
+                                                rotateFunc(json);
+                                            }
+                                        },
+                                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                            lotterying = false;
+                                            alert(XMLHttpRequest.status);
+                                            alert(XMLHttpRequest.readyState);
+                                            alert(textStatus);
+                                            alert(errorThrown);
+                                        }
+
+                                    });
+                                }
+                                else {
+                                    $.messager.alert('提示', "你的网速有点忙，正在摇奖中...", "warning", function () { });
+                                    //	                                alert('你的网速有点忙，正在摇奖中...');
+                                }
+                            }
+                        }
+                    });
+                });
+	            function getDate(strDate) {
+	                var year = strDate.substr(0, 4);
+	                var month = parseInt(strDate.substr(4, 2)) -1;
+	                var day = strDate.substr(6, 2);
+	                var hour = strDate.substr(8, 2);
+	                var min = strDate.substr(10, 2);
+	                var sec = strDate.substr(12, 2);
+	                var date = eval('new Date(' + year + ","  + month + "," + day + "," + hour + "," + min + "," + sec +  ')');
+	                return date;
+	            }
+	            var CertfyErrorInfo = [];
+	            CertfyErrorInfo['ERR_NotLogin'] = '未登录';
+	            CertfyErrorInfo['ERR_ArgNotExist'] = '参数有问题';
+	            CertfyErrorInfo['ERR_VerifyCodeNotExits'] = '验证码不存在';
+	            CertfyErrorInfo['ERR_UnKnown'] = '对不起，出现异常，请联系我行工作人员！';
+	            CertfyErrorInfo['ERR_OK'] = '恭喜您，可以摇奖了!';
+	            function certfySubmit() {
+	                var carNo = $("#CardNo").val();
+	                if (!$.trim(carNo) || carNo.length != 19 || (!carNo.startWith('623036120400') && !carNo.startWith('623036100445'))) {
+	                    alert('请输入正确的卡号');
+	                    return false;
+	                }
+	                if (!$.trim($("#TradeSeqNo").val()) || $("#TradeSeqNo").val().length != 20) {
+	                    alert('请输入正确的流水号');
+	                    return false;
+	                }
+	                var seqTime = $("#TradeSeqNo").val().substring(0, 14);
+                    var now = new Date(); 
+	                var tradeTime = getDate(seqTime);
+	                if (tradeTime > now || tradeTime < now.dateAdd('d', -7)) {
+	                    alert('请输入正确的流水号');
+	                    return false;
+	                }
+                    //
+	                $.ajax({
+	                    type: 'post',
+	                    url: '/xyplugins/VerifyUserSubmit?pluginId=@(WebHelper.GetString("Id"))&t=' + Math.random(),
+	                    data: $("#VerifyCodeSubmitForm").serialize(),
+	                    cache: false,
+	                    async: false,
+	                    success: function (json) {
+	                        if (json.isOK) {
+	                            alert(CertfyErrorInfo[json.error_code]);
+	                            $("#Has_Use_Count").html(1);
+	                            $('#boxcontent').hide();
+	                            $('#Left_Count').show();
+	                        }
+	                        else {
+	                            alert(CertfyErrorInfo[json.error_code]);
+	                        }
+	                    },
+	                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+	                        alert(XMLHttpRequest.status);
+	                        alert(XMLHttpRequest.readyState);
+	                        alert(textStatus);
+	                        alert(errorThrown);
+	                    }
+
+	                });
+	            }
+	            $(document).ready(function (e) {
+	                var mpuserid = $("#MPUserID").html();
+	                if (mpuserid != null && mpuserid != '' && mpuserid != '@(Guid.Empty)') {
+	                    $("#Left_Count").show();
+	                }
+	            });
+	            function event() {
+	                var reUrl = 'http://wx.ssrcb.com/xyplugins/PluginScratch?id=' + '@(WebHelper.GetGuid("Id", Guid.Empty))';
+	                window.top.location.href = reUrl;
+	                alert(reUrl);
+	            }
+	            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	                window.shareData = {
+	                    "timeLineLink": "http://wx.ssrcb.com/xyplugins/PluginsLottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	                    "sendFriendLink": "http://wx.ssrcb.com/xyplugins/PluginsLottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	                    "weiboLink": "http://wx.ssrcb.com/xyplugins/PluginsLottery?id=" + '@(WebHelper.GetGuid("Id", Guid.Empty))',
+	                    "ImgPath": "http://wximg.ssrcb.com/mpimages/2014/09/11/5fcc7619602-128113_jpg!431x462.jpg",
+	                    "tTitle": "超高中奖率！小伙伴们，到仙游瑞狮村镇银行抽奖吧！",
+	                    "tContent": "小伙伴们，到仙游瑞狮村镇银行抽奖吧！",
+	                    "fTitle": "超高中奖率！小伙伴们，到仙游瑞狮村镇银行抽奖吧！",
+	                    "fContent": "手快有手慢无，小伙伴们，到仙游瑞狮村镇银行抽奖吧！",
+	                    "wContent": "手快有手慢无，小伙伴们，到仙游瑞狮村镇银行抽奖吧！"
+	                };
+
+	                // 发送给好友
+	                WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+	                    WeixinJSBridge.invoke('sendAppMessage', {
+	                        "img_url": window.shareData.ImgPath,
+	                        "img_width": "431",
+	                        "img_height": "462",
+	                        "link": window.shareData.sendFriendLink,
+	                        "desc": window.shareData.fContent,
+	                        "title": window.shareData.fTitle
+	                    }, function (res) {
+	                        _report('send_msg', res.err_msg);
+	                    })
+	                });
+	                // 分享到朋友圈
+	                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+	                    WeixinJSBridge.invoke('shareTimeline', {
+	                        "img_url": window.shareData.ImgPath,
+	                        "img_width": "431",
+	                        "img_height": "462",
+	                        "link": window.shareData.timeLineLink,
+	                        "desc": window.shareData.tContent,
+	                        "title": window.shareData.tTitle
+	                    }, function (res) {
+	                        _report('timeline', res.err_msg);
+	                    });
+	                });
+	                // 分享到微博
+
+	            }, false);
+            </script>
+
+            <div style="width: 300px; height: 300px; margin: auto; margin-top: 0px; position: relative;">
+                <div class="out">
+                    <div class="out1">
+                        <img id="lotteryBtn" src="@Url.PluginUrl("lottery/images/disk_finalxy2.jpg", false)" style="width:100%;" />
+                    </div>
+                </div>
+                <div class="in">
+                    <div class="in1"><img id="btnstart" src="@Url.PluginUrl("lottery/images/start.png")" /></div>
+                </div>
+            </div>
+
+            <div class="content">
+    	        <div class="boxcontent" id="boxcontent" style="display:none;">
+                    <form id="VerifyCodeSubmitForm" action ="/plugin/PrizerSubmit.htm?pluginId=@WebHelper.GetString("pluginId")" enctype="multipart/form-data">
+        	        <div class="box">
+            	        <div class="title_orange">
+                	        <span>请先绑定</span>
+                            <a href="#" onclick="$('#boxcontent').hide();" class="inclose">
+                    	        <img src="@Url.PluginUrl("lottery/images/cancel.png")" />
+                            </a>
+                        </div>
+                        <div class="Detail">
+					        <p class="cat_list">
+					           <span class="ctit">卡号：</span>
+					           <span class="cinput"><input class="px" type="text" name="CardNo" id="CardNo" placeholder="请输入我行卡号" value=""></span>
+					        </p>
+					        <p class="cat_list">
+					           <span class="ctit">交易流水号：</span>
+					           <span class="cinput"><input class="px" type="text" name="TradeSeqNo" id="TradeSeqNo" placeholder="请输入交易流水号" maxLength="26" value=""></span>
+					        </p>
+                            <input type="hidden" id="OpenID" name="OpenID" value = "@(ViewBag.OpenID)"/>
+                            <p class="cat_list"><input class="pxbtn" type="button" onclick="certfySubmit();" value="提交"></p>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+    	        <div class="boxcontent">
+        	        <div class="box">
+            	        <div class="title_brown">
+                	        <span>奖项设置：</span>
+                        </div>
+                        <div class="Detail">
+                            <p style="display:none;" id = "MPUserID">
+                    	        @ViewBag.MpUserID
+                            </p>
+                            <p style="display:none;" id = "Left_Count">
+                    	        您还有<span class="red" id="Has_Use_Count">@ViewBag.LeaveCount</span>次机会
+                            </p>
+                           <p>特等奖3名：现金888元</p>
+                           <p>一等奖5名：现金388元</p>
+                           <p>二等奖50名：现金188元</p>
+                           <p>三等奖4000名：刮刮乐（再来一次）</p>
+                           <a href="./GetSeqNo">[怎么获取交易流水号和付款账号]</a>
+                           @*<a href="./PluginScratch?id=@(WebHelper.GetGuid("Id", Guid.Empty))" id = "Guaguale">[GUAGUALE]</a>*@
+                           @*<a href="#" onclick="event();return false;" style="display:none;" id = "Guaguale">[GUAGUALE]</a>*@
+                        </div>
+                    </div>
+                </div>
+    	        <div class="boxcontent">
+        	        <div class="box">
+            	        <div class="title_brown">
+                	        <span>活动说明：</span>
+                        </div>
+                        <div class="Detail">
+<p>
+	<span style="font-size:18px;">1、活动期间：2015年01月01日至2015年3月31日</span>
+</p>
+<p>
+	<span style="font-size:18px;">2、活动规则：</span>
+</p>
+<p>
+	<span style="font-size:18px;">①我行客户端手机银行客户，在活动期间，通过我行手机银行交易<span style="color:#ff0000;">1笔（含）</span>以上，即可参与微信抽奖一次（关注我行微信公众号“福建仙游瑞狮村镇银行”，在微信公众号参与抽奖）。</span>
+</p>
+<p>
+	<span style="font-size:18px;">②未开卡客户请到我行营业网点开卡（开户有礼，活动期间在我行新开户的客户即可获得票面价值2元的福利彩票刮刮乐一张，更多惊喜等你来拿）,开通手机银行，再参与微信抽奖。</span>
+</p>
+<p>
+	<span style="font-size:18px;">③我行客户端手机银行客户在抽奖时要输入手机银行交易流水号和付款卡号（我行）方可参与抽奖。<a href="./GetSeqNo">[怎么获取交易流水号和付款卡号]</a></span>
+</p>
+<p>
+	<span style="font-size:18px;">④请中奖客户持个人身份证到我行营业网点领取奖品。</span>
+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxcontent">
+        	        <div class="box">
+                        <img style="width:100%" src="@Url.PluginUrl("lottery/images/xyplugin.png")" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

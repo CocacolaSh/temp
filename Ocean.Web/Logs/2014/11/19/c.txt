@@ -1,0 +1,65 @@
+2014-11-19 19:51:47,109 [4] ERROR OceanLog [(null)] - A public action method 'Pluginlottery' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-19 19:51:47,109 [9] ERROR OceanLog [(null)] - A public action method 'Pluginlottery' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-19 19:51:47,109 [4] ERROR OceanLog [(null)] - A public action method 'Pluginlottery' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-19 19:51:47,109 [9] ERROR OceanLog [(null)] - A public action method 'Pluginlottery' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-19 19:51:51,640 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-19 19:51:51,640 [5] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-19 19:52:35,015 [9] ERROR OceanLog [(null)] - A public action method 'Pluginlottery' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-19 19:52:35,015 [9] ERROR OceanLog [(null)] - A public action method 'Pluginlottery' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-19 19:52:44,703 [4] ERROR OceanLog [(null)] - A public action method 'Pluginlottery' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-19 19:52:44,703 [4] ERROR OceanLog [(null)] - A public action method 'Pluginlottery' was not found on controller 'Ocean.Web.Controllers.PluginsSceneController'.
+2014-11-19 19:53:35,187 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 19:53:35,187 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 19:58:15,546 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 19:58:15,546 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 19:58:15,750 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 19:58:15,750 [4] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 19:59:09,781 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 19:59:09,781 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:01:55,890 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:01:55,890 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:02:52,437 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:02:52,437 [14] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:02:53,078 [14] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-19 20:02:53,078 [14] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-19 20:06:02,734 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:06:02,734 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:06:08,968 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:06:08,968 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:06:57,109 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:06:57,109 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:13,843 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:13,843 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:16,312 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:16,312 [9] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:39,203 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:39,203 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:42,234 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:42,234 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:43,296 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:43,296 [10] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:44,421 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:07:44,421 [5] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:12:16,578 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:12:16,578 [11] ERROR OceanLog [(null)] - File does not exist.
+2014-11-19 20:12:34,000 [10] DEBUG OceanLog [(null)] - PluginScratch：MpUserID00000000-0000-0000-0000-000000000000
+2014-11-19 20:12:34,000 [10] DEBUG OceanLog [(null)] - PluginScratch：MpUserID00000000-0000-0000-0000-000000000000
+2014-11-19 20:12:34,015 [10] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-19 20:12:34,015 [10] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-19 20:12:34,859 [10] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-11-19 20:12:34,859 [10] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-11-19 20:12:53,156 [15] DEBUG OceanLog [(null)] - PluginScratch：MpUserID00000000-0000-0000-0000-000000000000
+2014-11-19 20:12:53,156 [15] DEBUG OceanLog [(null)] - PluginScratch：MpUserID00000000-0000-0000-0000-000000000000
+2014-11-19 20:12:53,156 [15] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-19 20:12:53,156 [15] DEBUG OceanLog [(null)] - open.weixin.qq.com
+2014-11-19 20:12:53,265 [15] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-11-19 20:12:53,265 [15] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-11-20 01:51:46,546 [11] DEBUG OceanLog [(null)] - 执行任务！2014-11-20 1:51:46
+2014-11-20 01:51:46,546 [11] DEBUG OceanLog [(null)] - 执行任务！2014-11-20 1:51:46
+2014-11-20 01:51:48,359 [11] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141120ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141120ocean.bak' with INIT
+2014-11-20 01:51:48,359 [11] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20141120ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20141120ocean.bak' with INIT
+by Ocean

@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "../Shared/_xyLayout.cshtml";
+}
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.wap {background: url(@Url.PluginUrl("lottery/images/bj.jpg"));}
+
+.bg {position: absolute; left: 34px; top: 32px; width: 234px; height: 234px;}
+
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 25px; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 0px 15px 0; padding: 2px;position:relative;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px; overflow: hidden;}
+.cat_list {float: left; width: 100%; overflow: hidden; clear: both;}
+.ctit {float: left; height: 50px; font-size: 16px; line-height: 50px;}
+.cinput {float: left; width: 85%; height: 50px;overflow: hidden;}
+.box .title_brown{background: url("@Url.PluginUrl("lottery/images/title-bg-green.png")") no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+
+</style>
+
+
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">仙游瑞狮村镇银行_周年庆</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+            <div class="content">
+    	         <div class="boxcontent">
+        	        <div class="box">
+            	        <div class="title_brown">
+                	        <span>中奖记录：</span>
+                        </div>
+                        <div class="Detail">
+                            @{
+                                OceanDynamicList<object> mysubmits = ViewBag.PluginResultList as OceanDynamicList<object>;
+                                
+                                if (mysubmits != null)
+                                {
+                                    int i = 1;
+                                    foreach (object mysubmit in mysubmits)
+                                    {
+                                        string cardno = ((object[])((((OceanDynamic)(mysubmit))).DynamicColumns))[0].ToString();
+                                        string tradno = ((object[])((((OceanDynamic)(mysubmit))).DynamicColumns))[1].ToString();
+                                        string summary = ((object[])((((OceanDynamic)(mysubmit))).DynamicColumns))[2].ToString();
+                                        string datetime = ((object[])((((OceanDynamic)(mysubmit))).DynamicColumns))[3].ToString();
+                                        if(!summary.Contains("刮刮乐"))
+                                        {    
+                                            @:<p><span class = "red">@(i.ToString()).</span>@(datetime)<br>@(cardno)<br>@(tradno)<br>@(summary)</p>
+                                            i++;
+                                        }
+
+                                    }
+                                }
+                             }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

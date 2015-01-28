@@ -1,0 +1,8 @@
+﻿Group: Widgets
+FriendlyName: DemoPlugin
+SystemName: Widgets.Demo
+Version: 1.0
+SupportedVersions: 2.65
+Author: ocean team
+DisplayOrder: 1
+FileName: Ocean.Plugins.Demo1.dll

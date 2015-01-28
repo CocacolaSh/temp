@@ -1,0 +1,47 @@
+﻿@model FunongbaoApply
+@{
+    Layout = "../Shared/_FunongbaoLayout.cshtml";
+}
+@using Ocean.Entity.Enums.Funongbao;
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">申请额度调整</span>
+      </div>
+
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+                <div class="modBd">
+                @if (ViewBag.ApplyStatus == 1)
+                {
+                      <ul class="btts">
+                          <span>尊敬的<em>@(ViewBag.UserName)</em>@(ViewBag.Sex)，您好！</span>
+                          <li>您<em>@(ViewBag.ApplyType == 1 ? "提升额度" : "降低费率")</em>的申请已经提交成功，我行工作人员将在5个工作日内与您联系，感谢您的支持。</li>
+                          <li>欢迎您于下个季度首月5-31号再次使用本服务，谢谢！</li>
+                      </ul>  
+                      <div class="bteBox">
+                		 <span class="btebxo">
+                            <p>注：实际调整额度以审批结果为准</p>
+                         </span>
+                	  </div>
+                }
+                else
+                {
+                     <ul class="btts">
+                          <span>尊敬的<em>@(ViewBag.UserName)</em>@(ViewBag.Sex)，您好！</span>
+                          <li>您的申请已经提交成功，我行工作人员将在5个工作日内与您联系，感谢您的支持。</li>
+                          <li>欢迎您于下个季度首月5-31号再次使用本服务，谢谢！</li>
+                      </ul>  
+                      <div class="bteBox">
+                		 <span class="btebxo">
+                            <p>注：实际调整额度以审批结果为准</p>
+                         </span>
+                	  </div>
+                }
+                <div class="btnLoginBox">
+                    @*<a class="goback modBtnColor coloryellow">返回</a>*@
+                </div>
+            </div>
+          </section>
+      </div>
+</div>
+

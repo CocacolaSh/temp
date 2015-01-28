@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "枚举类型管理";
+}
+@section Head{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            InitGrid();
+            $('#w').window('close');
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/Enum/_EnumTypeList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                //                     { field: 'ck', checkbox: true }, //选择
+                     { title: '名称', field: 'Name', width: 80 },
+                     { title: '标识', field: 'Identifying', width: 100 },
+                     { title: '备注', field: 'Remark', width: 250 },
+                     { title: '显示顺序', field: 'Sort', width: 70 },
+                     { title: '创建时间', field: 'CreateDate', width: 150,
+                         formatter: function (value) {
+                             return formatDate(value);
+                         }
+                     }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ShowAddDialog() {
+            $('#iframe').attr("src", "/Enum/EnumTypeEdit");
+            $('#w').window('open');
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/Enum/EnumTypeEdit?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要修改的数据');
+            }
+        }
+
+        function Delete() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                $.messager.confirm('提示', '确定要删除吗?请谨慎进行此操作!', function (r) {
+                    if (r) {
+                        var id = selectedRows[0].Id;
+                        $.ajax({
+                            type: "POST",
+                            url: "/Enum/_EnumTypeDelete",
+                            dataType: "json",
+                            data: "id=" + id,
+                            success: function (msg) {
+                                if (msg.success) {
+                                    $.messager.alert('提示', msg.message, "", function () {
+                                        window.location.href = window.location.href;
+                                    });
+                                } else {
+                                    $.messager.alert('提示', msg.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                $.messager.alert('提示', '请选择要删除的数据');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+        function UpdateCache() {
+            $.ajax({
+                type: "POST",
+                url: "/Enum/_UpdateCache",
+                dataType: "json",
+                data: "",
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message,"", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @Html.ActionLink("添加", null, null, new { onclick = "ShowAddDialog()", data_options = "iconCls:'icon-add', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("修改", null, null, new { onclick = "ShowEditOrViewDialog()", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("删除", null, null, new { onclick = "Delete()", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("更新缓存", null, null, new { onclick = "UpdateCache()", data_options = "iconCls:'icon-reload', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="枚举类型管理" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 300px; padding: 5px;">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%;
+        height: 100%;"></iframe>
+</div>

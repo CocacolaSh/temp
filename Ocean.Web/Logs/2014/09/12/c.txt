@@ -1,0 +1,120 @@
+2014-09-12 10:17:36,890 [14] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-09-12 10:17:36,890 [14] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-09-12 10:18:02,765 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:18:02,765 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:18:02,890 [4] ERROR OceanLog [(null)] - Server cannot set status after HTTP headers have been sent.
+2014-09-12 10:18:02,890 [4] ERROR OceanLog [(null)] - Server cannot set status after HTTP headers have been sent.
+2014-09-12 10:18:24,265 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:18:24,265 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:18:33,062 [4] ERROR OceanLog [(null)] - Server cannot set status after HTTP headers have been sent.
+2014-09-12 10:18:33,062 [4] ERROR OceanLog [(null)] - Server cannot set status after HTTP headers have been sent.
+2014-09-12 10:19:26,359 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:19:26,359 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:19:40,078 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:19:40,078 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:20:58,109 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:20:58,109 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:24:34,968 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:24:34,968 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:25:33,281 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:25:33,281 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:28:07,750 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:28:07,750 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:28:51,906 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:28:51,906 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:29:09,625 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:29:09,625 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:29:14,265 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:29:14,265 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:30:32,312 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:30:32,312 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:30:45,203 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:30:45,203 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:32:39,265 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:32:39,265 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:34:32,296 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:34:32,296 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:35:04,484 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:35:04,484 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:35:04,609 [14] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-09-12 10:35:04,609 [14] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-09-12 10:35:29,531 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:35:29,531 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:35:31,859 [14] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-09-12 10:35:31,859 [14] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-09-12 10:35:37,328 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:35:37,328 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 10:35:40,843 [4] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-09-12 10:35:40,843 [4] ERROR OceanLog [(null)] - Server cannot append header after HTTP headers have been sent.
+2014-09-12 11:01:07,640 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 11:01:07,640 [4] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 11:02:47,984 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 11:02:47,984 [14] DEBUG OceanLog [(null)] - OPenid:
+2014-09-12 11:34:28,515 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-12 11:34:28,515 [14] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean2014-09-12 11:40:55,187 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-12 11:40:55,187 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-12 11:41:25,406 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-12 11:41:25,406 [4] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-12 11:47:01,968 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-12 11:47:01,968 [13] DEBUG OceanLog [(null)] - 抽奖开始：1
+2014-09-12 11:47:02,078 [13] DEBUG The underlying provider failed on Open.===detail===> [(null)] - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.IO.FileNotFoundException: Could not load file or assembly 'Ocean.Core.XmlSerializers' or one of its dependencies. 系统找不到指定的文件。
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.LoadWithPartialNameInternal(AssemblyName an, Evidence securityEvidence, StackCrawlMark& stackMark)
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHR(Int32 errorCode)
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+
+Exception rethrown at [0]: 
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.FindInStore(WrappedEntityKey key, String keyValuesParamName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   at System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   at Ocean.Data.EfRepository`1.GetById(Object id) in E:\微信\ocean7.18\Ocean.Data\EfRepository.cs:line 33
+   at Ocean.Services.ServiceBase`1.GetById(Object id) in E:\微信\ocean7.18\Ocean.Services\ServiceBase.cs:line 39
+   at Ocean.Web.Controllers.PluginsController.Lottery2(Guid Id, String t) in E:\微信\ocean7.18\Ocean.Web\Controllers\PluginsController.cs:line 667
+2014-09-13 01:38:48,015 [9] DEBUG OceanLog [(null)] - 执行任务！2014-9-13 1:38:48
+2014-09-13 01:38:48,015 [9] DEBUG OceanLog [(null)] - 执行任务！2014-9-13 1:38:48
+2014-09-13 01:38:48,234 [9] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20140913ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20140913ocean.bak' with INIT
+2014-09-13 01:38:48,234 [9] ERROR OceanLog [(null)] - Error while running the '数据库每日自动备份' schedule task. 无法打开备份设备 'D:\Db\db_20140913ocean.bak'。出现操作系统错误 3(系统找不到指定的路径。)。
+BACKUP DATABASE 正在异常终止。
+backup database ocean to disk='D:\Db\db_20140913ocean.bak' with INIT
+2014-09-13 10:03:25,015 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-09-13 10:03:25,015 [8] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

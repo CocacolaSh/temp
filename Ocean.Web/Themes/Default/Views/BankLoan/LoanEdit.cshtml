@@ -1,0 +1,219 @@
+﻿@using Ocean.Entity.Enums;
+@{
+    int index = 0;
+    Layout = "../Shared/_LoanLayout.cshtml";
+}
+@model Ocean.Entity.Loan
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/icon.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery-easyui-1.3.5/themes/bootstrap/easyui.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-easyui-1.3.5/locale/easyui-lang-zh_CN.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#loanRegister').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            window.location.href = "/bankloan/loanmessage";
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+
+        function submitForm() {
+            window.AssetSituation = "";
+            if (!$("input[name='LoanCategoryId']:checked").val()) {
+                $.messager.alert('提示', '请选择贷款种类');
+                return void (0);
+            }
+            if (!$("input[name='DeadlineId']:checked").val()) {
+                $.messager.alert('提示', '请选择贷款期限');
+                return void (0);
+            }
+            if (!$("input[name='RepaymentModeId']:checked").val()) {
+                $.messager.alert('提示', '请选择还款方式');
+                return void (0);
+            }
+            if (!$("input[name='GuaranteeWayId']:checked").val()) {
+                $.messager.alert('提示', '请选择担保方式');
+                return void (0);
+            }
+            if (!$.trim($("#ApplyMoney").val())) {
+                $.messager.alert('提示', '申请金额不能为空');
+                return void (0);
+            }
+            $(":checkbox", $("#chklist")).each(function () {
+                if (this.checked) {
+                    window.AssetSituation += $(this).val() + ",";
+                }
+            });
+            if (!window.AssetSituation) {
+                $.messager.alert('提示', '请至少勾选一个资产情况');
+                return void (0);
+            }
+            else {
+                $("#AssetSituation").val(window.AssetSituation);
+            }
+            $("#loanRegister").submit();
+        }
+    </script>
+    
+    <style type="text/css">
+        .hRadio {padding-left: 22px;}
+    </style>
+}
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">贷款申请</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+              <form action="@Url.Action("_LoanEdit", "BankLoan")" id="loanRegister" method="post" style="margin: 0px; padding: 0px; display: block;">
+                  <input type="hidden" name="Id" value="@(Model.Id)" />
+                  <div class="modBd">
+                      <div class="bteBox" style="padding-top:10px;">
+                		 <span class="btebxo">
+                            <p>尊敬的<span style="color:Red;float:none;">@(ViewBag.Name)</span>客户，欢迎您使用贷款服务，提交申请后，我行将于五个工作日内与您联系！首次申请后，您可于一个月后再次使用该服务。</p>
+                         </span>
+                	  </div>     
+                      <ul class="fnb_list">
+                         <li class="line">
+                            <b>申请金额：</b>
+                            <p class="je"><input class="txtinput" id="ApplyMoney" name="ApplyMoney" type="text" placeholder="请输入金额" autocomplete="on" value="@(Model.ApplyMoney)" style="width:80px;"/></p>
+                            <span class="dw2">万元</span>
+                         </li>
+                         <li class="line">
+                            <b>贷款种类：</b>
+                            <span id="radiolist" class="option">
+                                @foreach (EnumData item in ViewBag.ListLoanCategory)
+                                {
+                                    index++;
+                                    if (index == ViewBag.ListLoanCategory.Count)
+                                    { 
+                                        <input name='LoanCategoryId' type="radio" value='@(item.Value)' @Html.Raw(item.Value == Model.LoanCategoryId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.LoanCategoryId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label>
+                                                                                                                                                   index = 0;
+                                    }
+                                    else
+                                    {
+                                        <input name='LoanCategoryId' type="radio" value='@(item.Value)' @Html.Raw(item.Value == Model.LoanCategoryId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.LoanCategoryId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label><br />
+                                    }
+                                }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>贷款期限：</b>
+                            <span id="radiolist1" class="option">
+                               @foreach (EnumData item in ViewBag.ListLoanDeadline)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListLoanDeadline.Count)
+                                   { 
+                                        <input name='DeadlineId' type="radio" value='@(item.Value)' @Html.Raw(item.Value == Model.DeadlineId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.DeadlineId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label>
+                                                                                                                                                           index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='DeadlineId' type="radio" value='@(item.Value)' @Html.Raw(item.Value == Model.DeadlineId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.DeadlineId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>还款方式：</b>
+                            <span id="radiolist2" class="option">
+                               @foreach (EnumData item in ViewBag.ListRepaymentMode)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListRepaymentMode.Count)
+                                   { 
+                                        <input name='RepaymentModeId' type="radio" value='@(item.Value)' @Html.Raw(item.Value == Model.RepaymentModeId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.RepaymentModeId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label>
+                                                                                                                                                       index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='RepaymentModeId' type="radio" value='@(item.Value)' @Html.Raw(item.Value == Model.RepaymentModeId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.RepaymentModeId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>担保方式：</b>
+                            <span id="radiolist3" class="option">
+                               @foreach (EnumData item in ViewBag.ListGuaranteeWay)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListGuaranteeWay.Count)
+                                   { 
+                                        <input name='GuaranteeWayId' type="radio" value='@(item.Value)' @Html.Raw(item.Value == Model.GuaranteeWayId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.GuaranteeWayId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label>
+                                                                                                                                                            index = 0;
+                                   }
+                                   else
+                                   {
+                                        <input name='GuaranteeWayId' type="radio" value='@(item.Value)' @Html.Raw(item.Value == Model.GuaranteeWayId.ToString() ? "checked='checked'" : string.Empty) />
+                                        <label class='@Html.Raw(item.Value == Model.GuaranteeWayId.ToString() ? "hRadio hRadio_Checked" : "hRadio")'>@(index). @(item.Name)</label><br />
+                                   }
+                               }
+                            </span>
+                         </li>
+                         <li class="line">
+                            <b>资产情况：</b>
+                            <span id="chklist" class="option">
+                               @foreach (EnumData item in ViewBag.ListAssetSituation)
+                               {
+                                   index++;
+                                   if (index == ViewBag.ListAssetSituation.Count)
+                                   {
+                                       if (("," + Model.AssetSituation).Contains("," + item.Value + ","))
+                                       {
+                                           <input name='' type="checkbox" value='@(item.Value)' checked="checked" /><label>@(index). @(item.Name)</label>
+                                       }
+                                       else
+                                       {
+                                           <input name='' type="checkbox" value='@(item.Value)' /><label>@(index). @(item.Name)</label>
+                                       }
+                                       index = 0;
+                                   }
+                                   else
+                                   {
+                                       if (("," + Model.AssetSituation).Contains("," + item.Value + ","))
+                                       {
+                                           <input name='' type="checkbox" value='@(item.Value)' checked="checked" /><label>@(index). @(item.Name)</label><br />
+                                       }
+                                       else
+                                       {
+                                           <input name='' type="checkbox" value='@(item.Value)' /><label>@(index). @(item.Name)</label><br />
+                                       }
+                                   }
+                               }
+                            </span>
+                            <input name="AssetSituation" type="hidden" id="AssetSituation" value="" />
+                         </li>
+                         <li class="line">
+                            <b>联系地址：</b>
+                            <p style="margin: 11px 0 0 80px;"><input class="add" name="Address" type="text" placeholder="可选" autocomplete="on" value="@(Model.Address)" /></p>
+                         </li> 
+                      </ul>
+                                                          
+                      <div class="btnLoginBox">
+                          <input type="button" class="modBtnColor coloryellow" value="提交" onclick="submitForm();" />
+@*                          <input type="button" class="modBtnColor coloryellow" value="返回" onclick="history.go(-1);" />*@
+                      </div>
+                  </div>
+              </form> 
+          </section>
+    </div>
+</div>

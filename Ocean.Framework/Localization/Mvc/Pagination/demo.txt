@@ -1,0 +1,97 @@
+﻿@*ajax方式：*@
+@Html.AjaxPager(Model,"MessageList", "Message", new PagerOptions()    
+    {
+        PageIndexParameterName = "pageIndex",
+        //ShowPageIndexBox = true,
+        //PageIndexBoxType = PageIndexBoxType.DropDownList,
+        ShowGoButton = false,
+        CssClass = "admin_pages",
+        FirstPageText = "第一页",
+        PrevPageText = "前一页",
+        NextPageText = "下一页",
+        LastPageText = "最后页",
+        //CurrentPagerItemWrapperCss = "num",
+        CurrentPageNumberCss = "admin_active_num",
+        //NumericPagerItemWrapperCss = "num",
+        //PageIndexBoxWrapperFormatString = "跳到第{0}页",
+        PageIndexBoxWrapperFormatString = "",
+        SeparatorHtml = "",
+        //PageNumberCss = "num",
+        PagerItemWrapperCss = "admin_num",
+        FirstItemWrapperCss = "admin_page",
+        NextItemWrapperCss = "admin_page_next",
+        PrevItemWrapperCss = "admin_page",
+        LastItemWrapperCss = "admin_page",
+        ShowFirstLast = false,
+        AlwaysShowFirstLastPageNumber = false,
+        MorePagerItemWrapperCss = "{0}",
+        GoToPageSectionWrapperFormatString = ""
+    }, new AjaxOptions() { UpdateTargetId = "dvOrderList" })
+@*自定义ajax方式：*@
+@{
+PagerOptions pageOpt = new PagerOptions() 
+{ 
+    AutoHide = true,
+    PageIndexParameterName = "doc_pageIndex",
+    NumericPagerItemCount = numericPagerItemCount,
+    PageNumberFormatString = "[{0}]",
+    CssClass = "pager_" + cst_PagerStyle,
+    FirstPageText = "第一页",
+    PrevPageText = "前一页",
+    NextPageText = "下一页",
+    LastPageText = "最后页",
+    PrevItemWrapperCss = "page-pre",
+    NextItemWrapperCss = "page-next",
+    LastItemWrapperCss = "page-last",
+    FirstItemWrapperCss = "page-fir",
+    PageNumberCss = "page-num",
+    TotalInfoWrapperCss = "page-total",
+    MorePagerItemWrapperCss = "page-more",
+    SeparatorHtml = " ",
+    CurrentPagerItemWrapperCss = "page-cur",
+    DisabledCss = "page-disabled",
+    GoToPageSectionWrapperFormatString = "",
+    TotalInfoFormatString = "%_PageIndex_%/%_TotalPage_%"
+};
+}
+@Html.AjaxPager(Model.TotalPageCount, Model.CurrentPageIndex, "ArticleList", "article", "SiteAdmin_default", pageOpt, null
+            , new AjaxOptions() { OnSuccess = "Search(%_PageIndex_%, $('#keyword').val())" }, null)
+@*MVC方式*@
+@Html.Pager(Model, new PagerOptions  
+{  
+    PageIndexParameterName = "id",  
+    CssClass = "pages",  
+    FirstPageText = "首页",  
+    LastPageText = "末页",  
+    PrevPageText = "上一页",  
+    NextPageText = "下一页",  
+    CurrentPagerItemWrapperFormatString = "<span class=\"cpb\">{0}</span>",  
+    ShowageIndexBox = true,  
+    NumericPagerItemWrapperFormatString = "<span class=\"item\">{0}</span>",  
+    PageIndexBoxType = PageIndexBoxType.DropDownList,
+    ShowGoButton = false,PageIndexBoxWrapperFormatString=" 转到{0}",SeparatorHtml = "" })
+@* MVC Controller demo*@
+public ActionResult List(int? pageIndex)
+{
+    IList<Message> messageList = null;
+    PagedList<Message> TempList = null;
+
+    this.UpdateModel<MessageForm>(form);
+    form.SiteId = this.CurrentSiteId;
+    form.PageIndex = pageIndex ?? 1;
+    form.PageSize = 12;
+
+    messageList = MessageBiz.GetUserMessageList(form.SiteId.Value);
+    ViewData["count"] = messageList.Count;
+    TempList = new PagedList<Message>(messageList, form.PageIndex, form.PageSize);
+
+    if (Request.IsAjaxRequest())
+    {
+        return PartialView(TempList);
+    }
+    else
+    {
+        return View(TempList);
+    }
+}
+	  

@@ -1,0 +1,5 @@
+2014-11-02 20:41:59,062 [16] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-02 20:41:59,218 [17] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-02 20:41:59,218 [17] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+2014-11-02 20:41:59,062 [16] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
+by Ocean

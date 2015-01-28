@@ -1,0 +1,338 @@
+﻿@{
+    Layout = "../Shared/_PluginScratchLayout.cshtml";
+}
+
+@using Ocean.Entity;
+<script type="text/javascript" src="@Url.PluginUrl("lottery/javascript/wScratchPad.js", false)"></script>
+
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {color: #444444;font: 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;margin: 0;padding: 0;}
+body {margin: 0 auto; background: #F4F5F7;}
+ul,li{ list-style:none;}
+.red { color: red;}
+.car_bj{background: url(@Url.PluginUrl("lottery/images/activity-scratch-card-bg.jpg")) repeat scroll 0 0 #944F20; overflow-x: hidden;}
+.scrollDiv{ height: 25px; line-height: 25px; overflow: hidden; background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.scrollDiv li { color: #444444; height: 25px; padding-left: 10px; text-align: center;}
+.cover { margin:10px auto 0; max-width: 480px; position: relative; }
+.main img { border: 0 none; max-width: 100%;}
+.cover img {}
+#scratchpad, #prize { color: #333333; font-size: 20px; height: 40px; left: 50%; margin-left: -125px; line-height: 40px; position: absolute; text-align: center; bottom: 25px; width: 250px;}
+#scratchpad{ position:absolute; bottom:105px;}
+.content{ margin: 0 0 15px;}
+.boxcontent { background-color: #FEF8B2; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); margin: 15px 15px 0; padding: 2px;}
+.box { border: 1px dashed rgba(0, 0, 0, 0.3); border-radius: 5px 5px 5px 5px; font-size: 14px;}
+.box .title_brown{background: url(@Url.PluginUrl("lottery/images/title-bg-brown.png")) no-repeat scroll 0 0 transparent; border-radius: 3px 3px 3px 0; color: #FFFFFF;height: 22px;margin: -1px;padding: 0 5px 0 10px;}
+.box .Detail { padding: 15px;}
+/*---   申请兑奖   ---*/
+.box .title_orange{padding: 0 5px 0px 10px;background: url(@Url.PluginUrl("lottery/images/title-bg-orange.png")) no-repeat 0 0;border-radius: 3px 3px 3px 0;color: #ffffff;height: 22px;margin: -1px;}
+.box .inclose {float: right;margin-top: 5px;margin-right: 5px;}
+.box .Detail {padding: 15px;}
+.px[type="text"] {width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+.px {margin: 0.5em 0;position: relative;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;background-color: #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;border: 1px solid rgba(0, 0, 0, 0.3);color: #333333;text-shadow: 0 1px 0 #FFFFFF;display: block;width: 100%;padding: 6px 10px;font-size: 18px;margin: 10px 0 0 0;font-family: Arial, Helvetica, sans-serif;}
+.pxbtn {background: #ff6501;background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 );background-image: -moz-linear-gradient( #ffa201 , #ff6501 );background-image: -ms-linear-gradient( #ffa201 , #ff6501 );background-image: -o-linear-gradient( #ffa201 , #ff6501 );background-image: linear-gradient( #ffa201 , #ff6501 );border: 1px solid #ff6501;border-bottom: 1px solid #d35605;color: #ffffff;font-weight: bold;text-shadow: 0 1px 0 #FFFFFF;border-radius: 0.6em 0.6em 0.6em 0.6em;display: block;width: 100%;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);text-overflow: ellipsis;white-space: nowrap;cursor: pointer;text-align: center;font-weight: bold;text-shadow: 0 0 2px #BE4205;font-size: 18px;padding: 10px;margin: 10px 0 0 0;}
+.pxbtn:visited {background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 ));background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); background-image:-moz-linear-gradient( #ffa201 , #ff6501 );background-image:-ms-linear-gradient( #ffa201 , #ff6501 ); background-image:-o-linear-gradient( #ffa201 , #ff6501 ); background-image:linear-gradient( #ffa201 , #ff6501 );}
+.pxbtn:hover {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 ));background-image:-webkit-linear-gradient( #ff7f01 , #ff6501 ); background-image:-moz-linear-gradient( #ff7f01 , #ff6501 );background-image:-ms-linear-gradient( #ff7f01 , #ff6501 );background-image:-o-linear-gradient( #ff7f01 , #ff6501 );background-image:linear-gradient( #ff7f01 , #ff6501 );}
+.pxbtn:active {background-image:-webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 ));background-image:-webkit-linear-gradient( #ff6501 , #ffa201 );background-image:-moz-linear-gradient( #ff6501 , #ffa201 );background-image:-ms-linear-gradient( #ff6501 , #ffa201 );background-image:-o-linear-gradient( #ff6501 , #ffa201 );background-image:linear-gradient( #ff6501 , #ffa201 );border: 1px solid #ff6501;border-top: 1px solid #d35605;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;}
+
+.boxcontent .txt {width: 100%; line-height: 25px; text-align: center; font-size: 16px;}
+.boxcontent .ts {width: 100%; color: #135cab; line-height: 25px; text-align: center; font-size: 16px;}
+.boxcontent .btn {width: 100%; margin-top: 10px; display: -webkit-box;}
+.boxcontent .btn a {width: 100%; display: block; line-height: 28px; border-radius: 3px; margin: 5px; text-align: center; color: #fff; font-size: 16px; background: -webkit-gradient(linear,left top,left bottom,from(#4fc1f5),to(#115aa9)); -webkit-box-flex: 1; border: 1px solid #1087db; box-shadow: 1px 1px 2px #999; text-decoration: none;}
+.boxcontent .btn a:hover,.boxcontent .btn a:active {background: -webkit-gradient(linear,left top,left bottom,from(#5dcaf3),to(#1d7bc4));}
+
+
+
+.page-bizinfo, #activity-detail .page-content {
+width: 700px;
+margin: 0 auto;
+padding: 20px 20px 0;
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+background: #fff;
+}
+.page-bizinfo {
+border-bottom: none;
+}
+#activity-name {
+padding-bottom: 10px;
+border-bottom: 1px dotted #ccc;
+font-size: 20px;
+}
+#activity-detail .page-bizinfo .header #activity-name {
+color: #000;
+font-size: 20px;
+font-weight: bold;
+word-break: normal;
+word-wrap: break-word;
+}
+.activity-info {
+margin-top: 6px;
+}
+.activity-meta.no-extra {
+margin-left: 0;
+}
+.activity-meta {
+display: inline-block;
+margin-left: 8px;
+padding-top: 2px;
+padding-bottom: 2px;
+color: #8c8c8c;
+font-size: 11px;
+}
+#post-user {
+text-decoration: none;
+outline: 0;
+color: #607FA6;
+}
+.page-bizinfo .header a.activity-meta {
+vertical-align: middle;
+}
+.activity-info .text-ellipsis {
+display: inline-block;
+max-width: 104px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+#activity-detail .page-content .text {
+color: #3e3e3e;
+line-height: 1.5;
+width: 100%;
+}
+.page-content {
+width: 700px;
+margin: 0 auto;
+padding: 20px 20px 0;
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+background: #fff;
+}
+.page-content img {width: 100%;}
+</style>
+<div id="mbMain">
+    <div class="frameChang">
+        <span class="stitle">内部员工验证码获取</span>
+    </div>
+    <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+        <section class="modBaseBox">
+            <div class="jjtxt">
+    	        <ul style="margin-bottom: 5px;">
+                    <p id = "tipsinfo" style="text-align:center;" class="scrollDiv">
+
+                        @if (ViewBag.MpUserID == Guid.Empty)
+                        {
+                            <span>亲，请先进行身份验证！</span>
+                        }
+                        else
+                        {
+                            if (ViewBag.GYHName != "")
+                            {
+                                <span>@(ViewBag.GYHName)：多多加油，会有意外惊喜哦！</span>
+                            }
+                            else
+                            {
+                                <span>@(ViewBag.GYHName)您没有权限查看此页</span>
+                            }
+                        }
+
+                    </p>
+                </ul>
+            </div>
+            <div class="car_bj">
+
+	            <script type="text/javascript">
+
+	                function CurentTime() {
+	                    var now = new Date();
+	                    return now.toDateString();
+	                } 
+	                AutoScroll = (function (obj) {
+	                    $(obj).find("ul:first").animate({
+	                        marginTop: "-25px"
+	                    }, 500, function () {
+	                        $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	                    });
+	                });
+	                $(function () {
+	                    if ($('.scrollbox li').length > 1) {
+	                        setInterval('AutoScroll(".scrollbox")', 4000);
+	                    }
+	                });
+	                var useragent = window.navigator.userAgent.toLowerCase();
+	                var scratching = false;
+	                var scratched = false;
+	                $(function () {
+	                    var verifyCodeJson;
+	                    var scratchpad = $("#scratchpad").wScratchPad({
+	                        width: 250,
+	                        height: 50,
+	                        image: null,
+	                        image2: '@Url.PluginUrl("lottery/images/slide1.jpg")',
+	                        color: "#a9a9a7",
+	                        scratchMove: function (e, percent) {
+	                            $(this.canvas).css('margin-right', $(this.canvas).css('margin-right') == "0px" ? "1px" : "0px");
+	                            if (useragent.indexOf("android 4") > 0) {
+
+	                                $("#scratchpad").css("color", "rgb(50,50,50)");
+	                                if ($("#scratchpad").css("color").indexOf("51") > 0) {
+
+	                                    $("#scratchpad").css("color", "rgb(50,50,50)");
+	                                }
+	                                else if ($("#scratchpad").css("color").indexOf("50") > 0) {
+
+	                                    $("#scratchpad").css("color", "rgb(51,51,51)");
+	                                }
+	                            }
+
+	                            //alert(useragent+':' + percent + ':' + verifyCodeJson.message);
+	                            if (verifyCodeJson && percent > 30 && !scratched) {
+	                                scratched = true;
+	                                if (verifyCodeJson.isGetVerifyCode) {
+	                                    document.getElementById('prize').innerHTML = verifyCodeJson.message;
+	                                }
+	                                else {
+	                                    document.getElementById('prize').innerHTML = verifyCodeJson.message;
+	                                }
+	                            }
+	                            this.canvas.style.zIndex++; // force redraw to fix samsung bug
+
+	                        }, 
+                        scratchUp: function () {
+                            $(this.canvas).css('margin-right', $(this.canvas).css('margin-right') == "0px" ? "1px" : "0px");     
+                        },scratchDown: function () {
+	                            $(this.canvas).css('margin-right', $(this.canvas).css('margin-right') == "0px" ? "1px" : "0px");
+	                            if (!scratching) {
+	                                scratching = true;
+	                                //alert('scratchDown');
+	                                $.ajax({
+	                                    type: 'post',
+	                                    url: '/pluginsScene/ScratchVerifyCode?t=' + Math.random(),
+	                                    data: { Id: '@(WebHelper.GetGuid("Id", Guid.Empty))' },
+	                                    dataType: "json",
+	                                    cache: false,
+	                                    success: function (json) {
+
+	                                        //alert('scratchDown Return');
+	                                        if (json.isGetVerifyCode == false) {
+	                                            scratching = false;
+	                                            $.messager.alert('提示', json.message, "warning", function () { });
+	                                            //alert(json.message);
+	                                        }
+	                                        else if (json.isGetVerifyCode) {
+	                                            verifyCodeJson = json;
+	                                            //	                                            $("#Detail").html("<p>" + CurentTime() + " 【" + json.message + "】<span>可使用<span></p>" + $("#Detail").html());
+	                                            document.getElementById("Detail2").innerHTML = ("<p>" + CurentTime() + " 【" + json.message + "】<span>可使用</span></p>" + document.getElementById("Detail2").innerHTML);
+
+	                                        }
+	                                    }
+	                                });
+	                            }
+	                        }
+	                    });
+	                });
+	                function resetScratchPad() {
+	                    document.getElementById('prize').innerHTML = '请全部刮开';
+	                    scratching = false;
+	                    scratched = false;
+	                    $("#scratchpad").wScratchPad('reset');
+	                }
+	                function quickGetCode() {
+	                    $.ajax({
+	                        type: 'post',
+	                        url: '/pluginsScene/ScratchVerifyCode?t=' + Math.random(),
+	                        data: { Id: '@(WebHelper.GetGuid("Id", Guid.Empty))' },
+	                        dataType: "json",
+	                        cache: false,
+	                        success: function (json) {
+	                            if (json.isGetVerifyCode == false) {
+	                                scratching = false;
+	                                $.messager.alert('提示', json.message, "warning", function () { });
+	                                //alert(json.message);
+	                            }
+	                            else if (json.isGetVerifyCode) {
+	                                verifyCodeJson = json;
+
+	                                document.getElementById('prize').innerHTML = verifyCodeJson.message;
+	                                $.messager.alert('提示', "验证码:【"+json.message+"】", "warning", function () { });
+	                                //alert( "验证码:【"+json.message+"】");
+	                                document.getElementById("Detail2").innerHTML = ("<p>" + CurentTime() + " 【" + json.message + "】<span>可使用</span></p>" + document.getElementById("Detail2").innerHTML);
+	                            }
+	                        }
+	                    });
+	                }
+                </script>
+                <div class="main">
+    	            <div id="outercont" class="cover">
+        	            <img src="@Url.PluginUrl("lottery/images/scratch.jpg")" />
+                        <div id="prize" style="background:#fff;"></div>
+                        <div id="scratchpad">
+            	            <div style="position: relative; width: 250px; height: 40px; cursor: default;">
+                	            <canvas width="250" height="40" style="cursor: default;"></canvas>
+                            </div>
+                            <div style="position: relative; width: 250px; height: 40px; cursor: default; ">
+                	            <canvas width="200" height="40" style="cursor: default;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="re_again" style="display:none;width:50%;height:36px;padding:15px 0;text-align:center;font-size:16px;background-color:#FEF8B2;margin:0 auto;border-radius: 5px 5px 5px 5px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);">
+                </div>
+                <div class="content">
+                    <div class="boxcontent">
+                        <span class="btn">
+                           <a href="javascript:void(0);" onclick="resetScratchPad();" title="手动刷新">再刮一次</a>
+                        </span>         
+                        <span class="btn">
+                           <a href="javascript:void(0);" onclick="quickGetCode();" title="快速获取">快速获取</a>
+                        </span>    
+            
+                    </div>
+                    
+    	            <div class="boxcontent">
+        	            <div class="box">
+            	            <div class="title_brown">
+                	            <span>使用说明：</span>
+                            </div>
+                            <div class="Detail">
+                	            <p> 
+                                    @Html.Raw(ViewBag.Cst_Plugin_Info)
+                                    请确保客户确实交易了三笔有资格参加现场大抽奖哦！
+                                    客户虐我千百遍，我待客户如初恋，fightting!!!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+    	            <div class="boxcontent">
+        	            <div class="box">
+            	            <div class="title_brown">
+                	            <span>您的验证码：</span>
+                            </div>
+                            <div class="Detail" id = "Detail2">
+                               @foreach (PluginSceneVerifyCodeDetail verifyCodeDetail in ViewBag.VerifyCodeList)
+                               {
+                                    <p>@(verifyCodeDetail.CreateDate.ToString("yyyy-MM-dd")) 【@verifyCodeDetail.VerifyCode】 
+                                    @if ((verifyCodeDetail.ClientPhone == "" || verifyCodeDetail.ClientPhone == null) && verifyCodeDetail.CreateDate.ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"))
+                                    {
+                                        @:<span>可使用</span>
+                                    }
+                                    else if ((verifyCodeDetail.ClientPhone == "" || verifyCodeDetail.ClientPhone == null) && verifyCodeDetail.CreateDate.ToString("yyyy-MM-dd") != DateTime.Now.ToString("yyyy-MM-dd"))
+                                    {
+                                        @:<span>已过期</span>
+                                    }
+                                    else
+                                    {
+                                        @:<span>已使用</span>
+                                    }
+                                    </p>
+                               }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

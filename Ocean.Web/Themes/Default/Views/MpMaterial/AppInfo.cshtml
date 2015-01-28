@@ -1,0 +1,576 @@
+﻿@{
+    Layout = null;
+}
+@using Ocean.Framework.Configuration.global.config;
+<html>
+<head>
+    <title>石狮农商银行</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scafle=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bank/css/common.css?v=1")" />
+    <style type="text/css">
+    .modBaseBox strong{font-size:16px;}
+    </style>
+</head>
+<body>
+<div id="mbSubTitle">
+        <section class="subTitleBox">
+        @if (WebHelper.GetInt("bank") != 0)
+        {
+        <span>手机银行汇入我行</span>
+        }
+        else
+        {
+        <span>网上银行汇入我行</span>
+        }
+    </section>
+    </div>
+    <div id="mbMain">
+        <div class="frameChang">
+            <span class="stitle">
+            @if (WebHelper.GetInt("bank") == 1)
+            {
+                @:工商银行
+            }
+            else if (WebHelper.GetInt("bank") == 2)
+            {
+                 @:农业银行
+            }
+            else if (WebHelper.GetInt("bank") == 3)
+            {
+                 @:中国银行
+            }
+            else if (WebHelper.GetInt("bank") == 4)
+            {
+                 @:建设银行
+            }
+            else if (WebHelper.GetInt("bank") == 5)
+            {
+                 @:兴业银行
+            }
+            else if (WebHelper.GetInt("bank") == 6)
+            {
+                 @:招商银行
+            }
+            else if (WebHelper.GetInt("bank") == 7)
+            {
+                 @:浦发银行
+            }
+            else if (WebHelper.GetInt("bank") == 8)
+            {
+                 @:中信银行
+            }
+            else if (WebHelper.GetInt("bank") == 9)
+            {
+                 @:邮储银行
+            }
+            else if (WebHelper.GetInt("bank") == 10)
+            {
+                 @:泉州银行
+            }
+            else if (WebHelper.GetInt("bank") == 11)
+            {
+                 @:光大银行
+            }
+            else if (WebHelper.GetInt("bank") == 12)
+            {
+                 @:民生银行
+            }
+            else if (WebHelper.GetInt("bank") == 13)
+            {
+                 @:平安银行
+            }
+            @if (WebHelper.GetInt("netbank") == 1)
+            {
+                @:工商银行
+            }
+            else if (WebHelper.GetInt("netbank") == 2)
+            {
+                 @:农业银行
+            }
+            else if (WebHelper.GetInt("netbank") == 3)
+            {
+                 @:中国银行
+            }
+            else if (WebHelper.GetInt("netbank") == 4)
+            {
+                 @:建设银行
+            }
+            else if (WebHelper.GetInt("netbank") == 5)
+            {
+                 @:兴业银行
+            }
+            else if (WebHelper.GetInt("netbank") == 6)
+            {
+                 @:招商银行
+            }
+            else if (WebHelper.GetInt("netbank") == 7)
+            {
+                 @:浦发银行
+            }
+            else if (WebHelper.GetInt("netbank") == 8)
+            {
+                 @:中信银行
+            }
+            else if (WebHelper.GetInt("netbank") == 9)
+            {
+                 @:邮储银行
+            }
+            else if (WebHelper.GetInt("netbank") == 10)
+            {
+                 @:泉州银行
+            }
+            else if (WebHelper.GetInt("netbank") == 11)
+            {
+                 @:光大银行
+            }
+            else if (WebHelper.GetInt("netbank") == 12)
+            {
+                 @:民生银行
+            }
+            else if (WebHelper.GetInt("netbank") == 13)
+            {
+                 @:平安银行
+            }
+            else if (WebHelper.GetInt("netbank") == 14)
+            {
+                 @:华夏银行
+            }
+            @if (WebHelper.GetInt("bank") != 0)
+            {
+            @:手机银行转我行账户的操作说明
+            }
+            else
+            {
+            @:网上银行转我行账户的操作说明
+            }
+            
+            </span>
+        </div>
+        <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+            <section class="modBaseBox">
+              <div class="jjtxt">
+                <p style="color: #666; line-height: 22px; font-size: 14px; font-family: 宋体; padding: 10px;">
+                  @if (WebHelper.GetInt("bank") == 1)
+                  {
+                @*<img src="@Url.Content("~/content/material/app1.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+　　选择转账汇款—跨行汇款，输入收款户名、收款账号，收款银行选择农村商业银行，<br />
+方法一：按省市查找——福建——泉州，下拉即可找到我行石狮辖内所有网点（福州支行请选择福建——福州）<br />
+方法二：按银行关键字查找——输入关键字“福建石狮”，即可找到我行所有网点。<br />
+方法三：输入网点行号进行查找。
+</text>
+<br />
+                  }
+ @if (WebHelper.GetInt("bank") == 2)
+ {
+                @*<img src="@Url.Content("~/content/material/app2.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+　　打开掌上银行，进入转账服务，选择收款账户管理新增收款人，点击对外转账<br />
+1、在“收款账户管理”中新增收款人，步骤如下：<br />
+收款人开户行：选“其他金融机构”<br />
+开户省：福建省<br />
+开户城市：石狮市/福州市/漳州市<br />
+开户网点：手工输入开户网点全称，石狮农村商业银行**支行/分理处<br />
+2、进入“对外转账”，选择“转出账户”、“转入账户”
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 3)
+ {
+                @*<img src="@Url.Content("~/content/material/app3.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：转账汇款—>转入账户（需先新增收款人）<br />
+1、账户所属银行：其他银行；<br />
+2、开户行名称：手动输入“石狮农村商业银行” —>查询—>自动跳出我行所有网点名称。<br />
+3、输入收款人姓名、收款人账户、重输收款人账户、收款人手机号。
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 4)
+ {
+                @*<img src="@Url.Content("~/content/material/app4.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：跨行转账<br />
+方法一：普通跨行转账：银行名简称选择农村商业银行，关键字输入开户网点全称，石狮农村商业银行**支行/分理处，点击下一步即可；<br />
+方法二：加急跨行转账：收款行别选择，请选择福建省农村信用社。
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 5)
+ {
+                @*<img src="@Url.Content("~/content/material/app5.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+手机银行->转账汇款<br />
+1、实时跨行转出：<br />
+一级行请选择“农村信用合作社”；<br />
+二级行请选择“福建省农村信用社联合社”；<br />
+2、普通跨行转账：<br />
+收款银行请选择“农村商业银行”，<br />
+收款银行所在省市请选择“福建省 泉州市/福州市/漳州市”，<br />
+网点名称请输入“**支行/分理处”，<br />
+再输入收款人、收款账户、转账金额。
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 6)
+ {
+                @*<img src="@Url.Content("~/content/material/app6.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+手机银行-自助转账-转账汇款-跨行转账<br />
+1、实时跨行转出：<br />
+收款方开户行选择“福建省农村信用社”<br />
+2、普通跨行转账：<br />
+收款行地址请选择 “福建 泉州/福州/漳州”<br />
+开户行请选择“N农村商业银行”<br />
+关键字请选择“**支行/分理处”
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 7)
+ {
+                @*<img src="@Url.Content("~/content/material/app7.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择转账汇款<br />
+1、实时跨行汇款：<br />
+输入收款人姓名、收款账户、收款银行（点击收款银行，下拉选择其他银行中的“农村信用社”，再选择“福建省农村信用社联合社”即可）<br />
+输入汇款金额、汇款附言<br />
+完成后点击付款，输入动态密码和交易密码即可。<br />
+2、普通跨行汇款：<br />
+输入收款人姓名、收款账户、收款开户行（点击收款开户行->省、直辖市选择“福建省”->城市选择“石狮市”->收款行选择“农村商业银行”->点击查询即可找到我行所有网点）<br />
+输入汇款金额、汇款附言<br />
+完成后点击付款，输入动态密码和交易密码即可。<br />
+</text>
+ }
+ @if (WebHelper.GetInt("bank") == 8)
+ {
+                @*<img src="@Url.Content("~/content/material/app8.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+1、登陆手机银行<br />
+2、选择借记卡<br />
+3、点击转账<br />
+4、选择对外转账<br />
+5、点击“我的收款人”选择收款人信息，输入转账金额->提交，输入交易密码
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 9)
+ {
+                @*<img src="@Url.Content("~/content/material/app9.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+手机银行—转账汇款—跨行汇款<br />
+1、普通跨行汇款：<br />
+收款行选择“农村信用社”<br />
+收款省份选择福建<br />
+城市选择泉州市石狮市<br />
+收款行网点关键字：**支行（支持模糊查询），选择相应的收款行网点。<br />
+再输入收款人的账号和姓名，认证方式密码。<br />
+2、实时跨行汇款：<br />
+查询他行关键字输入：“农村信用社”<br />
+选择“福建省农村信用社联合社”<br />
+再输入收款人的账号和姓名，认证方式密码。<br />
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 10)
+ {
+                @*<img src="@Url.Content("~/content/material/app10.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：转账汇款—跨行转账<br />
+1、输入转账金额、收款人账号、收款人名称<br />
+2、收款人银行名称：选择“农村商业银行”<br />
+3、开户省选择“福建省”<br />
+4、汇入地选择 “石狮市”<br />
+5、网点选择方式选择“选择录入”，选择银行网点，即可找到我行所有网点。<br />
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 11)
+ {
+                @*<img src="@Url.Content("~/content/material/app11.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+点击手机银行，选择转账汇款<br />
+1、实时到账汇款：<br />
+收款行选“农村信用合作社”中的“福建省农村信用社联合社”<br />
+2、跨行汇款：<br />
+收款行选“农村商业银行（合集）”，福建省，石狮市/福州/漳州，点击查询。
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 12)
+ {
+                @*<img src="@Url.Content("~/content/material/app12.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+1、点击手机银行<br />
+2、选择转账汇款<br />
+3、进入跨行汇款<br />
+4、开户行选择“福建省农村信用社联合社”
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("bank") == 13)
+ {
+                @*<img src="@Url.Content("~/content/material/app13.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+1、手机银行<br />
+2、选择转账<br />
+3、选择汇款转账<br />
+4、输入收款人、收款账号<br />
+5、开户行选“农村商业银行”<br />
+6、开户城市选福建省 石狮市/福州市/漳州市<br />
+7、支行选择我行开户网点
+</text>
+<br />
+ }
+
+                  </p>
+                 
+
+                  <p style="color: #666; line-height: 22px; font-size: 14px; font-family: 宋体; padding: 10px;">
+                  @if (WebHelper.GetInt("netbank") == 1)
+                  {
+                @*<img src="@Url.Content("~/content/material/app1.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+　　方法一：<br />
+1、查找：农村商业银行<br />
+2、汇入地选“福建”<br />
+3、在查询栏手动输入“石狮”，点击“查询”即可找到我行所有网点。<br />
+方法二：输入网点行号进行查找。
+
+</text>
+<br />
+                  }
+ @if (WebHelper.GetInt("netbank") == 2)
+ {
+                @*<img src="@Url.Content("~/content/material/app2.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+　　选择：转账汇款－单笔转账：<br />
+1、转入账户：输入账号、账户名<br />
+2、账户开户行行别：选“其他金融机构”<br />
+3、所在省：福建省<br />
+4、所在城市：石狮市<br />
+5、手工输入开户行全称：石狮农村商业银行**支行/分理处<br />
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 3)
+ {
+                @*<img src="@Url.Content("~/content/material/app3.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：转账汇款—国内跨行汇款<br />
+1、输入收款人名称<br />
+2、输入转入账号<br />
+3、转入账户所属银行：点击“查询”，选择“其他银行”<br />
+4、转入账户开户行名称：输入“石狮农村”，点击“查询”即可出现我行所有网点名称。<br />
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 4)
+ {
+                @*<img src="@Url.Content("~/content/material/app4.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：转账汇款——跨行汇款——建行转他行<br />
+1、选择付款账户；<br />
+2、输入收款人姓名、账号；<br />
+3、选择收款账户开户行：<br />
+收款账户所属行别：农村商业银行<br />
+按地区查找收款账户开户行：福建省、石狮市<br />
+在“收款账户开户网点”一栏中可选择我行任一网点。<br />
+若选择“建行转他行（加急）”模块，收款账户所属行别请选择“福建省农村信用社”。<br />
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 5)
+ {
+                @*<img src="@Url.Content("~/content/material/app5.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+（一）转账汇款—普通跨行转账<br />
+1、输入收款账号、户名<br />
+2、收款银行：选择“农村商业银行”<br />
+3、转入城市：选择“福建省泉州市”<br />
+4、点击“查网点”，即可找到我行所有网点<br />
+（二）转账汇款—实时跨行转出<br />
+收款银行选择“农村信用合作社”，再选择“福建省农村信用社联合社”即可。<br />
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 6)
+ {
+                @*<img src="@Url.Content("~/content/material/app6.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：转账汇款－跨行异地汇款：<br />
+1、输入户名<br />
+2、选择汇款模式：普通<br />
+3、收款方地址：选择“福建省泉州市”<br />
+4、开户行：选“农村商业银行”，手工填“石狮”，按“检索行号”即可出现我行所有网点名称。<br />
+5、输入账号、金额，提交就可汇出。<br />
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 7)
+ {
+                @*<img src="@Url.Content("~/content/material/app7.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+                      
+1、选择：汇款—汇到其他银行<br />
+2、输入收款人户名、收款账号<br />
+3、省、直辖市选择“福建省”<br />
+4、城市选择“石狮市”<br />
+5、收款行选择“农村商业银行”，即可找到我行所有网点。<br />
+
+                      </text>
+ }
+ @if (WebHelper.GetInt("netbank") == 8)
+ {
+                @*<img src="@Url.Content("~/content/material/app8.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：转账支付－跨行转账－转账方式（3个模块勾选其中一个）：<br />
+（一）大额或小额转账模块：<br />
+1、查询收款账号开户网点：<br />
+2、所在省：福建<br />
+3、所在市：石狮<br />
+4、所属银行：农村商业银行（在最下面）<br />
+5、开户网点：**支行/分理处<br />
+（二）网银互联模块：<br />
+查询收款账号开户网点：输入“农村”，选“福建省农村信用社联合社”即可。<br />
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 9)
+ {
+                @*<img src="@Url.Content("~/content/material/app9.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：转账汇款—跨行汇款<br />
+1、实时：7*24小时实时，单笔金额小于等于5万元，收款行选择“福建省农村信用社联合社”即可。<br />
+2、普通：非实时，单笔金额不限；<br />
+收款人开户银行：农村商业银行<br />
+汇入地：福建省泉州市石狮市，即可找到我行所有网点。<br />
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 10)
+ {
+                @*<img src="@Url.Content("~/content/material/app10.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：转账汇款—跨行转账<br />
+1、输入转账金额、收款人账号、收款人名称<br />
+2、收款人银行名称：选择“农村商业银行”<br />
+3、汇入地：选择“福建省”、“石狮市”<br />
+4、在“收款人网点名称”的空白框中双击，即可选择我行个营业网点名称。<br />
+
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 11)
+ {
+                @*<img src="@Url.Content("~/content/material/app11.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+1、选择：农村信用社（含北京、深圳、东莞农商行）<br />
+2、再选择：福建省农村信用社<br />
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 12)
+ {
+                @*<img src="@Url.Content("~/content/material/app12.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+1、选择：电子汇款－他行汇款，汇路选择“大额实时支付”<br />
+2、转入账户开户行名称：点击右边“查询”按键<br />
+3、行别选择“农村商业银行”<br />
+4、省份选择“福建省”<br />
+5、地区选择“石狮”<br />
+6、点击下面“查询”选择“福建石狮农村商业银行”按确定<br />
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 13)
+ {
+                @*<img src="@Url.Content("~/content/material/app13.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+（一）跨行汇款<br />
+1、选择“跨行转账”<br />
+2、“收款方地址”选择“福建”、“石狮市”<br />
+3、“收款方开户银行”选择“农村商业银行”<br />
+4、“收款方开户行名称”按选择汇入账户的开户行<br />
+（二）跨行实时汇款<br />
+1、选择“跨行实时转账”<br />
+2、“收款方开户银行”选择“福建省农村信用社联合社”<br />
+
+</text>
+<br />
+ }
+ @if (WebHelper.GetInt("netbank") == 14)
+ {
+                @*<img src="@Url.Content("~/content/material/app13.jpg")" style="width:100%;" />*@
+                  <br />
+                      <text>
+选择：往账汇款—跨行汇收款—快速汇款<br />
+收款人行别：选“农村商业银行”<br />
+汇入地：福建—石狮<br />
+
+</text>
+<br />
+ }
+
+                  </p>
+            </div> 
+          </section>
+        </div>
+    </div>
+    </div>
+    <footer class="footer">
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Telephone"]))
+   {
+       <p>石狮农商银行客服热线：@(GlobalConfig.GetConfig()["Telephone"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Copyright"]))
+   {
+       <p>&copy;@(GlobalConfig.GetConfig()["Copyright"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["ICP"]))
+   {
+       <p>@(GlobalConfig.GetConfig()["ICP"])</p>
+   }
+   @if (!string.IsNullOrWhiteSpace(GlobalConfig.GetConfig()["Security"]))
+   { 
+       <p>@(GlobalConfig.GetConfig()["Security"])</p>
+   }
+</footer>
+</body>
+</html>

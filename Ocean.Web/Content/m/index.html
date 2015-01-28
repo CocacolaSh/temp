@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scafle=1.0, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript" src="../javascripts/jquery/jquery-1.10.2.min.js"></script>
+<style type="text/css">
+.h-swipe{position: relative;z-index: 1;-webkit-perspective: 1000;-webkit-backface-visibility: hidden;}
+a.ui-link{ margin:0px;}
+.h-in-slider-status{ height: 12px;list-style: none;margin: 0;padding-top: 3px;overflow: hidden;right: 15px;bottom: 10px;position: absolute;z-index: 9;}
+.h-in-slider-status span{ display: block;width: 8px;height: 8px;border-radius: 4px;float: left;background: rgba(255,255,255,.8);margin: 0 3px;}
+.h-in-slider-status .sel{ background: #000;width: 10px;height: 10px;border-radius: 5px;margin: -1px 3px;}
+.h-b-bottom {z-index: 0;position: absolute;color: #FFF;text-align: left;text-indent: 5px;bottom:0px;;padding: 0;height: 30px;line-height: 30px;display: block;width: 100%;background: rgba(0,0,0,0.3);background-color: #000 9;filter: alpha(opacity=80) 9;}
+</style>
+<title>案例</title>
+</head>
+
+<body>
+<div class="sybox">
+   <div class="logo"><img src="images/ns_logo.png" /></div>
+   <div class="nav">
+      <ul>
+         <a href="#"><div class="arrow_01"></div></a>
+         <li><a href="#">网站首页</a></li>
+         <li><a href="#">个人业务</a></li>
+         <li><a href="#">公司业务</a></li>
+         <li><a href="#">银行卡</a></li>
+         <li><a href="#">电子银行</a></li>
+         <li><a href="#">保管箱</a></li>
+         <a href="#"><div class="arrow_02"></div></a>
+      </ul>
+   </div>
+   
+   <div class="announ">
+   <marquee scrollamount="2" onmouseover="this.stop()" onmouseout="this.start()" direction="left" height="20">    
+<a href="/2014-2/2014022704.asp?boardid=351&amp;classid=35" target="_blank">石狮农商银行福万通·福瑞2014年003期D款（福州漳州客户专享）个人理财产品到期公告</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    
+<a href="/2014-2/2014022703.asp?boardid=351&amp;classid=35" target="_blank">石狮农商银行福万通·福瑞2014年003期C款（贵宾专属）个人理财产品到期公告</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    
+<a href="/2014-2/2014022702.asp?boardid=351&amp;classid=35" target="_blank">石狮农商银行福万通·福瑞2014年003期B款（电子渠道专属）个人理财产品到期公告</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+</marquee>
+   </div>
+  <div style="width: 100%;">
+            <div id="sliderBanner" class="h-swipe" style="width:100%;overflow:hidden;min-height:30px;">
+                <ul>
+                <li style='display:block"'>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <img style="width:100%;" src="images/banner1.jpg"></a></div>
+                        <!--<span class="h-b-bottom">@item.Name</span>-->
+                </li>
+                <li style='display:block"'>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <img style="width:100%;" src="images/banner2.jpg"></a></div>
+                        <!--<span class="h-b-bottom">@item.Name</span>-->
+                </li>
+                <li style='display:none"'>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <img style="width:100%;" src="images/banner3.jpg"></a></div>
+                        <!--<span class="h-b-bottom">@item.Name</span>-->
+                </li>
+                <li style='display:none"'>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <img style="width:100%;" src="images/banner4.jpg"></a></div>
+                        <!--<span class="h-b-bottom">@item.Name</span>-->
+                </li>
+                <li style='display:none"'>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <img style="width:100%;" src="images/banner5.jpg"></a></div>
+                        <!--<span class="h-b-bottom">@item.Name</span>-->
+                </li>
+                <li style='display:none"'>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <img style="width:100%;" src="images/banner6.jpg"></a></div>
+                        <!--<span class="h-b-bottom">@item.Name</span>-->
+                </li>
+                <li style='display:none"'>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <img style="width:100%;" src="images/banner7.jpg"></a></div>
+                        <!--<span class="h-b-bottom">@item.Name</span>-->
+                </li>
+                <li style='display:none"'>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <img style="width:100%;" src="images/banner8.jpg"></a></div>
+                        <!--<span class="h-b-bottom">@item.Name</span>-->
+                </li>
+                </ul>
+            <div class="h-in-slider-status" id="h_position" style="min-width:12px;max-width: 570px;">
+                 <span class="sel"></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+            </div>
+            </div>
+        <script type="text/javascript">
+        if ($(window).width() <= 640) {
+            $("#sliderBanner").width($(window).width());
+        }
+        else {
+            $("#sliderBanner").width(640);
+        }
+        var sliderBanner = new Swipe(document.getElementById('sliderBanner'),
+        {
+            startSlide: 0,
+            speed: 400,
+            auto: 3000,
+            callback: function (e, pos) {
+                var i = bullets.length;
+                while (i--) {
+                    bullets[i].className = ' ';
+                }
+                bullets[pos].className = 'sel';
+
+            }
+
+        });
+        bullets = document.getElementById('h_position').getElementsByTagName('span')
+</script>
+    </div>
+<!--  <img src="images/banner.jpg" />-->
+  
+   <div class="news" style="max-width:640px;">
+      <ul>
+         <li><a href="#">感恩于心 奉献于行 ——石狮农商银行举办"感恩"主题交流会</a></li>
+         <li><a href="#">石狮农商银行员工急客户所急获赞许----客户遗落万元 银行及时送还</a></li>
+         <li><a href="#">石狮农商银行关于征集"瑞狮村镇银行"企业形象标识（LOGO）及字体设计的公告</a></li>
+         <li><a href="#">宣传服务零距离 金融知识进高校</a></li>
+         <li><a href="#">石狮农商银行"三个一"拉开宣传月活动序幕</a></li>
+         <li><a href="#">石狮农商银行艺术团献演泉州银行业金融知识宣传服务月活动启动仪式</a></li>
+         <li><a href="#">歌唱青春，放飞梦想</a></li>
+      </ul>
+   </div>
+ 
+ 
+   
+    <div class="recom_nav"><p>推荐业务</p></div>
+    <div class="recom">
+        <a href="#"><img src="images/img1.png" /></a>
+        <a href="#"><img src="images/img2.png" /></a>
+        <a href="#"><img src="images/img3.png" /></a>
+    </div>
+
+   
+   <div class="scene_nav"><p>风景线</p></div>
+   <div class="scene_all">
+   <div class="scene1">
+   <a href="#"><img src="images/sc1.png" /></a>
+   <a href="#"><img src="images/sc2.png" /></a>
+   <a href="#"><img src="images/sc3.png" /></a>
+   </div>
+   <div class="scene2">
+   <a href="#"><img src="images/sc4.png" /></a>
+   <a href="#"><img src="images/sc5.png" /></a>
+   <a href="#"><img src="images/sc6.png" /></a>
+   </div>
+   </div>
+   
+   
+   
+   
+</div>
+<footer class="footer">
+   <p>&copy;版权所有&nbsp;福农宝版权所有</p>
+   <p>闽ICP备&nbsp;4512120号</p>
+   <p>闽公网安备 110102000450</p>
+</footer>
+</body>
+</html>

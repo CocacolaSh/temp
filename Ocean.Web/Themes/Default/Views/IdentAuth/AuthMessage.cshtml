@@ -1,0 +1,33 @@
+﻿<div id="authMessageMain" class="mbMain">
+      <div class="frameChang">
+          <span class="stitle">身份认证</span>
+      </div>
+
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+                <div class="modBd">
+                @if (ViewBag.AuthStatus==2)
+                {
+                      <ul class="btts">
+                          <li>
+                            尊敬的福农宝客户，您输入的信息有误，请您再次核实信息。
+                          </li>
+                      </ul>
+                }
+                else
+                {
+                      <ul class="btts">
+                          <li style="border-top:0px; border-bottom:#ccc dashed 1px;">
+                            尊敬的客户，您输入的身份证号码有误，或者您还不是我行福农宝客户，您可以通过我行微信公众号的“贷款申请”模块或我行网点办理，谢谢！
+                          </li>
+                      </ul> 
+                }       
+                <div class="btnLoginBox">
+                    <a class="modBtnColor coloryellow" href="/BankLoan/LoanApply" >贷款申请</a>
+                    <a class="modBtnColor coloryellow" href="javascript:void(0);" onclick="$('#authMessageMain').hide();$('#mbMain').show();">返回</a>
+                </div>
+            </div>
+          </section>
+      </div>
+</div>
+

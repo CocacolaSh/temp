@@ -1,0 +1,7 @@
+2014-12-16 11:03:48,745 [11] ERROR OceanLog [(null)] - 未找到路径“/favicon.ico”的控制器或该控制器未实现 IController。
+2014-12-16 11:03:48,745 [11] ERROR OceanLog [(null)] - 未找到路径“/favicon.ico”的控制器或该控制器未实现 IController。
+2014-12-16 11:03:48,931 [4] ERROR OceanLog [(null)] - 未找到路径“/favicon.ico”的控制器或该控制器未实现 IController。
+2014-12-16 11:03:48,931 [4] ERROR OceanLog [(null)] - 未找到路径“/favicon.ico”的控制器或该控制器未实现 IController。
+2014-12-16 16:10:53,794 [66] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+2014-12-16 16:10:53,794 [66] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
+by Ocean

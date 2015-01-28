@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "_ErrorLayout.cshtml";
+    ViewBag.Title = "404";
+}
+<div id="mbMain">
+      <div class="frameChang">
+          <span class="stitle">错误提示</span>
+      </div>
+
+      <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
+          <section class="modBaseBox">
+                  <div class="modBd">
+                      <div class="bteBox">
+                		 <span class="sls_pic"><img src="@Url.Content("~/Content/bank/images/404.png")" /></span>
+                         <span class="txt">对不起，您所访问的页面不存在！</span>
+                	  </div>                      
+                      <div class="btnLoginBox">
+                          <a class="modBtnColor coloryellow" onclick="history.go(-1);">返回</a>
+                      </div>
+                  </div>
+          </section>
+      </div>
+</div>

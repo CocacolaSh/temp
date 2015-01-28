@@ -1,0 +1,255 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+    ViewBag.Title = "插件应用列表-";
+    Ocean.Core.Configuration.BaseConfigInfo config = Ocean.Core.Configuration.BaseConfigs.GetConfig();
+    
+}
+@section Head{
+<script type="text/javascript">
+var currentCheckedId = "";
+$(document).ready(function () {
+    InitGrid();
+});
+function InitGrid(queryData) {
+    $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+        url: '/plugins/_pluginList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+        title: '',
+        loadMsg: '数据加载中,请稍后……',
+        iconCls: 'icon-view',
+        fit: true,
+        nowrap: true,
+        autoRowHeight: true,
+        striped: true,
+        collapsible: true,
+        pagination: true,
+        rownumbers: true,
+        singleSelect: true,
+        sortName: 'CreateDate',   //根据某个字段给easyUI排序
+        sortOrder: 'asc',
+        idField: 'Id',
+        queryParams: queryData,  //异步查询的参数
+        columns: [[
+                { title: '插件名称', field: 'Name', width: 160,
+                    formatter: function (value, row, index) {
+                        if (!row.Id) {
+                            return row.PluginName;
+                        }
+                        else {
+                            return row.Name
+                        }
+                    }
+                },
+                { title: '运行状态', field: 'IsPass', width: 50,
+                    formatter: function (value, row, index) {
+                        if (value == "1") {
+                            return "正常";
+                        }
+                        else {
+                            return "禁用";
+                        }
+                    }
+                },
+                { title: '有效状态', field: 'IsOpen', width: 150,
+                    formatter: function (value, row, index) {
+                        if (value) {
+                            if (value == "1") {
+                                return "有效期";
+                            }
+                            else if (value == "2") {
+                                return "未开始";
+                            }
+                            else {
+                                return "已过期";
+                            }
+                        }
+                        else {
+                            return "未开始";
+                        }
+                    }
+                },
+                { title: '开始时间', field: 'StartDate', width: 100,
+                    formatter: function (value, row) {
+                        if (value) {
+                            return value.replace("T", " ");
+                        }
+                    }
+                },
+                { title: '结束时间', field: 'EndDate', width: 140,
+                    formatter: function (value, row) {
+                        if (value) {
+                            return value.replace("T", " ");
+                        }
+                    }
+                },
+                { title: '', field: 'IsMulti', width: 50 },
+                { title: '', field: 'IsEdit', width: 50 },
+                { title: '', field: 'IsSubmit', width: 50 }
+        ]],
+                onSelect: function (index, row) {
+            if (!row.Id) {
+                $("#openPlugin").show();
+                $("#urlShow").hide();
+                $("#pluginSet").hide();
+                $("#pluginReset").hide();
+                $("#pluginDelete").hide();
+                $("#pluginCopy").hide();
+                $("#pluginGiftSend").hide();
+            }
+            else {
+                $("#openPlugin").hide();
+                $("#urlShow").show();
+                if (row.IsEdit) {
+                    $("#pluginSet").show();
+                    $("#pluginReset").show();
+                    $("#pluginDelete").show();
+                }
+                if (row.IsMulti) {
+                    $("#pluginCopy").show();
+                }
+                if (row.IsSubmit)
+                {
+                    $("#pluginGiftSend").show();
+                }
+            }
+        },
+        toolbar: '#gridtoolbar'
+    });
+    $('#grid').datagrid("hideColumn", "IsMulti");
+    $('#grid').datagrid("hideColumn", "IsEdit");
+    $('#grid').datagrid("hideColumn", "IsSubmit");
+}
+
+function OpenPlugin(t) {
+    var selectedRows = $('#grid').datagrid('getSelections');
+    if (selectedRows.length > 0) {
+        currentCheckedId = selectedRows[0].Id;
+        $.ajax({
+            type: "POST",
+            url: "/Plugins/OpenPlugin",
+            dataType: "json",
+            data: { pluginid: selectedRows[0].PluginId,isMulti:(t?t:"") },
+            success: function (msg) {
+                if (msg.success) {
+                    $.messager.alert('提示', msg.message, "", function () {
+                        $("#grid").datagrid('reload');
+                        $("#grid").datagrid('unselectRow');
+                    });
+                } else {
+                    $.messager.alert('提示', msg.message);
+                }
+            }
+        });
+    } else {
+        $.messager.alert('提示', '请选择插件');
+    }
+}
+function UrlShow() {
+    var selectedRows = $('#grid').datagrid('getSelections');
+    if (selectedRows.length > 0) {
+        $.messager.alert("前台地址", "@(config.WebUrl)plugins/" + selectedRows[0].Url + "?id=" + selectedRows[0].Id);
+    } else {
+        $.messager.alert('提示', '请选择插件');
+    }
+}
+function PluginSet() {
+    var selectedRows = $('#grid').datagrid('getSelections');
+    if (selectedRows.length > 0) {
+        $('#PluginSet').attr("src", "EditPlugin?Id=" + selectedRows[0].Id + "&d=" + (new Date()).getTime());
+        var setWin = $("#w").window({ title: selectedRows[0].Name+"-插件设置" });
+        setWin.window("open");
+    } else {
+        $.messager.alert('提示', '请选择插件');
+    }
+}
+function PluginSetClose() {
+    $("#w").window("close");
+    $.messager.alert("提示", "设置成功");
+    $('#grid').datagrid("reload");
+}
+function PluginGiftSend() {
+    var selectedRows = $('#grid').datagrid('getSelections');
+    if (selectedRows.length > 0) {
+        $('#GiftSend').attr("src", "SubmitEdit?PluginId=" + selectedRows[0].Id + "&d=" + (new Date()).getTime());
+        var setWin = $("#gw").window({ title: selectedRows[0].Name + "-奖品发放" });
+        setWin.window("open");
+    } else {
+        $.messager.alert('提示', '请选择插件');
+    }
+}
+function PluginGiftSendClose() {
+    $("#gw").window("close");
+    $('#grid').datagrid("reload");
+}
+function PluginDelete() {
+    var selectedRows = $('#grid').datagrid('getSelections');
+    if (selectedRows.length > 0) {
+        if (confirm("确定删除插件？")) {
+            $.ajax({
+                type: 'post',
+                url: "/plugins/delPlugin",
+                cache: false,
+                //datatype: "json",
+                data: { pluginid: selectedRows[0].Id },
+                success: function (result) {
+                    if (result.message) {
+                        $.messager.alert("提示", result.message);
+                    }
+                    else {
+                        $.messager.alert("提示", '操作成功！');
+                        $('#grid').datagrid('reload');
+                        
+                    }
+                },
+                error: function (result, textStatus, errorThrown) {
+                    alert("删除失败！")
+                }
+
+            });
+        }
+    }
+}
+</script>
+}
+
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @Html.ActionLink("开通", null, null, new { onclick = "OpenPlugin()",id="openPlugin",style="display:inline-block;", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("前台地址", null, null, new { onclick = "UrlShow('view')", id = "urlShow", style = "display:inline-block;", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("设置", null, null, new { onclick = "PluginSet()", id = "pluginSet", style = "display:inline-block;", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("复制", null, null, new { onclick = "OpenPlugin(1);", id = "pluginCopy", style = "display:inline-block;", data_options = "iconCls:'icon-print', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("重置", null, null, new { onclick = "PluginReset();", id = "pluginReset", style = "display:inline-block;", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        @Html.ActionLink("删除", null, null, new { onclick = "PluginDelete()", id = "pluginDelete", style = "", data_options = "iconCls:'icon-remove', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })              
+        @Html.ActionLink("奖品发放", null, null, new { onclick = "PluginGiftSend()", id = "pluginGiftSend", style = "display:inline-block;", data_options = "iconCls:'icon-edit', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 10px;">
+        
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" closed="true" title="插件设置" data-options="iconCls:'icon-save'"
+    style="width: 800px; height: 460px; padding: 5px;" modal="true">
+    <iframe id="PluginSet" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>
+
+<div id="gw" class="easyui-window" closed="true" title="奖品发放" data-options="iconCls:'icon-save'"
+     style="width: 900px; height: 460px; padding: 5px;" modal="true">
+    <iframe id="GiftSend" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+</div>
+    <script type="text/javascript">
+        
+        function resetPlugin(id) {
+            if (confirm("确定重置，重置后奖删除掉所有的中奖结果、还原用户的抽奖次数？")) {
+                $.ajax({
+                    type: 'post',
+                    url: "/plugins/ResetPlugin?_="+new Date().getTime(),
+                    cache: false,
+                    data: { pluginid: id },
+                    success: function (result) {
+                            alert(result.message);
+                    }
+                });
+            }
+            }
+    </script>
