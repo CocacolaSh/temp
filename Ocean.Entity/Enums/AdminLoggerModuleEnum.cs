@@ -113,6 +113,9 @@ namespace Ocean.Entity.Enums.AdminLoggerModule
         Complain = 22,
     
         [EnumDescription("保单")]
-        BaoXian = 23
+        BaoXian = 23,
+
+        [EnumDescription("我的下线")]
+        MyUnder = 24
     }
 }

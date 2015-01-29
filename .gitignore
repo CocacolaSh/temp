@@ -4,3 +4,15 @@
 /Ocean.Web/images
 /Ocean.Services/bin
 /Ocean.Services/obj
+/Ocean.Admin/bin
+bin
+obj
+*.dll
+*.pdb/Ocean.Web/bin/Ocean.Web/obj
+/Ocean.Web/Logs
+/Ocean.Page/bin
+/Ocean.Page/obj
+/Senparc.Weixin.MP.BuildOutPut
+/ThirdPartySDK/Senparc.Weixin.MP.CommonService/bin
+/ThirdPartySDK/Senparc.Weixin.MP.CommonService/obj
+/ThirdPartySDK/Senparc.Weixin.MP/obj

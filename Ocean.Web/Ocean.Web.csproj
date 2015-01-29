@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LifeController.cs" />
     <Compile Include="Controllers\MpMaterialController.cs" />
+    <Compile Include="Controllers\MyUnderController.cs" />
     <Compile Include="Controllers\OperatorController.cs" />
     <Compile Include="Controllers\PluginsSceneController.cs" />
     <Compile Include="Controllers\ScoreSysController.cs" />
@@ -2410,6 +2411,8 @@
     <Content Include="Themes\Default\Views\VehicleLicense\ViewDetail.cshtml" />
     <Content Include="Themes\Default\Views\DrivingLicense\Index.cshtml" />
     <Content Include="Themes\Default\Views\DrivingLicense\ViewDetail.cshtml" />
+    <Content Include="Themes\Default\Views\MyUnder\Index.cshtml" />
+    <Content Include="Themes\Default\Views\MyUnder\ViewDetail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

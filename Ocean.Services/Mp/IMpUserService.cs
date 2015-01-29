@@ -25,7 +25,7 @@ namespace Ocean.Services
     {
         void GetUserFromApi(string token);
         PagedList<MpUserDTO> GetUsers(int pageIndex, int pageSize, MpUserDTO mpDto);
-        PagedList<MpUser> GetUnderUsers(int pageIndex, int pageSize, MyUnderDTO mpUnderDto);
+        PagedList<MpUser> GetUnderUsers(int pageIndex, int pageSize, MyUnderDTO mpUnderDto, int isAll);
         void UpdateGroup(Guid[] ids, Guid gid);
         int GetCountByGroup(Guid groupId);
         MpUser GetByOpenID(string openid);

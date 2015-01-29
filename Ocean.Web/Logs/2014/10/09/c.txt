@@ -1,7 +1,0 @@
-2014-10-09 10:27:41,593 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
-2014-10-09 10:27:41,593 [4] ERROR OceanLog [(null)] - Path '/Themes/Default/Views/Plugins/lottery/style1_4.cshtml' was not found.
-2014-10-09 10:27:45,375 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
-2014-10-09 10:27:45,375 [8] ERROR OceanLog [(null)] - The controller for path '/favicon.ico' was not found or does not implement IController.
-2014-10-09 10:41:48,359 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
-2014-10-09 10:41:48,359 [10] ERROR OceanLog [(null)] - Unable to load DLL 'libmySQL.dll': 找不到指定的模块。 (Exception from HRESULT: 0x8007007E)
-by Ocean

@@ -22,8 +22,8 @@
         for (var i = page_index * items_per_page; i < max_elem; i++) {
             newcontent += '<tr onClick="viewDetail(' + "'"+ members[i]['Id'] + "'"+ ')">';
             newcontent += '<td>' + i + '</td>';
-            newcontent += '<td>' + members[i]['PlateNo'] + '</td>';
-            newcontent += '<td>'+ members[i]['Owner'] + '</td></tr>';
+            newcontent += '<td>' + members[i]['Name'] + '</td>';
+            newcontent += '<td>'+ members[i]['Phone'] + '</td></tr>';
         }
         newcontent += '</table>';
         // Replace old content with new content

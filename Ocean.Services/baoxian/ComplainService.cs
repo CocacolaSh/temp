@@ -146,5 +146,74 @@ namespace Ocean.Services
                 condition += "Phone like '%'+@Phone+'%'";
             }
 
+            if (!string.IsNullOrEmpty(complainDTO.ContactName))
+            {
+                parms.Add("ContactName", complainDTO.ContactName);
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    condition += " and ";
+                }
+                else
+                {
+                    condition += " where ";
+                }
+                condition += "ContactName like '%'+@ContactName+'%'";
+            }
+            if (!string.IsNullOrEmpty(complainDTO.ContactPhone))
+            {
+                parms.Add("ContactPhone", complainDTO.ContactPhone);
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    condition += " and ";
+                }
+                else
+                {
+                    condition += " where ";
+                }
+                condition += "ContactPhone like '%'+@ContactPhone+'%'";
+            }
+            if (complainDTO.StartDate.HasValue)
+            {
+                parms.Add("StartDate", complainDTO.StartDate);
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    condition += " and ";
+                }
+                else
+                {
+                    condition += " where ";
+                }
+                condition += "f.CreateDate >= @StartDate";
+            }
+            if (complainDTO.EndDate.HasValue)
+            {
+                parms.Add("EndDate", complainDTO.EndDate);
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    condition += " and ";
+                }
+                else
+                {
+                    condition += " where ";
+                }
+                condition += "f.CreateDate <= @EndDate";
+            }
+
+            if (isAll == 0)
+            {
+                parms.Add("MpUserId", complainDTO.MpUserId);
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    condition += " and ";
+                }
+                else
+                {
+                    condition += " where ";
+                }
+                condition += "MpUserId = @MpUserId";
+            }
+            return this.GetDynamicList("SELECT f.Id, f.Name,f.Phone,f.ContactName,f.ContactPhone,f.ComplainContent,f.ProcessStatus,f.ProcessResult,f.ProcessDate,f.CreateDate FROM Complain f " + condition + " order by f.CreateDate desc", pageIndex, pageSize, parms);
+        }
+
     }
 }

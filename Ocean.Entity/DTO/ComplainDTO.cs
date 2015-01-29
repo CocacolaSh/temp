@@ -12,13 +12,14 @@ namespace Ocean.Entity.DTO
         public ComplainDTO(Complain complain)
         {
             this.Id = complain.Id;
+            this.MpUserId = complain.MpUserId;
             this.CreateDate = complain.CreateDate;
             this.Name = complain.Name;
             this.Phone = complain.Phone;
             this.ContactName = complain.ContactName;
             this.ContactPhone = complain.ContactPhone;
         }
-
+        public Guid MpUserId { set; get; }
         /// <summary>
         /// 姓名
         /// </summary>

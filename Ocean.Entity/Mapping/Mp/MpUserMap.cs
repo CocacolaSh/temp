@@ -56,6 +56,8 @@ namespace Ocean.Entity.Mapping
             this.Property(f => f.PassportNO).HasColumnName("PassportNO");
             this.Property(f => f.Name).HasColumnName("Name");
             this.Property(f => f.MobilePhone).HasColumnName("MobilePhone");
+            this.Property(f => f.ParentName).HasColumnName("ParentName");
+            this.Property(f => f.ParentPhone).HasColumnName("ParentPhone");
             this.Property(f => f.IsAuth).HasColumnName("IsAuth");
             this.Property(f => f.SceneId).HasColumnName("SceneId");
             this.Property(f => f.AdminId).HasColumnName("AdminId");

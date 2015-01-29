@@ -103,11 +103,11 @@ namespace Ocean.Services
             return this.GetPageList<MpUserDTO>(sql, parms, pageIndex, pageSize);
         }
 
-        public PagedList<MpUser> GetUnderUsers(int pageIndex, int pageSize, MyUnderDTO mpUnderDto)
+        public PagedList<MpUser> GetUnderUsers(int pageIndex, int pageSize, MyUnderDTO mpUnderDto, int isAll)
         {
             string sql = "select * from MpUser ";
 
-            string condition = "where ParentPhone = (select MobilePhone from MpUser where Id = '"+mpUnderDto.Id+"')";
+            string condition = "where ParentPhone = (select MobilePhone from MpUser where Id = '" + mpUnderDto.MpUserId + "')";
             Dictionary<string, object> parms = new Dictionary<string, object>();
             if (!string.IsNullOrEmpty(mpUnderDto.Name))
             {
@@ -135,6 +135,46 @@ namespace Ocean.Services
                 }
                 condition += "MobilePhone like '%'+@MobilePhone+'%'";
             }
+
+            if ((mpUnderDto.IsAuth.HasValue))
+            {
+                parms.Add("IsAuth", mpUnderDto.IsAuth);
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    condition += " and ";
+                }
+                else
+                {
+                    condition += " where ";
+                }
+                condition += "IsAuth = @IsAuth";
+            }
+            if (isAll == 0)
+            {
+                parms.Add("MpUserId", mpUnderDto.MpUserId);
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    condition += " and ";
+                }
+                else
+                {
+                    condition += " where ";
+                }
+                condition += "ParentPhone = (select MobilePhone from MpUser where Id = @MpUserId)";
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(condition))
+                {
+                    condition += " and ";
+                }
+                else
+                {
+                    condition += " where ";
+                }
+                condition += "ParentPhone != ''";
+            }
+
             sql += condition;
             return this.GetPageList<MpUser>(sql, parms, pageIndex, pageSize);
         }

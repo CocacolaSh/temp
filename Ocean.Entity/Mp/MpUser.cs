@@ -185,12 +185,20 @@ namespace Ocean.Entity
         /// </summary>
         public int IsAuth { get; set; }
         public int SceneId { get; set; }
+        /// <summary>
+        /// 姓名
+        /// </summary>
+        public string ParentName { set; get; }
 
+        /// <summary>
+        /// 手机号码
+        /// </summary>
+        public string ParentPhone { set; get; }
         /// <summary>
         /// 
         /// </summary>
         /// [Key, ForeignKey("Role")]
-        public Guid AdminId { set; get; }
+        public Guid ?AdminId { set; get; }
 
         private ICollection<Admin> _admins;
         /// <summary>

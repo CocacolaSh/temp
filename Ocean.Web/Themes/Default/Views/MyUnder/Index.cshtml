@@ -10,20 +10,21 @@
 //    ['Watkins Moorman Abbitt', '1948-1973', 'Virginia', 'Democratic', '1908-1998']
 //];
     function viewDetail(id) {
-        window.location = '/VehicleLicense/viewDetail?Id=' + id + "&isedit=1";
+        window.location = '/MyUnder/viewDetail?Id=' + id + "&isedit=1";
     }
     function pageselectCallback(page_index, jq) {
         // Get number of elements per pagionation page from form
         var items_per_page = $('#items_per_page').val();
         var max_elem = Math.min((page_index + 1) * items_per_page, members.length);
         var newcontent = '';
-        var newcontent = '<table cellspacing="1" class="table-striped" ID="DataGrid1"><tr><td>序号</td><td>车牌号码</td><td>所有者</td></tr>';
+        var newcontent = '<table cellspacing="1" class="table-striped" ID="DataGrid1"><tr><td>序号</td><td>姓名</td><td>手机</td><td>是否认证</td></tr>';
         // Iterate through a selection of the content and build an HTML string
         for (var i = page_index * items_per_page; i < max_elem; i++) {
             newcontent += '<tr onClick="viewDetail(' + "'"+ members[i]['Id'] + "'"+ ')">';
             newcontent += '<td>' + i + '</td>';
-            newcontent += '<td>' + members[i]['PlateNo'] + '</td>';
-            newcontent += '<td>'+ members[i]['Owner'] + '</td></tr>';
+            newcontent += '<td>' + members[i]['Name'] + '</td>';
+            newcontent += '<td>'+ members[i]['MobilePhone'] + '</td>';
+            newcontent += '<td>'+ (members[i]['IsAuth'] ? '是' : '否') + '</td></tr>';
         }
         newcontent += '</table>';
         // Replace old content with new content
@@ -47,12 +48,8 @@
         })
         return opt;
     }
-// When document has loaded, initialize pagination and form
     $(document).ready(function () {
-        // Create pagination element with options from form
-        members = @Html.Raw(Json.Encode(Model));// '@ViewBag.VehicleList';
-//        alert(members.length);
-//        alert(members[0]['PlateNo']);
+        members = @Html.Raw(Json.Encode(Model));
         var optInit = getOptionsFromForm();
         $("#Pagination").pagination(members.length, optInit);
 
@@ -68,10 +65,10 @@
     function submitForm() {
             $.ajax({
                 type: 'post',
-                url: '/VehicleLicense/_VehicleLicenseList?t=' + Math.random(),
-                data: $("#searchVehicle").serialize(),
+                url: '/MyUnder/_MyUnderList?t=' + Math.random(),
+                data: $("#searchMyUnder").serialize(),
                 cache: false,
-	                            dataType: "json",
+	            dataType: "json",
                 success: function (json) {
                     members = json.rows;
                     var optInit = getOptionsFromForm();
@@ -90,8 +87,8 @@
 <style type="text/css">
             #Searchresult { margin-top:25px; margin-bottom:0px; border:solid 1px #eef;  padding-top:10px; width:100%; }
             .table-striped{font-size:20px; width:100%;margin-left:auto;margin-right:10px;}
-            .table-striped td:nth-child(2){width:45%;}
-            .table-striped td:nth-child(3){width:45%;}
+            .table-striped td:nth-child(2){width:35%;}
+            .table-striped td:nth-child(3){width:35%;}
             .table-striped tbody tr:nth-child(odd) td,
                 .table-striped tbody tr:nth-child(odd) th {
                 background-color: #d4e3e5;
@@ -107,11 +104,16 @@
 </style>
 <div id="mbMain">
       <div class="frameChang">
-          <span class="stitle">产品介绍</span>
+          <span class="stitle">下线列表</span>
       </div>
       <div id="frameRegisterMobile" class="frameLoginBox frameLoginChang">
           <section class="modBaseBox">
-            <form action="" id="searchVehicle" method="post" style="margin: 0px; padding: 0px; display: block;">
+            <form action="" id="searchMyUnder" method="post" style="margin: 0px; padding: 0px; display: block;">
+                <div class="bteBox" style="padding-top:10px;margin-bottom:10px;">
+                <span class="btebxo">
+                    <p>这里是您所有的下线列表，您可以直接点击通过认证或取消认证</p>
+                </span>
+                </div> 
               <div class="jjtxt" style = "TEXT-ALIGN: center;">
                 <div id="Pagination" class="pagination">
                 </div>
@@ -120,17 +122,17 @@
                 </dl>
                 <ul class="fnb_list">
                     <li class="line">
-                    <b>车牌号码：</b>
-                    <p class="je"><input class="txtinput" id="PlateNo" name="PlateNo" type="text" placeholder="请输入车牌号码" autocomplete="on" style="width:120px;" /></p>
+                    <b>姓名：</b>
+                    <p class="je"><input class="txtinput" id="Name" name="Name" type="text" placeholder="请输入下线姓名" autocomplete="on" style="width:120px;" /></p>
                     </li>
                     <li class="line">
-                    <b>所有者：</b>
-                    <p class="je"><input class="txtinput" id="Owner" name="Owner" type="text" placeholder="请输入车牌所有者" autocomplete="on" style="width:120px;" /></p>
+                    <b>电话：</b>
+                    <p class="je"><input class="txtinput" id="MobilePhone" name="MobilePhone" type="text" placeholder="请输入下线手机" autocomplete="on" style="width:120px;" /></p>
                     </li>
                 </ul>
                 <div class="btnLoginBox">
-                    <a class="modBtnColor coloryellow"  onclick="submitForm();">查找行驶证</a>
-                    <a class="modBtnColor coloryellow" href="/VehicleLicense/ViewDetail">新增行驶证</a>
+                    <a class="modBtnColor coloryellow"  onclick="submitForm();">查找下线</a>
+                    @*<a class="modBtnColor coloryellow" href="/MyUnder/ViewDetail">查看详情</a>*@
                  </div>
               </div> 
              </form> 

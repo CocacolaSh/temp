@@ -134,6 +134,7 @@ G:\Dev\weixin\ocean_baoxian\Ocean.Framework\bin\Debug\NPOI.OpenXml4Net.xml
 G:\Dev\weixin\ocean_baoxian\Ocean.Framework\obj\Debug\Ocean.Framework.csprojResolveAssemblyReference.cache
 G:\Dev\weixin\ocean_baoxian\Ocean.Framework\obj\Debug\Ocean.Framework.dll
 G:\Dev\weixin\ocean_baoxian\Ocean.Framework\obj\Debug\Ocean.Framework.pdb
+E:\project\ocean_baoxian\Ocean.Framework\obj\Debug\Ocean.Framework.csprojResolveAssemblyReference.cache
 E:\project\ocean_baoxian\Ocean.Framework\bin\Debug\Ocean.Framework.dll
 E:\project\ocean_baoxian\Ocean.Framework\bin\Debug\Ocean.Framework.pdb
 E:\project\ocean_baoxian\Ocean.Framework\bin\Debug\Autofac.Configuration.dll
@@ -165,6 +166,5 @@ E:\project\ocean_baoxian\Ocean.Framework\bin\Debug\NPOI.OOXML.xml
 E:\project\ocean_baoxian\Ocean.Framework\bin\Debug\Senparc.Weixin.MP.pdb
 E:\project\ocean_baoxian\Ocean.Framework\bin\Debug\Senparc.Weixin.MP.xml
 E:\project\ocean_baoxian\Ocean.Framework\bin\Debug\NPOI.OpenXml4Net.xml
-E:\project\ocean_baoxian\Ocean.Framework\obj\Debug\Ocean.Framework.csprojResolveAssemblyReference.cache
 E:\project\ocean_baoxian\Ocean.Framework\obj\Debug\Ocean.Framework.dll
 E:\project\ocean_baoxian\Ocean.Framework\obj\Debug\Ocean.Framework.pdb

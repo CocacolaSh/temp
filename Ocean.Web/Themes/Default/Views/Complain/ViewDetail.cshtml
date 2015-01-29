@@ -19,8 +19,6 @@
                 }
             }
         });
-        var ProcessDate = '@Model.ProcessDate';
-        alert(ProcessDate);
         if ('@Model.ProcessDate.HasValue' === 'True'){
             $("#Name").attr("disabled",true);
             $("#Phone").attr("disabled",true);
@@ -143,6 +141,11 @@
                     <input type="hidden" name="Id" id="Id" value="@Model.Id" />
                 }
                   <div class="modBd"> 
+                      <div class="bteBox" style="padding-top:10px;">
+                		 <span class="btebxo">
+                             <p>尊敬的客户，欢迎您使用投诉服务，投诉之后我们将会尽快给您处理</p>
+                         </span>
+                	  </div>   
                       <ul class="fnb_list">
                          <li class="line">
                             <b>投诉姓名：</b>
@@ -162,11 +165,11 @@
                          </li> 
                          <li class="line">
                             <b>投诉内容：</b>
-                            <p style="margin: 11px 0 0 80px;"><textarea style="height:100px;" class="easyui-validatebox" data-options="required:true" class="easyui-combobox" id = "ComplainContent" name="ComplainContent" value="@(Model == null ? "" : Model.ComplainContent)"></textarea></p>
+                            <p style="margin: 11px 0 0 80px;"><textarea style="height:100px;" class="easyui-validatebox" data-options="required:true" id = "ComplainContent" name="ComplainContent">@(Model == null ? "" : Model.ComplainContent)</textarea></p>
                          </li> 
                          <li class="line" id="ProcessResultShow">
                             <b>处理结果：</b>
-                            <p style="margin: 11px 0 0 80px;"><textarea  style="height:60px;" disabled= true  id="ProcessResult" name="ProcessResult" value="@(Model == null ? "" : Model.ProcessResult)" type="text" placeholder="处理结果" autocomplete="on" ></textarea>  </p>
+                            <p style="margin: 11px 0 0 80px;"><textarea  style="height:60px;" disabled= true  id="ProcessResult" name="ProcessResult" type="text" placeholder="处理结果" autocomplete="on" >@(Model == null ? "" : Model.ProcessResult)</textarea>  </p>
                          </li> 
                          <li class="line" id="ProcessDateShow">
                             <b>处理日期：</b>

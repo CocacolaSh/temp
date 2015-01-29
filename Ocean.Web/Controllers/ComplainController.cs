@@ -123,56 +123,28 @@ namespace Ocean.Web.Controllers
             {
                 complain = _complainService.GetById(new Guid(RQuery["Id"]));
             }
-
+            MpUserID = new Guid("E8325C13-9C76-4B70-911E-57395A2F4D69");
+            MpUser mpUser = _mpUserService.GetById(MpUserID);
+            if (mpUser == null || mpUser.IsAuth != 1)
+            {
+                return Json(new { message = "您没有权限，请先申请成为业务员！" });
+            }
             UpdateModel<Complain>(complain);
+            complain.MpUserId = MpUserID;
             if (string.IsNullOrWhiteSpace(RQuery["Id"]))
             {
 
                 complain.CreateDate = DateTime.Now;
                 _complainService.Insert(complain);
-                return JsonMessage(true, "添加驾驶证成功");
+                return JsonMessage(true, "添加投诉成功");
             }
             else
             {
                 _complainService.Update(complain);
-                return JsonMessage(true, "修改驾驶证成功");
+                return JsonMessage(true, "修改投诉成功");
             }
         }
 
-        /// <summary>
-        /// 车辆类型
-        /// </summary>
-        [HttpPost]
-        [ActionName("_VehicleType")]
-        public ActionResult VehicleTypeProvide()
-        {
-            string strType = "[";
-            strType += "{\"id\":\"\",\"text\":\"--请选择--\"},";
-            foreach (var item in EnumDataCache.Instance.GetList(Ocean.Entity.Enums.TypeIdentifying.TypeIdentifyingEnum.VehicleType))
-            {
-                strType += "{\"id\":\"" + item.Value.ToString() + "\",\"text\":\"" + item.Name + "\"},";
-            }
-            strType = strType.Substring(0, strType.Length - 1);
-            strType += "]";
-            return Content(strType);
-        }
-        /// <summary>
-        /// 用途类型
-        /// </summary>
-        [HttpPost]
-        [ActionName("_UseCharacterType")]
-        public ActionResult UseCharacterTypeProvide()
-        {
-            string strType = "[";
-            strType += "{\"id\":\"\",\"text\":\"--请选择--\"},";
-            foreach (var item in EnumDataCache.Instance.GetList(Ocean.Entity.Enums.TypeIdentifying.TypeIdentifyingEnum.UseCharacterType))
-            {
-                strType += "{\"id\":\"" + item.Value.ToString() + "\",\"text\":\"" + item.Name + "\"},";
-            }
-            strType = strType.Substring(0, strType.Length - 1);
-            strType += "]";
-            return Content(strType);
-        }
 
         [HttpPost]
         public JsonResult UploadPhoto()

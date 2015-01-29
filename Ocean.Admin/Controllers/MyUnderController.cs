@@ -76,7 +76,7 @@ namespace Ocean.Admin.Controllers
                 myUnderDTO.MpUserId = base.LoginAdmin.MpUserId;
                 isAll = 0;
             }
-            PagedList<MpUser> list = _userService.GetUnderUsers(PageIndex, PageSize, myUnderDTO, isAll);
+            PagedList<MpUser> list = _userService.GetUnderUsers(PageIndex, PageSize, myUnderDTO, 0);
 
             return JsonList<MpUser>(list, list.TotalItemCount);
         }
