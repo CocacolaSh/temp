@@ -28,3 +28,4 @@ log/**/*.log    //忽略log目录下的包括子目录下的所有log文件
 /Ocean.Core/bin
 /Ocean.Core/obj
 /ThirdPartySDK/Senparc.Weixin.MP.MvcExtension/obj
+/Ocean.Admin/Logs
