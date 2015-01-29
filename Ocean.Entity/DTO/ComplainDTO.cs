@@ -18,7 +18,7 @@ namespace Ocean.Entity.DTO
             this.ContactName = complain.ContactName;
             this.ContactPhone = complain.ContactPhone;
         }
-        public Guid MpUserId { set; get; }
+
         /// <summary>
         /// 姓名
         /// </summary>

@@ -1,0 +1,202 @@
+﻿@using Ocean.Entity
+@{
+    ViewBag.Title = "我的下线列表";
+}
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script type="text/javascript">
+        var currentCheckedId = "";
+        $(document).ready(function () {
+            InitGrid();
+            $('#dlg1').dialog('close');
+            $('#w').window('close');
+        });
+
+        function InitGrid(queryData) {
+            $('#grid').datagrid({   //定位到Table标签，Table标签的ID是grid
+                url: '/MyUnder/_MyUnderList',   //指向后台的Action来获取当前用户的信息的Json格式的数据
+                title: '',
+                loadMsg: '数据加载中,请稍后……',
+                iconCls: 'icon-view',
+                fit: true,
+                nowrap: true,
+                autoRowHeight: true,
+                striped: true,
+                collapsible: true,
+                pagination: true,
+                rownumbers: true,
+                singleSelect: true,
+                sortName: 'CreateDate',   //根据某个字段给easyUI排序
+                sortOrder: 'asc',
+                idField: 'Id',
+                queryParams: queryData,  //异步查询的参数
+                columns: [[
+                     { title: '姓名', field: 'Name', width: 120 },
+                     { title: '手机', field: 'MobilePhone', width: 120 },
+                     {
+                         title: '头像', field: 'HeadImgUrl', width: 100, height: 100,
+                         formatter: function (value) {
+                             return '<img src="' + value + '" style="height:100px"/>';
+                         }
+                     },
+                     { title: '昵称', field: 'NickName', width: 100, sortable: true },
+                     { title: '是否认证', field: 'IsAuth', width: 60, 
+                         formatter: function (value, row, index) {
+                             if (value == 1) {
+                                 return "已认证";
+                             } else {
+                                 return "未认证";
+                             }
+                         }
+                     }
+                ]],
+                toolbar: '#gridtoolbar'
+            });
+        }
+
+        function ShowEditOrViewDialog() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                var id = selectedRows[0].Id;
+                $('#iframe').attr("src", "/MyUnder/MyUnderView?Id=" + id);
+                $('#w').window('open');
+            } else {
+                $.messager.alert('提示', '请选择要查看的数据');
+            }
+        }
+
+        function CloseAddDialog() {
+            $('#w').window('close');
+        }
+
+        function ReloadGrid() {
+            $('#grid').datagrid('reload');
+        }
+
+        function Search() {
+            var searchObject = {};
+                
+            if ($("#Name").val()) {
+                searchObject["Name"] = $("#Name").val();
+            }
+            if ($("#Phone").val()) {
+                searchObject["Phone"] = $("#Phone").val();
+            }
+            if ($("#IsAuth").combobox("getValue")) {
+                searchObject["IsAuth"] = $("#IsAuth").combobox("getValue");
+            }
+            $('#grid').datagrid("options").pageNumber = 1;
+            InitGrid(searchObject);
+        }
+
+        function ReturnVisit() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].IsAuth == 1) {
+                    $.messager.alert('提示', '当前用户已经认证,不能继续操作！');
+                    return void (0);
+                }
+                $('#dlg1').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要认证的用户');
+            }
+        }
+
+        function ReturnVisitEdit() {
+            if (!$("#IsAuth2").combobox("getValue")) {
+                $.messager.alert('提示', '请选择是否通过!');
+                return void (0);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/MyUnder/_AuthPass",
+                dataType: "json",
+                data: "id=" + currentCheckedId + "&IsAuth=" + $("#IsAuth2").combobox("getValue"),
+                success: function (msg) {
+                    if (msg.success) {
+                        $.messager.alert('提示', msg.message, "", function () {
+                            window.location.href = window.location.href;
+                        });
+                    } else {
+                        $.messager.alert('提示', msg.message);
+                    }
+                }
+            });
+        }
+    </script>
+}
+<div id="gridtoolbar" style="padding: 5px; height: auto">
+    <div style="margin-bottom: 5px">
+        @if ((bool)ViewData["MyUnder_" + PermissionOperate.view])
+        {
+            @Html.ActionLink("查看", null, null, new { onclick = "ShowEditOrViewDialog('view')", data_options = "iconCls:'icon-tip', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+        
+        @if ((bool)ViewData["MyUnder_" + PermissionOperate.visit])
+        { 
+        @Html.ActionLink("审核结果登记", null, null, new { onclick = "ReturnVisit()", data_options = "iconCls:'icon-pencil_go', plain:true", @class = "easyui-linkbutton", href = "javascript:void(0)" })
+        }
+    </div>
+    <div style="margin-bottom: 5px; padding-left: 10px;">
+        姓名：
+        <input class="easyui-validatebox" style="width: 100px" id="Name" />
+        电话：
+        <input class="easyui-validatebox" style="width: 100px" id="Phone" />
+        是否认证:
+        <select class="easyui-combobox" id="IsAuth" style="width: 80px;">
+            <option value="">--请选择--</option>
+            <option value="0">未认证</option>
+            <option value="1">已认证</option>
+        </select>
+        @if ((bool)ViewData["MyUnder_" + PermissionOperate.search])
+        { 
+            <span><a href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-search"
+                onclick="Search()">搜 索 </a></span>
+        }
+    </div>
+</div>
+<div id="grid">
+</div>
+<div id="w" class="easyui-window" title="下线详情" data-options="iconCls:'icon-save'"
+    style="width: 500px; height: 400px; padding: 5px;" modal="true">
+    <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+    </iframe>
+</div>
+
+<div id="dlg1" class="easyui-dialog" title="审核结果登记" data-options="iconCls:'icon-save'"
+    modal="true" style="width: 400px; height: 250px; padding: 10px">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: right;">
+                审核是否正确:
+            </td>
+            <td style="width: 70%;">
+                <select class="easyui-combobox" id="IsAuth2" style="width: 80px;">
+                    <option value="">--请选择--</option>
+                    <option value="0">不通过</option>
+                    <option value="1">通过</option>
+                </select>
+            </td>
+@*            <tr>
+                <td style="text-align: right;">
+                    登陆名：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[3,13]'" name="LoginName" />
+                </td>
+            </tr>*@
+        </tr>
+    </table>
+    <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
+        <a class="easyui-linkbutton" onclick="ReturnVisitEdit()" icon="icon-ok" href="javascript:void(0)">
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg1').dialog('close');" icon="icon-cancel"
+                href="javascript:void(0)">取消</a>
+    </div>
+</div>

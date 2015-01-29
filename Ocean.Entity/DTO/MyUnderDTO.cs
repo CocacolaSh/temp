@@ -15,6 +15,7 @@ namespace Ocean.Entity.DTO
             this.CreateDate = user.CreateDate;
             this.Name = user.Name;
             this.Phone = user.MobilePhone;
+            this.IsAuth = user.IsAuth;
         }
 
         /// <summary>
@@ -26,6 +27,10 @@ namespace Ocean.Entity.DTO
         /// </summary>
         public string Phone { set; get; }
 
+        /// <summary>
+        /// 是否身份认证
+        /// </summary>
+        public int ?IsAuth { get; set; }
         /// <summary>
         /// 上传的MP
         /// </summary>

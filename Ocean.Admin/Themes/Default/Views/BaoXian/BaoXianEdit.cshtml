@@ -1,0 +1,263 @@
+﻿@{
+    ViewBag.Title = "保单编辑";
+    string ImrUrl = Ocean.Framework.Configuration.global.config.GlobalConfig.GetConfig()["Domain"] + "/images";
+}
+@model Ocean.Entity.BaoXian
+@section Head{
+    <style type="text/css">
+        td
+        {
+            height: 25px;
+            line-height: 25px;
+        }
+        .oh {
+	        overflow:hidden
+        }
+        .z {
+        *zoom:1
+        }
+        .icon28C {
+	        background:url('@Url.Content("~/content/images/icon28.png")') no-repeat scroll 0 0 transparent;
+	        padding-left:28px
+        }
+        .cover-hd {
+	        padding:2px 8px 3px;
+	        position:relative
+        }
+        .cover-hd .upload-btn {
+	        background-position:0 -251px;
+	        color:#666;
+	        display:inline-block;
+	        font-size:14;
+	        line-height:28px;
+	        margin-right:12px
+        }
+        .upload-tip {
+	        color:#666;
+	        font-size:12px;
+	        margin-top:2px
+        }
+        .upload-btn {
+	        display:inline-block;
+	        line-height:28px;
+	        font-size:14px;
+	        color:#666;
+	        background-position:0 -251px
+        }
+    </style>
+    
+    <script type="text/javascript" src="@Url.Content("~/Content/javascripts/ajaxfileupload.js")"></script>
+    <script type="text/javascript">
+        function ImgUpload1() {
+            $.messager.progress({ title: "保险单上传", msg: "照片上传中..." });
+            $.ajaxFileUpload
+		    ({
+		        url: "/BaoXian/UploadPhoto?t=" + Math.random(),
+		        secureuri: false,
+		        fileElementId: 'picUpload1',
+		        dataType: 'json',
+		        success: function (data, status) {
+		            if (data.success) {
+		                $("#VendorPic1").val(data.message);
+		                $("#showpic1").attr("src", '@ImrUrl' + data.message);
+		            } else {
+		                $.messager.progress("close");
+		                $.messager.alert('错误提示', '上传不成功：' + data.message.replace('<li>', '').replace("</li>", ""));
+		                return false;
+		            }
+		            $.messager.progress("close");
+		        },
+		        error: function (data, status, e) {
+		            $.messager.progress("close");
+		            $.messager.alert('提示', '上传不成功');
+		            return false;
+		        }
+		    });
+		}
+		function ImgUpload2() {
+		    $.messager.progress({ title: "保险单照片上传", msg: "照片上传中..." });
+		    $.ajaxFileUpload
+		    ({
+		        url: "/BaoXian/UploadPhoto?t=" + Math.random(),
+		        secureuri: false,
+		        fileElementId: 'picUpload2',
+		        dataType: 'json',
+		        success: function (data, status) {
+		            if (data.success) {
+		                $("#VendorPic2").val(data.message);
+		                $("#showpic2").attr("src", '@ImrUrl' + data.message);
+		            } else {
+		                $.messager.progress("close");
+		                $.messager.alert('错误提示', '上传不成功：' + data.message.replace('<li>', '').replace("</li>", ""));
+		                return false;
+		            }
+		            $.messager.progress("close");
+		        },
+		        error: function (data, status, e) {
+		            $.messager.progress("close");
+		            $.messager.alert('提示', '上传不成功');
+		            return false;
+		        }
+		    });
+		}
+    </script>
+}
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding: 10px;">
+        <form id="BaoXian-add" action="/BaoXian/_BaoXianEdit" method="post">
+        <input type="hidden" name="BaoXianId" value="@(Model == null ? "" : Model.Id.ToString())" />
+        <table style="width: 100%; height:100%">
+            <tr>
+                <td style="text-align: right;">
+                    投保公司：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,20]'" name="TouBaoGongSi" value="@(Model == null ? "" : Model.TouBaoGongSi.ToString())"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    投保人：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,20]'," name="TouBaoRen" value="@(Model == null ? "" : Model.TouBaoRen.ToString())"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    车牌号码：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,10]'" name="ChePai" value="@(Model == null ? "" : Model.ChePai)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    起保时间：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-datebox" data-options="required:true" name="QiBaoDate" id="QiBaoDate" value="@(Model == null ? DateTime.Now : Model.QiBaoDate)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    起保期限：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-numberbox" data-options="required:true" name="BaoXianQiXian" id="BaoXianQiXian" value="@(Model == null ? 0 : Model.BaoXianQiXian)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    后四位：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,50]'" name="HouSiWei" value="@(Model == null ? "" : Model.HouSiWei)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    登记时间：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-datebox" data-options="required:true" name="DengJiDate" id="DengJiDate" value="@(Model == null ? DateTime.Now : Model.DengJiDate)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    保险费:
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-numberbox" data-options="required:true" precision="2"  name="BaoXianFei" id="BaoXianFei" value="@(Model == null ? 0 : Model.BaoXianFei)"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="text-align: right;">
+                    车船税:
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-numberbox" data-options="required:true" precision="2"  name="CheChuanSui" id="CheChuanSui" value="@(Model == null ? 0 : Model.CheChuanSui)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    来源：
+                </td>
+                <td style="width: 80%;">
+                    <input class="easyui-validatebox" data-options="required:true,validType:'length[2,50]'" name="LaiYuan" value="@(Model == null ? "" : Model.LaiYuan)"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    险种：
+                </td>
+                <td style="width: 80%;">
+                    <input id="type" class="easyui-combobox" name="XianZhong" data-options="required:true,valueField:'id',textField:'text',url:'/BaoXian/_XianZhongType'" value="@(Model == null ? "" : Model.XianZhong.ToString())">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    正文照片：
+                </td>
+                <td style="width: 80%;">
+                    <p style="margin:11px 0 0 100px; position:relative;" class="oh z cover-hd">
+                            <a href="javascript:$('#picUpload').click();" class="icon28C upload-btn" style="width: 30px;height:24px;">
+                                <input type="file" id="picUpload1" name="picUpload1" onchange="ImgUpload();" style="opacity: 0; width: 0px; cursor: pointer;" />
+                            </a>
+                        <input type="hidden" value="@((Model == null || string.IsNullOrEmpty(Model.VendorPic1)) ? "" : Model.VendorPic1.ToString())" id="VendorPic1" name="VendorPic1" />
+                    </p>
+                    <p style="margin: 6px 0 0 0;">
+                        <img id="showpic1" src="@((Model != null &&!string.IsNullOrEmpty(Model.VendorPic1)) ? (ImrUrl+Model.VendorPic1) : Url.Content("~/content/images/vendorpic.jpg"))" style="max-width:100%;" />
+                    </p>
+                </td>
+                
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    副文照片：
+                </td>
+                <td style="width: 80%;">
+                    <p style="margin:11px 0 0 100px; position:relative;" class="oh z cover-hd">
+                            <a href="javascript:$('#picUpload').click();" class="icon28C upload-btn" style="width: 30px;height:24px;">
+                                <input type="file" id="picUpload2" name="picUpload2" onchange="ImgUpload();" style="opacity: 0; width: 0px; cursor: pointer;" />
+                            </a>
+                        <input type="hidden" value="@((Model == null || string.IsNullOrEmpty(Model.VendorPic2)) ? "" : Model.VendorPic2.ToString())" id="VendorPic2" name="VendorPic2" />
+                    </p>
+                    <p style="margin: 6px 0 0 0;">
+                        <img id="showpic2" src="@((Model != null &&!string.IsNullOrEmpty(Model.VendorPic2)) ? (ImrUrl+Model.VendorPic2) : Url.Content("~/content/images/vendorpic.jpg"))" style="max-width:100%;" />
+                    </p>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" class="btn" value=" 提 交 " />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#BaoXian-add').form({
+                success: function (data) {
+                    data = eval("(" + data + ")");
+                    if (data.success) {
+                        $.messager.alert('操作成功', data.message, 'info', function () {
+                            $('#BaoXian-add').form('clear');
+                            parent.CloseAddDialog();
+                            parent.ReloadGrid();
+                        });
+                    } else {
+                        $.messager.alert('操作失败', data.message, 'error', function () {
+
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</div>

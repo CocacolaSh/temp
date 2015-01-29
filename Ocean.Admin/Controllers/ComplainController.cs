@@ -55,7 +55,8 @@ namespace Ocean.Admin.Controllers
                 return base.ShowNotPermissionTip("");
             }
 
-            return View();
+            Complain complain = _complainService.GetById(id);
+            return View(complain);
         }
         /// <summary>
         /// 获取列表数据
@@ -96,6 +97,29 @@ namespace Ocean.Admin.Controllers
             return Content(JsonConvert.SerializeObject(complain));
         }
 
+        /// <summary>
+        /// 受理业务
+        /// </summary>
+        [HttpPost]
+        [ActionName("_AcceptEdit")]
+        public ActionResult AcceptEditProvide(Guid id)
+        {
+            if (!base.HasPermission("Complain", PermissionOperate.track))
+            {
+                return JsonMessage(false, "你没有处理情况登记的权限");
+            }
 
+            Complain complain = _complainService.GetById(id);
+
+            if (complain.ProcessStatus != 0)
+            {
+                return JsonMessage(false, "该投诉已被受理，不能继续操作！");
+            }
+
+            UpdateModel<Complain>(complain);
+            _complainService.Update(complain);
+            base.AddLog(string.Format("受理投诉业务[{0}]", complain.Name), AdminLoggerModuleEnum.Complain);
+            return JsonMessage(true, "处理成功");
+        }
     }
 }

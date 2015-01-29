@@ -43,7 +43,12 @@
                 columns: [[
                      { title: '投诉日期', field: 'CreateDate', width: 100,
                          formatter: function (value) {
-                             return formatDate(value);
+                             if (value) {
+                                 value = value.replace("T", " ");
+                                 return value.split(' ')[0].replace(/-/g, "");
+                             } else {
+                                 return "";
+                             }
                          }
                      },
                      { title: '被投诉人', field: 'Name', width: 120 },
@@ -69,10 +74,15 @@
                      },
                      { title: '处理日期', field: 'ProcessDate', width: 120,
                          formatter: function (value) {
-                             return formatDate(value);
+                             if (value) {
+                                 value = value.replace("T", " ");
+                                 return value.split(' ')[0].replace(/-/g, "");
+                             } else {
+                                 return "";
+                             }
                          }
                      },
-                     { title: '处理结果', field: 'ProcessResult', width: 180}
+                     { title: '处理结果', field: 'ProcessResult', width: 180 }
                 ]],
                 toolbar: '#gridtoolbar'
             });
@@ -96,46 +106,6 @@
         function ReloadGrid() {
             $('#grid').datagrid('reload');
         }
-
-
-
-        function Accept() {
-            var selectedRows = $('#grid').datagrid('getSelections');
-            if (selectedRows.length > 0) {
-                currentCheckedId = selectedRows[0].Id;
-                if (selectedRows[0].Status == 1) {
-                    $.messager.alert('提示', '当前数据已被撤销,不能继续操作！');
-                    return void (0);
-                }
-                if (selectedRows[0].ProcessStatus != 0 && selectedRows[0].ProcessStatus != 3) {
-                    $.messager.alert('提示', '当前数据已被受理,不能继续操作！');
-                    return void (0);
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "/Complain/_GetComplainDetail",
-                    dataType: "json",
-                    data: "id=" + currentCheckedId,
-                    success: function (data) {
-                        $("#ProcessDate").datebox("setValue", formatDate2(data.ProcessDate));  
-                        $('#ProcessStatus').combobox('setValue',data.ProcessStatus);
-                        $("#ProcessResult").val(data.ProcessResult)
-                    }
-                });
-                $('#dlg2').dialog('open');
-            } else {
-                $.messager.alert('提示', '请选择要受理的数据');
-            }
-        }
-
-        function formatDate2(date){
-            if(date.indexOf("T")){
-               return date.substring(0,date.indexOf("T"));
-            }else{
-               return date;
-            }
-        }
-
         function AcceptEdit() {
             if (!$("input[name = 'ProcessDate']").val()) {
                 $.messager.alert('提示', '受理日期不能为空!');
@@ -161,8 +131,19 @@
                 }
             });
         }
-
-  
+        function ReturnVisit() {
+            var selectedRows = $('#grid').datagrid('getSelections');
+            if (selectedRows.length > 0) {
+                currentCheckedId = selectedRows[0].Id;
+                if (selectedRows[0].ProcessDate) {
+                    $.messager.alert('提示', '当前数据已被处理,不能继续操作！');
+                    return void (0);
+                }
+                $('#dlg1').dialog('open');
+            } else {
+                $.messager.alert('提示', '请选择要处理的数据');
+            }
+        }
 
         function Search() {
             var searchObject = {};
@@ -229,7 +210,7 @@
     <iframe id="iframe" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
     </iframe>
 </div>
-<div id="dlg2" class="easyui-dialog" title="处理情况登记" data-options="iconCls:'icon-save'"
+<div id="dlg1" class="easyui-dialog" title="处理情况登记" data-options="iconCls:'icon-save'"
     modal="true" style="width: 400px; height: 250px; padding: 10px">
     <table style="width: 100%;">
         <tr>
@@ -266,7 +247,7 @@
     </table>
     <div region="south" border="false" style="text-align: center; height: 30px; line-height: 30px;">
         <a class="easyui-linkbutton" onclick="AcceptEdit()" icon="icon-ok" href="javascript:void(0)">
-            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg2').dialog('close');" icon="icon-cancel"
+            确定</a> <a class="easyui-linkbutton" onclick="$('#dlg1').dialog('close');" icon="icon-cancel"
                 href="javascript:void(0)">取消</a>
     </div>
 </div>
