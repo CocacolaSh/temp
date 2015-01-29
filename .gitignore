@@ -16,3 +16,15 @@ obj
 /ThirdPartySDK/Senparc.Weixin.MP.CommonService/bin
 /ThirdPartySDK/Senparc.Weixin.MP.CommonService/obj
 /ThirdPartySDK/Senparc.Weixin.MP/obj
+
+tmp.txt         //忽略tmp.txt
+*.log           //忽略所有log文件
+tmp/*           //忽略tmp文件夹所有文件
+log/**/*.log    //忽略log目录下的包括子目录下的所有log文件
+*.pdb
+*.dlldir/Ocean.Entity/bin
+/Ocean.Framework/bin
+/Ocean.Framework/obj
+/Ocean.Core/bin
+/Ocean.Core/obj
+/ThirdPartySDK/Senparc.Weixin.MP.MvcExtension/obj
