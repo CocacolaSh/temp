@@ -2,3 +2,5 @@
 /*.ldf
 /*.mdf
 /Ocean.Web/images
+/Ocean.Services/bin
+/Ocean.Services/obj
