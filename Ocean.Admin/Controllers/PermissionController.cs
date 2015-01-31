@@ -67,9 +67,15 @@ namespace Ocean.Admin.Controllers
             {
                 return null;
             }
-
-            PagedList<Ocean.Entity.Admin> list = _adminService.GetPageList(PageIndex, PageSize);
-            return SwitchJsonList<Ocean.Entity.Admin, AdminDTO>(list, list.TotalItemCount);
+            try
+            {
+                PagedList<Ocean.Entity.Admin> list = _adminService.GetPageList(PageIndex, PageSize);
+                return SwitchJsonList<Ocean.Entity.Admin, AdminDTO>(list, list.TotalItemCount);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         /// <summary>

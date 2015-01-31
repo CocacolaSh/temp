@@ -33,7 +33,7 @@ namespace Ocean.Entity.DTO
         /// <summary>
         /// 上传的MP
         /// </summary>
-        public Guid MpUserId { set; get; }
+        public Guid ?MpUserId { set; get; }
         /// <summary>
         /// 发证日期开始时间
         /// </summary>

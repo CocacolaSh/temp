@@ -61,7 +61,7 @@ namespace Ocean.Admin.Controllers
 
             if (!base.HasPermission("BaoXianAll", PermissionOperate.manager))
             {
-                baoDanDTO.MpUserId = base.LoginAdmin.MpUserId;
+                baoDanDTO.MpUserId = base.LoginAdmin.MpUserId.HasValue ? base.LoginAdmin.MpUserId : Guid.Empty;
                 isAll = 0;
             }
             OceanDynamicList<object> list = _baodanService.GetPageDynamicList(PageIndex, PageSize, baoDanDTO, isAll);

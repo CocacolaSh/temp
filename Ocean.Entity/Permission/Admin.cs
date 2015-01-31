@@ -68,7 +68,7 @@ namespace Ocean.Entity
         /// <summary>
         /// MpUser外键Id
         /// </summary>
-        public Guid MpUserId { set; get; }
+        public Guid ?MpUserId { set; get; }
         /// <summary>
         /// MpUser实体
         /// </summary>

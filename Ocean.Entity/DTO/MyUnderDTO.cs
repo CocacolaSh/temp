@@ -34,7 +34,7 @@ namespace Ocean.Entity.DTO
         /// <summary>
         /// 上传的MP
         /// </summary>
-        public Guid MpUserId { set; get; }
+        public Guid ?MpUserId { set; get; }
         
     }
 }

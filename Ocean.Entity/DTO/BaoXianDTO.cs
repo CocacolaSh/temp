@@ -24,7 +24,7 @@ namespace Ocean.Entity.DTO
             this.LaiYuan = baoDan.LaiYuan;
             this.XianZhong = baoDan.XianZhong;
         }
-        public Guid MpUserId { set; get; }
+        public Guid ?MpUserId { set; get; }
         /// <summary>
         /// 起保开始时间
         /// </summary>
